@@ -93,6 +93,7 @@ void Robot::GameInitValues() {
 void Robot::BindSDCallbacks() {
   m_SmartDashboard.BindSmartDashboardCallback(std::bind(&PhotonVisionInterface::SmartDashboardCallback, &m_PhotonVisionInterface));
   m_SmartDashboard.BindSmartDashboardCallback(std::bind(&SimulinkSmartDashboardInterface::SmartDashboardCallback, &m_SimulinkSmartDashboardInterface));
+  m_SmartDashboard.BindSmartDashboardCallback(std::bind(&SwerveDrive::SmartDashboardCallback, &m_SwerveDrive));
 }
 
 #ifndef RUNNING_FRC_TESTS

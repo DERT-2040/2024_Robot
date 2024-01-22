@@ -9,6 +9,10 @@
 //rev
 #include <rev/CANSparkMax.h>
 #include <rev/SparkMaxRelativeEncoder.h>
+//ctr
+#include <ctre/phoenix6/CANcoder.hpp>
+//etc
+#include <frc/smartdashboard/SmartDashboard.h>
 
 class SwerveDrive {
 public:
@@ -74,6 +78,11 @@ public:
      * Disables commands from being able to go to the wheel motors
      */
     void WheelsOff();
+
+    /**
+     * Puts values to the SmartDashboard via the SD Callbacks function
+    */
+    void SmartDashboardCallback();
 private:
   //Drive Motors
     rev::CANSparkMax m_FrontLeft_Drive{Constants::k_FrontLeft_Drive_CANID, rev::CANSparkMax::MotorType::kBrushless};
@@ -90,11 +99,13 @@ private:
     rev::SparkMaxRelativeEncoder m_FrontRight_Drive_Encoder{m_FrontRight_Drive.GetEncoder()};
     rev::SparkMaxRelativeEncoder m_BackLeft_Drive_Encoder{m_BackLeft_Drive.GetEncoder()};
     rev::SparkMaxRelativeEncoder m_BackRight_Drive_Encoder{m_BackRight_Drive.GetEncoder()};
-  //Steer Encoders
-    frc::DutyCycleEncoder m_FrontLeft_Steer_Encoder{Constants::k_FrontLeft_Steer_Encoder_Port};
-    frc::DutyCycleEncoder m_FrontRight_Steer_Encoder{Constants::k_FrontRight_Steer_Encoder_Port};
-    frc::DutyCycleEncoder m_BackLeft_Steer_Encoder{Constants::k_BackLeft_Steer_Encoder_Port};
-    frc::DutyCycleEncoder m_BackRight_Steer_Encoder{Constants::k_BackRight_Steer_Encoder_Port};
+  //Steer Absolute Encoders
+    ctre::phoenix6::hardware::CANcoder m_FrontLeft_Steer_Encoder{Constants::k_FrontLeft_Steer_Encoder_ID, "m_FrontLeft_Steer_Encoder"};
+    ctre::phoenix6::hardware::CANcoder m_FrontRight_Steer_Encoder{Constants::k_FrontRight_Steer_Encoder_ID, "m_FrontRight_Steer_Encoder"};
+    ctre::phoenix6::hardware::CANcoder m_BackLeft_Steer_Encoder{Constants::k_BackLeft_Steer_Encoder_ID, "m_BackLeft_Steer_Encoder"};
+    ctre::phoenix6::hardware::CANcoder m_BackRight_Steer_Encoder{Constants::k_BackRight_Steer_Encoder_ID, "m_BackRight_Steer_Encoder"};
+
+
   //Motor States
     /**
      * if true, commands can not be sent to the wheel motors

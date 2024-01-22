@@ -29,10 +29,11 @@ public:
         static constexpr bool k_BackLeft_Steer_Is_Reversed = true;
         static constexpr bool k_BackRight_Steer_Is_Reversed = true;
     //Steer Encoder Ports
-        static constexpr int k_FrontLeft_Steer_Encoder_Port = 9;
-        static constexpr int k_FrontRight_Steer_Encoder_Port = 7;
-        static constexpr int k_BackLeft_Steer_Encoder_Port = 8;
-        static constexpr int k_BackRight_Steer_Encoder_Port = 6;
+    //TODO: Use CTR Tuning software to set the CAN ids.
+        static constexpr int k_FrontLeft_Steer_Encoder_ID = 9;
+        static constexpr int k_FrontRight_Steer_Encoder_ID = 7;
+        static constexpr int k_BackLeft_Steer_Encoder_ID = 8;
+        static constexpr int k_BackRight_Steer_Encoder_ID = 6;
     //Drive Motor Properties
         static constexpr double k_Drive_Motor_Open_Loop_Ramp_Rate = 0.00000001;
         static constexpr double k_Drive_Motor_Smart_Current_Limit = 15;
