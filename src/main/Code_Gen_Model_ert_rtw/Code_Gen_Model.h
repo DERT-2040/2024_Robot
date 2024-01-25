@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.34
+ * Model version                  : 2.35
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Thu Jan  4 21:06:24 2024
+ * C/C++ source code generated on : Wed Jan 24 21:54:54 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -45,8 +45,10 @@ typedef struct {
   real_T BL_Steer_Module_Angle;        /* '<S142>/Add1' */
   real_T BR_Steer_Module_Angle;        /* '<S143>/Add1' */
   real_T Product6[2];                  /* '<S8>/Product6' */
-  real_T KF_Position_X;                /* '<S6>/Signal Copy' */
-  real_T KF_Position_Y;                /* '<S6>/Signal Copy1' */
+  real_T Odom_Position_X;              /* '<S8>/Accumulator2' */
+  real_T KF_Position_X;                /* '<S6>/Switch' */
+  real_T Odom_Position_Y;              /* '<S8>/Accumulator' */
+  real_T KF_Position_Y;                /* '<S6>/Switch1' */
   real_T Spline_Num_Poses;             /* '<S7>/Merge9' */
   real_T Steering_Abs_Cmd;             /* '<S7>/Merge1' */
   real_T Steering_Rel_Cmd;             /* '<S7>/Merge2' */
@@ -73,12 +75,10 @@ typedef struct {
   real_T FR_Desired_Module_Angle;      /* '<S271>/Switch' */
   real_T BL_Desired_Wheel_Speed;       /* '<S261>/Product2' */
   real_T BL_Desired_Module_Angle;      /* '<S276>/Switch' */
-  real_T Odom_Position_X;              /* '<S8>/Accumulator2' */
-  real_T Odometry_X_global_est_ft;     /* '<S77>/meters to feet' */
-  real_T Odometry_X_global_TEAR_ft;    /* '<S77>/Subtract' */
-  real_T Odom_Position_Y;              /* '<S8>/Accumulator' */
   real_T Odometry_Y_global_est_ft;     /* '<S77>/meters to feet1' */
   real_T Odometry_Y_global_TEAR_ft;    /* '<S77>/Subtract1' */
+  real_T Odometry_X_global_est_ft;     /* '<S77>/meters to feet' */
+  real_T Odometry_X_global_TEAR_ft;    /* '<S77>/Subtract' */
   real_T Spline_Index;                 /* '<S85>/Merge4' */
   real_T Spline_Target_Y;              /* '<S82>/Selector6' */
   real_T Spline_Target_X;              /* '<S82>/Selector2' */
@@ -103,6 +103,8 @@ typedef struct {
   real_T TappedDelay1_X[6];            /* '<S6>/Tapped Delay1' */
   real_T MemoryX_DSTATE[2];            /* '<S14>/MemoryX' */
   real_T UD_DSTATE_d;                  /* '<S68>/UD' */
+  real_T Accumulator2_DSTATE;          /* '<S8>/Accumulator2' */
+  real_T Accumulator_DSTATE;           /* '<S8>/Accumulator' */
   real_T UnitDelay1_DSTATE;            /* '<S258>/Unit Delay1' */
   real_T UD_DSTATE_a;                  /* '<S257>/UD' */
   real_T UnitDelay_DSTATE_m;           /* '<S255>/Unit Delay' */
@@ -130,10 +132,8 @@ typedef struct {
   real_T UnitDelay1_DSTATE_nw;         /* '<S210>/Unit Delay1' */
   real_T UD_DSTATE_k;                  /* '<S209>/UD' */
   real_T UnitDelay_DSTATE_k;           /* '<S195>/Unit Delay' */
-  real_T Accumulator2_DSTATE;          /* '<S8>/Accumulator2' */
-  real_T UnitDelay_DSTATE_c;           /* '<S77>/Unit Delay' */
-  real_T Accumulator_DSTATE;           /* '<S8>/Accumulator' */
   real_T UnitDelay1_DSTATE_d;          /* '<S77>/Unit Delay1' */
+  real_T UnitDelay_DSTATE_c;           /* '<S77>/Unit Delay' */
   real_T UnitDelay1_DSTATE_d2;         /* '<S291>/Unit Delay1' */
   real_T UnitDelay_DSTATE_g4;          /* '<S291>/Unit Delay' */
   real_T UnitDelay_DSTATE_h;           /* '<S290>/Unit Delay' */
@@ -141,7 +141,6 @@ typedef struct {
   real_T UnitDelay1_DSTATE_l;          /* '<S300>/Unit Delay1' */
   real_T UnitDelay_DSTATE_p;           /* '<S300>/Unit Delay' */
   real_T FixPtUnitDelay1_DSTATE_f;     /* '<S304>/FixPt Unit Delay1' */
-  real_T UnitDelay_DSTATE_l1;          /* '<S2>/Unit Delay' */
   real_T UnitDelay_DSTATE_gh;          /* '<S81>/Unit Delay' */
   real_T UnitDelay_DSTATE_hn;          /* '<S80>/Unit Delay' */
   real_T UnitDelay1_DSTATE_f4;         /* '<S133>/Unit Delay1' */
@@ -155,10 +154,9 @@ typedef struct {
   boolean_T UnitDelay_DSTATE_ll;       /* '<S5>/Unit Delay' */
   boolean_T UnitDelay_DSTATE_e4;       /* '<S88>/Unit Delay' */
   boolean_T UnitDelay_DSTATE_n;        /* '<S93>/Unit Delay' */
-  int8_T SwitchCase_ActiveSubsystem;   /* '<S1>/Switch Case' */
-  int8_T If_ActiveSubsystem;           /* '<S9>/If' */
   int8_T Accumulator2_PrevResetState;  /* '<S8>/Accumulator2' */
   int8_T Accumulator_PrevResetState;   /* '<S8>/Accumulator' */
+  int8_T If_ActiveSubsystem;           /* '<S9>/If' */
   int8_T If_ActiveSubsystem_h;         /* '<S85>/If' */
   int8_T If_ActiveSubsystem_o;         /* '<S88>/If' */
   int8_T If_ActiveSubsystem_d;         /* '<S90>/If' */
@@ -197,17 +195,27 @@ typedef struct {
    *   '<S80>/Capture Radius'
    *   '<S80>/Lookahead Distance'
    */
-  real_T pooled9[4];
+  real_T pooled7[4];
 
   /* Expression: Spline_Lookahead_Dist
    * Referenced by: '<S80>/Lookahead Distance'
    */
   real_T LookaheadDistance_tableData[4];
 
-  /* Expression: Spline_Ref_Poses_auto
+  /* Expression: Spline_Ref_Poses_auto2
+   * Referenced by: '<S2>/Constant11'
+   */
+  real_T Constant11_Value[24];
+
+  /* Expression: Spline_Ref_Poses_auto3
+   * Referenced by: '<S2>/Constant12'
+   */
+  real_T Constant12_Value[24];
+
+  /* Expression: Spline_Ref_Poses_auto1
    * Referenced by: '<S2>/Constant4'
    */
-  real_T Constant4_Value[76];
+  real_T Constant4_Value[24];
 
   /* Expression: Steering_Mod_Str_Rel_out
    * Referenced by: '<S287>/Modulation_Str_Y_Rel'
@@ -241,7 +249,7 @@ typedef struct {
    *   '<S194>/1-D Lookup Table'
    *   '<S215>/1-D Lookup Table'
    */
-  real_T pooled23[2];
+  real_T pooled22[2];
 
   /* Pooled Parameter (Expression: Drive_Motor_Control_Module_Angle_Error)
    * Referenced by:
@@ -250,7 +258,7 @@ typedef struct {
    *   '<S194>/1-D Lookup Table'
    *   '<S215>/1-D Lookup Table'
    */
-  real_T pooled24[2];
+  real_T pooled23[2];
 } ConstP_Code_Gen_Model_T;
 
 /* External inputs (root inport signals with default storage) */
@@ -327,12 +335,6 @@ extern const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP;
  * these parameters and exports their symbols.
  *
  */
-extern real_T Autonomous_Desired_X;    /* Variable: Autonomous_Desired_X
-                                        * Referenced by: '<S2>/Constant7'
-                                        */
-extern real_T Autonomous_Desired_Y;    /* Variable: Autonomous_Desired_Y
-                                        * Referenced by: '<S2>/Constant8'
-                                        */
 extern real_T Boost_Trigger_Decreasing_Limit;
                                      /* Variable: Boost_Trigger_Decreasing_Limit
                                       * Referenced by: '<S301>/Constant1'
@@ -424,6 +426,11 @@ extern real_T Drive_Motor_Control_Sign_Change_Deadband;
                             *   '<S197>/Constant'
                             *   '<S218>/Constant'
                             */
+extern real_T KF_Enable;               /* Variable: KF_Enable
+                                        * Referenced by:
+                                        *   '<S6>/Constant1'
+                                        *   '<S6>/Constant2'
+                                        */
 extern real_T KF_Vision_Ambiguity_Thresh;/* Variable: KF_Vision_Ambiguity_Thresh
                                           * Referenced by: '<S6>/Constant'
                                           */
@@ -451,6 +458,9 @@ extern real_T Spline_Pose_Num_Before_End_Reduce_Speed;
                             /* Variable: Spline_Pose_Num_Before_End_Reduce_Speed
                              * Referenced by: '<S82>/Constant'
                              */
+extern real_T Spline_Ref_Poses_switch_num;/* Variable: Spline_Ref_Poses_switch_num
+                                           * Referenced by: '<S2>/Constant16'
+                                           */
 extern real_T Spline_Stop_Radius;      /* Variable: Spline_Stop_Radius
                                         * Referenced by: '<S95>/Constant'
                                         */
@@ -654,8 +664,6 @@ extern RT_MODEL_Code_Gen_Model_T *const Code_Gen_Model_M;
  * Block '<S46>/CheckSignalProperties' : Unused code path elimination
  * Block '<S55>/CheckSignalProperties' : Unused code path elimination
  * Block '<S56>/CheckSignalProperties' : Unused code path elimination
- * Block '<S8>/To Workspace2' : Unused code path elimination
- * Block '<S8>/To Workspace3' : Unused code path elimination
  * Block '<S9>/Gain' : Unused code path elimination
  * Block '<S9>/Gain1' : Unused code path elimination
  * Block '<S9>/Scope' : Unused code path elimination
@@ -714,6 +722,8 @@ extern RT_MODEL_Code_Gen_Model_T *const Code_Gen_Model_M;
  * Block '<S14>/ReshapeX0' : Reshape block reduction
  * Block '<S14>/Reshapeu' : Reshape block reduction
  * Block '<S14>/Reshapexhat' : Reshape block reduction
+ * Block '<S6>/Signal Copy' : Eliminate redundant signal conversion block
+ * Block '<S6>/Signal Copy1' : Eliminate redundant signal conversion block
  * Block '<S8>/Signal Copy' : Eliminate redundant signal conversion block
  * Block '<S8>/Signal Copy1' : Eliminate redundant signal conversion block
  * Block '<S8>/Signal Copy2' : Eliminate redundant signal conversion block

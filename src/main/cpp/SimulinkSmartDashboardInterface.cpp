@@ -9,14 +9,6 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     auto NTtable_Outport = NTinst.GetTable("Simulink Top Level Ports");
     auto NTtable_TPoint = NTinst.GetTable("Simulink Test Points");
  
-    __Autonomous_Desired_X__Entry = NTtable_Tune->GetEntry("Autonomous_Desired_X");
-    NTinst.AddListener(__Autonomous_Desired_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Autonomous_Desired_X = event.GetValueEventData()->value.GetDouble();});
-    __Autonomous_Desired_X__Entry.SetDouble(2.5876);
- 
-    __Autonomous_Desired_Y__Entry = NTtable_Tune->GetEntry("Autonomous_Desired_Y");
-    NTinst.AddListener(__Autonomous_Desired_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Autonomous_Desired_Y = event.GetValueEventData()->value.GetDouble();});
-    __Autonomous_Desired_Y__Entry.SetDouble(2.4042);
- 
     __Boost_Trigger_Decreasing_Limit__Entry = NTtable_Tune->GetEntry("Boost_Trigger_Decreasing_Limit");
     NTinst.AddListener(__Boost_Trigger_Decreasing_Limit__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Boost_Trigger_Decreasing_Limit = event.GetValueEventData()->value.GetDouble();});
     __Boost_Trigger_Decreasing_Limit__Entry.SetDouble(-0.044444);
@@ -77,17 +69,21 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     NTinst.AddListener(__Drive_Motor_Control_Sign_Change_Deadband__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Drive_Motor_Control_Sign_Change_Deadband = event.GetValueEventData()->value.GetDouble();});
     __Drive_Motor_Control_Sign_Change_Deadband__Entry.SetDouble(1500);
  
+    __KF_Enable__Entry = NTtable_Tune->GetEntry("KF_Enable");
+    NTinst.AddListener(__KF_Enable__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {KF_Enable = event.GetValueEventData()->value.GetDouble();});
+    __KF_Enable__Entry.SetDouble(0);
+ 
     __KF_Vision_Ambiguity_Thresh__Entry = NTtable_Tune->GetEntry("KF_Vision_Ambiguity_Thresh");
     NTinst.AddListener(__KF_Vision_Ambiguity_Thresh__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {KF_Vision_Ambiguity_Thresh = event.GetValueEventData()->value.GetDouble();});
     __KF_Vision_Ambiguity_Thresh__Entry.SetDouble(0.25);
  
     __Odometry_IC_X__Entry = NTtable_Tune->GetEntry("Odometry_IC_X");
     NTinst.AddListener(__Odometry_IC_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Odometry_IC_X = event.GetValueEventData()->value.GetDouble();});
-    __Odometry_IC_X__Entry.SetDouble(2.5876);
+    __Odometry_IC_X__Entry.SetDouble(15.22);
  
     __Odometry_IC_Y__Entry = NTtable_Tune->GetEntry("Odometry_IC_Y");
     NTinst.AddListener(__Odometry_IC_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Odometry_IC_Y = event.GetValueEventData()->value.GetDouble();});
-    __Odometry_IC_Y__Entry.SetDouble(2.4042);
+    __Odometry_IC_Y__Entry.SetDouble(6.56);
  
     __Odometry_Reset_IC__Entry = NTtable_Tune->GetEntry("Odometry_Reset_IC");
     NTinst.AddListener(__Odometry_Reset_IC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Odometry_Reset_IC = event.GetValueEventData()->value.GetDouble();});
@@ -108,6 +104,10 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Spline_Pose_Num_Before_End_Reduce_Speed__Entry = NTtable_Tune->GetEntry("Spline_Pose_Num_Before_End_Reduce_Speed");
     NTinst.AddListener(__Spline_Pose_Num_Before_End_Reduce_Speed__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Spline_Pose_Num_Before_End_Reduce_Speed = event.GetValueEventData()->value.GetDouble();});
     __Spline_Pose_Num_Before_End_Reduce_Speed__Entry.SetDouble(1);
+ 
+    __Spline_Ref_Poses_switch_num__Entry = NTtable_Tune->GetEntry("Spline_Ref_Poses_switch_num");
+    NTinst.AddListener(__Spline_Ref_Poses_switch_num__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Spline_Ref_Poses_switch_num = event.GetValueEventData()->value.GetDouble();});
+    __Spline_Ref_Poses_switch_num__Entry.SetDouble(1);
  
     __Spline_Stop_Radius__Entry = NTtable_Tune->GetEntry("Spline_Stop_Radius");
     NTinst.AddListener(__Spline_Stop_Radius__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Spline_Stop_Radius = event.GetValueEventData()->value.GetDouble();});

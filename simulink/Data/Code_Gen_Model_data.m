@@ -8,8 +8,8 @@ Not_Tunable_List = {'t_sample',...
     'Spline_Num_Samples','Spline_Num_Samples_3x','Spline_Samples_Per_Pass',...
     'Spline_Max_Num_RefPoses','Spline_Tension',...
     'Spline_Velocity_Axis','Spline_Capture_Radius','Spline_Lookahead_Dist',...
-    'Spline_Num_Poses_default','Spline_Num_Poses_auto',...
-    'Spline_Ref_Poses_default','Spline_Ref_Poses_auto'...
+    'Spline_Num_Poses_default','Spline_Num_Poses_auto1','Spline_Num_Poses_auto2','Spline_Num_Poses_auto3',...
+    'Spline_Ref_Poses_default','Spline_Ref_Poses_auto1','Spline_Ref_Poses_auto2','Spline_Ref_Poses_auto3'...
 };
 
 % sample time model
@@ -120,7 +120,8 @@ Odometry_X_Y_TEAR = 0;
 
 clear temp
 
-%% Extended Kalman Filter
+%% Kalman Filter
+KF_Enable = 0;
 KF_Odom_Covariance = 0.001*eye(2);
 KF_Vision_Covariance = 0.1*eye(2);
 KF_Vision_Ambiguity_Thresh = 0.25;  % below this threshold trust the vision estimate
@@ -198,56 +199,56 @@ Steering_Localized_Cmd_Approach_Zero_Final_Thresh = 0.01;
 Steering_Localized_Cmd_NonZero_Error_Thresh = 0.2;
 Steering_Localized_Cmd_NonZero_Final_Scale_Factor = 0.1;
 
-%% Autonomous Testing
-% Coordinates for testing
-Autonomous_Desired_X = 2.587625;
-Autonomous_Desired_Y = 2.254250 + 0.15;
-
-Odometry_IC_X = Autonomous_Desired_X;
-Odometry_IC_Y = Autonomous_Desired_Y;
-
 %% Spline Path Following
 % Not tunable while running
 Spline_Num_Samples = 50;
 Spline_Num_Samples_3x = Spline_Num_Samples*3;
 Spline_Samples_Per_Pass = 10; % must be an even number
-Spline_Max_Num_RefPoses = 19;
+Spline_Max_Num_RefPoses = 6;
 Spline_Tension = 0.5;
 Spline_Velocity_Axis  = [0.50 1.50 2.50 3.50]; % m/s
 Spline_Capture_Radius = [0.20 0.20 0.25 0.50]; % m
 Spline_Lookahead_Dist = [0.20 0.20 0.20 0.40]; % m
 
+Spline_Ref_Poses_switch_num = 1;
+velocity_gain = Drive_Wheel_Max_Speed*2;
+Spline_Num_Poses_auto1 = 3;
+Spline_Ref_Poses_auto1 = [% x, y, velocity, field-oriented heading
+    15.22   6.56    velocity_gain   0*(180+60)*pi/180
+    5.14    6.34    velocity_gain   0
+    1.18    4.23    velocity_gain   0*(180+45)*pi/180
+    1.18    4.23    velocity_gain   0*(180+45)*pi/180
+    1.18    4.23    velocity_gain   0*(180+45)*pi/180
+    1.18    4.23    velocity_gain   0*(180+45)*pi/180    
+    ];
+
+Spline_Num_Poses_auto2 = 6;
+Spline_Ref_Poses_auto2 = [% x, y, velocity, field-oriented heading
+    15.22   6.56    velocity_gain   0*(180+60)*pi/180
+    12.96   5.50    velocity_gain   0*(180+60)*pi/180
+    10.74   4.00    velocity_gain   0
+    6.27    4.20    velocity_gain   0    
+    3.35    2.76    velocity_gain   0*(180+60)*pi/180
+    1.92    2.54    velocity_gain   0    
+    ];
+
+Spline_Num_Poses_auto3 = 4;
+Spline_Ref_Poses_auto3 = [% x, y, velocity, field-oriented heading
+    15.22   6.56    velocity_gain   0*(180+60)*pi/180
+    11.50   4.40    velocity_gain   0*(180+45)*pi/180
+    6.65    2.01    velocity_gain   0
+    1.00    1.20    velocity_gain   0*(180-45)*pi/180
+    1.00    1.20    velocity_gain   0*(180-45)*pi/180 
+    1.00    1.20    velocity_gain   0*(180-45)*pi/180     
+    ];
+
+clear velocity_gain
+
+Odometry_IC_X = 15.22;
+Odometry_IC_Y = 6.56;
+
 Spline_Num_Poses_default = Spline_Max_Num_RefPoses;
-Spline_Num_Poses_auto = Spline_Max_Num_RefPoses;
 Spline_Ref_Poses_default = zeros(Spline_Max_Num_RefPoses,4);
-
-radius = 1.5;
-velocity_gain = 3.5;
-Spline_Ref_Poses_auto = [% x, y, velocity, field-oriented heading
-    radius*0                        radius*0                        velocity_gain*1.0     2*22.5*pi/180
-    radius*0.3*cos(2*22.5*pi/180)   radius*0.3*sin(2*22.5*pi/180)   velocity_gain*1.0     2*22.5*pi/180
-    radius*0.7*cos(2*22.5*pi/180)   radius*0.7*sin(2*22.5*pi/180)   velocity_gain*0.7     2*22.5*pi/180
-    radius*cos(2*22.5*pi/180)       radius*sin(2*22.5*pi/180)       velocity_gain*0.5     2*22.5*pi/180
-    radius*cos(3*22.5*pi/180)       radius*sin(3*22.5*pi/180)       velocity_gain*1.0     3*22.5*pi/180
-    radius*cos(4*22.5*pi/180)       radius*sin(4*22.5*pi/180)       velocity_gain*1.0     4*22.5*pi/180 
-    radius*cos(5*22.5*pi/180)       radius*sin(5*22.5*pi/180)       velocity_gain*1.0     5*22.5*pi/180
-    radius*cos(6*22.5*pi/180)       radius*sin(6*22.5*pi/180)       velocity_gain*1.0     6*22.5*pi/180
-    radius*cos(7*22.5*pi/180)       radius*sin(7*22.5*pi/180)       velocity_gain*1.0     7*22.5*pi/180   
-    radius*cos(8*22.5*pi/180)       radius*sin(8*22.5*pi/180)       velocity_gain*1.0     8*22.5*pi/180 
-    radius*cos(9*22.5*pi/180)       radius*sin(9*22.5*pi/180)       velocity_gain*1.0     9*22.5*pi/180
-    radius*cos(10*22.5*pi/180)      radius*sin(10*22.5*pi/180)      velocity_gain*1.0     10*22.5*pi/180
-    radius*cos(11*22.5*pi/180)      radius*sin(11*22.5*pi/180)      velocity_gain*1.0     11*22.5*pi/180
-    radius*cos(12*22.5*pi/180)      radius*sin(12*22.5*pi/180)      velocity_gain*1.0     12*22.5*pi/180
-    radius*cos(13*22.5*pi/180)      radius*sin(13*22.5*pi/180)      velocity_gain*0.7     13*22.5*pi/180
-    radius*cos(14*22.5*pi/180)      radius*sin(14*22.5*pi/180)      velocity_gain*0.5     14*22.5*pi/180
-    radius*0.7*cos(14*22.5*pi/180)  radius*0.7*sin(14*22.5*pi/180)  velocity_gain*1.0     14*22.5*pi/180
-    radius*0.3*cos(14*22.5*pi/180)  radius*0.3*sin(14*22.5*pi/180)  velocity_gain*1.0     14*22.5*pi/180    
-    radius*0                        radius*0                        velocity_gain*0.1     14*22.5*pi/180];
-clear radius velocity_gain
-
-% Initial Condition Offset
-Spline_Ref_Poses_auto(:,1) = Spline_Ref_Poses_auto(:,1) + Autonomous_Desired_X;
-Spline_Ref_Poses_auto(:,2) = Spline_Ref_Poses_auto(:,2) + Autonomous_Desired_Y;
 
 % Tunable while running
 Spline_Stop_Radius = 0.1; % m

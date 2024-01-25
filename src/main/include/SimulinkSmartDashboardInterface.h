@@ -12,8 +12,6 @@ class SimulinkSmartDashboardInterface {
         void SmartDashboardCallback();
     private:
         // Parameters
-        nt::NetworkTableEntry __Autonomous_Desired_X__Entry;
-        nt::NetworkTableEntry __Autonomous_Desired_Y__Entry;
         nt::NetworkTableEntry __Boost_Trigger_Decreasing_Limit__Entry;
         nt::NetworkTableEntry __Boost_Trigger_High_Speed__Entry;
         nt::NetworkTableEntry __Boost_Trigger_Increasing_Limit__Entry;
@@ -29,6 +27,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Drive_Motor_Control_I_UL__Entry;
         nt::NetworkTableEntry __Drive_Motor_Control_P__Entry;
         nt::NetworkTableEntry __Drive_Motor_Control_Sign_Change_Deadband__Entry;
+        nt::NetworkTableEntry __KF_Enable__Entry;
         nt::NetworkTableEntry __KF_Vision_Ambiguity_Thresh__Entry;
         nt::NetworkTableEntry __Odometry_IC_X__Entry;
         nt::NetworkTableEntry __Odometry_IC_Y__Entry;
@@ -37,6 +36,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Spline_Last_Pose_Distance_to_Velocity_Gain__Entry;
         nt::NetworkTableEntry __Spline_Max_Centripital_Acceleration__Entry;
         nt::NetworkTableEntry __Spline_Pose_Num_Before_End_Reduce_Speed__Entry;
+        nt::NetworkTableEntry __Spline_Ref_Poses_switch_num__Entry;
         nt::NetworkTableEntry __Spline_Stop_Radius__Entry;
         nt::NetworkTableEntry __Spline_Velocity_Multiplier_TEST__Entry;
         nt::NetworkTableEntry __Steering_Abs_Deadband_Range__Entry;

@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.34
+ * Model version                  : 2.35
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Thu Jan  4 21:06:24 2024
+ * C/C++ source code generated on : Wed Jan 24 21:54:54 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -37,7 +37,7 @@ extern void Code_Gen_Model_Disabled(real_T *rty_Gyro_Angle_Adjustment, real_T
   *rty_Steering_Abs_Cmd, real_T *rty_Steering_Rel_Cmd, real_T
   *rty_Translation_Angle, real_T *rty_Translation_Speed, boolean_T
   *rty_Is_Absolute_Translation, boolean_T *rty_Is_Absolute_Steering, boolean_T
-  *rty_Spline_Enable, real_T rty_Spline_Ref_Poses[76], real_T
+  *rty_Spline_Enable, real_T rty_Spline_Ref_Poses[24], real_T
   *rty_Spline_Num_Poses);
 
 #endif                                /* RTW_HEADER_Code_Gen_Model_private_h_ */

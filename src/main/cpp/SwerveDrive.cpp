@@ -13,10 +13,10 @@ void SwerveDrive::PreStep() {
   Code_Gen_Model_U.BackLeft_Drive_Motor_Rev = m_BackLeft_Drive_Encoder.GetPosition();
   Code_Gen_Model_U.BackRight_Drive_Motor_Rev = m_BackRight_Drive_Encoder.GetPosition();
   //Steer Module Revolutions
-  Code_Gen_Model_U.FrontLeft_Steer_Rev = static_cast<double>(m_FrontLeft_Steer_Encoder.GetAbsolutePosition().GetValue());
-  Code_Gen_Model_U.FrontRight_Steer_Rev = static_cast<double>(m_FrontRight_Steer_Encoder.GetAbsolutePosition().GetValue());
-  Code_Gen_Model_U.BackLeft_Steer_Rev = static_cast<double>(m_BackLeft_Steer_Encoder.GetAbsolutePosition().GetValue());
-  Code_Gen_Model_U.BackRight_Steer_Rev = static_cast<double>(m_BackRight_Steer_Encoder.GetAbsolutePosition().GetValue());
+  Code_Gen_Model_U.FrontLeft_Steer_Rev = m_FrontLeft_Steer_Encoder.GetAbsolutePosition().GetValue().value();
+  Code_Gen_Model_U.FrontRight_Steer_Rev = m_FrontRight_Steer_Encoder.GetAbsolutePosition().GetValue().value();
+  Code_Gen_Model_U.BackLeft_Steer_Rev = m_BackLeft_Steer_Encoder.GetAbsolutePosition().GetValue().value();
+  Code_Gen_Model_U.BackRight_Steer_Rev = m_BackRight_Steer_Encoder.GetAbsolutePosition().GetValue().value();
 }
 void SwerveDrive::PostStep() {
   if(AreMotorsDisabled) //escape if motor output is disabled
@@ -34,7 +34,7 @@ void SwerveDrive::PostStep() {
 }
 
 void SwerveDrive::SmartDashboardCallback() {
-  frc::SmartDashboard::PutNumber("FL_Encoder", static_cast<double>(m_FrontLeft_Steer_Encoder.GetAbsolutePosition().GetValue()));
+  frc::SmartDashboard::PutNumber("FL_Encoder", m_FrontLeft_Steer_Encoder.GetAbsolutePosition().GetValue().value());
   frc::SmartDashboard::PutNumber("FR_Encoder", static_cast<double>(m_FrontRight_Steer_Encoder.GetAbsolutePosition().GetValue()));
   frc::SmartDashboard::PutNumber("BL_Encoder", static_cast<double>(m_BackLeft_Steer_Encoder.GetAbsolutePosition().GetValue()));
   frc::SmartDashboard::PutNumber("BR_Encoder", static_cast<double>(m_BackRight_Steer_Encoder.GetAbsolutePosition().GetValue()));
@@ -140,10 +140,10 @@ void SwerveDrive::Initalize_Wheel_Offset() {
   SwerveDrive::Set_Wheel_Offset();
 }
 void SwerveDrive::Reset_Wheel_Offset() {
-  frc::Preferences::SetDouble(Constants::k_FrontLeft_Wheel_Offset_Key, static_cast<double>(m_FrontLeft_Steer_Encoder.GetAbsolutePosition().GetValue()));
-  frc::Preferences::SetDouble(Constants::k_FrontRight_Wheel_Offset_Key, static_cast<double>(m_FrontRight_Steer_Encoder.GetAbsolutePosition().GetValue()));
-  frc::Preferences::SetDouble(Constants::k_BackLeft_Wheel_Offset_Key, static_cast<double>(m_BackLeft_Steer_Encoder.GetAbsolutePosition().GetValue()));
-  frc::Preferences::SetDouble(Constants::k_BackRight_Wheel_Offset_Key, static_cast<double>(m_BackRight_Steer_Encoder.GetAbsolutePosition().GetValue()));
+  frc::Preferences::SetDouble(Constants::k_FrontLeft_Wheel_Offset_Key, 360*static_cast<double>(m_FrontLeft_Steer_Encoder.GetAbsolutePosition().GetValue()));
+  frc::Preferences::SetDouble(Constants::k_FrontRight_Wheel_Offset_Key, 360*static_cast<double>(m_FrontRight_Steer_Encoder.GetAbsolutePosition().GetValue()));
+  frc::Preferences::SetDouble(Constants::k_BackLeft_Wheel_Offset_Key, 360*static_cast<double>(m_BackLeft_Steer_Encoder.GetAbsolutePosition().GetValue()));
+  frc::Preferences::SetDouble(Constants::k_BackRight_Wheel_Offset_Key, 360*static_cast<double>(m_BackRight_Steer_Encoder.GetAbsolutePosition().GetValue()));
   SwerveDrive::Set_Wheel_Offset();
 }
 void SwerveDrive::Set_Wheel_Offset() {
