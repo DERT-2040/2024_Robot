@@ -22,7 +22,7 @@ void Robot::RobotPeriodic() {
     std::cout << "Translation Method Toggled" << std::endl;
   }
 
-  if(Robot::m_HIDs.Get_Steer_Joystick().GetRawButtonPressed(Constants::k_Toggle_Absolute_Steering_Button)){
+  if(Robot::m_HIDs.Get_Drive_Joystick().GetRawButtonPressed(Constants::k_Toggle_Absolute_Steering_Button)){
     m_SwerveDrive.Toggle_Absolute_Steering();
     std::cout << "Steering Method Toggled" << std::endl;
   }

@@ -1,7 +1,7 @@
 #pragma once
-#include <photonlib/PhotonUtils.h>
-#include <photonlib/PhotonCamera.h>
-#include <photonlib/PhotonPoseEstimator.h>
+#include <photon/PhotonUtils.h>
+#include <photon/PhotonCamera.h>
+#include <photon/PhotonPoseEstimator.h>
 
 #include <frc/apriltag/AprilTagFieldLayout.h>
 #include <frc/apriltag/AprilTagFields.h>
@@ -43,12 +43,12 @@ class PhotonVisionInterface {
         frc::Translation3d{0.254_m, 0.0508_m, 0.1524_m},
         frc::Rotation3d{0_rad, 0_rad, 0_rad}};
   
-  photonlib::PhotonPoseEstimator photonEstimator{
+  photon::PhotonPoseEstimator photonEstimator{
       AprilTagFieldLayout,
-      photonlib::PoseStrategy::MULTI_TAG_PNP,
-      photonlib::PhotonCamera{"OV5647"}, robotToCam};
+      photon::PoseStrategy::MULTI_TAG_PNP_ON_RIO,
+      photon::PhotonCamera{"OV5647"}, robotToCam};
 
-      photonlib::PhotonCamera& camera = photonEstimator.GetCamera();
+  const std::shared_ptr<photon::PhotonCamera> camera = photonEstimator.GetCamera();
     
   frc::Pose2d robot2dPose{};
   

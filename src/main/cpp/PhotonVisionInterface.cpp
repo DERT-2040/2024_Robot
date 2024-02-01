@@ -6,7 +6,7 @@ void PhotonVisionInterface::PreStep() {
     if (globalPose.has_value()) {
         robot2dPose = globalPose->estimatedPose.ToPose2d();
     }
-    auto latestPipelineResult = camera.GetLatestResult();
+    auto latestPipelineResult = camera.get()->GetLatestResult();
     const auto& photonTrackedTargets = latestPipelineResult.GetTargets();
     // This will average all of the individual PoseAmbiguitys that we get from the tags, so we can use the average in the Kalman Filter.
     averageRobotPoseAmbiguity = 1;
@@ -43,5 +43,5 @@ double PhotonVisionInterface::GetGlobalPoseAmbiguity() {
 }
 
 PhotonVisionInterface::PhotonVisionInterface() {
-    photonEstimator.SetMultiTagFallbackStrategy(photonlib::PoseStrategy::LOWEST_AMBIGUITY);
+    photonEstimator.SetMultiTagFallbackStrategy(photon::PoseStrategy::LOWEST_AMBIGUITY);
 }

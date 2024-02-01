@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.35
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Wed Jan 24 21:54:54 2024
+ * C/C++ source code generated on : Sat Jan 27 12:22:02 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -29,12 +29,12 @@ const ConstB_Code_Gen_Model_T Code_Gen_Model_ConstB = {
   1.2246467991473532E-16,              /* '<S203>/Sin5' */
   -1.0,                                /* '<S224>/Cos5' */
   1.2246467991473532E-16,              /* '<S224>/Sin5' */
-  -0.78539816339744828,                /* '<S234>/Atan1' */
-  0.78539816339744828,                 /* '<S234>/Add1' */
-  2.3561944901923448,                  /* '<S234>/Atan3' */
-  3.9269908169872414,                  /* '<S234>/Add2' */
-  -2.3561944901923448,                 /* '<S234>/Atan4' */
-  -0.78539816339744828                 /* '<S234>/Add3' */
+  -0.6251674791193863,                 /* '<S234>/Atan1' */
+  0.94562884767551025,                 /* '<S234>/Add1' */
+  2.5164251744704069,                  /* '<S234>/Atan3' */
+  4.0872215012653035,                  /* '<S234>/Add2' */
+  -2.5164251744704069,                 /* '<S234>/Atan4' */
+  -0.94562884767551036                 /* '<S234>/Add3' */
 };
 
 /* Constant parameters (default storage) */

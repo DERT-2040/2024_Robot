@@ -5,19 +5,19 @@ class Constants {
 public:
 //HID Ports
     static constexpr int k_Gamepad_Port = 0;
-    static constexpr int k_Drive_Joystick_Port = 1;
-    static constexpr int k_Steer_Joystick_Port = 2;
+    static constexpr int k_Drive_Joystick_Port = 2;
+    static constexpr int k_Steer_Joystick_Port = 1;
 //Swerve Drive
     //Drive Motor CAN IDs
-        static constexpr int k_FrontLeft_Drive_CANID = 10;
-        static constexpr int k_FrontRight_Drive_CANID = 20;
-        static constexpr int k_BackLeft_Drive_CANID = 30;
-        static constexpr int k_BackRight_Drive_CANID = 40;
+        static constexpr int k_FrontLeft_Drive_CANID = 14;
+        static constexpr int k_FrontRight_Drive_CANID = 12;
+        static constexpr int k_BackLeft_Drive_CANID = 16;
+        static constexpr int k_BackRight_Drive_CANID = 10;
     //Steer Motor CAN IDs
-        static constexpr int k_FrontLeft_Steer_CANID = 11;
-        static constexpr int k_FrontRight_Steer_CANID = 21;
-        static constexpr int k_BackLeft_Steer_CANID = 31;
-        static constexpr int k_BackRight_Steer_CANID = 41;
+        static constexpr int k_FrontLeft_Steer_CANID = 15;
+        static constexpr int k_FrontRight_Steer_CANID = 13;
+        static constexpr int k_BackLeft_Steer_CANID = 17;
+        static constexpr int k_BackRight_Steer_CANID = 11;
     //Drive Motor Reversal
         static constexpr bool k_FrontLeft_Drive_Is_Reversed = false;
         static constexpr bool k_FrontRight_Drive_Is_Reversed = false;
@@ -48,12 +48,12 @@ public:
         static constexpr std::string_view k_BackLeft_Wheel_Offset_Key = "BackLeftWheelOffset";
         static constexpr std::string_view k_BackRight_Wheel_Offset_Key = "BackRightWheelOffset";
   //Buttons
-    static constexpr int k_Reset_Wheel_Offset_Button = 8;
-    static constexpr int k_Toggle_Absolute_Translation_Button = 3;
-    static constexpr int k_Toggle_Absolute_Steering_Button = 3;
+    static constexpr int k_Reset_Wheel_Offset_Button = 5;
+    static constexpr int k_Toggle_Absolute_Translation_Button = 6;
+    static constexpr int k_Toggle_Absolute_Steering_Button = 7;
     static constexpr int k_Boost_Trigger_Button = 1;
-    static constexpr int k_TestMode_Wheel_On = 11;
-    static constexpr int k_TestMode_Wheel_Off = 6;
+    static constexpr int k_TestMode_Wheel_On = 9;
+    static constexpr int k_TestMode_Wheel_Off = 8;
 //IMU
     static constexpr int k_Pigeon2_Device_ID = 0;
     static constexpr std::string_view k_Pigeon2_Device_Name = "uno";

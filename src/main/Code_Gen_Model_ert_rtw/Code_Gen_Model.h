@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.35
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Wed Jan 24 21:54:54 2024
+ * C/C++ source code generated on : Sat Jan 27 12:22:02 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -249,7 +249,7 @@ typedef struct {
    *   '<S194>/1-D Lookup Table'
    *   '<S215>/1-D Lookup Table'
    */
-  real_T pooled22[2];
+  real_T pooled23[2];
 
   /* Pooled Parameter (Expression: Drive_Motor_Control_Module_Angle_Error)
    * Referenced by:
@@ -258,7 +258,7 @@ typedef struct {
    *   '<S194>/1-D Lookup Table'
    *   '<S215>/1-D Lookup Table'
    */
-  real_T pooled23[2];
+  real_T pooled24[2];
 } ConstP_Code_Gen_Model_T;
 
 /* External inputs (root inport signals with default storage) */

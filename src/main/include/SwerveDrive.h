@@ -1,5 +1,7 @@
 #pragma once
 
+#include <iostream>
+
 //local
 #include "include/Constants.h"
 #include "Code_Gen_Model_ert_rtw/Code_Gen_Model.h"
@@ -8,7 +10,7 @@
 #include <frc/Preferences.h>
 //rev
 #include <rev/CANSparkMax.h>
-#include <rev/SparkMaxRelativeEncoder.h>
+#include <rev/SparkRelativeEncoder.h>
 //ctr
 #include <ctre/phoenix6/CANcoder.hpp>
 //etc
@@ -95,10 +97,10 @@ private:
     rev::CANSparkMax m_BackLeft_Steer{Constants::k_BackLeft_Steer_CANID, rev::CANSparkMax::MotorType::kBrushless};
     rev::CANSparkMax m_BackRight_Steer{Constants::k_BackRight_Steer_CANID, rev::CANSparkMax::MotorType::kBrushless};
   //Drive Encoders
-    rev::SparkMaxRelativeEncoder m_FrontLeft_Drive_Encoder{m_FrontLeft_Drive.GetEncoder()};
-    rev::SparkMaxRelativeEncoder m_FrontRight_Drive_Encoder{m_FrontRight_Drive.GetEncoder()};
-    rev::SparkMaxRelativeEncoder m_BackLeft_Drive_Encoder{m_BackLeft_Drive.GetEncoder()};
-    rev::SparkMaxRelativeEncoder m_BackRight_Drive_Encoder{m_BackRight_Drive.GetEncoder()};
+    rev::SparkRelativeEncoder m_FrontLeft_Drive_Encoder{m_FrontLeft_Drive.GetEncoder(rev::SparkRelativeEncoder::Type::kHallSensor, 42)};
+    rev::SparkRelativeEncoder m_FrontRight_Drive_Encoder{m_FrontRight_Drive.GetEncoder(rev::SparkRelativeEncoder::Type::kHallSensor, 42)};
+    rev::SparkRelativeEncoder m_BackLeft_Drive_Encoder{m_BackLeft_Drive.GetEncoder(rev::SparkRelativeEncoder::Type::kHallSensor, 42)};
+    rev::SparkRelativeEncoder m_BackRight_Drive_Encoder{m_BackRight_Drive.GetEncoder(rev::SparkRelativeEncoder::Type::kHallSensor, 42)};
   //Steer Absolute Encoders
     ctre::phoenix6::hardware::CANcoder m_FrontLeft_Steer_Encoder{Constants::k_FrontLeft_Steer_Encoder_ID, "rio"};
     ctre::phoenix6::hardware::CANcoder m_FrontRight_Steer_Encoder{Constants::k_FrontRight_Steer_Encoder_ID, "rio"};

@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.35
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Wed Jan 24 21:54:54 2024
+ * C/C++ source code generated on : Sat Jan 27 12:22:02 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -43,7 +43,7 @@ real_T Boost_Trigger_Increasing_Limit = 0.04;
 real_T Boost_Trigger_Low_Speed = 1.5;  /* Variable: Boost_Trigger_Low_Speed
                                         * Referenced by: '<S299>/Constant1'
                                         */
-real_T Distance_FL_y = 0.18732;        /* Variable: Distance_FL_y
+real_T Distance_FL_y = 0.26353;        /* Variable: Distance_FL_y
                                         * Referenced by: '<S234>/Constant4'
                                         */
 real_T Drive_Motor_Control_D = 0.0001; /* Variable: Drive_Motor_Control_D
@@ -3340,7 +3340,7 @@ void Code_Gen_Model_step(void)
    *  Constant: '<S234>/Constant5'
    *  Trigonometry: '<S234>/Atan2'
    */
-  rtb_Init_e = rt_atan2d_snf(Distance_FL_y, 0.187325) + 1.5707963267948966;
+  rtb_Init_e = rt_atan2d_snf(Distance_FL_y, 0.365125) + 1.5707963267948966;
 
   /* End of Outputs for SubSystem: '<S148>/Initialize Function' */
 
@@ -3685,7 +3685,7 @@ void Code_Gen_Model_step(void)
     Drive_Motor_Control_Sign_Change_Deadband))) * rtb_Switch2_p) * look1_binlcpw
     (fabs(rt_modd_snf(rtb_uDLookupTable_l + 1.5707963267948966,
                       3.1415926535897931) - 1.5707963267948966),
-     Code_Gen_Model_ConstP.pooled23, Code_Gen_Model_ConstP.pooled22, 1U);
+     Code_Gen_Model_ConstP.pooled24, Code_Gen_Model_ConstP.pooled23, 1U);
 
   /* Gain: '<S213>/Gain' */
   rtb_Product_ku = Drive_Motor_Control_FF * rtb_Switch2_p;
@@ -4098,7 +4098,7 @@ void Code_Gen_Model_step(void)
     Drive_Motor_Control_Sign_Change_Deadband))) * rtb_Switch2_p) * look1_binlcpw
     (fabs(rt_modd_snf(rtb_uDLookupTable_l + 1.5707963267948966,
                       3.1415926535897931) - 1.5707963267948966),
-     Code_Gen_Model_ConstP.pooled23, Code_Gen_Model_ConstP.pooled22, 1U);
+     Code_Gen_Model_ConstP.pooled24, Code_Gen_Model_ConstP.pooled23, 1U);
 
   /* Gain: '<S150>/Gain' */
   rtb_Subtract_i = Drive_Motor_Control_FF * rtb_Switch2_p;
@@ -4516,7 +4516,7 @@ void Code_Gen_Model_step(void)
     Drive_Motor_Control_Sign_Change_Deadband))) * rtb_Switch2_p) * look1_binlcpw
     (fabs(rt_modd_snf(rtb_uDLookupTable_l + 1.5707963267948966,
                       3.1415926535897931) - 1.5707963267948966),
-     Code_Gen_Model_ConstP.pooled23, Code_Gen_Model_ConstP.pooled22, 1U);
+     Code_Gen_Model_ConstP.pooled24, Code_Gen_Model_ConstP.pooled23, 1U);
 
   /* Gain: '<S171>/Gain' */
   rtb_Optimized_Module_Angle = Drive_Motor_Control_FF * rtb_Switch2_p;
@@ -4935,7 +4935,7 @@ void Code_Gen_Model_step(void)
     Drive_Motor_Control_Sign_Change_Deadband))) * rtb_Init_e) * look1_binlcpw
     (fabs(rt_modd_snf(rtb_Optimized_Module_Angle + 1.5707963267948966,
                       3.1415926535897931) - 1.5707963267948966),
-     Code_Gen_Model_ConstP.pooled23, Code_Gen_Model_ConstP.pooled22, 1U);
+     Code_Gen_Model_ConstP.pooled24, Code_Gen_Model_ConstP.pooled23, 1U);
 
   /* Gain: '<S192>/Gain' */
   rtb_Switch2_p = Drive_Motor_Control_FF * rtb_Init_e;

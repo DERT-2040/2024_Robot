@@ -24,6 +24,7 @@ public:
 
     /**
      * Resets yaw zero
+     * 
      */
     void Reset();
 private:

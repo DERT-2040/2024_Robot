@@ -68,8 +68,8 @@ clear gear_ratio wheel_diameter adjustment_factor
 
 %% Wheel Locations from Center of Rotation
 % distances between swerve modules
-FrontBack = 0.37465;
-LeftRight = 0.37465;
+FrontBack = 0.73025;
+LeftRight = 0.52705;
 
 % swerve module distances from center to x and y coordinates
 % Front Left
