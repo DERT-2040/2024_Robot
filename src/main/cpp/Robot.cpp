@@ -76,6 +76,7 @@ void Robot::PreStep() {
   m_HIDs.PreStep();
   m_IMU.PreStep();
   m_SwerveDrive.PreStep();
+  Test_Arm.PreStep();
 }
 
 void Robot::PostStep() {
@@ -83,6 +84,7 @@ void Robot::PostStep() {
   m_HIDs.PostStep();
   m_IMU.PostStep();
   m_SwerveDrive.PostStep();
+  Test_Arm.PostStep();
   m_SmartDashboard.UpdateSDValues();
 }
 
@@ -94,6 +96,7 @@ void Robot::BindSDCallbacks() {
   m_SmartDashboard.BindSmartDashboardCallback(std::bind(&PhotonVisionInterface::SmartDashboardCallback, &m_PhotonVisionInterface));
   m_SmartDashboard.BindSmartDashboardCallback(std::bind(&SimulinkSmartDashboardInterface::SmartDashboardCallback, &m_SimulinkSmartDashboardInterface));
   m_SmartDashboard.BindSmartDashboardCallback(std::bind(&SwerveDrive::SmartDashboardCallback, &m_SwerveDrive));
+  m_SmartDashboard.BindSmartDashboardCallback(std::bind(&TelescopingArm::SmartDashboardCallback, &Test_Arm));
 }
 
 #ifndef RUNNING_FRC_TESTS

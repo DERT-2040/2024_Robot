@@ -12,6 +12,7 @@
 #include "include/SmartDashboard.h"
 #include "include/SimulinkSmartDashboardInterface.h"
 #include "include/PhotonVisionInterface.h"
+#include "include/TelescopingArm.h"
 
 //frc
 #include <frc/TimedRobot.h>
@@ -143,4 +144,9 @@ private:
    * Component for all Tunable Parameters created by simulink
    */
   SimulinkSmartDashboardInterface m_SimulinkSmartDashboardInterface;  
+  
+  /**
+   * TEMP make component out of this class
+  */
+  TelescopingArm Test_Arm{0};
 };
