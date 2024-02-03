@@ -60,4 +60,18 @@ public:
 //Default States
     static constexpr bool Is_Absolute_Steering_Default = true;
     static constexpr bool Is_Absolute_Translation_Default = true;
+    class Intake_Constants
+    {
+    public:
+        static constexpr uint8_t TOF_ID = -1;
+        static constexpr int Intake_Motor_Device_ID = -1;
+    };
+    
+    class Shooter_Constants
+    {
+    public:
+        static constexpr uint8_t TOF_ID = -1;
+        static constexpr int Left_Shooter_Motor_CANID = -1;
+        static constexpr int Right_Shooter_Motor_CANID = -1;
+    };
 };

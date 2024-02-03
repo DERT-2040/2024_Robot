@@ -13,6 +13,8 @@
 #include "include/SimulinkSmartDashboardInterface.h"
 #include "include/PhotonVisionInterface.h"
 #include "include/TelescopingArm.h"
+#include "include/Intake.h"
+#include "include/Shooter.h"
 
 //frc
 #include <frc/TimedRobot.h>
@@ -146,7 +148,12 @@ private:
   SimulinkSmartDashboardInterface m_SimulinkSmartDashboardInterface;  
   
   /**
-   * TEMP make component out of this class
+   * Component that runs all motors and sensors for the Intake of the 2024 Robot
   */
-  TelescopingArm Test_Arm{0};
+  Intake m_Intake;
+
+  /**
+   * Component that includes all arms and motors and sensors on the shooter mechanism 2024
+  */
+  Shooter m_Shooter;
 };
