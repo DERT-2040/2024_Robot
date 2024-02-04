@@ -8,14 +8,15 @@
 class Shooter
 {
 public:
+    Shooter();
     void PreStep();
     void PostStep();
 private:
     frc::TimeOfFlight TOF_Sensor{Constants::Shooter_Constants::TOF_ID};
 
-    rev::CANSparkMax Left_Motor{Constants::Shooter_Constants::Left_Shooter_Motor_CANID, rev::CANSparkMaxLowLevel::MotorType::kBrushless};
-    rev::CANSparkMax Right_Motor{Constants::Shooter_Constants::Right_Shooter_Motor_CANID, rev::CANSparkMaxLowLevel::MotorType::kBrushless};
+    rev::CANSparkMax Left_Motor{Constants::Shooter_Constants::Left_Shooter_Motor_CANID, rev::CANSparkLowLevel::MotorType::kBrushless};
+    rev::CANSparkMax Right_Motor{Constants::Shooter_Constants::Right_Shooter_Motor_CANID, rev::CANSparkLowLevel::MotorType::kBrushless};
     
-    rev::SparkMaxRelativeEncoder Left_Relative_Encoder{Left_Motor.GetEncoder(rev::SparkRelativeEncoder::Type::kHallSensor, 42)};
-    rev::SparkMaxRelativeEncoder Right_Relative_Encoder{Right_Motor.GetEncoder(rev::SparkRelativeEncoder::Type::kHallSensor, 42)};
+    rev::SparkRelativeEncoder Left_Relative_Encoder{Left_Motor.GetEncoder(rev::SparkRelativeEncoder::Type::kHallSensor, 42)};
+    rev::SparkRelativeEncoder Right_Relative_Encoder{Right_Motor.GetEncoder(rev::SparkRelativeEncoder::Type::kHallSensor, 42)};
 };

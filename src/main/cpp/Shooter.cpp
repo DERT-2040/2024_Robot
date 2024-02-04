@@ -1,5 +1,11 @@
 #include "include/Shooter.h"
 
+Shooter::Shooter()
+{
+    Left_Motor.SetIdleMode(rev::CANSparkBase::IdleMode::kBrake);
+    Right_Motor.SetIdleMode(rev::CANSparkBase::IdleMode::kBrake);
+}
+
 void Shooter::PreStep()
 {
     Code_Gen_Model_U.Shooter_TOF_Dist = TOF_Sensor.GetRange();

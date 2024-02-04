@@ -63,15 +63,15 @@ public:
     class Intake_Constants
     {
     public:
-        static constexpr uint8_t TOF_ID = -1;
-        static constexpr int Intake_Motor_Device_ID = -1;
+        static constexpr uint8_t TOF_ID = 0;
+        static constexpr int Intake_Motor_Device_ID = 0;
     };
     
     class Shooter_Constants
     {
     public:
-        static constexpr uint8_t TOF_ID = -1;
-        static constexpr int Left_Shooter_Motor_CANID = -1;
-        static constexpr int Right_Shooter_Motor_CANID = -1;
+        static constexpr uint8_t TOF_ID = 1;
+        static constexpr int Left_Shooter_Motor_CANID = 5;
+        static constexpr int Right_Shooter_Motor_CANID = 21;
     };
 };

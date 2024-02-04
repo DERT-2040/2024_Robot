@@ -8,5 +8,5 @@ void Intake::PreStep()
 
 void Intake::PostStep()
 {
-    Intake_Motor.Set(Code_Gen_Model_Y.Intake_Motor_DutyCycle);
+    Intake_Motor.Set(ctre::phoenix::motorcontrol::ControlMode::PercentOutput, Code_Gen_Model_Y.Intake_Motor_DutyCycle);
 }

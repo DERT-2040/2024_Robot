@@ -2,7 +2,7 @@
 ## Makefile generated for component 'Code_Gen_Model'. 
 ## 
 ## Makefile     : Code_Gen_Model.mk
-## Generated on : Fri Jan 26 20:27:07 2024
+## Generated on : Sat Feb 03 14:38:09 2024
 ## Final product: $(RELATIVE_PATH_TO_ANCHOR)/Code_Gen_Model.exe
 ## Product type : executable
 ## 
@@ -23,7 +23,7 @@ MAKEFILE                  = Code_Gen_Model.mk
 MATLAB_ROOT               = C:/PROGRA~1/MATLAB/R2023b
 MATLAB_BIN                = C:/PROGRA~1/MATLAB/R2023b/bin
 MATLAB_ARCH_BIN           = $(MATLAB_BIN)/win64
-START_DIR                 = C:/Users/USER/Documents/2024_Robot-Imported/src/main
+START_DIR                 = C:/GitHub/2024_Robot/src/main
 SOLVER                    = 
 SOLVER_OBJ                = 
 CLASSIC_INTERFACE         = 0
