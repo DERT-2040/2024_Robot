@@ -258,16 +258,31 @@ Spline_Last_Pose_Distance_to_Velocity_Gain = 2; % (m/sec) / (m)
 Spline_Velocity_Multiplier_TEST = 1.0;  % velocity scaling for test purposes only
 
 %% Intake and Shooter Parameters
+% Pickup from floor
 Intake_Note_Detect_Dist = 100;  % mm
+
+% Transfer to shooter
 Shooter_Note_Detect_Dist = 75;  % mm
 
-Shooter_Transfer_DC = 0.17; % duty cycle for transfering from intake to shooter for holding
-Shooter_Eject_DC = 0.2; % duty cycle for amp/trap scoring
+% Shooter speed control PID for transfer
+Shooter_Desired_Speed = 600; % rpm
+Shooter_Motor_Control_FF= 0.00025;  % 1 DC / Max Speed RPM;
+Shooter_Motor_Control_P = 0.00005;
+Shooter_Motor_Control_I = 0.00002;
+Shooter_Motor_Control_I_UL = 0.1;
+Shooter_Motor_Control_I_LL = -0.1;
 
+% Time to run shooter before running intake
+Note_Shooter_Spin_Up_Time = 0.5;  % seconds
+
+% Time to continue running shooter after detecting the note
+Note_Transfer_Time = 0.0;  % seconds
+
+% Shooter Eject
+Shooter_Eject_DC = 0.2; % duty cycle for amp/trap scoring
 Note_Eject_Time = 0.5; % seconds to turn motors on for amp/trap scoring
 
 % temporary variables for testing
 TEST_Request_Note_Pickup = 0;
 TEST_Request_Note_Transfer = 0;
 TEST_Request_Note_Eject = 0;
-

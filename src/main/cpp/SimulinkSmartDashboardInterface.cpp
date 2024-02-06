@@ -85,6 +85,14 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     NTinst.AddListener(__Note_Eject_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Note_Eject_Time = event.GetValueEventData()->value.GetDouble();});
     __Note_Eject_Time__Entry.SetDouble(0.5);
  
+    __Note_Shooter_Spin_Up_Time__Entry = NTtable_Tune->GetEntry("Note_Shooter_Spin_Up_Time");
+    NTinst.AddListener(__Note_Shooter_Spin_Up_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Note_Shooter_Spin_Up_Time = event.GetValueEventData()->value.GetDouble();});
+    __Note_Shooter_Spin_Up_Time__Entry.SetDouble(0.5);
+ 
+    __Note_Transfer_Time__Entry = NTtable_Tune->GetEntry("Note_Transfer_Time");
+    NTinst.AddListener(__Note_Transfer_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Note_Transfer_Time = event.GetValueEventData()->value.GetDouble();});
+    __Note_Transfer_Time__Entry.SetDouble(0);
+ 
     __Odometry_IC_X__Entry = NTtable_Tune->GetEntry("Odometry_IC_X");
     NTinst.AddListener(__Odometry_IC_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Odometry_IC_X = event.GetValueEventData()->value.GetDouble();});
     __Odometry_IC_X__Entry.SetDouble(15.22);
@@ -101,17 +109,37 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     NTinst.AddListener(__Odometry_X_Y_TEAR__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Odometry_X_Y_TEAR = event.GetValueEventData()->value.GetDouble();});
     __Odometry_X_Y_TEAR__Entry.SetDouble(0);
  
+    __Shooter_Desired_Speed__Entry = NTtable_Tune->GetEntry("Shooter_Desired_Speed");
+    NTinst.AddListener(__Shooter_Desired_Speed__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Shooter_Desired_Speed = event.GetValueEventData()->value.GetDouble();});
+    __Shooter_Desired_Speed__Entry.SetDouble(600);
+ 
     __Shooter_Eject_DC__Entry = NTtable_Tune->GetEntry("Shooter_Eject_DC");
     NTinst.AddListener(__Shooter_Eject_DC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Shooter_Eject_DC = event.GetValueEventData()->value.GetDouble();});
     __Shooter_Eject_DC__Entry.SetDouble(0.2);
  
+    __Shooter_Motor_Control_FF__Entry = NTtable_Tune->GetEntry("Shooter_Motor_Control_FF");
+    NTinst.AddListener(__Shooter_Motor_Control_FF__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Shooter_Motor_Control_FF = event.GetValueEventData()->value.GetDouble();});
+    __Shooter_Motor_Control_FF__Entry.SetDouble(0.00025);
+ 
+    __Shooter_Motor_Control_I__Entry = NTtable_Tune->GetEntry("Shooter_Motor_Control_I");
+    NTinst.AddListener(__Shooter_Motor_Control_I__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Shooter_Motor_Control_I = event.GetValueEventData()->value.GetDouble();});
+    __Shooter_Motor_Control_I__Entry.SetDouble(2e-05);
+ 
+    __Shooter_Motor_Control_I_LL__Entry = NTtable_Tune->GetEntry("Shooter_Motor_Control_I_LL");
+    NTinst.AddListener(__Shooter_Motor_Control_I_LL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Shooter_Motor_Control_I_LL = event.GetValueEventData()->value.GetDouble();});
+    __Shooter_Motor_Control_I_LL__Entry.SetDouble(-0.1);
+ 
+    __Shooter_Motor_Control_I_UL__Entry = NTtable_Tune->GetEntry("Shooter_Motor_Control_I_UL");
+    NTinst.AddListener(__Shooter_Motor_Control_I_UL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Shooter_Motor_Control_I_UL = event.GetValueEventData()->value.GetDouble();});
+    __Shooter_Motor_Control_I_UL__Entry.SetDouble(0.1);
+ 
+    __Shooter_Motor_Control_P__Entry = NTtable_Tune->GetEntry("Shooter_Motor_Control_P");
+    NTinst.AddListener(__Shooter_Motor_Control_P__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Shooter_Motor_Control_P = event.GetValueEventData()->value.GetDouble();});
+    __Shooter_Motor_Control_P__Entry.SetDouble(5e-05);
+ 
     __Shooter_Note_Detect_Dist__Entry = NTtable_Tune->GetEntry("Shooter_Note_Detect_Dist");
     NTinst.AddListener(__Shooter_Note_Detect_Dist__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Shooter_Note_Detect_Dist = event.GetValueEventData()->value.GetDouble();});
     __Shooter_Note_Detect_Dist__Entry.SetDouble(75);
- 
-    __Shooter_Transfer_DC__Entry = NTtable_Tune->GetEntry("Shooter_Transfer_DC");
-    NTinst.AddListener(__Shooter_Transfer_DC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Shooter_Transfer_DC = event.GetValueEventData()->value.GetDouble();});
-    __Shooter_Transfer_DC__Entry.SetDouble(0.17);
  
     __Spline_Last_Pose_Distance_to_Velocity_Gain__Entry = NTtable_Tune->GetEntry("Spline_Last_Pose_Distance_to_Velocity_Gain");
     NTinst.AddListener(__Spline_Last_Pose_Distance_to_Velocity_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Spline_Last_Pose_Distance_to_Velocity_Gain = event.GetValueEventData()->value.GetDouble();});
@@ -356,6 +384,11 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Odometry_Y_global_TEAR_ft__Entry = NTtable_TPoint->GetEntry("Odometry_Y_global_TEAR_ft");
     __Odometry_Y_global_est_ft__Entry = NTtable_TPoint->GetEntry("Odometry_Y_global_est_ft");
     __Robot_Reached_Destination__Entry = NTtable_TPoint->GetEntry("Robot_Reached_Destination");
+    __Shooter_Control_Type__Entry = NTtable_TPoint->GetEntry("Shooter_Control_Type");
+    __Shooter_Left_Motor_DC__Entry = NTtable_TPoint->GetEntry("Shooter_Left_Motor_DC");
+    __Shooter_Left_Motor_Speed__Entry = NTtable_TPoint->GetEntry("Shooter_Left_Motor_Speed");
+    __Shooter_Right_Motor_DC__Entry = NTtable_TPoint->GetEntry("Shooter_Right_Motor_DC");
+    __Shooter_Right_Motor_Speed__Entry = NTtable_TPoint->GetEntry("Shooter_Right_Motor_Speed");
     __Spline_Enable__Entry = NTtable_TPoint->GetEntry("Spline_Enable");
     __Spline_Index__Entry = NTtable_TPoint->GetEntry("Spline_Index");
     __Spline_Num_Poses__Entry = NTtable_TPoint->GetEntry("Spline_Num_Poses");
@@ -455,6 +488,11 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Odometry_Y_global_TEAR_ft__Entry.SetDouble(Code_Gen_Model_B.Odometry_Y_global_TEAR_ft);
     __Odometry_Y_global_est_ft__Entry.SetDouble(Code_Gen_Model_B.Odometry_Y_global_est_ft);
     __Robot_Reached_Destination__Entry.SetDouble(Code_Gen_Model_B.Robot_Reached_Destination);
+    __Shooter_Control_Type__Entry.SetDouble(Code_Gen_Model_B.Shooter_Control_Type);
+    __Shooter_Left_Motor_DC__Entry.SetDouble(Code_Gen_Model_B.Shooter_Left_Motor_DC);
+    __Shooter_Left_Motor_Speed__Entry.SetDouble(Code_Gen_Model_B.Shooter_Left_Motor_Speed);
+    __Shooter_Right_Motor_DC__Entry.SetDouble(Code_Gen_Model_B.Shooter_Right_Motor_DC);
+    __Shooter_Right_Motor_Speed__Entry.SetDouble(Code_Gen_Model_B.Shooter_Right_Motor_Speed);
     __Spline_Enable__Entry.SetDouble(Code_Gen_Model_B.Spline_Enable);
     __Spline_Index__Entry.SetDouble(Code_Gen_Model_B.Spline_Index);
     __Spline_Num_Poses__Entry.SetDouble(Code_Gen_Model_B.Spline_Num_Poses);
