@@ -8,6 +8,7 @@
 void Robot::RobotInit() {
   Code_Gen_Model_U.GameState = -1;
   Code_Gen_Model_initialize(); //code gen model init
+  m_Shooter.InitShooter();
   BindSDCallbacks();
   m_SwerveDrive.BrakeMode(); //set all motors to coast mode
   m_IMU.Reset();

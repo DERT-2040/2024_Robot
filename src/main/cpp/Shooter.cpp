@@ -1,7 +1,9 @@
 #include "include/Shooter.h"
 
-Shooter::Shooter()
+void Shooter::InitShooter()
 {
+    Left_Motor.RestoreFactoryDefaults();
+    Right_Motor.RestoreFactoryDefaults();
     Left_Motor.SetIdleMode(rev::CANSparkBase::IdleMode::kBrake);
     Right_Motor.SetIdleMode(rev::CANSparkBase::IdleMode::kBrake);
 }
@@ -17,6 +19,14 @@ void Shooter::PreStep()
 
 void Shooter::PostStep()
 {
-    Left_Motor.Set(Code_Gen_Model_Y.Shooter_Left_Motor_DutyCycle);
-    Right_Motor.Set(Code_Gen_Model_Y.Shooter_Right_Motor_DutyCycle);
+    if(!Code_Gen_Model_Y.Shooter_Brake_Enable)
+    {
+        Left_Motor.Set(Code_Gen_Model_Y.Shooter_Left_Motor_DutyCycle);
+        Right_Motor.Set(Code_Gen_Model_Y.Shooter_Right_Motor_DutyCycle);
+    }
+    else
+    {
+        Left_Motor.StopMotor();
+        Right_Motor.StopMotor();
+    }
 }

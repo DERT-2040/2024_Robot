@@ -133,6 +133,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __FrontRight_Drive_DutyCycle__Entry;
         nt::NetworkTableEntry __FrontRight_Steer_DutyCycle__Entry;
         nt::NetworkTableEntry __Intake_Motor_DutyCycle__Entry;
+        nt::NetworkTableEntry __Shooter_Brake_Enable__Entry;
         nt::NetworkTableEntry __Shooter_Left_Motor_DutyCycle__Entry;
         nt::NetworkTableEntry __Shooter_Right_Motor_DutyCycle__Entry;
  
@@ -162,11 +163,11 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Odometry_Y_global_TEAR_ft__Entry;
         nt::NetworkTableEntry __Odometry_Y_global_est_ft__Entry;
         nt::NetworkTableEntry __Robot_Reached_Destination__Entry;
-        nt::NetworkTableEntry __Shooter_Control_Type__Entry;
         nt::NetworkTableEntry __Shooter_Left_Motor_DC__Entry;
         nt::NetworkTableEntry __Shooter_Left_Motor_Speed__Entry;
         nt::NetworkTableEntry __Shooter_Right_Motor_DC__Entry;
         nt::NetworkTableEntry __Shooter_Right_Motor_Speed__Entry;
+        nt::NetworkTableEntry __Shooter_Speed_Control_Enable__Entry;
         nt::NetworkTableEntry __Spline_Enable__Entry;
         nt::NetworkTableEntry __Spline_Index__Entry;
         nt::NetworkTableEntry __Spline_Num_Poses__Entry;

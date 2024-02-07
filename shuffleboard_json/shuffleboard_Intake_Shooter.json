@@ -131,7 +131,7 @@
               "Visible data/Simulink Top Level Ports/Shooter_Right_Motor_RPM": true
             }
           },
-          "4,3": {
+          "5,0": {
             "size": [
               1,
               1
@@ -144,7 +144,7 @@
               "_showGlyph": false
             }
           },
-          "5,3": {
+          "5,1": {
             "size": [
               1,
               1
@@ -157,7 +157,7 @@
               "_showGlyph": false
             }
           },
-          "6,3": {
+          "5,2": {
             "size": [
               1,
               1
@@ -234,6 +234,32 @@
               "_glyph": 148,
               "_showGlyph": false
             }
+          },
+          "3,2": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///Simulink Tunable Params/Shooter_Note_Detect_Dist",
+              "_title": "Simulink Tunable Params/Shooter_Note_Detect_Dist",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "3,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///Simulink Tunable Params/Intake_Note_Detect_Dist",
+              "_title": "Simulink Tunable Params/Intake_Note_Detect_Dist",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
           }
         }
       }
@@ -253,9 +279,9 @@
     }
   ],
   "windowGeometry": {
-    "x": -8.0,
-    "y": -8.0,
-    "width": 1292.800048828125,
-    "height": 694.4000244140625
+    "x": -7.199999809265137,
+    "y": -7.199999809265137,
+    "width": 1550.4000244140625,
+    "height": 830.4000244140625
   }
 }
