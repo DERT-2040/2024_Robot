@@ -87,11 +87,11 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Note_Shooter_Spin_Up_Time__Entry = NTtable_Tune->GetEntry("Note_Shooter_Spin_Up_Time");
     NTinst.AddListener(__Note_Shooter_Spin_Up_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Note_Shooter_Spin_Up_Time = event.GetValueEventData()->value.GetDouble();});
-    __Note_Shooter_Spin_Up_Time__Entry.SetDouble(1);
+    __Note_Shooter_Spin_Up_Time__Entry.SetDouble(2);
  
     __Note_Transfer_Time__Entry = NTtable_Tune->GetEntry("Note_Transfer_Time");
     NTinst.AddListener(__Note_Transfer_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Note_Transfer_Time = event.GetValueEventData()->value.GetDouble();});
-    __Note_Transfer_Time__Entry.SetDouble(0);
+    __Note_Transfer_Time__Entry.SetDouble(0.06);
  
     __Odometry_IC_X__Entry = NTtable_Tune->GetEntry("Odometry_IC_X");
     NTinst.AddListener(__Odometry_IC_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Odometry_IC_X = event.GetValueEventData()->value.GetDouble();});
@@ -111,7 +111,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Shooter_Desired_Speed__Entry = NTtable_Tune->GetEntry("Shooter_Desired_Speed");
     NTinst.AddListener(__Shooter_Desired_Speed__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Shooter_Desired_Speed = event.GetValueEventData()->value.GetDouble();});
-    __Shooter_Desired_Speed__Entry.SetDouble(550);
+    __Shooter_Desired_Speed__Entry.SetDouble(450);
  
     __Shooter_Eject_DC__Entry = NTtable_Tune->GetEntry("Shooter_Eject_DC");
     NTinst.AddListener(__Shooter_Eject_DC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Shooter_Eject_DC = event.GetValueEventData()->value.GetDouble();});
@@ -135,11 +135,11 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Shooter_Motor_Control_P__Entry = NTtable_Tune->GetEntry("Shooter_Motor_Control_P");
     NTinst.AddListener(__Shooter_Motor_Control_P__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Shooter_Motor_Control_P = event.GetValueEventData()->value.GetDouble();});
-    __Shooter_Motor_Control_P__Entry.SetDouble(0.0003);
+    __Shooter_Motor_Control_P__Entry.SetDouble(0.0001);
  
     __Shooter_Note_Detect_Dist__Entry = NTtable_Tune->GetEntry("Shooter_Note_Detect_Dist");
     NTinst.AddListener(__Shooter_Note_Detect_Dist__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Shooter_Note_Detect_Dist = event.GetValueEventData()->value.GetDouble();});
-    __Shooter_Note_Detect_Dist__Entry.SetDouble(60);
+    __Shooter_Note_Detect_Dist__Entry.SetDouble(70);
  
     __Spline_Last_Pose_Distance_to_Velocity_Gain__Entry = NTtable_Tune->GetEntry("Spline_Last_Pose_Distance_to_Velocity_Gain");
     NTinst.AddListener(__Spline_Last_Pose_Distance_to_Velocity_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Spline_Last_Pose_Distance_to_Velocity_Gain = event.GetValueEventData()->value.GetDouble();});

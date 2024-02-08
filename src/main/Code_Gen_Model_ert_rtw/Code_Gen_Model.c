@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.53
+ * Model version                  : 2.56
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Tue Feb  6 22:13:06 2024
+ * C/C++ source code generated on : Wed Feb  7 21:57:09 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -140,10 +140,10 @@ real_T KF_Vision_Ambiguity_Thresh = 0.25;/* Variable: KF_Vision_Ambiguity_Thresh
 real_T Note_Eject_Time = 0.5;          /* Variable: Note_Eject_Time
                                         * Referenced by: '<S5>/Chart_Intake_and_Shooter'
                                         */
-real_T Note_Shooter_Spin_Up_Time = 1.0;/* Variable: Note_Shooter_Spin_Up_Time
+real_T Note_Shooter_Spin_Up_Time = 2.0;/* Variable: Note_Shooter_Spin_Up_Time
                                         * Referenced by: '<S5>/Chart_Intake_and_Shooter'
                                         */
-real_T Note_Transfer_Time = 0.0;       /* Variable: Note_Transfer_Time
+real_T Note_Transfer_Time = 0.06;      /* Variable: Note_Transfer_Time
                                         * Referenced by: '<S5>/Chart_Intake_and_Shooter'
                                         */
 real_T Odometry_IC_X = 15.22;          /* Variable: Odometry_IC_X
@@ -158,7 +158,7 @@ real_T Odometry_Reset_IC = 0.0;        /* Variable: Odometry_Reset_IC
 real_T Odometry_X_Y_TEAR = 0.0;        /* Variable: Odometry_X_Y_TEAR
                                         * Referenced by: '<S86>/Constant'
                                         */
-real_T Shooter_Desired_Speed = 550.0;  /* Variable: Shooter_Desired_Speed
+real_T Shooter_Desired_Speed = 450.0;  /* Variable: Shooter_Desired_Speed
                                         * Referenced by: '<S5>/Chart_Intake_and_Shooter'
                                         */
 real_T Shooter_Eject_DC = 0.2;         /* Variable: Shooter_Eject_DC
@@ -184,12 +184,12 @@ real_T Shooter_Motor_Control_I_UL = 0.1;/* Variable: Shooter_Motor_Control_I_UL
                                          *   '<S19>/Saturation1'
                                          *   '<S20>/Saturation1'
                                          */
-real_T Shooter_Motor_Control_P = 0.0003;/* Variable: Shooter_Motor_Control_P
+real_T Shooter_Motor_Control_P = 0.0001;/* Variable: Shooter_Motor_Control_P
                                          * Referenced by:
                                          *   '<S19>/Gain1'
                                          *   '<S20>/Gain1'
                                          */
-real_T Shooter_Note_Detect_Dist = 60.0;/* Variable: Shooter_Note_Detect_Dist
+real_T Shooter_Note_Detect_Dist = 70.0;/* Variable: Shooter_Note_Detect_Dist
                                         * Referenced by: '<S5>/Chart_Intake_and_Shooter'
                                         */
 real_T Spline_Last_Pose_Distance_to_Velocity_Gain = 2.0;

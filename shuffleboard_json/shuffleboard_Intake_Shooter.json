@@ -131,20 +131,7 @@
               "Visible data/Simulink Top Level Ports/Shooter_Right_Motor_RPM": true
             }
           },
-          "5,0": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///Simulink Tunable Params/Shooter_Motor_Control_FF",
-              "_title": "/Simulink Tunable Params/Shooter_Motor_Control_FF",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "5,1": {
+          "4,3": {
             "size": [
               1,
               1
@@ -157,46 +144,7 @@
               "_showGlyph": false
             }
           },
-          "5,2": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///Simulink Tunable Params/Shooter_Motor_Control_I",
-              "_title": "/Simulink Tunable Params/Shooter_Motor_Control_I",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "6,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///Simulink Tunable Params/Shooter_Motor_Control_I_LL",
-              "_title": "/Simulink Tunable Params/Shooter_Motor_Control_I_LL",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "6,0": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///Simulink Tunable Params/Shooter_Motor_Control_I_UL",
-              "_title": "/Simulink Tunable Params/Shooter_Motor_Control_I_UL",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "6,2": {
+          "6,3": {
             "size": [
               1,
               1
@@ -259,6 +207,41 @@
               "_title": "Simulink Tunable Params/Intake_Note_Detect_Dist",
               "_glyph": 148,
               "_showGlyph": false
+            }
+          },
+          "5,3": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/FR_Encoder",
+              "_title": "FR_Encoder",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "4,0": {
+            "size": [
+              3,
+              3
+            ],
+            "content": {
+              "_type": "Graph",
+              "_source0": "network_table:///Simulink Top Level Ports/Shooter_Left_Motor_DutyCycle",
+              "_source1": "network_table:///Simulink Top Level Ports/Shooter_Right_Motor_DutyCycle",
+              "_title": "Simulink Top Level Ports/Shooter_Left_Motor_DutyCycle",
+              "_glyph": 148,
+              "_showGlyph": false,
+              "Graph/Visible time": 30.0,
+              "Graph/X-axis auto scrolling": true,
+              "Y-axis/Automatic bounds": true,
+              "Y-axis/Upper bound": 1.0,
+              "Y-axis/Lower bound": -1.0,
+              "Y-axis/Unit": "ul",
+              "Visible data/Simulink Top Level Ports/Shooter_Left_Motor_DutyCycle": true,
+              "Visible data/Simulink Top Level Ports/Shooter_Right_Motor_DutyCycle": true
             }
           }
         }

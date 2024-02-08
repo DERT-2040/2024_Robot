@@ -262,21 +262,21 @@ Spline_Velocity_Multiplier_TEST = 1.0;  % velocity scaling for test purposes onl
 Intake_Note_Detect_Dist = 100;  % mm
 
 % Transfer to shooter
-Shooter_Note_Detect_Dist = 60;  % mm
+Shooter_Note_Detect_Dist = 70;  % mm
 
 % Shooter speed control PID for transfer
-Shooter_Desired_Speed = 550; % rpm
+Shooter_Desired_Speed = 450; % rpm
 Shooter_Motor_Control_FF= 0.00025;  % 1 DC / Max Speed RPM;
-Shooter_Motor_Control_P = 0.00030;
+Shooter_Motor_Control_P = 0.00010;
 Shooter_Motor_Control_I = 0.00002;
 Shooter_Motor_Control_I_UL = 0.1;
 Shooter_Motor_Control_I_LL = -0.1;
 
 % Time to run shooter before running intake
-Note_Shooter_Spin_Up_Time = 1.0;  % seconds
+Note_Shooter_Spin_Up_Time = 2.0;  % seconds
 
 % Time to continue running shooter after detecting the note
-Note_Transfer_Time = 0.0;  % seconds
+Note_Transfer_Time = 0.06;  % seconds
 
 % Shooter Eject
 Shooter_Eject_DC = 0.2; % duty cycle for amp/trap scoring
