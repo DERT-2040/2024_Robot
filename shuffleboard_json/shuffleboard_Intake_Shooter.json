@@ -37,7 +37,7 @@
               "_showGlyph": false
             }
           },
-          "7,3": {
+          "6,3": {
             "size": [
               1,
               1
@@ -50,7 +50,7 @@
               "_showGlyph": false
             }
           },
-          "8,3": {
+          "7,3": {
             "size": [
               1,
               1
@@ -63,7 +63,7 @@
               "_showGlyph": false
             }
           },
-          "9,3": {
+          "8,3": {
             "size": [
               1,
               1
@@ -144,7 +144,7 @@
               "_showGlyph": false
             }
           },
-          "6,3": {
+          "5,3": {
             "size": [
               1,
               1
@@ -209,19 +209,6 @@
               "_showGlyph": false
             }
           },
-          "5,3": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/FR_Encoder",
-              "_title": "FR_Encoder",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
           "4,0": {
             "size": [
               3,
@@ -242,6 +229,19 @@
               "Y-axis/Unit": "ul",
               "Visible data/Simulink Top Level Ports/Shooter_Left_Motor_DutyCycle": true,
               "Visible data/Simulink Top Level Ports/Shooter_Right_Motor_DutyCycle": true
+            }
+          },
+          "9,3": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///Simulink Tunable Params/TEST_Request_Note_Pickup_AND_Transfer",
+              "_title": "Simulink Tunable Params/TEST_Request_Note_Pickup_AND_Transfer",
+              "_glyph": 148,
+              "_showGlyph": false
             }
           }
         }

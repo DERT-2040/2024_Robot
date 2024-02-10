@@ -29,4 +29,6 @@ void Shooter::PostStep()
         Left_Motor.StopMotor();
         Right_Motor.StopMotor();
     }
+
+    Unicorn_Horn_Servo.Set(Code_Gen_Model_Y.Shooter_Servo_Position);
 }

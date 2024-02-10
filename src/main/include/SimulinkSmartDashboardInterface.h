@@ -27,24 +27,28 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Drive_Motor_Control_I_UL__Entry;
         nt::NetworkTableEntry __Drive_Motor_Control_P__Entry;
         nt::NetworkTableEntry __Drive_Motor_Control_Sign_Change_Deadband__Entry;
-        nt::NetworkTableEntry __Intake_Note_Detect_Dist__Entry;
         nt::NetworkTableEntry __KF_Enable__Entry;
         nt::NetworkTableEntry __KF_Vision_Ambiguity_Thresh__Entry;
-        nt::NetworkTableEntry __Note_Eject_Time__Entry;
-        nt::NetworkTableEntry __Note_Shooter_Spin_Up_Time__Entry;
-        nt::NetworkTableEntry __Note_Transfer_Time__Entry;
+        nt::NetworkTableEntry __Note_Detect_Dist_Intake__Entry;
+        nt::NetworkTableEntry __Note_Detect_Dist_Shooter__Entry;
+        nt::NetworkTableEntry __Note_Time_Eject__Entry;
+        nt::NetworkTableEntry __Note_Time_Shooter_Spin_Up__Entry;
+        nt::NetworkTableEntry __Note_Time_Transfer__Entry;
         nt::NetworkTableEntry __Odometry_IC_X__Entry;
         nt::NetworkTableEntry __Odometry_IC_Y__Entry;
         nt::NetworkTableEntry __Odometry_Reset_IC__Entry;
         nt::NetworkTableEntry __Odometry_X_Y_TEAR__Entry;
-        nt::NetworkTableEntry __Shooter_Desired_Speed__Entry;
-        nt::NetworkTableEntry __Shooter_Eject_DC__Entry;
+        nt::NetworkTableEntry __Servo_Position_Deploy__Entry;
+        nt::NetworkTableEntry __Servo_Position_Store__Entry;
+        nt::NetworkTableEntry __Servo_Time_Deploy__Entry;
+        nt::NetworkTableEntry __Servo_Time_Store__Entry;
+        nt::NetworkTableEntry __Shooter_DC_Eject__Entry;
         nt::NetworkTableEntry __Shooter_Motor_Control_FF__Entry;
         nt::NetworkTableEntry __Shooter_Motor_Control_I__Entry;
         nt::NetworkTableEntry __Shooter_Motor_Control_I_LL__Entry;
         nt::NetworkTableEntry __Shooter_Motor_Control_I_UL__Entry;
         nt::NetworkTableEntry __Shooter_Motor_Control_P__Entry;
-        nt::NetworkTableEntry __Shooter_Note_Detect_Dist__Entry;
+        nt::NetworkTableEntry __Shooter_Motor_DesSpd_Store__Entry;
         nt::NetworkTableEntry __Spline_Last_Pose_Distance_to_Velocity_Gain__Entry;
         nt::NetworkTableEntry __Spline_Max_Centripital_Acceleration__Entry;
         nt::NetworkTableEntry __Spline_Pose_Num_Before_End_Reduce_Speed__Entry;
@@ -80,6 +84,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Steering_Relative_Gain__Entry;
         nt::NetworkTableEntry __TEST_Request_Note_Eject__Entry;
         nt::NetworkTableEntry __TEST_Request_Note_Pickup__Entry;
+        nt::NetworkTableEntry __TEST_Request_Note_Pickup_AND_Transfer__Entry;
         nt::NetworkTableEntry __TEST_Request_Note_Transfer__Entry;
         nt::NetworkTableEntry __Translation_Speed_Approach_Zero_Error_Thresh__Entry;
         nt::NetworkTableEntry __Translation_Speed_Approach_Zero_Final_Thresh__Entry;
@@ -136,6 +141,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Shooter_Brake_Enable__Entry;
         nt::NetworkTableEntry __Shooter_Left_Motor_DutyCycle__Entry;
         nt::NetworkTableEntry __Shooter_Right_Motor_DutyCycle__Entry;
+        nt::NetworkTableEntry __Shooter_Servo_Position__Entry;
  
         // Test Points
         nt::NetworkTableEntry __BL_Desired_Module_Angle__Entry;
@@ -163,11 +169,11 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Odometry_Y_global_TEAR_ft__Entry;
         nt::NetworkTableEntry __Odometry_Y_global_est_ft__Entry;
         nt::NetworkTableEntry __Robot_Reached_Destination__Entry;
-        nt::NetworkTableEntry __Shooter_Left_Motor_DC__Entry;
-        nt::NetworkTableEntry __Shooter_Left_Motor_Speed__Entry;
-        nt::NetworkTableEntry __Shooter_Right_Motor_DC__Entry;
-        nt::NetworkTableEntry __Shooter_Right_Motor_Speed__Entry;
-        nt::NetworkTableEntry __Shooter_Speed_Control_Enable__Entry;
+        nt::NetworkTableEntry __Shooter_Motor_DC_Left__Entry;
+        nt::NetworkTableEntry __Shooter_Motor_DC_Right__Entry;
+        nt::NetworkTableEntry __Shooter_Motor_Speed_Control_Ena__Entry;
+        nt::NetworkTableEntry __Shooter_Motor_Speed_Left__Entry;
+        nt::NetworkTableEntry __Shooter_Motor_Speed_Right__Entry;
         nt::NetworkTableEntry __Spline_Enable__Entry;
         nt::NetworkTableEntry __Spline_Index__Entry;
         nt::NetworkTableEntry __Spline_Num_Poses__Entry;

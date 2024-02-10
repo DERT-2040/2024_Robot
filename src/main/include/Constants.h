@@ -73,5 +73,6 @@ public:
         static constexpr uint8_t TOF_ID = 1;
         static constexpr int Left_Shooter_Motor_CANID = 5;
         static constexpr int Right_Shooter_Motor_CANID = 21;
+        static constexpr int Unicorn_Horn_Servo_PWM_Channel = 1;
     };
 };

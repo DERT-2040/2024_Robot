@@ -4,6 +4,7 @@
 #include "include/Constants.h"
 #include "Code_Gen_Model_ert_rtw/Code_Gen_Model.h"
 #include <TimeOfFlight.h>
+#include <frc/Servo.h>
 
 class Shooter
 {
@@ -19,4 +20,6 @@ private:
     
     rev::SparkRelativeEncoder Left_Relative_Encoder{Left_Motor.GetEncoder(rev::SparkRelativeEncoder::Type::kHallSensor, 42)};
     rev::SparkRelativeEncoder Right_Relative_Encoder{Right_Motor.GetEncoder(rev::SparkRelativeEncoder::Type::kHallSensor, 42)};
+
+    frc::Servo Unicorn_Horn_Servo{Constants::Shooter_Constants::Unicorn_Horn_Servo_PWM_Channel};
 };

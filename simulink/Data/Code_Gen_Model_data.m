@@ -258,31 +258,42 @@ Spline_Last_Pose_Distance_to_Velocity_Gain = 2; % (m/sec) / (m)
 Spline_Velocity_Multiplier_TEST = 1.0;  % velocity scaling for test purposes only
 
 %% Intake and Shooter Parameters
-% Pickup from floor
-Intake_Note_Detect_Dist = 100;  % mm
+% Time of Flight sensor distance for detecting in intake
+Note_Detect_Dist_Intake = 100;  % mm
 
-% Transfer to shooter
-Shooter_Note_Detect_Dist = 70;  % mm
+% Time of Flight sensor distance for detecting in shooter
+Note_Detect_Dist_Shooter = 60;  % mm
+
+% Time to run shooter before running intake
+Note_Time_Shooter_Spin_Up = 0.5;  % seconds
+
+% Shooter desired speed for storing note
+Shooter_Motor_DesSpd_Store = 450; % rpm
+
+% Time to continue running shooter after detecting the note
+Note_Time_Transfer = 0.1;  % seconds
+
+% Shooter duty cycle for ejecting note
+Shooter_DC_Eject = 0.2; % duty cycle
+
+% Time to run shooter for secoring in amp/trap
+Note_Time_Eject = 0.5; % seconds
+
+% Shooter Servo (note stopper)
+Servo_Position_Store = 0; % ratio of max travel
+Servo_Position_Deploy = 1; % ratio of max travel
+Servo_Time_Store = 0.2; % seconds
+Servo_Time_Deploy = 0.4; % seconds
 
 % Shooter speed control PID for transfer
-Shooter_Desired_Speed = 450; % rpm
 Shooter_Motor_Control_FF= 0.00025;  % 1 DC / Max Speed RPM;
 Shooter_Motor_Control_P = 0.00010;
 Shooter_Motor_Control_I = 0.00002;
 Shooter_Motor_Control_I_UL = 0.1;
 Shooter_Motor_Control_I_LL = -0.1;
 
-% Time to run shooter before running intake
-Note_Shooter_Spin_Up_Time = 2.0;  % seconds
-
-% Time to continue running shooter after detecting the note
-Note_Transfer_Time = 0.06;  % seconds
-
-% Shooter Eject
-Shooter_Eject_DC = 0.2; % duty cycle for amp/trap scoring
-Note_Eject_Time = 0.5; % seconds to turn motors on for amp/trap scoring
-
 % temporary variables for testing
 TEST_Request_Note_Pickup = 0;
 TEST_Request_Note_Transfer = 0;
 TEST_Request_Note_Eject = 0;
+TEST_Request_Note_Pickup_AND_Transfer = 0;
