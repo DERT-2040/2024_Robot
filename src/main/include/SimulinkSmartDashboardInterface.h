@@ -32,8 +32,9 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Note_Detect_Dist_Intake__Entry;
         nt::NetworkTableEntry __Note_Detect_Dist_Shooter__Entry;
         nt::NetworkTableEntry __Note_Time_Eject__Entry;
-        nt::NetworkTableEntry __Note_Time_Shooter_Spin_Up__Entry;
+        nt::NetworkTableEntry __Note_Time_Speaker_Spin_Up__Entry;
         nt::NetworkTableEntry __Note_Time_Transfer__Entry;
+        nt::NetworkTableEntry __Note_Time_Transfer_Spin_Up__Entry;
         nt::NetworkTableEntry __Odometry_IC_X__Entry;
         nt::NetworkTableEntry __Odometry_IC_Y__Entry;
         nt::NetworkTableEntry __Odometry_Reset_IC__Entry;
@@ -49,6 +50,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Shooter_Motor_Control_I_UL__Entry;
         nt::NetworkTableEntry __Shooter_Motor_Control_P__Entry;
         nt::NetworkTableEntry __Shooter_Motor_DesSpd_Store__Entry;
+        nt::NetworkTableEntry __Shooter_Motor_Speed_Transition__Entry;
         nt::NetworkTableEntry __Spline_Last_Pose_Distance_to_Velocity_Gain__Entry;
         nt::NetworkTableEntry __Spline_Max_Centripital_Acceleration__Entry;
         nt::NetworkTableEntry __Spline_Pose_Num_Before_End_Reduce_Speed__Entry;
@@ -85,7 +87,11 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __TEST_Request_Note_Eject__Entry;
         nt::NetworkTableEntry __TEST_Request_Note_Pickup__Entry;
         nt::NetworkTableEntry __TEST_Request_Note_Pickup_AND_Transfer__Entry;
+        nt::NetworkTableEntry __TEST_Request_Note_Speaker__Entry;
         nt::NetworkTableEntry __TEST_Request_Note_Transfer__Entry;
+        nt::NetworkTableEntry __TEST_Servo_Override_Flag__Entry;
+        nt::NetworkTableEntry __TEST_Servo_Override_Value__Entry;
+        nt::NetworkTableEntry __Test_Shooter_Angle__Entry;
         nt::NetworkTableEntry __Translation_Speed_Approach_Zero_Error_Thresh__Entry;
         nt::NetworkTableEntry __Translation_Speed_Approach_Zero_Final_Thresh__Entry;
         nt::NetworkTableEntry __Translation_Speed_NonZero_Error_Thresh__Entry;
@@ -174,6 +180,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Shooter_Motor_Speed_Control_Ena__Entry;
         nt::NetworkTableEntry __Shooter_Motor_Speed_Left__Entry;
         nt::NetworkTableEntry __Shooter_Motor_Speed_Right__Entry;
+        nt::NetworkTableEntry __Shooter_Servo_Pos__Entry;
         nt::NetworkTableEntry __Spline_Enable__Entry;
         nt::NetworkTableEntry __Spline_Index__Entry;
         nt::NetworkTableEntry __Spline_Num_Poses__Entry;

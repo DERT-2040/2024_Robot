@@ -37,7 +37,7 @@
               "_showGlyph": false
             }
           },
-          "6,3": {
+          "5,3": {
             "size": [
               1,
               1
@@ -50,7 +50,7 @@
               "_showGlyph": false
             }
           },
-          "7,3": {
+          "6,3": {
             "size": [
               1,
               1
@@ -63,7 +63,7 @@
               "_showGlyph": false
             }
           },
-          "8,3": {
+          "7,3": {
             "size": [
               1,
               1
@@ -96,19 +96,6 @@
               "Visible data/Simulink Top Level Ports/Shooter_TOF_Dist": true
             }
           },
-          "2,3": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///Simulink Tunable Params/Note_Transfer_Time",
-              "_title": "Simulink Tunable Params/Note_Transfer_Time",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
           "7,0": {
             "size": [
               3,
@@ -138,73 +125,8 @@
             ],
             "content": {
               "_type": "Text View",
-              "_source0": "network_table:///Simulink Tunable Params/Shooter_Motor_Control_P",
-              "_title": "/Simulink Tunable Params/Shooter_Motor_Control_P",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "5,3": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
               "_source0": "network_table:///Simulink Test Points/Note_State_ID",
               "_title": "/Simulink Test Points/Note_State_ID",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "3,3": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///Simulink Tunable Params/Note_Shooter_Spin_Up_Time",
-              "_title": "/Simulink Tunable Params/Note_Shooter_Spin_Up_Time",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "3,0": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///Simulink Tunable Params/Shooter_Desired_Speed",
-              "_title": "/Simulink Tunable Params/Shooter_Desired_Speed",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "3,2": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///Simulink Tunable Params/Shooter_Note_Detect_Dist",
-              "_title": "Simulink Tunable Params/Shooter_Note_Detect_Dist",
-              "_glyph": 148,
-              "_showGlyph": false
-            }
-          },
-          "3,1": {
-            "size": [
-              1,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///Simulink Tunable Params/Intake_Note_Detect_Dist",
-              "_title": "Simulink Tunable Params/Intake_Note_Detect_Dist",
               "_glyph": 148,
               "_showGlyph": false
             }
@@ -231,7 +153,7 @@
               "Visible data/Simulink Top Level Ports/Shooter_Right_Motor_DutyCycle": true
             }
           },
-          "9,3": {
+          "8,3": {
             "size": [
               1,
               1
@@ -240,6 +162,71 @@
               "_type": "Text View",
               "_source0": "network_table:///Simulink Tunable Params/TEST_Request_Note_Pickup_AND_Transfer",
               "_title": "Simulink Tunable Params/TEST_Request_Note_Pickup_AND_Transfer",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "9,3": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///Simulink Tunable Params/TEST_Request_Note_Speaker",
+              "_title": "Simulink Tunable Params/TEST_Request_Note_Speaker",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "3,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///Simulink Top Level Ports/Shooter_Left_Motor_RPM",
+              "_title": "Simulink Top Level Ports/Shooter_Left_Motor_RPM",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "3,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///Simulink Top Level Ports/Shooter_Right_Motor_RPM",
+              "_title": "Simulink Top Level Ports/Shooter_Right_Motor_RPM",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "3,2": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///Simulink Top Level Ports/Shooter_Left_Motor_DutyCycle",
+              "_title": "Simulink Top Level Ports/Shooter_Left_Motor_DutyCycle",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "3,3": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///Simulink Top Level Ports/Shooter_Right_Motor_DutyCycle",
+              "_title": "Simulink Top Level Ports/Shooter_Right_Motor_DutyCycle",
               "_glyph": 148,
               "_showGlyph": false
             }

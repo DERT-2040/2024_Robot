@@ -59,7 +59,7 @@ void Robot::TestPeriodic() {
      * Wheel calibration procedure:
      * 1. Go into 'Test' game state
      * 2. Push the Wheel Off button (left/drive joystick button #6).  This sets steering duty cycle to 0 and puts them into coast mode.
-     * 3. Alight the wheels with gears facing RIGHT.  If this is done backwards then robot will steer in the opposite directions.
+     * 3. Align the wheels with gears facing RIGHT.  If this is done backwards then robot will steer in the opposite directions.
      * 4. Push the Calibrate button (left/drive joystick button #8).
      * 5. (optional) Push the Wheel On button (left/drive joystick button #11).  
      */

@@ -89,13 +89,17 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     NTinst.AddListener(__Note_Time_Eject__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Note_Time_Eject = event.GetValueEventData()->value.GetDouble();});
     __Note_Time_Eject__Entry.SetDouble(0.5);
  
-    __Note_Time_Shooter_Spin_Up__Entry = NTtable_Tune->GetEntry("Note_Time_Shooter_Spin_Up");
-    NTinst.AddListener(__Note_Time_Shooter_Spin_Up__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Note_Time_Shooter_Spin_Up = event.GetValueEventData()->value.GetDouble();});
-    __Note_Time_Shooter_Spin_Up__Entry.SetDouble(0.5);
+    __Note_Time_Speaker_Spin_Up__Entry = NTtable_Tune->GetEntry("Note_Time_Speaker_Spin_Up");
+    NTinst.AddListener(__Note_Time_Speaker_Spin_Up__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Note_Time_Speaker_Spin_Up = event.GetValueEventData()->value.GetDouble();});
+    __Note_Time_Speaker_Spin_Up__Entry.SetDouble(0.2);
  
     __Note_Time_Transfer__Entry = NTtable_Tune->GetEntry("Note_Time_Transfer");
     NTinst.AddListener(__Note_Time_Transfer__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Note_Time_Transfer = event.GetValueEventData()->value.GetDouble();});
     __Note_Time_Transfer__Entry.SetDouble(0.1);
+ 
+    __Note_Time_Transfer_Spin_Up__Entry = NTtable_Tune->GetEntry("Note_Time_Transfer_Spin_Up");
+    NTinst.AddListener(__Note_Time_Transfer_Spin_Up__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Note_Time_Transfer_Spin_Up = event.GetValueEventData()->value.GetDouble();});
+    __Note_Time_Transfer_Spin_Up__Entry.SetDouble(0.5);
  
     __Odometry_IC_X__Entry = NTtable_Tune->GetEntry("Odometry_IC_X");
     NTinst.AddListener(__Odometry_IC_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Odometry_IC_X = event.GetValueEventData()->value.GetDouble();});
@@ -156,6 +160,10 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Shooter_Motor_DesSpd_Store__Entry = NTtable_Tune->GetEntry("Shooter_Motor_DesSpd_Store");
     NTinst.AddListener(__Shooter_Motor_DesSpd_Store__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Shooter_Motor_DesSpd_Store = event.GetValueEventData()->value.GetDouble();});
     __Shooter_Motor_DesSpd_Store__Entry.SetDouble(450);
+ 
+    __Shooter_Motor_Speed_Transition__Entry = NTtable_Tune->GetEntry("Shooter_Motor_Speed_Transition");
+    NTinst.AddListener(__Shooter_Motor_Speed_Transition__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Shooter_Motor_Speed_Transition = event.GetValueEventData()->value.GetDouble();});
+    __Shooter_Motor_Speed_Transition__Entry.SetDouble(2000);
  
     __Spline_Last_Pose_Distance_to_Velocity_Gain__Entry = NTtable_Tune->GetEntry("Spline_Last_Pose_Distance_to_Velocity_Gain");
     NTinst.AddListener(__Spline_Last_Pose_Distance_to_Velocity_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Spline_Last_Pose_Distance_to_Velocity_Gain = event.GetValueEventData()->value.GetDouble();});
@@ -301,9 +309,25 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     NTinst.AddListener(__TEST_Request_Note_Pickup_AND_Transfer__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Request_Note_Pickup_AND_Transfer = event.GetValueEventData()->value.GetDouble();});
     __TEST_Request_Note_Pickup_AND_Transfer__Entry.SetDouble(0);
  
+    __TEST_Request_Note_Speaker__Entry = NTtable_Tune->GetEntry("TEST_Request_Note_Speaker");
+    NTinst.AddListener(__TEST_Request_Note_Speaker__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Request_Note_Speaker = event.GetValueEventData()->value.GetDouble();});
+    __TEST_Request_Note_Speaker__Entry.SetDouble(0);
+ 
     __TEST_Request_Note_Transfer__Entry = NTtable_Tune->GetEntry("TEST_Request_Note_Transfer");
     NTinst.AddListener(__TEST_Request_Note_Transfer__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Request_Note_Transfer = event.GetValueEventData()->value.GetDouble();});
     __TEST_Request_Note_Transfer__Entry.SetDouble(0);
+ 
+    __TEST_Servo_Override_Flag__Entry = NTtable_Tune->GetEntry("TEST_Servo_Override_Flag");
+    NTinst.AddListener(__TEST_Servo_Override_Flag__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Servo_Override_Flag = event.GetValueEventData()->value.GetDouble();});
+    __TEST_Servo_Override_Flag__Entry.SetDouble(0);
+ 
+    __TEST_Servo_Override_Value__Entry = NTtable_Tune->GetEntry("TEST_Servo_Override_Value");
+    NTinst.AddListener(__TEST_Servo_Override_Value__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Servo_Override_Value = event.GetValueEventData()->value.GetDouble();});
+    __TEST_Servo_Override_Value__Entry.SetDouble(0);
+ 
+    __Test_Shooter_Angle__Entry = NTtable_Tune->GetEntry("Test_Shooter_Angle");
+    NTinst.AddListener(__Test_Shooter_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Test_Shooter_Angle = event.GetValueEventData()->value.GetDouble();});
+    __Test_Shooter_Angle__Entry.SetDouble(35);
  
     __Translation_Speed_Approach_Zero_Error_Thresh__Entry = NTtable_Tune->GetEntry("Translation_Speed_Approach_Zero_Error_Thresh");
     NTinst.AddListener(__Translation_Speed_Approach_Zero_Error_Thresh__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Translation_Speed_Approach_Zero_Error_Thresh = event.GetValueEventData()->value.GetDouble();});
@@ -411,6 +435,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Shooter_Motor_Speed_Control_Ena__Entry = NTtable_TPoint->GetEntry("Shooter_Motor_Speed_Control_Ena");
     __Shooter_Motor_Speed_Left__Entry = NTtable_TPoint->GetEntry("Shooter_Motor_Speed_Left");
     __Shooter_Motor_Speed_Right__Entry = NTtable_TPoint->GetEntry("Shooter_Motor_Speed_Right");
+    __Shooter_Servo_Pos__Entry = NTtable_TPoint->GetEntry("Shooter_Servo_Pos");
     __Spline_Enable__Entry = NTtable_TPoint->GetEntry("Spline_Enable");
     __Spline_Index__Entry = NTtable_TPoint->GetEntry("Spline_Index");
     __Spline_Num_Poses__Entry = NTtable_TPoint->GetEntry("Spline_Num_Poses");
@@ -517,6 +542,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Shooter_Motor_Speed_Control_Ena__Entry.SetDouble(Code_Gen_Model_B.Shooter_Motor_Speed_Control_Ena);
     __Shooter_Motor_Speed_Left__Entry.SetDouble(Code_Gen_Model_B.Shooter_Motor_Speed_Left);
     __Shooter_Motor_Speed_Right__Entry.SetDouble(Code_Gen_Model_B.Shooter_Motor_Speed_Right);
+    __Shooter_Servo_Pos__Entry.SetDouble(Code_Gen_Model_B.Shooter_Servo_Pos);
     __Spline_Enable__Entry.SetDouble(Code_Gen_Model_B.Spline_Enable);
     __Spline_Index__Entry.SetDouble(Code_Gen_Model_B.Spline_Index);
     __Spline_Num_Poses__Entry.SetDouble(Code_Gen_Model_B.Spline_Num_Poses);

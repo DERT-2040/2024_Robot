@@ -265,7 +265,7 @@ Note_Detect_Dist_Intake = 100;  % mm
 Note_Detect_Dist_Shooter = 60;  % mm
 
 % Time to run shooter before running intake
-Note_Time_Shooter_Spin_Up = 0.5;  % seconds
+Note_Time_Transfer_Spin_Up = 0.5;  % seconds
 
 % Shooter desired speed for storing note
 Shooter_Motor_DesSpd_Store = 450; % rpm
@@ -278,6 +278,12 @@ Shooter_DC_Eject = 0.2; % duty cycle
 
 % Time to run shooter for secoring in amp/trap
 Note_Time_Eject = 0.5; % seconds
+
+% Lookup table from angle input
+Shooter_Angle_Input = [25 35 45 55];
+Shooter_Speed_Output = [6000 5000 4000 3000];
+Shooter_Motor_Speed_Transition = 2000;
+Note_Time_Speaker_Spin_Up = 0.2;
 
 % Shooter Servo (note stopper)
 Servo_Position_Store = 0; % ratio of max travel
@@ -296,4 +302,8 @@ Shooter_Motor_Control_I_LL = -0.1;
 TEST_Request_Note_Pickup = 0;
 TEST_Request_Note_Transfer = 0;
 TEST_Request_Note_Eject = 0;
+TEST_Request_Note_Speaker = 0;
 TEST_Request_Note_Pickup_AND_Transfer = 0;
+TEST_Servo_Override_Flag = 0;
+TEST_Servo_Override_Value = 0;
+Test_Shooter_Angle = 35;
