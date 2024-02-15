@@ -14,6 +14,16 @@ void PhotonVisionInterface::PreStep() {
         double tmp_totalRobotPoseAmbiguity = 0;
         for (const auto& target : photonTrackedTargets) {
             tmp_totalRobotPoseAmbiguity += static_cast<double>(target.GetPoseAmbiguity());
+            if (target.GetFiducialId() == 7) {
+                Code_Gen_Model_U.AP_Tag_7_Yaw = target.GetPitch();
+                Code_Gen_Model_U.AP_Tag_7_Pose_X = target.GetBestCameraToTarget().X().value();
+                Code_Gen_Model_U.AP_Tag_7_Pose_Y = target.GetBestCameraToTarget().Y().value();
+            }
+            if (target.GetFiducialId() == 4) {
+                Code_Gen_Model_U.AP_Tag_4_Yaw = target.GetPitch();
+                Code_Gen_Model_U.AP_Tag_4_Pose_X = target.GetBestCameraToTarget().X().value();
+                Code_Gen_Model_U.AP_Tag_4_Pose_Y = target.GetBestCameraToTarget().Y().value();
+            }
         }
         averageRobotPoseAmbiguity = tmp_totalRobotPoseAmbiguity / photonTrackedTargets.size();
     }
