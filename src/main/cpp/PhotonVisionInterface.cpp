@@ -13,16 +13,19 @@ void PhotonVisionInterface::PreStep() {
     if (latestPipelineResult.HasTargets()) {
         double tmp_totalRobotPoseAmbiguity = 0;
         for (const auto& target : photonTrackedTargets) {
+            int targetId = target.GetFiducialId();
             tmp_totalRobotPoseAmbiguity += static_cast<double>(target.GetPoseAmbiguity());
-            if (target.GetFiducialId() == 7) {
-                Code_Gen_Model_U.AP_Tag_7_Yaw = target.GetPitch();
-                Code_Gen_Model_U.AP_Tag_7_Pose_X = target.GetBestCameraToTarget().X().value();
-                Code_Gen_Model_U.AP_Tag_7_Pose_Y = target.GetBestCameraToTarget().Y().value();
+            if (targetId == 7) {
+                Code_Gen_Model_U.AT_Tag_7_Yaw = target.GetYaw();
             }
-            if (target.GetFiducialId() == 4) {
-                Code_Gen_Model_U.AP_Tag_4_Yaw = target.GetPitch();
-                Code_Gen_Model_U.AP_Tag_4_Pose_X = target.GetBestCameraToTarget().X().value();
-                Code_Gen_Model_U.AP_Tag_4_Pose_Y = target.GetBestCameraToTarget().Y().value();
+            if (targetId == 4) {
+                Code_Gen_Model_U.AT_Tag_4_Yaw = target.GetYaw();
+            }
+            if (targetId == 6) {
+                Code_Gen_Model_U.AT_Tag_6_Yaw = target.GetYaw();
+            }
+            if (targetId == 5) {
+                Code_Gen_Model_U.AT_Tag_5_Yaw = target.GetYaw();
             }
         }
         averageRobotPoseAmbiguity = tmp_totalRobotPoseAmbiguity / photonTrackedTargets.size();
