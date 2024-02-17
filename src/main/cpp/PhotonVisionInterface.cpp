@@ -53,6 +53,10 @@ void PhotonVisionInterface::SmartDashboardCallback() {
     frc::SmartDashboard::PutNumber("RobotX", static_cast<double>(robot2dPose.X()));
     frc::SmartDashboard::PutNumber("RobotY", static_cast<double>(robot2dPose.Y()));
     frc::SmartDashboard::PutNumber("RobotGlobalPoseAmbiguity", averageRobotPoseAmbiguity);
+    frc::SmartDashboard::PutNumber("AT_Tag_4_Yaw", AT_Tag_4_Yaw);
+    frc::SmartDashboard::PutNumber("AT_Tag_5_Yaw", AT_Tag_5_Yaw);
+    frc::SmartDashboard::PutNumber("AT_Tag_6_Yaw", AT_Tag_6_Yaw);
+    frc::SmartDashboard::PutNumber("AT_Tag_7_Yaw", AT_Tag_7_Yaw);
 }
 
 frc::Pose2d PhotonVisionInterface::GetEstimatedGlobalPose() {
