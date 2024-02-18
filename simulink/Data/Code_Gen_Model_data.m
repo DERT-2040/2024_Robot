@@ -19,6 +19,7 @@ Not_Tunable_List = {'t_sample',...
 % sample time model
 t_sample = 0.02;
 
+
 %% Joystick Command Profiling
 
 % Absolute Steering Circular Deadband
@@ -51,6 +52,7 @@ Boost_Trigger_Low_Speed = 1.5; % m/s
 Boost_Trigger_Increasing_Limit = 2/1*0.02;
 Boost_Trigger_Decreasing_Limit = -2/0.9*0.02;
 
+
 %% Wheel Gear Ratio
 gear_ratio = 8.14;
 wheel_diameter = 0.101600203;
@@ -69,6 +71,7 @@ adjustment_factor = 0.951;  % 177.33/186.44
 Motor_Rev_to_Wheel_Distance = wheel_diameter*pi/gear_ratio*adjustment_factor; % m/rev
 
 clear gear_ratio wheel_diameter adjustment_factor
+
 
 %% Wheel Locations from Center of Rotation
 % distances between swerve modules
@@ -93,6 +96,7 @@ Distance_BR_x = -FrontBack/2;
 Distance_BR_y = -LeftRight/2;
 
 clear FrontBack LeftRight
+
 
 %% Odometry rotation matrix
 % robot rotation matrix to obtain: 
@@ -124,11 +128,13 @@ Odometry_X_Y_TEAR = 0;
 
 clear temp
 
+
 %% Kalman Filter
 KF_Enable = 0;
 KF_Odom_Covariance = 0.001*eye(2);
 KF_Vision_Covariance = 0.1*eye(2);
 KF_Vision_Ambiguity_Thresh = 0.25;  % below this threshold trust the vision estimate
+
 
 %% Drive Motor PID
 Drive_Motor_Control_FF= 1/Drive_Motor_Max_Speed;  % 1 DC / Max Speed RPM;
@@ -153,6 +159,7 @@ Drive_Motor_Control_Scale_Factor = [1 0.05];
 
 clear Drive_Motor_Max_Speed Derivative_low_pass_filter_freq
 
+
 %% Steering Motor PID
 Steering_Motor_Control_P = 0.15;
 
@@ -167,6 +174,7 @@ Steering_Motor_Control_D_UL = 0.2;
 Steering_Motor_Control_D_LL = -Drive_Motor_Control_D_UL;
 
 clear Derivative_low_pass_filter_freq
+
 
 %% Steering Heading PID
 Steering_Heading_Control_P = 1.5;
@@ -187,6 +195,7 @@ Steering_Heading_Control_Deadzone = 0.1;
 
 clear Derivative_low_pass_filter_freq
 
+
 %% Translation Speed Rate Limit
 Translation_Speed_Rate_Limit_Inc =  3/0.7*0.02;
 Translation_Speed_Rate_Limit_Dec = -2/0.2*0.02;
@@ -195,6 +204,7 @@ Translation_Speed_Approach_Zero_Final_Thresh = 0.01;
 Translation_Speed_NonZero_Error_Thresh = 0.15;
 Translation_Speed_NonZero_Final_Scale_Factor = 0.05;
 
+
 %% Steering Localized Cmd Rate Limit
 Steering_Localized_Cmd_Rate_Limit_Inc = 1/0.25*0.02*0 + 1;
 Steering_Localized_Cmd_Rate_Limit_Dec = -1/0.25*0.02*0 - 1;
@@ -202,6 +212,7 @@ Steering_Localized_Cmd_Approach_Zero_Error_Thresh = 0.2;
 Steering_Localized_Cmd_Approach_Zero_Final_Thresh = 0.01;
 Steering_Localized_Cmd_NonZero_Error_Thresh = 0.2;
 Steering_Localized_Cmd_NonZero_Final_Scale_Factor = 0.1;
+
 
 %% Spline Path Following
 % Not tunable while running
@@ -261,6 +272,7 @@ Spline_Pose_Num_Before_End_Reduce_Speed = 1;  % index count
 Spline_Last_Pose_Distance_to_Velocity_Gain = 2; % (m/sec) / (m)
 Spline_Velocity_Multiplier_TEST = 1.0;  % velocity scaling for test purposes only
 
+
 %% Intake and Shooter Parameters
 % Time of Flight sensor distance for detecting in intake
 Note_Detect_Dist_Intake = 100;  % mm
@@ -303,48 +315,42 @@ Shooter_Motor_Control_I_UL = 0.1;
 Shooter_Motor_Control_I_LL = -0.1;
 
 % temporary variables for testing
-TEST_Request_Note_Pickup = 0;
-TEST_Request_Note_Transfer = 0;
-TEST_Request_Note_Eject = 0;
-TEST_Request_Note_Speaker = 0;
-TEST_Request_Note_Pickup_AND_Transfer = 0;
+TEST_Intake_Shooter_State_Request = 0;
+    % 0 = Inactive
+    % 1 = Note Pickup
+    % 2 = Note Transfer
+    % 3 = Note Pickup and Transfer
+    % 4 = Note Eject
+    % 5 = Note Speaker
+
 TEST_Servo_Override_Flag = 0;
 TEST_Servo_Override_Value = 0;
-TEST_Shooter_Angle = 35;
-TEST_Ball_Screw_Motor_DC = 0;
+
 
 %% Arm Length Calculation
-% Encoder distance per revolution
+% Encoder distance per revolution (mm / motor rev)
 Dist_Per_Rev_Back_Lower = ((1.75 * pi) / 20) * 25.4; % 20:1 gear box, 1.75 inch diameter sprocket, 25.4 mm per inch
 Dist_Per_Rev_Back_Upper = ((1.75 * pi) / 20) * 25.4; % 20:1 gear box, 1.75 inch diameter sprocket, 25.4 mm per inch
 Dist_Per_Rev_Front = ((1.75 * pi) / 20) * 25.4; % 20:1 gear box, 1.75 inch diameter sprocket, 25.4 mm per inch
 Dist_Per_Rev_Ball_Screw =(1 / (2 * 3 * 8)) * 25.4; % 2:1 pully, 3:1 gear box, 1 inch per 8 ball screw revolutions, 25.4 mm per inch
 
-% Low Pass Filter Coefficient
-TOF_Low_Pass_Coeff = 0.1;
+% Distance reset values (mm)
+Dist_Reset_Value_Back_Lower = 0;
+Dist_Reset_Value_Back_Upper = 0;
+Dist_Reset_Value_Front = 0;
+Dist_Reset_Value_Ball_Screw = 0;
 
-% TOF Linearization Input Vector
-Back_Lower_Linearization_Input = [0, 2000];
-Back_Upper_Linearization_Input = [0, 2000];
-Front_Linearization_Input = [0, 2000];
-Ball_Screw_Linearization_Input = [0, 2000];
+% Distance reset motor current thresholds (Amps)
+Dist_Reset_Motor_Current_Back_Lower = 10;
+Dist_Reset_Motor_Current_Back_Upper = 10;
+Dist_Reset_Motor_Current_Front = 10;
+Dist_Reset_Motor_Current_Ball_Screw = 10;
 
-% TOF Linearization Output Vector
-Back_Lower_Linearization_Output = [0, 2000];
-Back_Upper_Linearization_Output = [0, 2000];
-Front_Linearization_Output = [0, 2000];
-Ball_Screw_Linearization_Output = [0, 2000];
-
-% Distance reset
-TOF_Dist_Reset_Enable = 0;
-HC_Dist_Reset_Value_Back_Lower = 0;
-HC_Dist_Reset_Value_Back_Upper = 0;
-HC_Dist_Reset_Value_Front = 0;
-HC_Dist_Reset_Value_Ball_Screw = 0;
-
-% Distance Resets
-TEST_Arm_Dist_Reset_TOF = 0;
-TEST_Arm_Dist_Reset_Hard_Coded = 0;
+% Duty cycle commands for arm calibrations
+Cal_Back_Upper_Arm_DC = 0.2;
+Cal_Back_Lower_Arm_DC = 0.2;
+Cal_Front_Arm_DC = 0.2;
+Cal_Ball_Screw_Arm_DC = 0.2;
 
 
 %% Arms Dimension Data
@@ -403,36 +409,50 @@ Front_AA_length = (20-1/16)*25.4;
 Back_AA_Bot_Min_Ext = 9.5;
 Back_AA_Bot_Max_Ext = (18-1/16)*25.4;
 
+
 %% Arm Position Tuning
 % Arm Position Inputs
-Stage_Angle = 25;       % degrees
-Stage_Height = 20*25.4; % mm
-Stage_Gap = 9*25.4;     % mm
+Stage_Angle = 26;       % degrees
+Stage_Height = 19.8*25.4; % mm
+Stage_Gap = 8.5*25.4;     % mm
 
 LoadShooter_Angle = 35;
-LoadShooter_Height = 20*25.4;
+LoadShooter_Height = 24.6*25.4;
 LoadShooter_Gap = 11*25.4;
 
-Amp_Angle = -45;
-Amp_Height = 30*25.4;
-Amp_Gap = 11*25.4;
+Amp_Angle = -50;
+Amp_Height = 36.2*25.4;
+Amp_Gap = 22.5*25.4;
 
-Trap_Angle = -45;
-Trap_Height = 30*25.4;
-Trap_Gap = 11*25.4;
+Trap_Angle = -26.5;
+Trap_Height = 42.5*25.4;
+Trap_Gap = 27.3*25.4;
 
 Tol_Angle = 5;
 Tol_Height = 0.5*25.4;
-Tol_Gap = 0.25*25.4;
+Tol_Gap = 0.125*25.4;
 
+Speaker_Angle_in = [25 30 35 40 45 50 55]; % degrees
+Spearker_Height_out = [24.7 24.7 24.7 24.7 24.7 24.7 24.7]*25.4; % mm
 Speaker_Gap = 11*25.4;
 
 % Testing
-TEST_State_Request = 0;
-TEST_Speaker_Height = 23;  % inches
-TEST_Speaker_Angle = 40;  % degrees
+TEST_Arm_State_Request = 0;
+    % 0 = Travel/Stage
+    % 1 = Speaker
+    % 2 = Load Shooter
+    % 3 = Amp
+    % 4 = Trap
+TEST_Speaker_Height = 0;  % mm
+TEST_Speaker_Angle = 45;  % degrees
 
-%% Arms PD Control Gains
+
+%% Arm Control Gains
+AA_Position_Inc_RL = 1/1*(25.4*t_sample); % in/sec converted to mm/loop
+AA_Position_Dec_RL = -1/1*(25.4*t_sample); % in/sec converted to mm/loop
+BS_Position_Inc_RL = 0.1/1*(25.4*t_sample); % in/sec converted to mm/loop
+BS_Position_Dec_RL = -0.1/1*(25.4*t_sample); % in/sec converted to mm/loop
+
 AA_Prop_Gain = 0;
 AA_Deriv_Gain = 0;
 AA_Deriv_FC = 0.2;
