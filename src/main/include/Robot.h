@@ -15,6 +15,7 @@
 #include "include/TelescopingArm.h"
 #include "include/Intake.h"
 #include "include/Shooter.h"
+#include "include/BallScrew.h"
 
 //frc
 #include <frc/TimedRobot.h>
@@ -156,4 +157,9 @@ private:
    * Component that includes all arms and motors and sensors on the shooter mechanism 2024
   */
   Shooter m_Shooter;
+
+  /**
+   * Component that represents the ball screw for the 2024 robot
+  */
+  BallScrew m_BallScrew;
 };

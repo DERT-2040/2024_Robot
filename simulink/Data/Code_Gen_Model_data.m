@@ -10,6 +10,10 @@ Not_Tunable_List = {'t_sample',...
     'Spline_Velocity_Axis','Spline_Capture_Radius','Spline_Lookahead_Dist',...
     'Spline_Num_Poses_default','Spline_Num_Poses_auto1','Spline_Num_Poses_auto2','Spline_Num_Poses_auto3',...
     'Spline_Ref_Poses_default','Spline_Ref_Poses_auto1','Spline_Ref_Poses_auto2','Spline_Ref_Poses_auto3'...
+    'l_1','l_2','l_3','l_4','l_5','l_6','l_7','l_8','l_9','l_10','l_11',...
+    'Back_AA_spacing','Back_AA_length',...
+    'Back_AA_Bot_Min_Ext','Back_AA_Bot_Max_Ext','Back_AA_Top_Min_Ext','Back_AA_Top_Max_Ext',...
+    'Front_AA_spacing','Front_AA_length','Back_AA_Bot_Min_Ext','Back_AA_Bot_Max_Ext',...
 };
 
 % sample time model
@@ -306,4 +310,141 @@ TEST_Request_Note_Speaker = 0;
 TEST_Request_Note_Pickup_AND_Transfer = 0;
 TEST_Servo_Override_Flag = 0;
 TEST_Servo_Override_Value = 0;
-Test_Shooter_Angle = 35;
+TEST_Shooter_Angle = 35;
+TEST_Ball_Screw_Motor_DC = 0;
+
+%% Arm Length Calculation
+% Encoder distance per revolution
+Dist_Per_Rev_Back_Lower = ((1.75 * pi) / 20) * 25.4; % 20:1 gear box, 1.75 inch diameter sprocket, 25.4 mm per inch
+Dist_Per_Rev_Back_Upper = ((1.75 * pi) / 20) * 25.4; % 20:1 gear box, 1.75 inch diameter sprocket, 25.4 mm per inch
+Dist_Per_Rev_Front = ((1.75 * pi) / 20) * 25.4; % 20:1 gear box, 1.75 inch diameter sprocket, 25.4 mm per inch
+Dist_Per_Rev_Ball_Screw =(1 / (2 * 3 * 8)) * 25.4; % 2:1 pully, 3:1 gear box, 1 inch per 8 ball screw revolutions, 25.4 mm per inch
+
+% Low Pass Filter Coefficient
+TOF_Low_Pass_Coeff = 0.1;
+
+% TOF Linearization Input Vector
+Back_Lower_Linearization_Input = [0, 2000];
+Back_Upper_Linearization_Input = [0, 2000];
+Front_Linearization_Input = [0, 2000];
+Ball_Screw_Linearization_Input = [0, 2000];
+
+% TOF Linearization Output Vector
+Back_Lower_Linearization_Output = [0, 2000];
+Back_Upper_Linearization_Output = [0, 2000];
+Front_Linearization_Output = [0, 2000];
+Ball_Screw_Linearization_Output = [0, 2000];
+
+% Distance reset
+TOF_Dist_Reset_Enable = 0;
+HC_Dist_Reset_Value_Back_Lower = 0;
+HC_Dist_Reset_Value_Back_Upper = 0;
+HC_Dist_Reset_Value_Front = 0;
+HC_Dist_Reset_Value_Ball_Screw = 0;
+
+% Distance Resets
+TEST_Arm_Dist_Reset_TOF = 0;
+TEST_Arm_Dist_Reset_Hard_Coded = 0;
+
+
+%% Arms Dimension Data
+% vertical offset of back Argos Arm
+l_1 = 1.0*25.4;
+
+% vertical offset of Ball Screw
+l_2 = 0.5*25.4;
+
+% horizontal length from back argos arm to Ball Screw
+l_3 = 0.317500/2*1000;
+
+% horizontal length from ball screw to front Argos Arm
+l_4 = 0.317500/2*1000;
+
+% length from pivot of front argos arm to pivot of ball screw on that arm
+l_5 = 0.3*1000;
+
+% horizontal offset from the end of gap to Back Argos Arm pivot on shooter
+l_6 = 0.042875*1000;
+
+% vertical offset from the end of gap to Back Argos Arm pivot on shooter
+l_7 = -0.076*1000;
+
+% horizontal offset from back argos arm to Front Argos Arm pivot on shooter
+l_8 = 0.155550*1000;
+
+% vertical offset from back argos arm to Front Argos Arm pivot on shooter
+l_9 = -1.0*25.4;
+
+% horizontal offset for top roller of intake
+l_10 = -0.050027*1000;
+
+% vertical offset for top roller of intake
+l_11 = 0.465697*1000;
+
+% Back arm spacing between arms
+Back_AA_spacing = 1.0*25.4;
+
+% Back arm length
+Back_AA_length = 0.428625*1000;
+
+% Back arm min and max
+Back_AA_Bot_Min_Ext = 0.011690*1000;
+Back_AA_Bot_Max_Ext = 0.271145*1000;
+Back_AA_Top_Min_Ext = 0.042585*1000;
+Back_AA_Top_Max_Ext = 0.307975*1000;
+
+% Front arm spacing between arm and pivot
+Front_AA_spacing = 1.0*25.4;
+
+% Front arm length
+Front_AA_length = (20-1/16)*25.4;
+
+% From arm min and max
+Back_AA_Bot_Min_Ext = 9.5;
+Back_AA_Bot_Max_Ext = (18-1/16)*25.4;
+
+%% Arm Position Tuning
+% Arm Position Inputs
+Stage_Angle = 25;       % degrees
+Stage_Height = 20*25.4; % mm
+Stage_Gap = 9*25.4;     % mm
+
+LoadShooter_Angle = 35;
+LoadShooter_Height = 20*25.4;
+LoadShooter_Gap = 11*25.4;
+
+Amp_Angle = -45;
+Amp_Height = 30*25.4;
+Amp_Gap = 11*25.4;
+
+Trap_Angle = -45;
+Trap_Height = 30*25.4;
+Trap_Gap = 11*25.4;
+
+Tol_Angle = 5;
+Tol_Height = 0.5*25.4;
+Tol_Gap = 0.25*25.4;
+
+Speaker_Gap = 11*25.4;
+
+% Testing
+TEST_State_Request = 0;
+TEST_Speaker_Height = 23;  % inches
+TEST_Speaker_Angle = 40;  % degrees
+
+%% Arms PD Control Gains
+AA_Prop_Gain = 0;
+AA_Deriv_Gain = 0;
+AA_Deriv_FC = 0.2;
+AA_Deriv_UL = 0.5;
+AA_Deriv_LL = -0.5;
+AA_TC_UL = 1;
+AA_TC_LL = 0;
+
+BS_Prop_Gain = 0;
+BS_Deriv_Gain = 0;
+BS_Deriv_FC = 0.2;
+BS_Deriv_UL = 0.5;
+BS_Deriv_LL = -0.5;
+BS_TC_UL = 1;
+BS_TC_LL = 0;

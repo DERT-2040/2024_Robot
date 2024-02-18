@@ -79,7 +79,7 @@ void Robot::PreStep() {
   m_SwerveDrive.PreStep();
   m_Intake.PreStep();
   m_Shooter.PreStep();
-  // Test_Arm.PreStep();
+  m_BallScrew.PreStep();
 }
 
 void Robot::PostStep() {
@@ -89,8 +89,8 @@ void Robot::PostStep() {
   m_SwerveDrive.PostStep();
   m_Intake.PostStep();
   m_Shooter.PostStep();
-  // Test_Arm.PostStep();
   m_SmartDashboard.UpdateSDValues();
+  m_BallScrew.PostStep();
 }
 
 void Robot::GameInitValues() {

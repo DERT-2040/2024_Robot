@@ -75,4 +75,10 @@ public:
         static constexpr int Right_Shooter_Motor_CANID = 21;
         static constexpr int Unicorn_Horn_Servo_PWM_Channel = 0;
     };
+
+    class BallScrew_Constants
+    {
+    public:
+        static constexpr int Ball_Screw_Motor_ID = 1;
+    };
 };

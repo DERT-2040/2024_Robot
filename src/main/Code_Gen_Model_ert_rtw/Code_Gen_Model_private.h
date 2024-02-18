@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.64
+ * Model version                  : 2.70
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Feb 10 14:46:04 2024
+ * C/C++ source code generated on : Sat Feb 17 21:34:04 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -32,6 +32,8 @@ void BINARYSEARCH_real_T(uint32_T *piLeft, uint32_T *piRght, real_T u, const
 void LookUp_real_T_real_T(real_T *pY, const real_T *pYData, real_T u, const
   real_T *pUData, uint32_T iHi);
 extern real_T look1_binlcpw(real_T u0, const real_T bp0[], const real_T table[],
+  uint32_T maxIndex);
+extern real_T look1_binlxpw(real_T u0, const real_T bp0[], const real_T table[],
   uint32_T maxIndex);
 extern void Code_Gen_Model_Disabled(real_T *rty_Gyro_Angle_Adjustment, real_T
   *rty_Steering_Abs_Cmd, real_T *rty_Steering_Rel_Cmd, real_T
