@@ -436,12 +436,6 @@ Spearker_Height_out = [24.7 24.7 24.7 24.7 24.7 24.7 24.7]*25.4; % mm
 Speaker_Gap = 11*25.4;
 
 % Testing
-TEST_Arm_State_Request = 0;
-    % 0 = Travel/Stage
-    % 1 = Speaker
-    % 2 = Load Shooter
-    % 3 = Amp
-    % 4 = Trap
 TEST_Speaker_Height = 0;  % mm
 TEST_Speaker_Angle = 45;  % degrees
 
