@@ -24,6 +24,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Amp_Angle__Entry;
         nt::NetworkTableEntry __Amp_Gap__Entry;
         nt::NetworkTableEntry __Amp_Height__Entry;
+        nt::NetworkTableEntry __Arm_Calibration_Timeout__Entry;
         nt::NetworkTableEntry __BS_Deriv_FC__Entry;
         nt::NetworkTableEntry __BS_Deriv_Gain__Entry;
         nt::NetworkTableEntry __BS_Deriv_LL__Entry;
@@ -64,6 +65,8 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Drive_Motor_Control_I_UL__Entry;
         nt::NetworkTableEntry __Drive_Motor_Control_P__Entry;
         nt::NetworkTableEntry __Drive_Motor_Control_Sign_Change_Deadband__Entry;
+        nt::NetworkTableEntry __Gamepad_Stick_Down_Threshold__Entry;
+        nt::NetworkTableEntry __Gamepad_Stick_Up_Threshold__Entry;
         nt::NetworkTableEntry __KF_Enable__Entry;
         nt::NetworkTableEntry __KF_Vision_Ambiguity_Thresh__Entry;
         nt::NetworkTableEntry __LoadShooter_Angle__Entry;
@@ -129,7 +132,6 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Steering_Motor_Control_P__Entry;
         nt::NetworkTableEntry __Steering_Relative_Gain__Entry;
         nt::NetworkTableEntry __TEST_Arm_State_Request__Entry;
-        nt::NetworkTableEntry __TEST_Intake_Shooter_State_Request__Entry;
         nt::NetworkTableEntry __TEST_Servo_Override_Flag__Entry;
         nt::NetworkTableEntry __TEST_Servo_Override_Value__Entry;
         nt::NetworkTableEntry __TEST_Speaker_Angle__Entry;
@@ -148,7 +150,6 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Trap_Height__Entry;
  
         // Inports
-        nt::NetworkTableEntry __Arm_Distance_Calibration_Active__Entry;
         nt::NetworkTableEntry __BackLeft_Drive_Motor_Rev__Entry;
         nt::NetworkTableEntry __BackLeft_Drive_Motor_Speed__Entry;
         nt::NetworkTableEntry __BackLeft_Steer_Rev__Entry;
@@ -157,10 +158,6 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __BackRight_Drive_Motor_Speed__Entry;
         nt::NetworkTableEntry __BackRight_Steer_Rev__Entry;
         nt::NetworkTableEntry __BackRight_Turn_Offset__Entry;
-        nt::NetworkTableEntry __Ball_Screw_PWM_Pos__Entry;
-        nt::NetworkTableEntry __Ball_Screw_Quad_Pos__Entry;
-        nt::NetworkTableEntry __Drive_Joystick_X__Entry;
-        nt::NetworkTableEntry __Drive_Joystick_Y__Entry;
         nt::NetworkTableEntry __Encoder_Revs_Back_Lower__Entry;
         nt::NetworkTableEntry __Encoder_Revs_Back_Upper__Entry;
         nt::NetworkTableEntry __Encoder_Revs_Ball_Screw__Entry;
@@ -174,11 +171,37 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __FrontRight_Steer_Rev__Entry;
         nt::NetworkTableEntry __FrontRight_Turn_Offset__Entry;
         nt::NetworkTableEntry __GameState__Entry;
+        nt::NetworkTableEntry __Gamepad_B1_A__Entry;
+        nt::NetworkTableEntry __Gamepad_B3_X__Entry;
+        nt::NetworkTableEntry __Gamepad_LB__Entry;
+        nt::NetworkTableEntry __Gamepad_LT__Entry;
+        nt::NetworkTableEntry __Gamepad_RB__Entry;
+        nt::NetworkTableEntry __Gamepad_RT__Entry;
+        nt::NetworkTableEntry __Gamepad_Stick_Left_Y__Entry;
+        nt::NetworkTableEntry __Gamepad_Stick_Right_Y__Entry;
         nt::NetworkTableEntry __Gyro_Angle__Entry;
         nt::NetworkTableEntry __Intake_TOF_Dist__Entry;
         nt::NetworkTableEntry __Is_Absolute_Steering__Entry;
         nt::NetworkTableEntry __Is_Absolute_Translation__Entry;
-        nt::NetworkTableEntry __Is_Boost_Trigger_Pulled__Entry;
+        nt::NetworkTableEntry __Joystick_Left_B1__Entry;
+        nt::NetworkTableEntry __Joystick_Left_B10__Entry;
+        nt::NetworkTableEntry __Joystick_Left_B2__Entry;
+        nt::NetworkTableEntry __Joystick_Left_B3__Entry;
+        nt::NetworkTableEntry __Joystick_Left_B4__Entry;
+        nt::NetworkTableEntry __Joystick_Left_B8__Entry;
+        nt::NetworkTableEntry __Joystick_Left_X__Entry;
+        nt::NetworkTableEntry __Joystick_Left_Y__Entry;
+        nt::NetworkTableEntry __Joystick_Left_Z__Entry;
+        nt::NetworkTableEntry __Joystick_Right_B1__Entry;
+        nt::NetworkTableEntry __Joystick_Right_B10__Entry;
+        nt::NetworkTableEntry __Joystick_Right_B2__Entry;
+        nt::NetworkTableEntry __Joystick_Right_B3__Entry;
+        nt::NetworkTableEntry __Joystick_Right_B4__Entry;
+        nt::NetworkTableEntry __Joystick_Right_B8__Entry;
+        nt::NetworkTableEntry __Joystick_Right_POV__Entry;
+        nt::NetworkTableEntry __Joystick_Right_X__Entry;
+        nt::NetworkTableEntry __Joystick_Right_Y__Entry;
+        nt::NetworkTableEntry __Joystick_Right_Z__Entry;
         nt::NetworkTableEntry __Motor_Current_Back_Lower__Entry;
         nt::NetworkTableEntry __Motor_Current_Back_Upper__Entry;
         nt::NetworkTableEntry __Motor_Current_Ball_Screw__Entry;
@@ -189,8 +212,6 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Shooter_Left_Motor_RPM__Entry;
         nt::NetworkTableEntry __Shooter_Right_Motor_RPM__Entry;
         nt::NetworkTableEntry __Shooter_TOF_Dist__Entry;
-        nt::NetworkTableEntry __Steer_Joystick_X__Entry;
-        nt::NetworkTableEntry __Steer_Joystick_Y__Entry;
         // Outports
         nt::NetworkTableEntry __BackLeft_Drive_DutyCycle__Entry;
         nt::NetworkTableEntry __BackLeft_Steer_DutyCycle__Entry;
@@ -199,7 +220,6 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Back_Lower_Arm_DutyCycle__Entry;
         nt::NetworkTableEntry __Back_Upper_Arm_DutyCycle__Entry;
         nt::NetworkTableEntry __Ball_Screw_Arm_DutyCycle__Entry;
-        nt::NetworkTableEntry __Ball_Screw_Motor_DutyCycle__Entry;
         nt::NetworkTableEntry __FrontLeft_Drive_DutyCycle__Entry;
         nt::NetworkTableEntry __FrontLeft_Steer_DutyCycle__Entry;
         nt::NetworkTableEntry __FrontRight_Drive_DutyCycle__Entry;
@@ -212,7 +232,11 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Shooter_Servo_Position__Entry;
  
         // Test Points
+        nt::NetworkTableEntry __Align_Amp__Entry;
+        nt::NetworkTableEntry __Align_Speaker__Entry;
+        nt::NetworkTableEntry __Align_Trap__Entry;
         nt::NetworkTableEntry __Arm_Dist_Cal_Active__Entry;
+        nt::NetworkTableEntry __Arm_Dist_Cal_Active_p__Entry;
         nt::NetworkTableEntry __BL_Desired_Module_Angle__Entry;
         nt::NetworkTableEntry __BL_Desired_Wheel_Speed__Entry;
         nt::NetworkTableEntry __BL_Steer_Module_Angle__Entry;
@@ -225,6 +249,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Back_Upper_Arm_Length__Entry;
         nt::NetworkTableEntry __Ball_Screw_Arm_Cal_Success__Entry;
         nt::NetworkTableEntry __Ball_Screw_Arm_Length__Entry;
+        nt::NetworkTableEntry __Chain_Button__Entry;
         nt::NetworkTableEntry __Desired_Angle__Entry;
         nt::NetworkTableEntry __Desired_Back_Lower_Dist__Entry;
         nt::NetworkTableEntry __Desired_Back_Upper_Dist__Entry;
@@ -232,17 +257,25 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Desired_Front_Dist__Entry;
         nt::NetworkTableEntry __Desired_Gap__Entry;
         nt::NetworkTableEntry __Desired_Height__Entry;
+        nt::NetworkTableEntry __Drive_Joystick_X__Entry;
+        nt::NetworkTableEntry __Drive_Joystick_Y__Entry;
+        nt::NetworkTableEntry __Drive_Joystick_Z__Entry;
         nt::NetworkTableEntry __FL_Desired_Module_Angle__Entry;
         nt::NetworkTableEntry __FL_Desired_Wheel_Speed__Entry;
         nt::NetworkTableEntry __FL_Steer_Module_Angle__Entry;
         nt::NetworkTableEntry __FR_Desired_Module_Angle__Entry;
         nt::NetworkTableEntry __FR_Desired_Wheel_Speed__Entry;
         nt::NetworkTableEntry __FR_Steer_Module_Angle__Entry;
+        nt::NetworkTableEntry __Face_Away_Driver__Entry;
+        nt::NetworkTableEntry __Face_Left_Driver__Entry;
+        nt::NetworkTableEntry __Face_Right_Driver__Entry;
+        nt::NetworkTableEntry __Face_Toward_Driver__Entry;
         nt::NetworkTableEntry __Front_Arm_Cal_Success__Entry;
         nt::NetworkTableEntry __Front_Arm_Length__Entry;
         nt::NetworkTableEntry __Gyro_Angle_Adjustment_SPF__Entry;
         nt::NetworkTableEntry __Is_Absolute_Steering_SPF__Entry;
         nt::NetworkTableEntry __Is_Absolute_Translation_SPF__Entry;
+        nt::NetworkTableEntry __Is_Boosting__Entry;
         nt::NetworkTableEntry __KF_Position_X__Entry;
         nt::NetworkTableEntry __KF_Position_Y__Entry;
         nt::NetworkTableEntry __Meas_Angle__Entry;
@@ -268,6 +301,13 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Spline_Out_Of_Bounds__Entry;
         nt::NetworkTableEntry __Spline_Target_X__Entry;
         nt::NetworkTableEntry __Spline_Target_Y__Entry;
+        nt::NetworkTableEntry __State_Request_Arm__Entry;
+        nt::NetworkTableEntry __State_Request_Arm_d__Entry;
+        nt::NetworkTableEntry __State_Request_Intake_Shooter__Entry;
+        nt::NetworkTableEntry __State_Request_Intake_Shooter_h__Entry;
+        nt::NetworkTableEntry __Steer_Joystick_X__Entry;
+        nt::NetworkTableEntry __Steer_Joystick_Y__Entry;
+        nt::NetworkTableEntry __Steer_Joystick_Z__Entry;
         nt::NetworkTableEntry __Steering_Abs_Cmd__Entry;
         nt::NetworkTableEntry __Steering_Abs_Cmd_SPF__Entry;
         nt::NetworkTableEntry __Steering_Localized_Cmd__Entry;

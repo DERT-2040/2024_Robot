@@ -22,6 +22,13 @@ t_sample = 0.02;
 
 %% Joystick Command Profiling
 
+% Thresholds for treating sticks as discrete inputs
+Gamepad_Stick_Down_Threshold = -0.5;
+Gamepad_Stick_Up_Threshold = 0.5;
+
+% Timeout for arm calibration after pushing gamepad button
+Arm_Calibration_Timeout = 5; % seconds
+
 % Absolute Steering Circular Deadband
 Steering_Abs_Deadband_Range = 0.7;
 
@@ -315,14 +322,6 @@ Shooter_Motor_Control_I_UL = 0.1;
 Shooter_Motor_Control_I_LL = -0.1;
 
 % temporary variables for testing
-TEST_Intake_Shooter_State_Request = 0;
-    % 0 = Inactive
-    % 1 = Note Pickup
-    % 2 = Note Transfer
-    % 3 = Note Pickup and Transfer
-    % 4 = Note Eject
-    % 5 = Note Speaker
-
 TEST_Servo_Override_Flag = 0;
 TEST_Servo_Override_Value = 0;
 
