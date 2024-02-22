@@ -5,8 +5,8 @@ class Constants {
 public:
 //HID Ports
     static constexpr int k_Gamepad_Port = 0;
-    static constexpr int k_Drive_Joystick_Port = 2;
-    static constexpr int k_Steer_Joystick_Port = 1;
+    static constexpr int k_Right_Joystick_Port = 2;
+    static constexpr int k_Left_Joystick_Port = 1;
 //Swerve Drive
     //Drive Motor CAN IDs
         static constexpr int k_FrontLeft_Drive_CANID = 14;

@@ -2,11 +2,11 @@
 
 void BallScrew::PreStep()
 {
-    Code_Gen_Model_U.Ball_Screw_Quad_Pos = m_BallScrew_Encoder.GetPosition();
+    Code_Gen_Model_U.Encoder_Revs_Ball_Screw = m_BallScrew_Encoder.GetPosition();
 }
 
 void BallScrew::PostStep()
 {
-    m_BallScrew_Motor.Set(Code_Gen_Model_Y.Ball_Screw_Motor_DutyCycle);
+    m_BallScrew_Motor.Set(Code_Gen_Model_Y.Ball_Screw_Arm_DutyCycle);
     
 }

@@ -485,10 +485,6 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     NTinst.AddListener(__Steering_Relative_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Relative_Gain = event.GetValueEventData()->value.GetDouble();});
     __Steering_Relative_Gain__Entry.SetDouble(1.3);
  
-    __TEST_Arm_State_Request__Entry = NTtable_Tune->GetEntry("TEST_Arm_State_Request");
-    NTinst.AddListener(__TEST_Arm_State_Request__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Arm_State_Request = event.GetValueEventData()->value.GetDouble();});
-    __TEST_Arm_State_Request__Entry.SetDouble(0);
- 
     __TEST_Servo_Override_Flag__Entry = NTtable_Tune->GetEntry("TEST_Servo_Override_Flag");
     NTinst.AddListener(__TEST_Servo_Override_Flag__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Servo_Override_Flag = event.GetValueEventData()->value.GetDouble();});
     __TEST_Servo_Override_Flag__Entry.SetDouble(0);

@@ -34,12 +34,12 @@ public:
     /**
      * returns a reference to the m_Drive_Joystick Object
     */
-    frc::GenericHID& Get_Drive_Joystick() { return m_Drive_Joystick; }
+    frc::GenericHID& Get_Drive_Joystick() { return m_Left_Joystick; }
 
     /**
      * returns a reference to the m_Steer_Joystick Object
     */
-    frc::GenericHID& Get_Steer_Joystick() { return m_Steer_Joystick; }
+    frc::GenericHID& Get_Steer_Joystick() { return m_Right_Joystick; }
 private:
     /**
      * The gamepad used for robot implements.
@@ -72,10 +72,10 @@ private:
     /**
      * Joystick that is on the index of k_Drive_Joystick_Port
      */
-    frc::Joystick m_Drive_Joystick{Constants::k_Drive_Joystick_Port};
+    frc::Joystick m_Left_Joystick{Constants::k_Right_Joystick_Port};
 
     /**
      * Joystick that is on the index of k_Steer_Joystick_Port
      */
-    frc::Joystick m_Steer_Joystick{Constants::k_Steer_Joystick_Port};
+    frc::Joystick m_Right_Joystick{Constants::k_Left_Joystick_Port};
 };
