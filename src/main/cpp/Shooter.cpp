@@ -11,7 +11,6 @@ void Shooter::InitShooter()
 void Shooter::PreStep()
 {
     Code_Gen_Model_U.Shooter_TOF_Dist = TOF_Sensor.GetRange();
-    Code_Gen_Model_U.Shooter_TOF_Error = TOF_Sensor.GetRangeSigma();
     
     Code_Gen_Model_U.Shooter_Left_Motor_RPM = Left_Relative_Encoder.GetVelocity();
     Code_Gen_Model_U.Shooter_Right_Motor_RPM = Right_Relative_Encoder.GetVelocity();

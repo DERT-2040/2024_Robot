@@ -16,6 +16,7 @@
 #include "include/Intake.h"
 #include "include/Shooter.h"
 #include "include/BallScrew.h"
+#include "include/PowerDistributionPanel.h"
 
 //frc
 #include <frc/TimedRobot.h>
@@ -162,4 +163,14 @@ private:
    * Component that represents the ball screw for the 2024 robot
   */
   BallScrew m_BallScrew;
+
+  /**
+   * Compentent that represents current running through each motor -that controls the arms-
+  */
+  PowerDistributionPanel m_PowerDistributionPanel;
+
+  /**
+   * Compentent that represents each motor and encoder for each arm
+  */
+  TelescopingArm m_TelescopingArm;  
 };
