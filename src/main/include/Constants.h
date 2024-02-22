@@ -79,6 +79,24 @@ public:
     class BallScrew_Constants
     {
     public:
-        static constexpr int Ball_Screw_Motor_ID = 1;
+        static constexpr int k_BallScrew_Drive_CANID = -1;
+    };
+
+    class TelescopingArm_Constants
+    {
+    public:
+        static constexpr int k_Back_Lower_CANID = -1;
+        static constexpr int k_Back_Upper_CANID = -1;
+        static constexpr int k_Front_CANID = -1;
+    };
+
+    class PowerDistributionPanel_Constants
+    {
+    public:
+        static constexpr int pdp_CanId = 50 ; //may need to be 0 or 1, as of 2/21/2024
+        static constexpr int CurrentIDBackLower = -1; 
+        static constexpr int CurrentIDBackUpper = -1;
+        static constexpr int CurrentIDBallScrew = -1;
+        static constexpr int CurrentIDFront = -1;
     };
 };

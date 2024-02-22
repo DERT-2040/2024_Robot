@@ -1,8 +1,9 @@
 #pragma once
-#include <ctre/phoenix/motorcontrol/can/TalonSRX.h>
+
 #include "include/Constants.h"
 #include "Code_Gen_Model_ert_rtw/Code_Gen_Model.h"
-#include "ctre/phoenix/motorcontrol/SensorCollection.h"
+#include <rev/CANSparkMax.h>
+#include <rev/SparkRelativeEncoder.h>
 
 class BallScrew
 {
@@ -10,6 +11,6 @@ public:
     void PreStep();
     void PostStep();
 private:
-    ctre::phoenix::motorcontrol::can::TalonSRX Ball_Screw_Motor{Constants::BallScrew_Constants::Ball_Screw_Motor_ID};
-    ctre::phoenix::motorcontrol::SensorCollection Ball_Screw_Encoder{Ball_Screw_Motor};
+     rev::CANSparkMax m_BallScrew_Motor{Constants::BallScrew_Constants::k_BallScrew_Drive_CANID, rev::CANSparkMax::MotorType::kBrushless}; 
+     rev::SparkRelativeEncoder m_BallScrew_Encoder{m_BallScrew_Motor.GetEncoder(rev::SparkRelativeEncoder::Type::kHallSensor, 42)};
 };
