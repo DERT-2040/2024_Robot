@@ -18,12 +18,12 @@ void Robot::RobotInit() {
 void Robot::RobotPeriodic() {  
     m_Tracer.ResetTimer();
     
-  if(Robot::m_HIDs.Get_Drive_Joystick().GetRawButtonPressed(Constants::k_Toggle_Absolute_Translation_Button)){
+  if(Robot::m_HIDs.Get_Left_Joystick().GetRawButtonPressed(Constants::k_Toggle_Absolute_Translation_Button)){
     m_SwerveDrive.Toggle_Absolute_Translation();
     std::cout << "Translation Method Toggled" << std::endl;
   }
 
-  if(Robot::m_HIDs.Get_Drive_Joystick().GetRawButtonPressed(Constants::k_Toggle_Absolute_Steering_Button)){
+  if(Robot::m_HIDs.Get_Left_Joystick().GetRawButtonPressed(Constants::k_Toggle_Absolute_Steering_Button)){
     m_SwerveDrive.Toggle_Absolute_Steering();
     std::cout << "Steering Method Toggled" << std::endl;
   }
@@ -51,9 +51,9 @@ void Robot::DisabledPeriodic() {}
 
 void Robot::TestInit() {Code_Gen_Model_U.GameState = 3; GameInitValues();}
 void Robot::TestPeriodic() {
-  if(Robot::m_HIDs.Get_Drive_Joystick().GetRawButtonPressed(Constants::k_TestMode_Wheel_On))
+  if(Robot::m_HIDs.Get_Left_Joystick().GetRawButtonPressed(Constants::k_TestMode_Wheel_On))
     m_SwerveDrive.WheelsOn();
-  if(Robot::m_HIDs.Get_Drive_Joystick().GetRawButtonPressed(Constants::k_TestMode_Wheel_Off))
+  if(Robot::m_HIDs.Get_Left_Joystick().GetRawButtonPressed(Constants::k_TestMode_Wheel_Off))
     m_SwerveDrive.WheelsOff();
     /**
      * Wheel calibration procedure:
@@ -63,7 +63,7 @@ void Robot::TestPeriodic() {
      * 4. Push the Calibrate button (left/drive joystick button #8).
      * 5. (optional) Push the Wheel On button (left/drive joystick button #11).  
      */
-  if(Robot::m_HIDs.Get_Drive_Joystick().GetRawButtonPressed(Constants::k_Reset_Wheel_Offset_Button)){
+  if(Robot::m_HIDs.Get_Left_Joystick().GetRawButtonPressed(Constants::k_Reset_Wheel_Offset_Button)){
     m_SwerveDrive.Reset_Wheel_Offset();
     std::cout << "Wheel Offsets Reset" << std::endl;
   }
@@ -104,7 +104,7 @@ void Robot::GameInitValues() {
 void Robot::BindSDCallbacks() {
   m_SmartDashboard.BindSmartDashboardCallback(std::bind(&PhotonVisionInterface::SmartDashboardCallback, &m_PhotonVisionInterface));
   m_SmartDashboard.BindSmartDashboardCallback(std::bind(&SimulinkSmartDashboardInterface::SmartDashboardCallback, &m_SimulinkSmartDashboardInterface));
-  m_SmartDashboard.BindSmartDashboardCallback(std::bind(&SwerveDrive::SmartDashboardCallback, &m_SwerveDrive));
+  // m_SmartDashboard.BindSmartDashboardCallback(std::bind(&SwerveDrive::SmartDashboardCallback, &m_SwerveDrive));
   // m_SmartDashboard.BindSmartDashboardCallback(std::bind(&TelescopingArm::SmartDashboardCallback, &Test_Arm));
 }
 

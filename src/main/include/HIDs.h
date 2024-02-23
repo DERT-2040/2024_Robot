@@ -34,7 +34,7 @@ public:
     /**
      * returns a reference to the m_Drive_Joystick Object
     */
-    frc::GenericHID& Get_Drive_Joystick() { return m_Left_Joystick; }
+    frc::GenericHID& Get_Left_Joystick() { return m_Left_Joystick; }
 
     /**
      * returns a reference to the m_Steer_Joystick Object

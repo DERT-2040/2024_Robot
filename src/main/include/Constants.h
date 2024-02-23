@@ -5,8 +5,8 @@ class Constants {
 public:
 //HID Ports
     static constexpr int k_Gamepad_Port = 0;
-    static constexpr int k_Right_Joystick_Port = 2;
     static constexpr int k_Left_Joystick_Port = 1;
+    static constexpr int k_Right_Joystick_Port = 2;    
 //Swerve Drive
     //Drive Motor CAN IDs
         static constexpr int k_FrontLeft_Drive_CANID = 14;
@@ -48,12 +48,11 @@ public:
         static constexpr std::string_view k_BackLeft_Wheel_Offset_Key = "BackLeftWheelOffset";
         static constexpr std::string_view k_BackRight_Wheel_Offset_Key = "BackRightWheelOffset";
   //Buttons
-    static constexpr int k_Reset_Wheel_Offset_Button = 5;
-    static constexpr int k_Toggle_Absolute_Translation_Button = 6;
-    static constexpr int k_Toggle_Absolute_Steering_Button = 7;
-    static constexpr int k_Boost_Trigger_Button = 1;
-    static constexpr int k_TestMode_Wheel_On = 9;
-    static constexpr int k_TestMode_Wheel_Off = 8;
+    static constexpr int k_Reset_Wheel_Offset_Button = 11;
+    static constexpr int k_TestMode_Wheel_On = 12;
+    static constexpr int k_TestMode_Wheel_Off = 13;     
+    static constexpr int k_Toggle_Absolute_Translation_Button = 14;
+    static constexpr int k_Toggle_Absolute_Steering_Button = 15;
 //IMU
     static constexpr int k_Pigeon2_Device_ID = 0;
     static constexpr std::string_view k_Pigeon2_Device_Name = "uno";
@@ -79,24 +78,24 @@ public:
     class BallScrew_Constants
     {
     public:
-        static constexpr int k_BallScrew_Drive_CANID = -1;
+        static constexpr int k_BallScrew_Drive_CANID = 0;
     };
 
     class TelescopingArm_Constants
     {
     public:
-        static constexpr int k_Back_Lower_CANID = -1;
-        static constexpr int k_Back_Upper_CANID = -1;
-        static constexpr int k_Front_CANID = -1;
+        static constexpr int k_Back_Lower_CANID = 1;
+        static constexpr int k_Back_Upper_CANID = 2;
+        static constexpr int k_Front_CANID = 3;
     };
 
     class PowerDistributionPanel_Constants
     {
     public:
         static constexpr int pdp_CanId = 50 ; //may need to be 0 or 1, as of 2/21/2024
-        static constexpr int CurrentIDBackLower = -1; 
-        static constexpr int CurrentIDBackUpper = -1;
-        static constexpr int CurrentIDBallScrew = -1;
-        static constexpr int CurrentIDFront = -1;
+        static constexpr int CurrentIDBackLower = 0; 
+        static constexpr int CurrentIDBackUpper = 1;
+        static constexpr int CurrentIDBallScrew = 2;
+        static constexpr int CurrentIDFront = 3;
     };
 };
