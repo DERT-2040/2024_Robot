@@ -386,9 +386,9 @@ typedef struct {
   real_T Gamepad_Stick_Right_Y;        /* '<Root>/Gamepad_Stick_Right_Y' */
   real_T Gamepad_B1_A;                 /* '<Root>/Gamepad_B1_A' */
   boolean_T Gamepad_LB;                /* '<Root>/Gamepad_LB' */
-  boolean_T Gamepad_LT;                /* '<Root>/Gamepad_LT' */
+  real_T Gamepad_LT;                /* '<Root>/Gamepad_LT' */
   boolean_T Gamepad_RB;                /* '<Root>/Gamepad_RB' */
-  boolean_T Gamepad_RT;                /* '<Root>/Gamepad_RT' */
+  real_T Gamepad_RT;                /* '<Root>/Gamepad_RT' */
   real_T Gyro_Angle;                   /* '<Root>/Gyro_Angle' */
   real_T FrontLeft_Drive_Motor_Speed; /* '<Root>/FrontLeft_Drive_Motor_Speed' */
   real_T FrontRight_Drive_Motor_Speed;
