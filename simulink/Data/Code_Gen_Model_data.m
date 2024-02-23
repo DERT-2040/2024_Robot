@@ -326,47 +326,21 @@ TEST_Servo_Override_Flag = 0;
 TEST_Servo_Override_Value = 0;
 
 
-%% Arm Length Calculation
-% Encoder distance per revolution (mm / motor rev)
-Dist_Per_Rev_Back_Lower = ((1.75 * pi) / 20) * 25.4; % 20:1 gear box, 1.75 inch diameter sprocket, 25.4 mm per inch
-Dist_Per_Rev_Back_Upper = ((1.75 * pi) / 20) * 25.4; % 20:1 gear box, 1.75 inch diameter sprocket, 25.4 mm per inch
-Dist_Per_Rev_Front = ((1.75 * pi) / 20) * 25.4; % 20:1 gear box, 1.75 inch diameter sprocket, 25.4 mm per inch
-Dist_Per_Rev_Ball_Screw =(1 / (2 * 3 * 8)) * 25.4; % 2:1 pully, 3:1 gear box, 1 inch per 8 ball screw revolutions, 25.4 mm per inch
-
-% Distance reset values (mm)
-Dist_Reset_Value_Back_Lower = 0;
-Dist_Reset_Value_Back_Upper = 0;
-Dist_Reset_Value_Front = 0;
-Dist_Reset_Value_Ball_Screw = 0;
-
-% Distance reset motor current thresholds (Amps)
-Dist_Reset_Motor_Current_Back_Lower = 10;
-Dist_Reset_Motor_Current_Back_Upper = 10;
-Dist_Reset_Motor_Current_Front = 10;
-Dist_Reset_Motor_Current_Ball_Screw = 10;
-
-% Duty cycle commands for arm calibrations
-Cal_Back_Upper_Arm_DC = 0.2;
-Cal_Back_Lower_Arm_DC = 0.2;
-Cal_Front_Arm_DC = 0.2;
-Cal_Ball_Screw_Arm_DC = 0.2;
-
-
 %% Arms Dimension Data
 % vertical offset of back Argos Arm
 l_1 = 1.0*25.4;
 
 % vertical offset of Ball Screw
-l_2 = 0.5*25.4;
+l_2 = 3.5*25.4;
 
 % horizontal length from back argos arm to Ball Screw
-l_3 = 0.317500/2*1000;
+l_3 = (12.5-5.5)*25.4;
 
 % horizontal length from ball screw to front Argos Arm
-l_4 = 0.317500/2*1000;
+l_4 = 5.5*25.4;
 
 % length from pivot of front argos arm to pivot of ball screw on that arm
-l_5 = 0.3*1000;
+l_5 = 9.85*25.4;
 
 % horizontal offset from the end of gap to Back Argos Arm pivot on shooter
 l_6 = 0.042875*1000;
@@ -404,9 +378,40 @@ Front_AA_spacing = 1.0*25.4;
 % Front arm length
 Front_AA_length = (20-1/16)*25.4;
 
-% From arm min and max
-Back_AA_Bot_Min_Ext = 9.5;
-Back_AA_Bot_Max_Ext = (18-1/16)*25.4;
+% Front arm min and max
+Front_AA_Bot_Min_Ext = 9.5; % mm
+Front_AA_Bot_Max_Ext = (18-1/16)*25.4;
+
+% Ball screw max
+Ball_Screw_Max = 9.5*25.4;
+
+
+
+%% Arm Length Calculation
+% Encoder distance per revolution (mm / motor rev)
+Dist_Per_Rev_Back_Lower = ((1.75 * pi) / 20) * 25.4; % 20:1 gear box, 1.75 inch diameter sprocket, 25.4 mm per inch
+Dist_Per_Rev_Back_Upper = ((1.75 * pi) / 20) * 25.4; % 20:1 gear box, 1.75 inch diameter sprocket, 25.4 mm per inch
+Dist_Per_Rev_Front = ((1.75 * pi) / 20) * 25.4; % 20:1 gear box, 1.75 inch diameter sprocket, 25.4 mm per inch
+Dist_Per_Rev_Ball_Screw = (1 / (2 * 10 * 4)) * 25.4; % 2:1 pully, 10:1 gear box, 1 inch per 4 ball screw revolutions, 25.4 mm per inch
+
+% Distance reset values (mm)
+Dist_Reset_Value_Back_Lower = Back_AA_Bot_Min_Ext;
+Dist_Reset_Value_Back_Upper = Back_AA_Bot_Max_Ext;
+Dist_Reset_Value_Front = Front_AA_Bot_Min_Ext;
+Dist_Reset_Value_Ball_Screw = Ball_Screw_Max;
+clear Ball_Screw_Max
+
+% Distance reset motor current thresholds (Amps)
+Dist_Reset_Motor_Current_Back_Lower = 10;
+Dist_Reset_Motor_Current_Back_Upper = 10;
+Dist_Reset_Motor_Current_Front = 10;
+Dist_Reset_Motor_Current_Ball_Screw = 10;
+
+% Duty cycle commands for arm calibrations
+Cal_Back_Upper_Arm_DC = 0.2;
+Cal_Back_Lower_Arm_DC = 0.2;
+Cal_Front_Arm_DC = 0.2;
+Cal_Ball_Screw_Arm_DC = 0.2;
 
 
 %% Arm Position Tuning

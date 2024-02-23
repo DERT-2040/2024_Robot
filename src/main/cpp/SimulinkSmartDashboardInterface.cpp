@@ -139,7 +139,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Dist_Per_Rev_Ball_Screw__Entry = NTtable_Tune->GetEntry("Dist_Per_Rev_Ball_Screw");
     NTinst.AddListener(__Dist_Per_Rev_Ball_Screw__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Dist_Per_Rev_Ball_Screw = event.GetValueEventData()->value.GetDouble();});
-    __Dist_Per_Rev_Ball_Screw__Entry.SetDouble(0.52917);
+    __Dist_Per_Rev_Ball_Screw__Entry.SetDouble(0.3175);
  
     __Dist_Per_Rev_Front__Entry = NTtable_Tune->GetEntry("Dist_Per_Rev_Front");
     NTinst.AddListener(__Dist_Per_Rev_Front__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Dist_Per_Rev_Front = event.GetValueEventData()->value.GetDouble();});
@@ -163,19 +163,19 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Dist_Reset_Value_Back_Lower__Entry = NTtable_Tune->GetEntry("Dist_Reset_Value_Back_Lower");
     NTinst.AddListener(__Dist_Reset_Value_Back_Lower__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Dist_Reset_Value_Back_Lower = event.GetValueEventData()->value.GetDouble();});
-    __Dist_Reset_Value_Back_Lower__Entry.SetDouble(0);
+    __Dist_Reset_Value_Back_Lower__Entry.SetDouble(11.69);
  
     __Dist_Reset_Value_Back_Upper__Entry = NTtable_Tune->GetEntry("Dist_Reset_Value_Back_Upper");
     NTinst.AddListener(__Dist_Reset_Value_Back_Upper__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Dist_Reset_Value_Back_Upper = event.GetValueEventData()->value.GetDouble();});
-    __Dist_Reset_Value_Back_Upper__Entry.SetDouble(0);
+    __Dist_Reset_Value_Back_Upper__Entry.SetDouble(271.145);
  
     __Dist_Reset_Value_Ball_Screw__Entry = NTtable_Tune->GetEntry("Dist_Reset_Value_Ball_Screw");
     NTinst.AddListener(__Dist_Reset_Value_Ball_Screw__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Dist_Reset_Value_Ball_Screw = event.GetValueEventData()->value.GetDouble();});
-    __Dist_Reset_Value_Ball_Screw__Entry.SetDouble(0);
+    __Dist_Reset_Value_Ball_Screw__Entry.SetDouble(241.3);
  
     __Dist_Reset_Value_Front__Entry = NTtable_Tune->GetEntry("Dist_Reset_Value_Front");
     NTinst.AddListener(__Dist_Reset_Value_Front__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Dist_Reset_Value_Front = event.GetValueEventData()->value.GetDouble();});
-    __Dist_Reset_Value_Front__Entry.SetDouble(0);
+    __Dist_Reset_Value_Front__Entry.SetDouble(9.5);
  
     __Distance_FL_y__Entry = NTtable_Tune->GetEntry("Distance_FL_y");
     NTinst.AddListener(__Distance_FL_y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Distance_FL_y = event.GetValueEventData()->value.GetDouble();});
@@ -220,6 +220,14 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Drive_Motor_Control_Sign_Change_Deadband__Entry = NTtable_Tune->GetEntry("Drive_Motor_Control_Sign_Change_Deadband");
     NTinst.AddListener(__Drive_Motor_Control_Sign_Change_Deadband__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Drive_Motor_Control_Sign_Change_Deadband = event.GetValueEventData()->value.GetDouble();});
     __Drive_Motor_Control_Sign_Change_Deadband__Entry.SetDouble(1500);
+ 
+    __Front_AA_Bot_Max_Ext__Entry = NTtable_Tune->GetEntry("Front_AA_Bot_Max_Ext");
+    NTinst.AddListener(__Front_AA_Bot_Max_Ext__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Front_AA_Bot_Max_Ext = event.GetValueEventData()->value.GetDouble();});
+    __Front_AA_Bot_Max_Ext__Entry.SetDouble(455.6125);
+ 
+    __Front_AA_Bot_Min_Ext__Entry = NTtable_Tune->GetEntry("Front_AA_Bot_Min_Ext");
+    NTinst.AddListener(__Front_AA_Bot_Min_Ext__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Front_AA_Bot_Min_Ext = event.GetValueEventData()->value.GetDouble();});
+    __Front_AA_Bot_Min_Ext__Entry.SetDouble(9.5);
  
     __Gamepad_Stick_Down_Threshold__Entry = NTtable_Tune->GetEntry("Gamepad_Stick_Down_Threshold");
     NTinst.AddListener(__Gamepad_Stick_Down_Threshold__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Gamepad_Stick_Down_Threshold = event.GetValueEventData()->value.GetDouble();});

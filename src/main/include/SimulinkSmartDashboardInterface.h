@@ -65,6 +65,8 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Drive_Motor_Control_I_UL__Entry;
         nt::NetworkTableEntry __Drive_Motor_Control_P__Entry;
         nt::NetworkTableEntry __Drive_Motor_Control_Sign_Change_Deadband__Entry;
+        nt::NetworkTableEntry __Front_AA_Bot_Max_Ext__Entry;
+        nt::NetworkTableEntry __Front_AA_Bot_Min_Ext__Entry;
         nt::NetworkTableEntry __Gamepad_Stick_Down_Threshold__Entry;
         nt::NetworkTableEntry __Gamepad_Stick_Up_Threshold__Entry;
         nt::NetworkTableEntry __KF_Enable__Entry;
@@ -131,7 +133,6 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Steering_Motor_Control_I_UL__Entry;
         nt::NetworkTableEntry __Steering_Motor_Control_P__Entry;
         nt::NetworkTableEntry __Steering_Relative_Gain__Entry;
-        nt::NetworkTableEntry __TEST_Arm_State_Request__Entry;
         nt::NetworkTableEntry __TEST_Servo_Override_Flag__Entry;
         nt::NetworkTableEntry __TEST_Servo_Override_Value__Entry;
         nt::NetworkTableEntry __TEST_Speaker_Angle__Entry;
