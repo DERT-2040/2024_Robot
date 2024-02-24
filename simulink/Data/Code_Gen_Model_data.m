@@ -49,6 +49,8 @@ temp_y = [0.0 0.01 0.04 0.10 0.17 0.27 0.40 0.55 0.75 1.0];
 Steering_Mod_Str_Rel_in = [-fliplr(temp_x) 0 temp_x];
 Steering_Mod_Str_Rel_out = [-fliplr(temp_y) 0 temp_y];
 
+Steering_Twist_Gain = -0.015;
+
 clear temp_x temp_y
 
 Steering_Relative_Gain = 1.3;
@@ -184,7 +186,7 @@ clear Derivative_low_pass_filter_freq
 
 
 %% Steering Heading PID
-Steering_Heading_Control_P = 1.5;
+Steering_Heading_Control_P = 3.5;
 
 Steering_Heading_Control_I = 0.015*0;  % set to 0 to stop gyro drift
 Steering_Heading_Control_I_UL = 0.1;
