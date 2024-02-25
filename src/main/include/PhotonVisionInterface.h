@@ -49,16 +49,20 @@ class PhotonVisionInterface {
   
   photon::PhotonPoseEstimator photonEstimator{
       frc::LoadAprilTagLayoutField(frc::AprilTagField::k2024Crescendo),
-      photon::PoseStrategy::MULTI_TAG_PNP_ON_COPROCESSOR,
-      photon::PhotonCamera{"OV5647"}, robotToCam};
+      photon::PoseStrategy::MULTI_TAG_PNP_ON_RIO,
+      photon::PhotonCamera{"FRONTCAMERA"}, robotToCam};
 
   const std::shared_ptr<photon::PhotonCamera> camera = photonEstimator.GetCamera();
     
   frc::Pose2d robot2dPose{};
   
   double averageRobotPoseAmbiguity = 0;
-  double AT_Tag_7_Yaw = 999;
-  double AT_Tag_6_Yaw = 999;
-  double AT_Tag_5_Yaw = 999;
-  double AT_Tag_4_Yaw = 999;
+  double AT_Tag_7_Yaw = 0;
+  double AT_Tag_6_Yaw = 0;
+  double AT_Tag_5_Yaw = 0;
+  double AT_Tag_4_Yaw = 0;
+  bool AT_Tag_4_Found = false;
+  bool AT_Tag_5_Found = false;
+  bool AT_Tag_6_Found = false;
+  bool AT_Tag_7_Found = false;
 };
