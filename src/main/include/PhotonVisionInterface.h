@@ -15,6 +15,9 @@
 #include <memory>
 #include "units/time.h"
 
+#include <frc/apriltag/AprilTagFieldLayout.h>
+#include <frc/apriltag/AprilTagFields.h>
+
 class PhotonVisionInterface {
   public:
     void PreStep();
@@ -25,6 +28,7 @@ class PhotonVisionInterface {
     double GetGlobalPoseAmbiguity();
 
   private:
+  /*
     // Makes a apriltag feild layout for our shop 
     frc::AprilTag tag1 = frc::AprilTag(1, frc::Pose3d(frc::Translation3d(0.041275_m, 0.3937_m, 0.51435_m), frc::Rotation3d(0_rad, 0_rad, 0_rad)));
     frc::AprilTag tag2 = frc::AprilTag(2, frc::Pose3d(frc::Translation3d(2.714625_m, 4.518025_m, 0.5842_m), frc::Rotation3d(0_rad, 0_rad, 4.71238898_rad))); 
@@ -38,19 +42,27 @@ class PhotonVisionInterface {
     std::vector<frc::AprilTag> AprilTagList{tag1, tag2, tag3, tag4, tag5, tag6, tag7, tag8};
    
     frc::AprilTagFieldLayout AprilTagFieldLayout = frc::AprilTagFieldLayout(AprilTagList, 4.5212_m, 4.572_m);
-
+*/
   const frc::Transform3d robotToCam{
         frc::Translation3d{0.254_m, 0.0508_m, 0.1524_m},
-        frc::Rotation3d{0_rad, 0_rad, 0_rad}};
+        frc::Rotation3d{0_rad, - 0.261799_rad, 0_rad}};
   
   photon::PhotonPoseEstimator photonEstimator{
-      AprilTagFieldLayout,
+      frc::LoadAprilTagLayoutField(frc::AprilTagField::k2024Crescendo),
       photon::PoseStrategy::MULTI_TAG_PNP_ON_RIO,
-      photon::PhotonCamera{"OV5647"}, robotToCam};
+      photon::PhotonCamera{"FRONTCAMERA"}, robotToCam};
 
   const std::shared_ptr<photon::PhotonCamera> camera = photonEstimator.GetCamera();
     
   frc::Pose2d robot2dPose{};
   
   double averageRobotPoseAmbiguity = 0;
+  double AT_Tag_7_Yaw = 0;
+  double AT_Tag_6_Yaw = 0;
+  double AT_Tag_5_Yaw = 0;
+  double AT_Tag_4_Yaw = 0;
+  bool AT_Tag_4_Found = false;
+  bool AT_Tag_5_Found = false;
+  bool AT_Tag_6_Found = false;
+  bool AT_Tag_7_Found = false;
 };
