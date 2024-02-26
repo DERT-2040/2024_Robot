@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.88
+ * Model version                  : 2.90
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Fri Feb 23 21:58:57 2024
+ * C/C++ source code generated on : Sun Feb 25 18:59:29 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -432,6 +432,14 @@ typedef struct {
   real_T Encoder_Revs_Front;           /* '<Root>/Encoder_Revs_Front' */
   real_T Encoder_Revs_Ball_Screw;      /* '<Root>/Encoder_Revs_Ball_Screw' */
   real_T Gamepad_B3_X;                 /* '<Root>/Gamepad_B3_X' */
+  real_T AT_Tag_4_Yaw;                 /* '<Root>/AT_Tag_4_Yaw' */
+  real_T AT_Tag_5_Yaw;                 /* '<Root>/AT_Tag_5_Yaw' */
+  real_T AT_Tag_6_Yaw;                 /* '<Root>/AT_Tag_6_Yaw' */
+  real_T AT_Tag_7_Yaw;                 /* '<Root>/AT_Tag_7_Yaw' */
+  real_T AT_Tag_4_Found;               /* '<Root>/AT_Tag_4_Found' */
+  real_T AT_Tag_5_Found;               /* '<Root>/AT_Tag_5_Found' */
+  real_T AT_Tag_6_Found;               /* '<Root>/AT_Tag_6_Found' */
+  real_T AT_Tag_7_Found;               /* '<Root>/AT_Tag_7_Found' */
 } ExtU_Code_Gen_Model_T;
 
 /* External outputs (root outports fed by signals with default storage) */

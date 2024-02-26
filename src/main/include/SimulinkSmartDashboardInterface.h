@@ -152,6 +152,14 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Trap_Height__Entry;
  
         // Inports
+        nt::NetworkTableEntry __AT_Tag_4_Found__Entry;
+        nt::NetworkTableEntry __AT_Tag_4_Yaw__Entry;
+        nt::NetworkTableEntry __AT_Tag_5_Found__Entry;
+        nt::NetworkTableEntry __AT_Tag_5_Yaw__Entry;
+        nt::NetworkTableEntry __AT_Tag_6_Found__Entry;
+        nt::NetworkTableEntry __AT_Tag_6_Yaw__Entry;
+        nt::NetworkTableEntry __AT_Tag_7_Found__Entry;
+        nt::NetworkTableEntry __AT_Tag_7_Yaw__Entry;
         nt::NetworkTableEntry __BackLeft_Drive_Motor_Rev__Entry;
         nt::NetworkTableEntry __BackLeft_Drive_Motor_Speed__Entry;
         nt::NetworkTableEntry __BackLeft_Steer_Rev__Entry;

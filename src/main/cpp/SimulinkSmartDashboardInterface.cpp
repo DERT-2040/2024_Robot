@@ -562,6 +562,14 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Trap_Height__Entry.SetDouble(1079.5);
  
 // Inports
+    __AT_Tag_4_Found__Entry = NTtable_Inport->GetEntry("AT_Tag_4_Found");
+    __AT_Tag_4_Yaw__Entry = NTtable_Inport->GetEntry("AT_Tag_4_Yaw");
+    __AT_Tag_5_Found__Entry = NTtable_Inport->GetEntry("AT_Tag_5_Found");
+    __AT_Tag_5_Yaw__Entry = NTtable_Inport->GetEntry("AT_Tag_5_Yaw");
+    __AT_Tag_6_Found__Entry = NTtable_Inport->GetEntry("AT_Tag_6_Found");
+    __AT_Tag_6_Yaw__Entry = NTtable_Inport->GetEntry("AT_Tag_6_Yaw");
+    __AT_Tag_7_Found__Entry = NTtable_Inport->GetEntry("AT_Tag_7_Found");
+    __AT_Tag_7_Yaw__Entry = NTtable_Inport->GetEntry("AT_Tag_7_Yaw");
     __BackLeft_Drive_Motor_Rev__Entry = NTtable_Inport->GetEntry("BackLeft_Drive_Motor_Rev");
     __BackLeft_Drive_Motor_Speed__Entry = NTtable_Inport->GetEntry("BackLeft_Drive_Motor_Speed");
     __BackLeft_Steer_Rev__Entry = NTtable_Inport->GetEntry("BackLeft_Steer_Rev");
@@ -742,6 +750,14 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
 void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     // Inports
+    __AT_Tag_4_Found__Entry.SetDouble(Code_Gen_Model_U.AT_Tag_4_Found);
+    __AT_Tag_4_Yaw__Entry.SetDouble(Code_Gen_Model_U.AT_Tag_4_Yaw);
+    __AT_Tag_5_Found__Entry.SetDouble(Code_Gen_Model_U.AT_Tag_5_Found);
+    __AT_Tag_5_Yaw__Entry.SetDouble(Code_Gen_Model_U.AT_Tag_5_Yaw);
+    __AT_Tag_6_Found__Entry.SetDouble(Code_Gen_Model_U.AT_Tag_6_Found);
+    __AT_Tag_6_Yaw__Entry.SetDouble(Code_Gen_Model_U.AT_Tag_6_Yaw);
+    __AT_Tag_7_Found__Entry.SetDouble(Code_Gen_Model_U.AT_Tag_7_Found);
+    __AT_Tag_7_Yaw__Entry.SetDouble(Code_Gen_Model_U.AT_Tag_7_Yaw);
     __BackLeft_Drive_Motor_Rev__Entry.SetDouble(Code_Gen_Model_U.BackLeft_Drive_Motor_Rev);
     __BackLeft_Drive_Motor_Speed__Entry.SetDouble(Code_Gen_Model_U.BackLeft_Drive_Motor_Speed);
     __BackLeft_Steer_Rev__Entry.SetDouble(Code_Gen_Model_U.BackLeft_Steer_Rev);

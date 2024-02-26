@@ -73,7 +73,7 @@ void Robot::SimulationInit() {}
 void Robot::SimulationPeriodic() {}
 
 void Robot::PreStep() {
-  // m_PhotonVisionInterface.PreStep();
+  m_PhotonVisionInterface.PreStep();
   m_HIDs.PreStep();
   m_IMU.PreStep();
   m_SwerveDrive.PreStep();
@@ -85,7 +85,7 @@ void Robot::PreStep() {
 }
 
 void Robot::PostStep() {
-  // m_PhotonVisionInterface.PostStep();
+  m_PhotonVisionInterface.PostStep();
   m_HIDs.PostStep();
   m_IMU.PostStep();
   m_SwerveDrive.PostStep();
@@ -102,7 +102,7 @@ void Robot::GameInitValues() {
 }
 
 void Robot::BindSDCallbacks() {
-  // m_SmartDashboard.BindSmartDashboardCallback(std::bind(&PhotonVisionInterface::SmartDashboardCallback, &m_PhotonVisionInterface));
+  m_SmartDashboard.BindSmartDashboardCallback(std::bind(&PhotonVisionInterface::SmartDashboardCallback, &m_PhotonVisionInterface));
   m_SmartDashboard.BindSmartDashboardCallback(std::bind(&SimulinkSmartDashboardInterface::SmartDashboardCallback, &m_SimulinkSmartDashboardInterface));
   // m_SmartDashboard.BindSmartDashboardCallback(std::bind(&SwerveDrive::SmartDashboardCallback, &m_SwerveDrive));
   // m_SmartDashboard.BindSmartDashboardCallback(std::bind(&TelescopingArm::SmartDashboardCallback, &Test_Arm));
