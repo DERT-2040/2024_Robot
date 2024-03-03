@@ -19,7 +19,6 @@ Not_Tunable_List = {'t_sample',...
 % sample time model
 t_sample = 0.02;
 
-
 %% Joystick Command Profiling
 
 % Thresholds for treating sticks as discrete inputs
