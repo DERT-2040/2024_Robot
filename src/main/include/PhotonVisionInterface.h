@@ -49,7 +49,7 @@ class PhotonVisionInterface {
   
   photon::PhotonPoseEstimator photonEstimator{
       frc::LoadAprilTagLayoutField(frc::AprilTagField::k2024Crescendo),
-      photon::PoseStrategy::MULTI_TAG_PNP_ON_RIO,
+      photon::PoseStrategy::MULTI_TAG_PNP_ON_COPROCESSOR,
       photon::PhotonCamera{"FRONTCAMERA"}, robotToCam};
 
   const std::shared_ptr<photon::PhotonCamera> camera = photonEstimator.GetCamera();
