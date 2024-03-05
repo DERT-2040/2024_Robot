@@ -9,21 +9,21 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     auto NTtable_Outport = NTinst.GetTable("Simulink Top Level Ports");
     auto NTtable_TPoint = NTinst.GetTable("Simulink Test Points");
  
-    __AA_Deriv_FC__Entry = NTtable_Tune->GetEntry("AA_Deriv_FC");
-    NTinst.AddListener(__AA_Deriv_FC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AA_Deriv_FC = event.GetValueEventData()->value.GetDouble();});
-    __AA_Deriv_FC__Entry.SetDouble(0.2);
+    __AA_Integral_Gain__Entry = NTtable_Tune->GetEntry("AA_Integral_Gain");
+    NTinst.AddListener(__AA_Integral_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AA_Integral_Gain = event.GetValueEventData()->value.GetDouble();});
+    __AA_Integral_Gain__Entry.SetDouble(0);
  
-    __AA_Deriv_Gain__Entry = NTtable_Tune->GetEntry("AA_Deriv_Gain");
-    NTinst.AddListener(__AA_Deriv_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AA_Deriv_Gain = event.GetValueEventData()->value.GetDouble();});
-    __AA_Deriv_Gain__Entry.SetDouble(0);
+    __AA_Integral_IC__Entry = NTtable_Tune->GetEntry("AA_Integral_IC");
+    NTinst.AddListener(__AA_Integral_IC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AA_Integral_IC = event.GetValueEventData()->value.GetDouble();});
+    __AA_Integral_IC__Entry.SetDouble(0);
  
-    __AA_Deriv_LL__Entry = NTtable_Tune->GetEntry("AA_Deriv_LL");
-    NTinst.AddListener(__AA_Deriv_LL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AA_Deriv_LL = event.GetValueEventData()->value.GetDouble();});
-    __AA_Deriv_LL__Entry.SetDouble(-0.5);
+    __AA_Integral_LL__Entry = NTtable_Tune->GetEntry("AA_Integral_LL");
+    NTinst.AddListener(__AA_Integral_LL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AA_Integral_LL = event.GetValueEventData()->value.GetDouble();});
+    __AA_Integral_LL__Entry.SetDouble(0);
  
-    __AA_Deriv_UL__Entry = NTtable_Tune->GetEntry("AA_Deriv_UL");
-    NTinst.AddListener(__AA_Deriv_UL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AA_Deriv_UL = event.GetValueEventData()->value.GetDouble();});
-    __AA_Deriv_UL__Entry.SetDouble(0.5);
+    __AA_Integral_UL__Entry = NTtable_Tune->GetEntry("AA_Integral_UL");
+    NTinst.AddListener(__AA_Integral_UL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AA_Integral_UL = event.GetValueEventData()->value.GetDouble();});
+    __AA_Integral_UL__Entry.SetDouble(0.5);
  
     __AA_Position_Dec_RL__Entry = NTtable_Tune->GetEntry("AA_Position_Dec_RL");
     NTinst.AddListener(__AA_Position_Dec_RL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AA_Position_Dec_RL = event.GetValueEventData()->value.GetDouble();});

@@ -416,27 +416,32 @@ Cal_Ball_Screw_Arm_DC = 0.2;
 
 
 %% Arm Position Tuning
-% Arm Position Inputs
+% Position the arms for driving under the stage
 Stage_Angle = 26;       % degrees
 Stage_Height = 19.8*25.4; % mm
 Stage_Gap = 8.5*25.4;     % mm
 
+% Position arms for transfering a note into the shooter for scoring in the amp or trap
 LoadShooter_Angle = 35;
 LoadShooter_Height = 24.6*25.4;
 LoadShooter_Gap = 11*25.4;
 
+% Position the arms for scoring in the amp
 Amp_Angle = -50;
 Amp_Height = 36.2*25.4;
 Amp_Gap = 22.5*25.4;
 
+% Position the arms for scoring in the trap
 Trap_Angle = -26.5;
 Trap_Height = 42.5*25.4;
 Trap_Gap = 27.3*25.4;
 
+% Tolerance checks for transitioning to the next state in Stateflow
 Tol_Angle = 5;
 Tol_Height = 0.5*25.4;
 Tol_Gap = 0.125*25.4;
 
+% Position the arms for shooting into the speaker based on desired shooting angle
 Speaker_Angle_in = [25 30 35 40 45 50 55]; % degrees
 Spearker_Height_out = [24.7 24.7 24.7 24.7 24.7 24.7 24.7]*25.4; % mm
 Speaker_Gap = 11*25.4;
@@ -447,19 +452,24 @@ TEST_Speaker_Angle = 45;  % degrees
 
 
 %% Arm Control Gains
+% Argos Arms Desired Position Rate Limits
 AA_Position_Inc_RL = 1/1*(25.4*t_sample); % in/sec converted to mm/loop
 AA_Position_Dec_RL = -1/1*(25.4*t_sample); % in/sec converted to mm/loop
+
+% Ball Screw Desired Position Rate Limits
 BS_Position_Inc_RL = 0.1/1*(25.4*t_sample); % in/sec converted to mm/loop
 BS_Position_Dec_RL = -0.1/1*(25.4*t_sample); % in/sec converted to mm/loop
 
+% Argos Arms P+I Control
 AA_Prop_Gain = 0;
-AA_Deriv_Gain = 0;
-AA_Deriv_FC = 0.2;
-AA_Deriv_UL = 0.5;
-AA_Deriv_LL = -0.5;
+AA_Integral_Gain = 0;
+AA_Integral_IC = 0;
+AA_Integral_UL = 0.5;
+AA_Integral_LL = 0;
 AA_TC_UL = 1;
 AA_TC_LL = 0;
 
+% Ball Screw P+D Control
 BS_Prop_Gain = 0;
 BS_Deriv_Gain = 0;
 BS_Deriv_FC = 0.2;

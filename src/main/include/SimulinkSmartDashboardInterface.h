@@ -12,10 +12,10 @@ class SimulinkSmartDashboardInterface {
         void SmartDashboardCallback();
     private:
         // Parameters
-        nt::NetworkTableEntry __AA_Deriv_FC__Entry;
-        nt::NetworkTableEntry __AA_Deriv_Gain__Entry;
-        nt::NetworkTableEntry __AA_Deriv_LL__Entry;
-        nt::NetworkTableEntry __AA_Deriv_UL__Entry;
+        nt::NetworkTableEntry __AA_Integral_Gain__Entry;
+        nt::NetworkTableEntry __AA_Integral_IC__Entry;
+        nt::NetworkTableEntry __AA_Integral_LL__Entry;
+        nt::NetworkTableEntry __AA_Integral_UL__Entry;
         nt::NetworkTableEntry __AA_Position_Dec_RL__Entry;
         nt::NetworkTableEntry __AA_Position_Inc_RL__Entry;
         nt::NetworkTableEntry __AA_Prop_Gain__Entry;
