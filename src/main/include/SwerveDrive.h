@@ -102,10 +102,10 @@ private:
     rev::SparkRelativeEncoder m_BackLeft_Drive_Encoder{m_BackLeft_Drive.GetEncoder(rev::SparkRelativeEncoder::Type::kHallSensor, 42)};
     rev::SparkRelativeEncoder m_BackRight_Drive_Encoder{m_BackRight_Drive.GetEncoder(rev::SparkRelativeEncoder::Type::kHallSensor, 42)};
   //Steer Absolute Encoders
-    ctre::phoenix6::hardware::CANcoder m_FrontLeft_Steer_Encoder{Constants::k_FrontLeft_Steer_Encoder_ID, "rio"};
-    ctre::phoenix6::hardware::CANcoder m_FrontRight_Steer_Encoder{Constants::k_FrontRight_Steer_Encoder_ID, "rio"};
-    ctre::phoenix6::hardware::CANcoder m_BackLeft_Steer_Encoder{Constants::k_BackLeft_Steer_Encoder_ID, "rio"};
-    ctre::phoenix6::hardware::CANcoder m_BackRight_Steer_Encoder{Constants::k_BackRight_Steer_Encoder_ID, "rio"};
+    ctre::phoenix6::hardware::CANcoder m_FrontLeft_Steer_Encoder{Constants::k_FrontLeft_Steer_Encoder_ID, "uno"};
+    ctre::phoenix6::hardware::CANcoder m_FrontRight_Steer_Encoder{Constants::k_FrontRight_Steer_Encoder_ID, "uno"};
+    ctre::phoenix6::hardware::CANcoder m_BackLeft_Steer_Encoder{Constants::k_BackLeft_Steer_Encoder_ID, "uno"};
+    ctre::phoenix6::hardware::CANcoder m_BackRight_Steer_Encoder{Constants::k_BackRight_Steer_Encoder_ID, "uno"};
 
 
   //Motor States

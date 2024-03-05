@@ -8,7 +8,7 @@
 void Robot::RobotInit() {
   Code_Gen_Model_U.GameState = -1;
   Code_Gen_Model_initialize(); //code gen model init
-  // m_Shooter.InitShooter();
+  m_Shooter.InitShooter();
   BindSDCallbacks();
   m_SwerveDrive.BrakeMode(); //set all motors to coast mode
   m_IMU.Reset();
@@ -77,11 +77,11 @@ void Robot::PreStep() {
   m_HIDs.PreStep();
   m_IMU.PreStep();
   m_SwerveDrive.PreStep();
-  // m_Intake.PreStep();
-  // m_Shooter.PreStep();
-  // m_BallScrew.PreStep();
+  m_Intake.PreStep();
+  m_Shooter.PreStep();
+  m_BallScrew.PreStep();
   m_PowerDistributionPanel.PreStep();
-  // m_TelescopingArm.PreStep();
+  m_TelescopingArm.PreStep();
 }
 
 void Robot::PostStep() {
@@ -89,12 +89,12 @@ void Robot::PostStep() {
   m_HIDs.PostStep();
   m_IMU.PostStep();
   m_SwerveDrive.PostStep();
-  // m_Intake.PostStep();
-  // m_Shooter.PostStep();
+  m_Intake.PostStep();
+  m_Shooter.PostStep();
   m_SmartDashboard.UpdateSDValues();
-  // m_BallScrew.PostStep();
+  m_BallScrew.PostStep();
   m_PowerDistributionPanel.PostStep();
-  // m_TelescopingArm.PostStep();
+  m_TelescopingArm.PostStep();
 }
 
 void Robot::GameInitValues() {
