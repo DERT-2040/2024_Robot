@@ -9,7 +9,7 @@
 class Shooter
 {
 public:
-    void InitShooter();
+    void Initalize();
     void PreStep();
     void PostStep();
 private:

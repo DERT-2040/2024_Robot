@@ -112,6 +112,10 @@ private:
    */
   void BindSDCallbacks();
 
+  /**
+   * Initalizes all classes at robot start up in case there is an issue with initalizing them at object creation
+   */
+  void Initalize();
   /*
    * Below are the instances of the subsystems used by the robot
    * Everything here should be direct hardware control, only

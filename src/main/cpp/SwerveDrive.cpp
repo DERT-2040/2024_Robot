@@ -1,7 +1,8 @@
 //local
 #include "include/SwerveDrive.h"
 
-void SwerveDrive::PreStep() {
+void SwerveDrive::PreStep() 
+{
   //Drive Motor Speed
   Code_Gen_Model_U.FrontLeft_Drive_Motor_Speed = m_FrontLeft_Drive_Encoder.GetVelocity();
   Code_Gen_Model_U.FrontRight_Drive_Motor_Speed = m_FrontRight_Drive_Encoder.GetVelocity();
@@ -18,7 +19,8 @@ void SwerveDrive::PreStep() {
   Code_Gen_Model_U.BackLeft_Steer_Rev = m_BackLeft_Steer_Encoder.GetPosition().GetValue().value();
   Code_Gen_Model_U.BackRight_Steer_Rev = m_BackRight_Steer_Encoder.GetPosition().GetValue().value();
 }
-void SwerveDrive::PostStep() {
+void SwerveDrive::PostStep() 
+{
   if(AreMotorsDisabled) //escape if motor output is disabled
     return; 
   //Drive Motors
@@ -33,14 +35,16 @@ void SwerveDrive::PostStep() {
     m_BackRight_Steer.Set(Code_Gen_Model_Y.BackRight_Steer_DutyCycle);
 }
 
-void SwerveDrive::SmartDashboardCallback() {
+void SwerveDrive::SmartDashboardCallback() 
+{
   frc::SmartDashboard::PutNumber("FL_Encoder", m_FrontLeft_Steer_Encoder.GetAbsolutePosition().GetValue().value());
   frc::SmartDashboard::PutNumber("FR_Encoder", static_cast<double>(m_FrontRight_Steer_Encoder.GetAbsolutePosition().GetValue()));
   frc::SmartDashboard::PutNumber("BL_Encoder", static_cast<double>(m_BackLeft_Steer_Encoder.GetAbsolutePosition().GetValue()));
   frc::SmartDashboard::PutNumber("BR_Encoder", static_cast<double>(m_BackRight_Steer_Encoder.GetAbsolutePosition().GetValue()));
 }
 
-SwerveDrive::SwerveDrive() {
+void SwerveDrive::Initalize() 
+{
   //Drive Motors
     //Front Left
       m_FrontLeft_Drive.RestoreFactoryDefaults();
@@ -96,8 +100,29 @@ SwerveDrive::SwerveDrive() {
     Code_Gen_Model_U.Is_Absolute_Translation = Constants::Is_Absolute_Translation_Default;
   //Wheel Offset
     SwerveDrive::Initalize_Wheel_Offset();
+  //CAN Networking
+    //kStatus0
+    m_FrontLeft_Drive.SetPeriodicFramePeriod(rev::CANSparkMaxLowLevel::PeriodicFrame::kStatus0, Constants::CAN_Adjustment_Values::kStatus0_ms);
+    m_FrontRight_Drive.SetPeriodicFramePeriod(rev::CANSparkMaxLowLevel::PeriodicFrame::kStatus0, Constants::CAN_Adjustment_Values::kStatus0_ms);
+    m_BackLeft_Drive.SetPeriodicFramePeriod(rev::CANSparkMaxLowLevel::PeriodicFrame::kStatus0, Constants::CAN_Adjustment_Values::kStatus0_ms);
+    m_BackRight_Drive.SetPeriodicFramePeriod(rev::CANSparkMaxLowLevel::PeriodicFrame::kStatus0, Constants::CAN_Adjustment_Values::kStatus0_ms);
+    m_FrontLeft_Steer.SetPeriodicFramePeriod(rev::CANSparkMaxLowLevel::PeriodicFrame::kStatus0, Constants::CAN_Adjustment_Values::kStatus0_ms);
+    m_FrontRight_Steer.SetPeriodicFramePeriod(rev::CANSparkMaxLowLevel::PeriodicFrame::kStatus0, Constants::CAN_Adjustment_Values::kStatus0_ms);
+    m_BackLeft_Drive.SetPeriodicFramePeriod(rev::CANSparkMaxLowLevel::PeriodicFrame::kStatus0, Constants::CAN_Adjustment_Values::kStatus0_ms);
+    m_BackRight_Drive.SetPeriodicFramePeriod(rev::CANSparkMaxLowLevel::PeriodicFrame::kStatus0, Constants::CAN_Adjustment_Values::kStatus0_ms);
+    //kStatus1
+    m_FrontLeft_Drive.SetPeriodicFramePeriod(rev::CANSparkMaxLowLevel::PeriodicFrame::kStatus1, Constants::CAN_Adjustment_Values::kStatus1_ms);
+    m_FrontRight_Drive.SetPeriodicFramePeriod(rev::CANSparkMaxLowLevel::PeriodicFrame::kStatus1, Constants::CAN_Adjustment_Values::kStatus1_ms);
+    m_BackLeft_Drive.SetPeriodicFramePeriod(rev::CANSparkMaxLowLevel::PeriodicFrame::kStatus1, Constants::CAN_Adjustment_Values::kStatus1_ms);
+    m_BackRight_Drive.SetPeriodicFramePeriod(rev::CANSparkMaxLowLevel::PeriodicFrame::kStatus1, Constants::CAN_Adjustment_Values::kStatus1_ms);
+    m_FrontLeft_Drive.SetPeriodicFramePeriod(rev::CANSparkMaxLowLevel::PeriodicFrame::kStatus1, Constants::CAN_Adjustment_Values::kStatus1_ms);
+    m_FrontRight_Drive.SetPeriodicFramePeriod(rev::CANSparkMaxLowLevel::PeriodicFrame::kStatus1, Constants::CAN_Adjustment_Values::kStatus1_ms);
+    m_BackLeft_Drive.SetPeriodicFramePeriod(rev::CANSparkMaxLowLevel::PeriodicFrame::kStatus1, Constants::CAN_Adjustment_Values::kStatus1_ms);
+    m_BackRight_Drive.SetPeriodicFramePeriod(rev::CANSparkMaxLowLevel::PeriodicFrame::kStatus1, Constants::CAN_Adjustment_Values::kStatus1_ms);
 }
-void SwerveDrive::BrakeMode() {
+
+void SwerveDrive::BrakeMode() 
+{
   //Drive Motors
   m_FrontLeft_Drive.SetIdleMode(rev::CANSparkMax::IdleMode::kBrake);
   m_FrontRight_Drive.SetIdleMode(rev::CANSparkMax::IdleMode::kBrake);
@@ -110,7 +135,8 @@ void SwerveDrive::BrakeMode() {
   m_BackRight_Steer.SetIdleMode(rev::CANSparkMax::IdleMode::kBrake);
 }
 
-void SwerveDrive::CoastMode() {
+void SwerveDrive::CoastMode() 
+{
   //Drive Motors
   m_FrontLeft_Drive.SetIdleMode(rev::CANSparkMax::IdleMode::kCoast);
   m_FrontRight_Drive.SetIdleMode(rev::CANSparkMax::IdleMode::kCoast);
@@ -122,13 +148,19 @@ void SwerveDrive::CoastMode() {
   m_BackLeft_Steer.SetIdleMode(rev::CANSparkMax::IdleMode::kCoast);
   m_BackRight_Steer.SetIdleMode(rev::CANSparkMax::IdleMode::kCoast);
 }
-void SwerveDrive::Toggle_Absolute_Translation() {
+
+void SwerveDrive::Toggle_Absolute_Translation() 
+{
   Code_Gen_Model_U.Is_Absolute_Translation = !Code_Gen_Model_U.Is_Absolute_Translation;
 }
-void SwerveDrive::Toggle_Absolute_Steering() {
+
+void SwerveDrive::Toggle_Absolute_Steering() 
+{
   Code_Gen_Model_U.Is_Absolute_Steering = !Code_Gen_Model_U.Is_Absolute_Steering;
 }
-void SwerveDrive::Initalize_Wheel_Offset() {
+
+void SwerveDrive::Initalize_Wheel_Offset() 
+{
   if(!frc::Preferences::ContainsKey(Constants::k_FrontLeft_Wheel_Offset_Key))
     frc::Preferences::SetDouble(Constants::k_FrontLeft_Wheel_Offset_Key, 0.0);
   if(!frc::Preferences::ContainsKey(Constants::k_FrontRight_Wheel_Offset_Key))
@@ -139,25 +171,33 @@ void SwerveDrive::Initalize_Wheel_Offset() {
     frc::Preferences::SetDouble(Constants::k_BackRight_Wheel_Offset_Key, 0.0);
   SwerveDrive::Set_Wheel_Offset();
 }
-void SwerveDrive::Reset_Wheel_Offset() {
+
+void SwerveDrive::Reset_Wheel_Offset() 
+{
   frc::Preferences::SetDouble(Constants::k_FrontLeft_Wheel_Offset_Key, static_cast<double>(m_FrontLeft_Steer_Encoder.GetAbsolutePosition().GetValue()));
   frc::Preferences::SetDouble(Constants::k_FrontRight_Wheel_Offset_Key, static_cast<double>(m_FrontRight_Steer_Encoder.GetAbsolutePosition().GetValue()));
   frc::Preferences::SetDouble(Constants::k_BackLeft_Wheel_Offset_Key, static_cast<double>(m_BackLeft_Steer_Encoder.GetAbsolutePosition().GetValue()));
   frc::Preferences::SetDouble(Constants::k_BackRight_Wheel_Offset_Key, static_cast<double>(m_BackRight_Steer_Encoder.GetAbsolutePosition().GetValue()));
   SwerveDrive::Set_Wheel_Offset();
 }
-void SwerveDrive::Set_Wheel_Offset() {
+
+void SwerveDrive::Set_Wheel_Offset() 
+{
   Code_Gen_Model_U.BackLeft_Turn_Offset = frc::Preferences::GetDouble(Constants::k_BackLeft_Wheel_Offset_Key, 0.0);
   Code_Gen_Model_U.BackRight_Turn_Offset = frc::Preferences::GetDouble(Constants::k_BackRight_Wheel_Offset_Key, 0.0);
   Code_Gen_Model_U.FrontLeft_Turn_Offset = frc::Preferences::GetDouble(Constants::k_FrontLeft_Wheel_Offset_Key, 0.0);
   Code_Gen_Model_U.FrontRight_Turn_Offset = frc::Preferences::GetDouble(Constants::k_FrontRight_Wheel_Offset_Key, 0.0);
 }
-void SwerveDrive::WheelsOn() {
+
+void SwerveDrive::WheelsOn() 
+{
   AreMotorsDisabled = false;
   BrakeMode();
   std::cout<< "WheelsOn";
 }
-void SwerveDrive::WheelsOff() {
+
+void SwerveDrive::WheelsOff()
+{
   AreMotorsDisabled = true;
   //stop all motor commands
   m_FrontLeft_Drive.StopMotor();
@@ -171,7 +211,9 @@ void SwerveDrive::WheelsOff() {
   CoastMode();  
   std::cout<< "WheelsOff";
 }
-void SwerveDrive::GameInitValues() {
+
+void SwerveDrive::GameInitValues()
+{
   if(AreMotorsDisabled)
     WheelsOn();
 }

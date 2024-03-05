@@ -1,6 +1,7 @@
 #pragma once
 //std
 #include <string>
+#include <rev/CANSparkLowLevel.h>
 class Constants {
 public:
 //HID Ports
@@ -97,5 +98,12 @@ public:
         static constexpr int CurrentIDBackUpper = 5;
         static constexpr int CurrentIDBallScrew = 6;
         static constexpr int CurrentIDFront = 7;
+    };
+
+    class CAN_Adjustment_Values
+    {
+    public:
+        static constexpr int kStatus0_ms = 40; //ms
+        static constexpr int kStatus1_ms = 40; //ms
     };
 };

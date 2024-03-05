@@ -9,6 +9,7 @@ class Intake
 public:
     void PreStep();
     void PostStep();
+    void Initalize();
 private:
     frc::TimeOfFlight TOF_Sensor{Constants::Intake_Constants::TOF_ID};
     rev::CANSparkMax Intake_Motor{Constants::Intake_Constants::Intake_Motor_Device_ID, rev::CANSparkMax::MotorType::kBrushless};

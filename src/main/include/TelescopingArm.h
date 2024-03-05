@@ -11,7 +11,7 @@ class TelescopingArm
 public:
     void PreStep();
     void PostStep();
-
+    void Initalize();
 private:
     // Motors
     rev::CANSparkMax Motor_Back_Lower{Constants::TelescopingArm_Constants::k_Back_Lower_CANID, rev::CANSparkMax::MotorType::kBrushless}; 

@@ -9,3 +9,15 @@ void Intake::PostStep()
 {
     Intake_Motor.Set(Code_Gen_Model_Y.Intake_Motor_DutyCycle);
 }
+
+void Intake::Initalize()
+{
+    Intake_Motor.RestoreFactoryDefaults();
+    Intake_Motor.SetIdleMode(rev::CANSparkBase::IdleMode::kBrake);
+    
+    //kStatus0
+    Intake_Motor.SetPeriodicFramePeriod(rev::CANSparkMaxLowLevel::PeriodicFrame::kStatus0, Constants::CAN_Adjustment_Values::kStatus0_ms);
+    //kStatus1
+    Intake_Motor.SetPeriodicFramePeriod(rev::CANSparkMaxLowLevel::PeriodicFrame::kStatus1, Constants::CAN_Adjustment_Values::kStatus1_ms);
+
+}

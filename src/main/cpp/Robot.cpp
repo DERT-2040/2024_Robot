@@ -5,17 +5,20 @@
 //local
 #include "include/Robot.h"
 
-void Robot::RobotInit() {
+void Robot::RobotInit() 
+{
+  Initalize();
   Code_Gen_Model_U.GameState = -1;
   Code_Gen_Model_initialize(); //code gen model init
-  m_Shooter.InitShooter();
   BindSDCallbacks();
   m_SwerveDrive.BrakeMode(); //set all motors to coast mode
   m_IMU.Reset();
   m_SimulinkSmartDashboardInterface.InitSmartDashboardInterface();
   BindSDCallbacks();
 }
-void Robot::RobotPeriodic() {  
+
+void Robot::RobotPeriodic() 
+{  
     m_Tracer.ResetTimer();
     
   if(Robot::m_HIDs.Get_Left_Joystick().GetRawButtonPressed(Constants::k_Toggle_Absolute_Translation_Button)){
@@ -50,7 +53,8 @@ void Robot::DisabledInit() {Code_Gen_Model_U.GameState = 0; GameInitValues();}
 void Robot::DisabledPeriodic() {}
 
 void Robot::TestInit() {Code_Gen_Model_U.GameState = 3; GameInitValues();}
-void Robot::TestPeriodic() {
+void Robot::TestPeriodic() 
+{
   if(Robot::m_HIDs.Get_Left_Joystick().GetRawButtonPressed(Constants::k_TestMode_Wheel_On))
     m_SwerveDrive.WheelsOn();
   if(Robot::m_HIDs.Get_Left_Joystick().GetRawButtonPressed(Constants::k_TestMode_Wheel_Off))
@@ -72,7 +76,8 @@ void Robot::TestPeriodic() {
 void Robot::SimulationInit() {}
 void Robot::SimulationPeriodic() {}
 
-void Robot::PreStep() {
+void Robot::PreStep() 
+{
   m_PhotonVisionInterface.PreStep();
   m_HIDs.PreStep();
   m_IMU.PreStep();
@@ -84,7 +89,8 @@ void Robot::PreStep() {
   m_TelescopingArm.PreStep();
 }
 
-void Robot::PostStep() {
+void Robot::PostStep() 
+{
   m_PhotonVisionInterface.PostStep();
   m_HIDs.PostStep();
   m_IMU.PostStep();
@@ -97,19 +103,31 @@ void Robot::PostStep() {
   m_TelescopingArm.PostStep();
 }
 
-void Robot::GameInitValues() {
+void Robot::GameInitValues() 
+{
   m_SwerveDrive.GameInitValues();
 }
 
-void Robot::BindSDCallbacks() {
+void Robot::BindSDCallbacks() 
+{
   m_SmartDashboard.BindSmartDashboardCallback(std::bind(&PhotonVisionInterface::SmartDashboardCallback, &m_PhotonVisionInterface));
   m_SmartDashboard.BindSmartDashboardCallback(std::bind(&SimulinkSmartDashboardInterface::SmartDashboardCallback, &m_SimulinkSmartDashboardInterface));
   // m_SmartDashboard.BindSmartDashboardCallback(std::bind(&SwerveDrive::SmartDashboardCallback, &m_SwerveDrive));
   // m_SmartDashboard.BindSmartDashboardCallback(std::bind(&TelescopingArm::SmartDashboardCallback, &Test_Arm));
 }
 
+void Robot::Initalize()
+{
+  m_BallScrew.Initalize();
+  m_Intake.Initalize();
+  m_Shooter.Initalize();
+  m_SwerveDrive.Initalize();
+  m_TelescopingArm.Initalize();
+}
+
 #ifndef RUNNING_FRC_TESTS
-int main() {
+int main() 
+{
   return frc::StartRobot<Robot>();
 }
 #endif
