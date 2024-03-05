@@ -63,7 +63,7 @@ public:
     {
     public:
         static constexpr uint8_t TOF_ID = 0;
-        static constexpr int Intake_Motor_Device_ID = 0;
+        static constexpr int Intake_Motor_Device_ID = 35;
     };
     
     class Shooter_Constants
