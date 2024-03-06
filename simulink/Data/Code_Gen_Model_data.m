@@ -390,9 +390,9 @@ Ball_Screw_Max = 9.5*25.4;
 
 %% Arm Length Calculation
 % Encoder distance per revolution (mm / motor rev)
-Dist_Per_Rev_Back_Lower = ((1.75 * pi) / 20) * 25.4; % 20:1 gear box, 1.75 inch diameter sprocket, 25.4 mm per inch
-Dist_Per_Rev_Back_Upper = ((1.75 * pi) / 20) * 25.4; % 20:1 gear box, 1.75 inch diameter sprocket, 25.4 mm per inch
-Dist_Per_Rev_Front = ((1.75 * pi) / 20) * 25.4; % 20:1 gear box, 1.75 inch diameter sprocket, 25.4 mm per inch
+Dist_Per_Rev_Back_Lower = ((1.75 * pi) / 35) * 25.4; % 35:1 gear box, 1.75 inch diameter sprocket, 25.4 mm per inch
+Dist_Per_Rev_Back_Upper = ((1.75 * pi) / 35) * 25.4; % 35:1 gear box, 1.75 inch diameter sprocket, 25.4 mm per inch
+Dist_Per_Rev_Front = ((1.75 * pi) / 35) * 25.4; % 35:1 gear box, 1.75 inch diameter sprocket, 25.4 mm per inch
 Dist_Per_Rev_Ball_Screw = (1 / (2 * 10 * 4)) * 25.4; % 2:1 pully, 10:1 gear box, 1 inch per 4 ball screw revolutions, 25.4 mm per inch
 
 % Distance reset values (mm)
@@ -409,11 +409,13 @@ Dist_Reset_Motor_Current_Front = 10;
 Dist_Reset_Motor_Current_Ball_Screw = 10;
 
 % Duty cycle commands for arm calibrations
-Cal_Back_Upper_Arm_DC = 0.2;
-Cal_Back_Lower_Arm_DC = 0.2;
-Cal_Front_Arm_DC = 0.2;
-Cal_Ball_Screw_Arm_DC = 0.2;
+Cal_Back_Upper_Arm_DC = 0;
+Cal_Back_Lower_Arm_DC = 0;
+Cal_Front_Arm_DC = 0;
+Cal_Ball_Screw_Arm_DC = 0;
 
+% Testing manual duty cycle commands using above Cal_* parameters
+TEST_Cal_DC_Flag = 0;
 
 %% Arm Position Tuning
 % Position the arms for driving under the stage

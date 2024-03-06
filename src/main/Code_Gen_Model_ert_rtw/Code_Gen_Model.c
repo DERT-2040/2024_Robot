@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.90
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Tue Mar  5 07:42:37 2024
+ * C/C++ source code generated on : Tue Mar  5 23:15:51 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -173,28 +173,28 @@ real_T Boost_Trigger_Increasing_Limit = 0.04;
 real_T Boost_Trigger_Low_Speed = 1.5;  /* Variable: Boost_Trigger_Low_Speed
                                         * Referenced by: '<S388>/Constant1'
                                         */
-real_T Cal_Back_Lower_Arm_DC = 0.2;    /* Variable: Cal_Back_Lower_Arm_DC
+real_T Cal_Back_Lower_Arm_DC = 0.0;    /* Variable: Cal_Back_Lower_Arm_DC
                                         * Referenced by: '<S12>/Constant32'
                                         */
-real_T Cal_Back_Upper_Arm_DC = 0.2;    /* Variable: Cal_Back_Upper_Arm_DC
+real_T Cal_Back_Upper_Arm_DC = 0.0;    /* Variable: Cal_Back_Upper_Arm_DC
                                         * Referenced by: '<S12>/Constant27'
                                         */
-real_T Cal_Ball_Screw_Arm_DC = 0.2;    /* Variable: Cal_Ball_Screw_Arm_DC
+real_T Cal_Ball_Screw_Arm_DC = 0.0;    /* Variable: Cal_Ball_Screw_Arm_DC
                                         * Referenced by: '<S12>/Constant34'
                                         */
-real_T Cal_Front_Arm_DC = 0.2;         /* Variable: Cal_Front_Arm_DC
+real_T Cal_Front_Arm_DC = 0.0;         /* Variable: Cal_Front_Arm_DC
                                         * Referenced by: '<S12>/Constant33'
                                         */
-real_T Dist_Per_Rev_Back_Lower = 6.9822;/* Variable: Dist_Per_Rev_Back_Lower
+real_T Dist_Per_Rev_Back_Lower = 3.9898;/* Variable: Dist_Per_Rev_Back_Lower
                                          * Referenced by: '<S18>/Rev_2_Dist'
                                          */
-real_T Dist_Per_Rev_Back_Upper = 6.9822;/* Variable: Dist_Per_Rev_Back_Upper
+real_T Dist_Per_Rev_Back_Upper = 3.9898;/* Variable: Dist_Per_Rev_Back_Upper
                                          * Referenced by: '<S19>/Rev_2_Dist'
                                          */
 real_T Dist_Per_Rev_Ball_Screw = 0.3175;/* Variable: Dist_Per_Rev_Ball_Screw
                                          * Referenced by: '<S20>/Rev_2_Dist'
                                          */
-real_T Dist_Per_Rev_Front = 6.9822;    /* Variable: Dist_Per_Rev_Front
+real_T Dist_Per_Rev_Front = 3.9898;    /* Variable: Dist_Per_Rev_Front
                                         * Referenced by: '<S21>/Rev_2_Dist'
                                         */
 real_T Dist_Reset_Motor_Current_Back_Lower = 10.0;
@@ -578,6 +578,9 @@ real_T Steering_Relative_Gain = 1.3;   /* Variable: Steering_Relative_Gain
                                         */
 real_T Steering_Twist_Gain = -0.015;   /* Variable: Steering_Twist_Gain
                                         * Referenced by: '<S370>/Constant1'
+                                        */
+real_T TEST_Cal_DC_Flag = 0.0;         /* Variable: TEST_Cal_DC_Flag
+                                        * Referenced by: '<S12>/Constant35'
                                         */
 real_T TEST_Servo_Override_Flag = 0.0; /* Variable: TEST_Servo_Override_Flag
                                         * Referenced by: '<S7>/Constant4'
@@ -6549,11 +6552,14 @@ void Code_Gen_Model_step(void)
   /* End of Switch: '<S135>/Switch' */
 
   /* Switch: '<S12>/Switch1' incorporates:
+   *  Constant: '<S12>/Constant35'
+   *  DataTypeConversion: '<S12>/Data Type Conversion1'
    *  Logic: '<S12>/AND3'
+   *  Logic: '<S12>/AND4'
    *  Logic: '<S12>/NOT'
    */
-  if ((Code_Gen_Model_B.Arm_Dist_Cal_Active_p) &&
-      (!Code_Gen_Model_B.Back_Lower_Arm_Cal_Success)) {
+  if ((TEST_Cal_DC_Flag != 0.0) || ((Code_Gen_Model_B.Arm_Dist_Cal_Active_p) &&
+       (!Code_Gen_Model_B.Back_Lower_Arm_Cal_Success))) {
     /* Outport: '<Root>/Back_Upper_Arm_DutyCycle' incorporates:
      *  Constant: '<S12>/Constant27'
      */
@@ -6705,11 +6711,14 @@ void Code_Gen_Model_step(void)
   /* End of Switch: '<S19>/Switch2' */
 
   /* Switch: '<S12>/Switch' incorporates:
+   *  Constant: '<S12>/Constant35'
+   *  DataTypeConversion: '<S12>/Data Type Conversion1'
    *  Logic: '<S12>/AND2'
+   *  Logic: '<S12>/AND5'
    *  Logic: '<S12>/NOT1'
    */
-  if ((Code_Gen_Model_B.Arm_Dist_Cal_Active_p) &&
-      (!Code_Gen_Model_B.Back_Upper_Arm_Cal_Success)) {
+  if ((TEST_Cal_DC_Flag != 0.0) || ((Code_Gen_Model_B.Arm_Dist_Cal_Active_p) &&
+       (!Code_Gen_Model_B.Back_Upper_Arm_Cal_Success))) {
     /* Outport: '<Root>/Back_Lower_Arm_DutyCycle' incorporates:
      *  Constant: '<S12>/Constant32'
      */
@@ -6881,11 +6890,14 @@ void Code_Gen_Model_step(void)
   /* End of Switch: '<S21>/Switch2' */
 
   /* Switch: '<S12>/Switch2' incorporates:
+   *  Constant: '<S12>/Constant35'
+   *  DataTypeConversion: '<S12>/Data Type Conversion1'
    *  Logic: '<S12>/AND1'
+   *  Logic: '<S12>/AND6'
    *  Logic: '<S12>/NOT2'
    */
-  if ((Code_Gen_Model_B.Arm_Dist_Cal_Active_p) &&
-      (!Code_Gen_Model_B.Front_Arm_Cal_Success)) {
+  if ((TEST_Cal_DC_Flag != 0.0) || ((Code_Gen_Model_B.Arm_Dist_Cal_Active_p) &&
+       (!Code_Gen_Model_B.Front_Arm_Cal_Success))) {
     /* Outport: '<Root>/Front_Arm_DutyCycle' incorporates:
      *  Constant: '<S12>/Constant33'
      */
@@ -6983,11 +6995,14 @@ void Code_Gen_Model_step(void)
   /* End of Switch: '<S20>/Switch2' */
 
   /* Switch: '<S12>/Switch3' incorporates:
+   *  Constant: '<S12>/Constant35'
+   *  DataTypeConversion: '<S12>/Data Type Conversion1'
    *  Logic: '<S12>/AND'
+   *  Logic: '<S12>/AND7'
    *  Logic: '<S12>/NOT3'
    */
-  if ((Code_Gen_Model_B.Arm_Dist_Cal_Active_p) &&
-      (!Code_Gen_Model_B.Ball_Screw_Arm_Cal_Success)) {
+  if ((TEST_Cal_DC_Flag != 0.0) || ((Code_Gen_Model_B.Arm_Dist_Cal_Active_p) &&
+       (!Code_Gen_Model_B.Ball_Screw_Arm_Cal_Success))) {
     /* Outport: '<Root>/Ball_Screw_Arm_DutyCycle' incorporates:
      *  Constant: '<S12>/Constant34'
      */

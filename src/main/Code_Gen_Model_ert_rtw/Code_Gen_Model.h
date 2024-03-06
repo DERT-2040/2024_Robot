@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.90
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Tue Mar  5 07:42:37 2024
+ * C/C++ source code generated on : Tue Mar  5 23:15:51 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -1016,6 +1016,9 @@ extern real_T Steering_Relative_Gain;  /* Variable: Steering_Relative_Gain
                                         */
 extern real_T Steering_Twist_Gain;     /* Variable: Steering_Twist_Gain
                                         * Referenced by: '<S370>/Constant1'
+                                        */
+extern real_T TEST_Cal_DC_Flag;        /* Variable: TEST_Cal_DC_Flag
+                                        * Referenced by: '<S12>/Constant35'
                                         */
 extern real_T TEST_Servo_Override_Flag;/* Variable: TEST_Servo_Override_Flag
                                         * Referenced by: '<S7>/Constant4'

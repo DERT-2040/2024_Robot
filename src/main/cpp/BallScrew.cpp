@@ -12,11 +12,24 @@ void BallScrew::PostStep()
 }
 
 void BallScrew::Initalize()
-{
+{   //Restore factoroy defaults
     m_BallScrew_Motor.RestoreFactoryDefaults();
+
+    //Set motor direction
+    m_BallScrew_Motor.SetInverted(Constants::BallScrew_Constants::k_Ball_Screw_Is_Reversed);
+
+    //Set idle mode to brake
     m_BallScrew_Motor.SetIdleMode(rev::CANSparkBase::IdleMode::kBrake);
+
+    //Set smart current limit    
+    m_BallScrew_Motor.SetSmartCurrentLimit(Constants::BallScrew_Constants::k_Ball_Screw_Smart_Current_Limit);
+
+    //Set secondary current limit (not sure what this does)
+    m_BallScrew_Motor.SetSecondaryCurrentLimit(Constants::BallScrew_Constants::k_Ball_Screw_Secondary_Current_Limit);
+
     //kStatus0
     m_BallScrew_Motor.SetPeriodicFramePeriod(rev::CANSparkMaxLowLevel::PeriodicFrame::kStatus0, Constants::CAN_Adjustment_Values::kStatus0_ms);
+    
     //kStatus1
     m_BallScrew_Motor.SetPeriodicFramePeriod(rev::CANSparkMaxLowLevel::PeriodicFrame::kStatus1, Constants::CAN_Adjustment_Values::kStatus1_ms);
 }

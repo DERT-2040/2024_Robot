@@ -80,6 +80,9 @@ public:
     {
     public:
         static constexpr int k_BallScrew_Drive_CANID = 34;
+        static constexpr bool k_Ball_Screw_Is_Reversed = false;        
+        static constexpr double k_Ball_Screw_Smart_Current_Limit = 5;
+        static constexpr double k_Ball_Screw_Secondary_Current_Limit = 5;
     };
 
     class TelescopingArm_Constants
@@ -88,6 +91,11 @@ public:
         static constexpr int k_Back_Lower_CANID = 31;
         static constexpr int k_Back_Upper_CANID = 32;
         static constexpr int k_Front_CANID = 33;
+        static constexpr bool k_Back_Lower_Is_Reversed = false;
+        static constexpr bool k_Back_Upper_Is_Reversed = true;
+        static constexpr bool k_Front_Is_Reversed = false;                
+        static constexpr double k_TelescopingArm_Smart_Current_Limit = 5;
+        static constexpr double k_TelescopingArm_Secondary_Current_Limit = 5;        
     };
 
     class PowerDistributionPanel_Constants

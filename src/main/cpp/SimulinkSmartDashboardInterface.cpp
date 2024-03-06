@@ -115,27 +115,27 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Cal_Back_Lower_Arm_DC__Entry = NTtable_Tune->GetEntry("Cal_Back_Lower_Arm_DC");
     NTinst.AddListener(__Cal_Back_Lower_Arm_DC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Cal_Back_Lower_Arm_DC = event.GetValueEventData()->value.GetDouble();});
-    __Cal_Back_Lower_Arm_DC__Entry.SetDouble(0.2);
+    __Cal_Back_Lower_Arm_DC__Entry.SetDouble(0);
  
     __Cal_Back_Upper_Arm_DC__Entry = NTtable_Tune->GetEntry("Cal_Back_Upper_Arm_DC");
     NTinst.AddListener(__Cal_Back_Upper_Arm_DC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Cal_Back_Upper_Arm_DC = event.GetValueEventData()->value.GetDouble();});
-    __Cal_Back_Upper_Arm_DC__Entry.SetDouble(0.2);
+    __Cal_Back_Upper_Arm_DC__Entry.SetDouble(0);
  
     __Cal_Ball_Screw_Arm_DC__Entry = NTtable_Tune->GetEntry("Cal_Ball_Screw_Arm_DC");
     NTinst.AddListener(__Cal_Ball_Screw_Arm_DC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Cal_Ball_Screw_Arm_DC = event.GetValueEventData()->value.GetDouble();});
-    __Cal_Ball_Screw_Arm_DC__Entry.SetDouble(0.2);
+    __Cal_Ball_Screw_Arm_DC__Entry.SetDouble(0);
  
     __Cal_Front_Arm_DC__Entry = NTtable_Tune->GetEntry("Cal_Front_Arm_DC");
     NTinst.AddListener(__Cal_Front_Arm_DC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Cal_Front_Arm_DC = event.GetValueEventData()->value.GetDouble();});
-    __Cal_Front_Arm_DC__Entry.SetDouble(0.2);
+    __Cal_Front_Arm_DC__Entry.SetDouble(0);
  
     __Dist_Per_Rev_Back_Lower__Entry = NTtable_Tune->GetEntry("Dist_Per_Rev_Back_Lower");
     NTinst.AddListener(__Dist_Per_Rev_Back_Lower__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Dist_Per_Rev_Back_Lower = event.GetValueEventData()->value.GetDouble();});
-    __Dist_Per_Rev_Back_Lower__Entry.SetDouble(6.9822);
+    __Dist_Per_Rev_Back_Lower__Entry.SetDouble(3.9898);
  
     __Dist_Per_Rev_Back_Upper__Entry = NTtable_Tune->GetEntry("Dist_Per_Rev_Back_Upper");
     NTinst.AddListener(__Dist_Per_Rev_Back_Upper__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Dist_Per_Rev_Back_Upper = event.GetValueEventData()->value.GetDouble();});
-    __Dist_Per_Rev_Back_Upper__Entry.SetDouble(6.9822);
+    __Dist_Per_Rev_Back_Upper__Entry.SetDouble(3.9898);
  
     __Dist_Per_Rev_Ball_Screw__Entry = NTtable_Tune->GetEntry("Dist_Per_Rev_Ball_Screw");
     NTinst.AddListener(__Dist_Per_Rev_Ball_Screw__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Dist_Per_Rev_Ball_Screw = event.GetValueEventData()->value.GetDouble();});
@@ -143,7 +143,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Dist_Per_Rev_Front__Entry = NTtable_Tune->GetEntry("Dist_Per_Rev_Front");
     NTinst.AddListener(__Dist_Per_Rev_Front__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Dist_Per_Rev_Front = event.GetValueEventData()->value.GetDouble();});
-    __Dist_Per_Rev_Front__Entry.SetDouble(6.9822);
+    __Dist_Per_Rev_Front__Entry.SetDouble(3.9898);
  
     __Dist_Reset_Motor_Current_Back_Lower__Entry = NTtable_Tune->GetEntry("Dist_Reset_Motor_Current_Back_Lower");
     NTinst.AddListener(__Dist_Reset_Motor_Current_Back_Lower__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Dist_Reset_Motor_Current_Back_Lower = event.GetValueEventData()->value.GetDouble();});
@@ -496,6 +496,10 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Steering_Twist_Gain__Entry = NTtable_Tune->GetEntry("Steering_Twist_Gain");
     NTinst.AddListener(__Steering_Twist_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Twist_Gain = event.GetValueEventData()->value.GetDouble();});
     __Steering_Twist_Gain__Entry.SetDouble(-0.015);
+ 
+    __TEST_Cal_DC_Flag__Entry = NTtable_Tune->GetEntry("TEST_Cal_DC_Flag");
+    NTinst.AddListener(__TEST_Cal_DC_Flag__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Cal_DC_Flag = event.GetValueEventData()->value.GetDouble();});
+    __TEST_Cal_DC_Flag__Entry.SetDouble(0);
  
     __TEST_Servo_Override_Flag__Entry = NTtable_Tune->GetEntry("TEST_Servo_Override_Flag");
     NTinst.AddListener(__TEST_Servo_Override_Flag__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Servo_Override_Flag = event.GetValueEventData()->value.GetDouble();});
