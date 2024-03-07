@@ -341,7 +341,7 @@ l_3 = (12.5-5.5)*25.4;
 l_4 = 5.5*25.4;
 
 % length from pivot of front argos arm to pivot of ball screw on that arm
-l_5 = 9.85*25.4;
+l_5 = 11.375*25.4;
 
 % horizontal offset from the end of gap to Back Argos Arm pivot on shooter
 l_6 = 0.042875*1000;
@@ -365,13 +365,13 @@ l_11 = 0.465697*1000;
 Back_AA_spacing = 1.0*25.4;
 
 % Back arm length
-Back_AA_length = 0.428625*1000;
+Back_AA_length = 17.0*25.4-10;  % subtracted 10 mm for fudge factor
 
 % Back arm min and max
-Back_AA_Bot_Min_Ext = 0.011690*1000;
-Back_AA_Bot_Max_Ext = 0.271145*1000;
-Back_AA_Top_Min_Ext = 0.042585*1000;
-Back_AA_Top_Max_Ext = 0.307975*1000;
+Back_AA_Bot_Min_Ext = 3.125*25.4;
+Back_AA_Bot_Max_Ext = 317; % 12.625*25.4;
+Back_AA_Top_Min_Ext = 0.75*25.4;
+Back_AA_Top_Max_Ext = 334; % 12.75*25.4;
 
 % Front arm spacing between arm and pivot
 Front_AA_spacing = 1.0*25.4;
@@ -380,25 +380,25 @@ Front_AA_spacing = 1.0*25.4;
 Front_AA_length = (20-1/16)*25.4;
 
 % Front arm min and max
-Front_AA_Bot_Min_Ext = 9.5; % mm
-Front_AA_Bot_Max_Ext = (18-1/16)*25.4;
+Front_AA_Min_Ext = 0.25*25.4; % mm
+Front_AA_Max_Ext = 443; % (18-1/16)*25.4;
 
 % Ball screw max
-Ball_Screw_Max = 9.5*25.4;
+Ball_Screw_Max = 11.0*25.4;
 
 
 
 %% Arm Length Calculation
 % Encoder distance per revolution (mm / motor rev)
-Dist_Per_Rev_Back_Lower = ((1.75 * pi) / 35) * 25.4; % 35:1 gear box, 1.75 inch diameter sprocket, 25.4 mm per inch
-Dist_Per_Rev_Back_Upper = ((1.75 * pi) / 35) * 25.4; % 35:1 gear box, 1.75 inch diameter sprocket, 25.4 mm per inch
-Dist_Per_Rev_Front = ((1.75 * pi) / 35) * 25.4; % 35:1 gear box, 1.75 inch diameter sprocket, 25.4 mm per inch
-Dist_Per_Rev_Ball_Screw = (1 / (2 * 10 * 4)) * 25.4; % 2:1 pully, 10:1 gear box, 1 inch per 4 ball screw revolutions, 25.4 mm per inch
+Dist_Per_Rev_Back_Lower = ((1.75 * pi) / (9*7)) * 25.4; % 9:1 gear box, 7:1 gear box, 1.75 inch diameter sprocket, 25.4 mm per inch
+Dist_Per_Rev_Back_Upper = ((1.75 * pi) / (9*7)) * 25.4; % 9:1 gear box, 7:1 gear box, 1.75 inch diameter sprocket, 25.4 mm per inch
+Dist_Per_Rev_Front      = ((1.75 * pi) / (9*7)) * 25.4; % 9:1 gear box, 7:1 gear box, 1.75 inch diameter sprocket, 25.4 mm per inch
+Dist_Per_Rev_Ball_Screw = 0.106;  % (1 / (2 * 10 * 4)) * 25.4; % 2:1 pully, 10:1 gear box, 1 inch per 4 ball screw revolutions, 25.4 mm per inch
 
 % Distance reset values (mm)
 Dist_Reset_Value_Back_Lower = Back_AA_Bot_Min_Ext;
-Dist_Reset_Value_Back_Upper = Back_AA_Bot_Max_Ext;
-Dist_Reset_Value_Front = Front_AA_Bot_Min_Ext;
+Dist_Reset_Value_Back_Upper = Back_AA_Top_Min_Ext;
+Dist_Reset_Value_Front = Front_AA_Min_Ext;
 Dist_Reset_Value_Ball_Screw = Ball_Screw_Max;
 clear Ball_Screw_Max
 
@@ -419,9 +419,9 @@ TEST_Cal_DC_Flag = 0;
 
 %% Arm Position Tuning
 % Position the arms for driving under the stage
-Stage_Angle = 26;       % degrees
-Stage_Height = 19.8*25.4; % mm
-Stage_Gap = 8.5*25.4;     % mm
+Stage_Angle = 16;       % degrees
+Stage_Height = 21*25.4; % mm
+Stage_Gap = 9.5*25.4;     % mm
 
 % Position arms for transfering a note into the shooter for scoring in the amp or trap
 LoadShooter_Angle = 35;
@@ -441,7 +441,7 @@ Trap_Gap = 27.3*25.4;
 % Tolerance checks for transitioning to the next state in Stateflow
 Tol_Angle = 5;
 Tol_Height = 0.5*25.4;
-Tol_Gap = 0.125*25.4;
+Tol_Gap = 0.5*25.4;
 
 % Position the arms for shooting into the speaker based on desired shooting angle
 Speaker_Angle_in = [25 30 35 40 45 50 55]; % degrees
@@ -455,27 +455,27 @@ TEST_Speaker_Angle = 45;  % degrees
 
 %% Arm Control Gains
 % Argos Arms Desired Position Rate Limits
-AA_Position_Inc_RL = 1/1*(25.4*t_sample); % in/sec converted to mm/loop
-AA_Position_Dec_RL = -1/1*(25.4*t_sample); % in/sec converted to mm/loop
+AA_Position_Inc_RL = 2; %1/1*(25.4*t_sample); % in/sec converted to mm/loop
+AA_Position_Dec_RL = -2; %-1/1*(25.4*t_sample); % in/sec converted to mm/loop
 
 % Ball Screw Desired Position Rate Limits
-BS_Position_Inc_RL = 0.1/1*(25.4*t_sample); % in/sec converted to mm/loop
-BS_Position_Dec_RL = -0.1/1*(25.4*t_sample); % in/sec converted to mm/loop
+BS_Position_Inc_RL = 2; %0.1/1*(25.4*t_sample); % in/sec converted to mm/loop
+BS_Position_Dec_RL = -2; %-0.1/1*(25.4*t_sample); % in/sec converted to mm/loop
 
 % Argos Arms P+I Control
-AA_Prop_Gain = 0;
-AA_Integral_Gain = 0;
+AA_Prop_Gain = 0.01;
+AA_Integral_Gain = 0.0005;
 AA_Integral_IC = 0;
 AA_Integral_UL = 0.5;
-AA_Integral_LL = 0;
-AA_TC_UL = 1;
-AA_TC_LL = 0;
+AA_Integral_LL = -0.5;
+AA_TC_UL = 0.4;
+AA_TC_LL = -0.4;
 
 % Ball Screw P+D Control
-BS_Prop_Gain = 0;
+BS_Prop_Gain = 0.1;
 BS_Deriv_Gain = 0;
 BS_Deriv_FC = 0.2;
 BS_Deriv_UL = 0.5;
 BS_Deriv_LL = -0.5;
-BS_TC_UL = 1;
-BS_TC_LL = 0;
+BS_TC_UL = 0.5;
+BS_TC_LL = -0.5;

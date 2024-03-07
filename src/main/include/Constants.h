@@ -81,7 +81,7 @@ public:
     public:
         static constexpr int k_BallScrew_Drive_CANID = 34;
         static constexpr bool k_Ball_Screw_Is_Reversed = false;        
-        static constexpr double k_Ball_Screw_Smart_Current_Limit = 5;
+        static constexpr double k_Ball_Screw_Smart_Current_Limit = 3;
         static constexpr double k_Ball_Screw_Secondary_Current_Limit = 5;
     };
 
@@ -94,8 +94,8 @@ public:
         static constexpr bool k_Back_Lower_Is_Reversed = false;
         static constexpr bool k_Back_Upper_Is_Reversed = true;
         static constexpr bool k_Front_Is_Reversed = false;                
-        static constexpr double k_TelescopingArm_Smart_Current_Limit = 5;
-        static constexpr double k_TelescopingArm_Secondary_Current_Limit = 5;        
+        static constexpr double k_TelescopingArm_Smart_Current_Limit = 15;
+        static constexpr double k_TelescopingArm_Secondary_Current_Limit = 20;        
     };
 
     class PowerDistributionPanel_Constants
