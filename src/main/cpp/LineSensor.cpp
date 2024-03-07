@@ -9,3 +9,8 @@ void LineSensor::PostStep()
 {
 
 }
+
+void SmartDashboardCallback()
+{
+    SmartDashboard::putNumber("IsNoteThere", SmartDashboard::getDefault().getTable("Vision").getNumber("IsNoteThere"));
+}

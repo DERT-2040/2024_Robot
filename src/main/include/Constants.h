@@ -110,7 +110,6 @@ public:
      class Line_Sensor_Constants
     {
     public:
-        static constexpr int Line_SensorID = -1;
-    }
-};
+        static constexpr int Line_SensorID = 47;
+    };
 };

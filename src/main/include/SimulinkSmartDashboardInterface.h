@@ -65,6 +65,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Drive_Motor_Control_I_UL__Entry;
         nt::NetworkTableEntry __Drive_Motor_Control_P__Entry;
         nt::NetworkTableEntry __Drive_Motor_Control_Sign_Change_Deadband__Entry;
+        nt::NetworkTableEntry __FloorDistance__Entry;
         nt::NetworkTableEntry __Front_AA_Bot_Max_Ext__Entry;
         nt::NetworkTableEntry __Front_AA_Bot_Min_Ext__Entry;
         nt::NetworkTableEntry __Gamepad_Stick_Down_Threshold__Entry;
@@ -212,6 +213,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Joystick_Right_X__Entry;
         nt::NetworkTableEntry __Joystick_Right_Y__Entry;
         nt::NetworkTableEntry __Joystick_Right_Z__Entry;
+        nt::NetworkTableEntry __Line_Sensor_TOF_Range__Entry;
         nt::NetworkTableEntry __Motor_Current_Back_Lower__Entry;
         nt::NetworkTableEntry __Motor_Current_Back_Upper__Entry;
         nt::NetworkTableEntry __Motor_Current_Ball_Screw__Entry;
@@ -267,6 +269,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Desired_Front_Dist__Entry;
         nt::NetworkTableEntry __Desired_Gap__Entry;
         nt::NetworkTableEntry __Desired_Height__Entry;
+        nt::NetworkTableEntry __DistanceSensorBoolean__Entry;
         nt::NetworkTableEntry __Drive_Joystick_X__Entry;
         nt::NetworkTableEntry __Drive_Joystick_Y__Entry;
         nt::NetworkTableEntry __Drive_Joystick_Z__Entry;

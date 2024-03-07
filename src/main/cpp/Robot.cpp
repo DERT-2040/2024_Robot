@@ -87,6 +87,7 @@ void Robot::PreStep()
   m_BallScrew.PreStep();
   m_PowerDistributionPanel.PreStep();
   m_TelescopingArm.PreStep();
+  m_LineSensor.PreStep();
 }
 
 void Robot::PostStep() 
@@ -101,6 +102,7 @@ void Robot::PostStep()
   m_BallScrew.PostStep();
   m_PowerDistributionPanel.PostStep();
   m_TelescopingArm.PostStep();
+  m_LineSensor.PostStep();
 }
 
 void Robot::GameInitValues() 

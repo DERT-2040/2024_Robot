@@ -221,6 +221,10 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     NTinst.AddListener(__Drive_Motor_Control_Sign_Change_Deadband__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Drive_Motor_Control_Sign_Change_Deadband = event.GetValueEventData()->value.GetDouble();});
     __Drive_Motor_Control_Sign_Change_Deadband__Entry.SetDouble(1500);
  
+    __FloorDistance__Entry = NTtable_Tune->GetEntry("FloorDistance");
+    NTinst.AddListener(__FloorDistance__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {FloorDistance = event.GetValueEventData()->value.GetDouble();});
+    __FloorDistance__Entry.SetDouble(850);
+ 
     __Front_AA_Bot_Max_Ext__Entry = NTtable_Tune->GetEntry("Front_AA_Bot_Max_Ext");
     NTinst.AddListener(__Front_AA_Bot_Max_Ext__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Front_AA_Bot_Max_Ext = event.GetValueEventData()->value.GetDouble();});
     __Front_AA_Bot_Max_Ext__Entry.SetDouble(455.6125);
@@ -622,6 +626,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Joystick_Right_X__Entry = NTtable_Inport->GetEntry("Joystick_Right_X");
     __Joystick_Right_Y__Entry = NTtable_Inport->GetEntry("Joystick_Right_Y");
     __Joystick_Right_Z__Entry = NTtable_Inport->GetEntry("Joystick_Right_Z");
+    __Line_Sensor_TOF_Range__Entry = NTtable_Inport->GetEntry("Line_Sensor_TOF_Range");
     __Motor_Current_Back_Lower__Entry = NTtable_Inport->GetEntry("Motor_Current_Back_Lower");
     __Motor_Current_Back_Upper__Entry = NTtable_Inport->GetEntry("Motor_Current_Back_Upper");
     __Motor_Current_Ball_Screw__Entry = NTtable_Inport->GetEntry("Motor_Current_Ball_Screw");
@@ -678,6 +683,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Desired_Front_Dist__Entry = NTtable_TPoint->GetEntry("Desired_Front_Dist");
     __Desired_Gap__Entry = NTtable_TPoint->GetEntry("Desired_Gap");
     __Desired_Height__Entry = NTtable_TPoint->GetEntry("Desired_Height");
+    __DistanceSensorBoolean__Entry = NTtable_TPoint->GetEntry("DistanceSensorBoolean");
     __Drive_Joystick_X__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_X");
     __Drive_Joystick_Y__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Y");
     __Drive_Joystick_Z__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Z");
@@ -810,6 +816,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Joystick_Right_X__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_X);
     __Joystick_Right_Y__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_Y);
     __Joystick_Right_Z__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_Z);
+    __Line_Sensor_TOF_Range__Entry.SetDouble(Code_Gen_Model_U.Line_Sensor_TOF_Range);
     __Motor_Current_Back_Lower__Entry.SetDouble(Code_Gen_Model_U.Motor_Current_Back_Lower);
     __Motor_Current_Back_Upper__Entry.SetDouble(Code_Gen_Model_U.Motor_Current_Back_Upper);
     __Motor_Current_Ball_Screw__Entry.SetDouble(Code_Gen_Model_U.Motor_Current_Ball_Screw);
@@ -864,6 +871,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Desired_Front_Dist__Entry.SetDouble(Code_Gen_Model_B.Desired_Front_Dist);
     __Desired_Gap__Entry.SetDouble(Code_Gen_Model_B.Desired_Gap);
     __Desired_Height__Entry.SetDouble(Code_Gen_Model_B.Desired_Height);
+    __DistanceSensorBoolean__Entry.SetDouble(Code_Gen_Model_B.DistanceSensorBoolean);
     __Drive_Joystick_X__Entry.SetDouble(Code_Gen_Model_B.Drive_Joystick_X);
     __Drive_Joystick_Y__Entry.SetDouble(Code_Gen_Model_B.Drive_Joystick_Y);
     __Drive_Joystick_Z__Entry.SetDouble(Code_Gen_Model_B.Drive_Joystick_Z);

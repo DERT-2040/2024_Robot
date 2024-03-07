@@ -482,4 +482,4 @@ BS_TC_LL = 0;
 
 %LineSensor
 
-FloorDistance = -1;
+FloorDistance = 850;
