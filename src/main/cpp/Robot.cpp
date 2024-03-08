@@ -84,7 +84,6 @@ void Robot::PreStep()
   m_Intake.PreStep();
   m_Shooter.PreStep();
   m_BallScrew.PreStep();
-  // m_PowerDistributionPanel.PreStep();
   m_TelescopingArm.PreStep();
 }
 
@@ -98,7 +97,6 @@ void Robot::PostStep()
   m_Shooter.PostStep();
   m_SmartDashboard.UpdateSDValues();
   m_BallScrew.PostStep();
-  // m_PowerDistributionPanel.PostStep();
   m_TelescopingArm.PostStep();
 }
 

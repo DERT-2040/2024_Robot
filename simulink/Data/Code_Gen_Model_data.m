@@ -22,11 +22,8 @@ t_sample = 0.02;
 %% Joystick Command Profiling
 
 % Thresholds for treating sticks as discrete inputs
-Gamepad_Stick_Down_Threshold = -0.5;
-Gamepad_Stick_Up_Threshold = 0.5;
-
-% Timeout for arm calibration after pushing gamepad button
-Arm_Calibration_Timeout = 5; % seconds
+Gamepad_Stick_Neg_Threshold = -0.5;
+Gamepad_Stick_Pos_Threshold = 0.5;
 
 % Absolute Steering Circular Deadband
 Steering_Abs_Deadband_Range = 0.7;
@@ -60,6 +57,13 @@ Boost_Trigger_Low_Speed = 1.5; % m/s
 Boost_Trigger_Increasing_Limit = 2/1*0.02;
 Boost_Trigger_Decreasing_Limit = -2/0.9*0.02;
 
+% Test Mode gains to convert gamepad inputs to duty cycle
+Test_DC_Gain_BackUpper = 0.5;
+Test_DC_Gain_Front = 0.5;
+Test_DC_Gain_BackLower = 0.5;
+Test_DC_Gain_BallScrew = 0.5;
+Test_DC_Gain_Intake = 1;
+Test_DC_Gain_Shooter = 0.2;
 
 %% Wheel Gear Ratio
 gear_ratio = 8.14;
@@ -83,8 +87,8 @@ clear gear_ratio wheel_diameter adjustment_factor
 
 %% Wheel Locations from Center of Rotation
 % distances between swerve modules
-FrontBack = (34 - 2*2.625)*0.0254;  % meters
-LeftRight = (26 - 2*2.625)*0.0254;  % meters
+FrontBack = (26 - 0.125 - 2*2.625)*0.0254;  % meters
+LeftRight = (26 - 0.125 - 2*2.625)*0.0254;  % meters
 
 % swerve module distances from center to x and y coordinates
 % Front Left
@@ -387,7 +391,6 @@ Front_AA_Max_Ext = 443; % (18-1/16)*25.4;
 Ball_Screw_Max = 11.0*25.4;
 
 
-
 %% Arm Length Calculation
 % Encoder distance per revolution (mm / motor rev)
 Dist_Per_Rev_Back_Lower = ((1.75 * pi) / (9*7)) * 25.4; % 9:1 gear box, 7:1 gear box, 1.75 inch diameter sprocket, 25.4 mm per inch
@@ -402,20 +405,6 @@ Dist_Reset_Value_Front = Front_AA_Min_Ext;
 Dist_Reset_Value_Ball_Screw = Ball_Screw_Max;
 clear Ball_Screw_Max
 
-% Distance reset motor current thresholds (Amps)
-Dist_Reset_Motor_Current_Back_Lower = 10;
-Dist_Reset_Motor_Current_Back_Upper = 10;
-Dist_Reset_Motor_Current_Front = 10;
-Dist_Reset_Motor_Current_Ball_Screw = 10;
-
-% Duty cycle commands for arm calibrations
-Cal_Back_Upper_Arm_DC = 0;
-Cal_Back_Lower_Arm_DC = 0;
-Cal_Front_Arm_DC = 0;
-Cal_Ball_Screw_Arm_DC = 0;
-
-% Testing manual duty cycle commands using above Cal_* parameters
-TEST_Cal_DC_Flag = 0;
 
 %% Arm Position Tuning
 % Position the arms for driving under the stage

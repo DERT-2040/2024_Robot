@@ -98,16 +98,6 @@ public:
         static constexpr double k_TelescopingArm_Secondary_Current_Limit = 20;        
     };
 
-    class PowerDistributionPanel_Constants
-    {
-    public:
-        static constexpr int pdp_CanId = 0 ; //may need to be 0 or 1, as of 2/21/2024
-        static constexpr int CurrentIDBackLower = 4; 
-        static constexpr int CurrentIDBackUpper = 5;
-        static constexpr int CurrentIDBallScrew = 6;
-        static constexpr int CurrentIDFront = 7;
-    };
-
     class CAN_Adjustment_Values
     {
     public:
