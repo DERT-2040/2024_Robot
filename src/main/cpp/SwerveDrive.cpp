@@ -37,10 +37,10 @@ void SwerveDrive::PostStep()
 
 void SwerveDrive::SmartDashboardCallback() 
 {
-  frc::SmartDashboard::PutNumber("FL_Encoder", m_FrontLeft_Steer_Encoder.GetAbsolutePosition().GetValue().value());
-  frc::SmartDashboard::PutNumber("FR_Encoder", static_cast<double>(m_FrontRight_Steer_Encoder.GetAbsolutePosition().GetValue()));
-  frc::SmartDashboard::PutNumber("BL_Encoder", static_cast<double>(m_BackLeft_Steer_Encoder.GetAbsolutePosition().GetValue()));
-  frc::SmartDashboard::PutNumber("BR_Encoder", static_cast<double>(m_BackRight_Steer_Encoder.GetAbsolutePosition().GetValue()));
+  frc::SmartDashboard::PutNumber("FL_Encoder", m_FrontLeft_Steer_Encoder.GetPosition().GetValue().value());
+  frc::SmartDashboard::PutNumber("FR_Encoder", static_cast<double>(m_FrontRight_Steer_Encoder.GetPosition().GetValue()));
+  frc::SmartDashboard::PutNumber("BL_Encoder", static_cast<double>(m_BackLeft_Steer_Encoder.GetPosition().GetValue()));
+  frc::SmartDashboard::PutNumber("BR_Encoder", static_cast<double>(m_BackRight_Steer_Encoder.GetPosition().GetValue()));
 }
 
 void SwerveDrive::Initalize() 
@@ -174,10 +174,10 @@ void SwerveDrive::Initalize_Wheel_Offset()
 
 void SwerveDrive::Reset_Wheel_Offset() 
 {
-  frc::Preferences::SetDouble(Constants::k_FrontLeft_Wheel_Offset_Key, static_cast<double>(m_FrontLeft_Steer_Encoder.GetAbsolutePosition().GetValue()));
-  frc::Preferences::SetDouble(Constants::k_FrontRight_Wheel_Offset_Key, static_cast<double>(m_FrontRight_Steer_Encoder.GetAbsolutePosition().GetValue()));
-  frc::Preferences::SetDouble(Constants::k_BackLeft_Wheel_Offset_Key, static_cast<double>(m_BackLeft_Steer_Encoder.GetAbsolutePosition().GetValue()));
-  frc::Preferences::SetDouble(Constants::k_BackRight_Wheel_Offset_Key, static_cast<double>(m_BackRight_Steer_Encoder.GetAbsolutePosition().GetValue()));
+  frc::Preferences::SetDouble(Constants::k_FrontLeft_Wheel_Offset_Key, static_cast<double>(m_FrontLeft_Steer_Encoder.GetPosition().GetValue()));
+  frc::Preferences::SetDouble(Constants::k_FrontRight_Wheel_Offset_Key, static_cast<double>(m_FrontRight_Steer_Encoder.GetPosition().GetValue()));
+  frc::Preferences::SetDouble(Constants::k_BackLeft_Wheel_Offset_Key, static_cast<double>(m_BackLeft_Steer_Encoder.GetPosition().GetValue()));
+  frc::Preferences::SetDouble(Constants::k_BackRight_Wheel_Offset_Key, static_cast<double>(m_BackRight_Steer_Encoder.GetPosition().GetValue()));
   SwerveDrive::Set_Wheel_Offset();
 }
 
