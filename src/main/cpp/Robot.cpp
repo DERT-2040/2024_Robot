@@ -38,9 +38,8 @@ void Robot::RobotPeriodic()
     m_Tracer.AddEpoch("After Simulink");
 
   PostStep(); //Robot wide PostStep
-  m_Tracer.AddEpoch("After PostStep");
-
-  m_Tracer.PrintEpochs();
+    m_Tracer.AddEpoch("After PostStep");
+    m_Tracer.PrintEpochs();
 }
 
 void Robot::AutonomousInit() { Code_Gen_Model_U.GameState = 1; GameInitValues();}
@@ -85,7 +84,7 @@ void Robot::PreStep()
   m_Intake.PreStep();
   m_Shooter.PreStep();
   m_BallScrew.PreStep();
-  m_PowerDistributionPanel.PreStep();
+  // m_PowerDistributionPanel.PreStep();
   m_TelescopingArm.PreStep();
 }
 
@@ -99,7 +98,7 @@ void Robot::PostStep()
   m_Shooter.PostStep();
   m_SmartDashboard.UpdateSDValues();
   m_BallScrew.PostStep();
-  m_PowerDistributionPanel.PostStep();
+  // m_PowerDistributionPanel.PostStep();
   m_TelescopingArm.PostStep();
 }
 
@@ -110,7 +109,7 @@ void Robot::GameInitValues()
 
 void Robot::BindSDCallbacks() 
 {
-  m_SmartDashboard.BindSmartDashboardCallback(std::bind(&PhotonVisionInterface::SmartDashboardCallback, &m_PhotonVisionInterface));
+  // m_SmartDashboard.BindSmartDashboardCallback(std::bind(&PhotonVisionInterface::SmartDashboardCallback, &m_PhotonVisionInterface));
   m_SmartDashboard.BindSmartDashboardCallback(std::bind(&SimulinkSmartDashboardInterface::SmartDashboardCallback, &m_SimulinkSmartDashboardInterface));
   // m_SmartDashboard.BindSmartDashboardCallback(std::bind(&SwerveDrive::SmartDashboardCallback, &m_SwerveDrive));
   // m_SmartDashboard.BindSmartDashboardCallback(std::bind(&TelescopingArm::SmartDashboardCallback, &Test_Arm));

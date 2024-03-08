@@ -28,10 +28,10 @@ void BallScrew::Initalize()
     m_BallScrew_Motor.SetSecondaryCurrentLimit(Constants::BallScrew_Constants::k_Ball_Screw_Secondary_Current_Limit);
 
     //kStatus0
-    m_BallScrew_Motor.SetPeriodicFramePeriod(rev::CANSparkMaxLowLevel::PeriodicFrame::kStatus0, Constants::CAN_Adjustment_Values::kStatus0_ms);
+    m_BallScrew_Motor.SetPeriodicFramePeriod(rev::CANSparkMaxLowLevel::PeriodicFrame::kStatus0, Constants::CAN_Adjustment_Values::kStatus1_ms);
     
     //kStatus1
-    m_BallScrew_Motor.SetPeriodicFramePeriod(rev::CANSparkMaxLowLevel::PeriodicFrame::kStatus1, Constants::CAN_Adjustment_Values::kStatus1_ms);
+    m_BallScrew_Motor.SetPeriodicFramePeriod(rev::CANSparkMaxLowLevel::PeriodicFrame::kStatus1, Constants::CAN_Adjustment_Values::kStatus2_ms);
 }
 
 // void BallScrew::RobotCallback(Robot MainRobot)

@@ -111,7 +111,7 @@ public:
     class CAN_Adjustment_Values
     {
     public:
-        static constexpr int kStatus0_ms = 40; //ms
         static constexpr int kStatus1_ms = 40; //ms
+        static constexpr int kStatus2_ms = 40; //ms
     };
 };
