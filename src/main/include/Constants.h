@@ -104,4 +104,10 @@ public:
         static constexpr int kStatus1_ms = 60; //ms
         static constexpr int kStatus2_ms = 60; //ms
     };
+
+     class Line_Sensor_Constants
+    {
+    public:
+        static constexpr int Line_SensorID = 47;
+    };
 };

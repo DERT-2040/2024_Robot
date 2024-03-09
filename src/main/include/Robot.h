@@ -16,6 +16,7 @@
 #include "include/Intake.h"
 #include "include/Shooter.h"
 #include "include/BallScrew.h"
+#include "include/LineSensor.h"
 
 //frc
 #include <frc/TimedRobot.h>
@@ -171,4 +172,7 @@ private:
    * Compentent that represents each motor and encoder for each arm
   */
   TelescopingArm m_TelescopingArm;  
+
+  
+  LineSensor m_LineSensor;
 };
