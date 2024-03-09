@@ -468,3 +468,8 @@ BS_Deriv_UL = 0.5;
 BS_Deriv_LL = -0.5;
 BS_TC_UL = 0.3;
 BS_TC_LL = -0.3;
+
+
+%% Autonmous
+%LineSensor
+FloorDistance = 850;
