@@ -35,6 +35,30 @@ void PhotonVisionInterface::PreStep() {
                 AT_Tag_5_Yaw = target.GetYaw();
                 AT_Tag_5_Found = true;
             }
+            if (targetId == 11) {
+                AT_Tag_11_Yaw = target.GetYaw();
+                AT_Tag_11_Found = true;
+            }
+            if (targetId == 12) {
+                AT_Tag_12_Yaw = target.GetYaw();
+                AT_Tag_12_Found = true;
+            }
+            if (targetId == 13) {
+                AT_Tag_13_Yaw = target.GetYaw();
+                AT_Tag_13_Found = true;
+            }
+            if (targetId == 14) {
+                AT_Tag_14_Yaw = target.GetYaw();
+                AT_Tag_14_Found = true;
+            }
+            if (targetId == 15) {
+                AT_Tag_15_Yaw = target.GetYaw();
+                AT_Tag_15_Found = true;
+            }
+            if (targetId == 16) {
+                AT_Tag_16_Yaw = target.GetYaw();
+                AT_Tag_16_Found = true;
+            }
         }
         averageRobotPoseAmbiguity = tmp_totalRobotPoseAmbiguity / photonTrackedTargets.size();
     }
@@ -49,6 +73,19 @@ void PhotonVisionInterface::PreStep() {
     Code_Gen_Model_U.AT_Tag_5_Found = AT_Tag_5_Found;
     Code_Gen_Model_U.AT_Tag_6_Found = AT_Tag_6_Found;
     Code_Gen_Model_U.AT_Tag_7_Found = AT_Tag_7_Found;
+    Code_Gen_Model_U.AT_Tag_11_Yaw = AT_Tag_11_Yaw;
+    Code_Gen_Model_U.AT_Tag_12_Yaw = AT_Tag_12_Yaw;
+    Code_Gen_Model_U.AT_Tag_13_Yaw = AT_Tag_13_Yaw;
+    Code_Gen_Model_U.AT_Tag_14_Yaw = AT_Tag_14_Yaw;
+    Code_Gen_Model_U.AT_Tag_15_Yaw = AT_Tag_15_Yaw;
+    Code_Gen_Model_U.AT_Tag_16_Yaw = AT_Tag_16_Yaw;
+    Code_Gen_Model_U.AT_Tag_11_Found = AT_Tag_11_Found;
+    Code_Gen_Model_U.AT_Tag_12_Found = AT_Tag_12_Found;
+    Code_Gen_Model_U.AT_Tag_13_Found = AT_Tag_13_Found;
+    Code_Gen_Model_U.AT_Tag_14_Found = AT_Tag_14_Found;
+    Code_Gen_Model_U.AT_Tag_15_Found = AT_Tag_15_Found;
+    Code_Gen_Model_U.AT_Tag_16_Found = AT_Tag_16_Found;
+    
     Code_Gen_Model_U.Photon_Est_Pose_Ambiguity = averageRobotPoseAmbiguity;
 }
 
