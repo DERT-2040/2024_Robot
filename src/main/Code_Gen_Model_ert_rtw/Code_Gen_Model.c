@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.97
+ * Model version                  : 2.98
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Fri Mar  8 08:05:57 2024
+ * C/C++ source code generated on : Fri Mar  8 15:34:25 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -174,9 +174,9 @@ real_T Dist_Per_Rev_Back_Lower = 2.2166;/* Variable: Dist_Per_Rev_Back_Lower
 real_T Dist_Per_Rev_Back_Upper = 2.2166;/* Variable: Dist_Per_Rev_Back_Upper
                                          * Referenced by: '<S19>/Rev_2_Dist'
                                          */
-real_T Dist_Per_Rev_Ball_Screw = 0.106;/* Variable: Dist_Per_Rev_Ball_Screw
-                                        * Referenced by: '<S20>/Rev_2_Dist'
-                                        */
+real_T Dist_Per_Rev_Ball_Screw = 0.35278;/* Variable: Dist_Per_Rev_Ball_Screw
+                                          * Referenced by: '<S20>/Rev_2_Dist'
+                                          */
 real_T Dist_Per_Rev_Front = 2.2166;    /* Variable: Dist_Per_Rev_Front
                                         * Referenced by: '<S21>/Rev_2_Dist'
                                         */
@@ -568,22 +568,22 @@ real_T TEST_Speaker_Angle = 45.0;      /* Variable: TEST_Speaker_Angle
 real_T TEST_Speaker_Height = 0.0;      /* Variable: TEST_Speaker_Height
                                         * Referenced by: '<S12>/Constant25'
                                         */
-real_T Test_DC_Gain_BackLower = 0.5;   /* Variable: Test_DC_Gain_BackLower
+real_T Test_DC_Gain_BackLower = 0.3;   /* Variable: Test_DC_Gain_BackLower
                                         * Referenced by: '<S6>/Gain2'
                                         */
-real_T Test_DC_Gain_BackUpper = 0.5;   /* Variable: Test_DC_Gain_BackUpper
+real_T Test_DC_Gain_BackUpper = 0.3;   /* Variable: Test_DC_Gain_BackUpper
                                         * Referenced by: '<S6>/Gain'
                                         */
-real_T Test_DC_Gain_BallScrew = 0.5;   /* Variable: Test_DC_Gain_BallScrew
+real_T Test_DC_Gain_BallScrew = 0.2;   /* Variable: Test_DC_Gain_BallScrew
                                         * Referenced by: '<S6>/Gain3'
                                         */
-real_T Test_DC_Gain_Front = 0.5;       /* Variable: Test_DC_Gain_Front
+real_T Test_DC_Gain_Front = 0.3;       /* Variable: Test_DC_Gain_Front
                                         * Referenced by: '<S6>/Gain1'
                                         */
-real_T Test_DC_Gain_Intake = 1.0;      /* Variable: Test_DC_Gain_Intake
+real_T Test_DC_Gain_Intake = -1.0;     /* Variable: Test_DC_Gain_Intake
                                         * Referenced by: '<S6>/Gain4'
                                         */
-real_T Test_DC_Gain_Shooter = 0.2;     /* Variable: Test_DC_Gain_Shooter
+real_T Test_DC_Gain_Shooter = 1.0;     /* Variable: Test_DC_Gain_Shooter
                                         * Referenced by: '<S6>/Gain5'
                                         */
 real_T Tol_Angle = 5.0;                /* Variable: Tol_Angle
@@ -7163,10 +7163,10 @@ void Code_Gen_Model_step(void)
   if (Code_Gen_Model_B.Test_Mode) {
     /* Outport: '<Root>/Ball_Screw_Arm_DutyCycle' incorporates:
      *  Gain: '<S6>/Gain3'
-     *  Inport: '<Root>/Gamepad_RT'
+     *  Inport: '<Root>/Gamepad_Stick_Right_X'
      */
     Code_Gen_Model_Y.Ball_Screw_Arm_DutyCycle = Test_DC_Gain_BallScrew *
-      Code_Gen_Model_U.Gamepad_RT;
+      Code_Gen_Model_U.Gamepad_Stick_Right_X;
   } else {
     /* Sum: '<S142>/Diff' incorporates:
      *  UnitDelay: '<S142>/UD'
@@ -7323,10 +7323,10 @@ void Code_Gen_Model_step(void)
   if (Code_Gen_Model_B.Test_Mode) {
     /* Outport: '<Root>/Back_Lower_Arm_DutyCycle' incorporates:
      *  Gain: '<S6>/Gain2'
-     *  Inport: '<Root>/Gamepad_LT'
+     *  Inport: '<Root>/Gamepad_Stick_Left_X'
      */
     Code_Gen_Model_Y.Back_Lower_Arm_DutyCycle = Test_DC_Gain_BackLower *
-      Code_Gen_Model_U.Gamepad_LT;
+      Code_Gen_Model_U.Gamepad_Stick_Left_X;
   } else {
     /* Sum: '<S136>/Add1' */
     rtb_Switch2_m = rtb_Switch2_eq + y;

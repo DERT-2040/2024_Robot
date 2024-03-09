@@ -184,7 +184,9 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Gamepad_LT__Entry;
         nt::NetworkTableEntry __Gamepad_RB__Entry;
         nt::NetworkTableEntry __Gamepad_RT__Entry;
+        nt::NetworkTableEntry __Gamepad_Stick_Left_X__Entry;
         nt::NetworkTableEntry __Gamepad_Stick_Left_Y__Entry;
+        nt::NetworkTableEntry __Gamepad_Stick_Right_X__Entry;
         nt::NetworkTableEntry __Gamepad_Stick_Right_Y__Entry;
         nt::NetworkTableEntry __Gyro_Angle__Entry;
         nt::NetworkTableEntry __Intake_TOF_Dist__Entry;

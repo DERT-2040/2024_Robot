@@ -17,7 +17,7 @@ Not_Tunable_List = {'t_sample',...
 };
 
 % sample time model
-t_sample = 0.02;
+t_sample = 0.020;
 
 %% Joystick Command Profiling
 
@@ -58,12 +58,12 @@ Boost_Trigger_Increasing_Limit = 2/1*0.02;
 Boost_Trigger_Decreasing_Limit = -2/0.9*0.02;
 
 % Test Mode gains to convert gamepad inputs to duty cycle
-Test_DC_Gain_BackUpper = 0.5;
-Test_DC_Gain_Front = 0.5;
-Test_DC_Gain_BackLower = 0.5;
-Test_DC_Gain_BallScrew = 0.5;
-Test_DC_Gain_Intake = 1;
-Test_DC_Gain_Shooter = 0.2;
+Test_DC_Gain_BackUpper = 0.3;
+Test_DC_Gain_Front = 0.3;
+Test_DC_Gain_BackLower = 0.3;
+Test_DC_Gain_BallScrew = 0.2;  % do not make this larger than 0.2
+Test_DC_Gain_Intake = -1;
+Test_DC_Gain_Shooter = 1;
 
 %% Wheel Gear Ratio
 gear_ratio = 8.14;
@@ -209,8 +209,8 @@ clear Derivative_low_pass_filter_freq
 
 
 %% Translation Speed Rate Limit
-Translation_Speed_Rate_Limit_Inc =  3/0.7*0.02;
-Translation_Speed_Rate_Limit_Dec = -2/0.2*0.02;
+Translation_Speed_Rate_Limit_Inc =  3/0.7*t_sample;
+Translation_Speed_Rate_Limit_Dec = -2/0.2*t_sample;
 Translation_Speed_Approach_Zero_Error_Thresh = 0.2;
 Translation_Speed_Approach_Zero_Final_Thresh = 0.01;
 Translation_Speed_NonZero_Error_Thresh = 0.15;
@@ -218,8 +218,8 @@ Translation_Speed_NonZero_Final_Scale_Factor = 0.05;
 
 
 %% Steering Localized Cmd Rate Limit
-Steering_Localized_Cmd_Rate_Limit_Inc = 1/0.25*0.02*0 + 1;
-Steering_Localized_Cmd_Rate_Limit_Dec = -1/0.25*0.02*0 - 1;
+Steering_Localized_Cmd_Rate_Limit_Inc = 1*t_sample/0.02;
+Steering_Localized_Cmd_Rate_Limit_Dec = -1*t_sample/0.02;
 Steering_Localized_Cmd_Approach_Zero_Error_Thresh = 0.2;
 Steering_Localized_Cmd_Approach_Zero_Final_Thresh = 0.01;
 Steering_Localized_Cmd_NonZero_Error_Thresh = 0.2;
@@ -396,7 +396,7 @@ Ball_Screw_Max = 11.0*25.4;
 Dist_Per_Rev_Back_Lower = ((1.75 * pi) / (9*7)) * 25.4; % 9:1 gear box, 7:1 gear box, 1.75 inch diameter sprocket, 25.4 mm per inch
 Dist_Per_Rev_Back_Upper = ((1.75 * pi) / (9*7)) * 25.4; % 9:1 gear box, 7:1 gear box, 1.75 inch diameter sprocket, 25.4 mm per inch
 Dist_Per_Rev_Front      = ((1.75 * pi) / (9*7)) * 25.4; % 9:1 gear box, 7:1 gear box, 1.75 inch diameter sprocket, 25.4 mm per inch
-Dist_Per_Rev_Ball_Screw = 0.106;  % (1 / (2 * 10 * 4)) * 25.4; % 2:1 pully, 10:1 gear box, 1 inch per 4 ball screw revolutions, 25.4 mm per inch
+Dist_Per_Rev_Ball_Screw = (1/72)*25.4;
 
 % Distance reset values (mm)
 Dist_Reset_Value_Back_Lower = Back_AA_Bot_Min_Ext;
@@ -444,12 +444,12 @@ TEST_Speaker_Angle = 45;  % degrees
 
 %% Arm Control Gains
 % Argos Arms Desired Position Rate Limits
-AA_Position_Inc_RL = 2; %1/1*(25.4*t_sample); % in/sec converted to mm/loop
-AA_Position_Dec_RL = -2; %-1/1*(25.4*t_sample); % in/sec converted to mm/loop
+AA_Position_Inc_RL = 2*t_sample/0.02; %1/1*(25.4*t_sample); % in/sec converted to mm/loop
+AA_Position_Dec_RL = -2*t_sample/0.02; %-1/1*(25.4*t_sample); % in/sec converted to mm/loop
 
 % Ball Screw Desired Position Rate Limits
-BS_Position_Inc_RL = 2; %0.1/1*(25.4*t_sample); % in/sec converted to mm/loop
-BS_Position_Dec_RL = -2; %-0.1/1*(25.4*t_sample); % in/sec converted to mm/loop
+BS_Position_Inc_RL = 2*t_sample/0.02; %0.1/1*(25.4*t_sample); % in/sec converted to mm/loop
+BS_Position_Dec_RL = -2*t_sample/0.02; %-0.1/1*(25.4*t_sample); % in/sec converted to mm/loop
 
 % Argos Arms P+I Control
 AA_Prop_Gain = 0.01;
@@ -466,5 +466,5 @@ BS_Deriv_Gain = 0;
 BS_Deriv_FC = 0.2;
 BS_Deriv_UL = 0.5;
 BS_Deriv_LL = -0.5;
-BS_TC_UL = 0.5;
-BS_TC_LL = -0.5;
+BS_TC_UL = 0.3;
+BS_TC_LL = -0.3;

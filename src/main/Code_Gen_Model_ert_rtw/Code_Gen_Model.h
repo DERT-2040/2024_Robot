@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.97
+ * Model version                  : 2.98
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Fri Mar  8 08:05:57 2024
+ * C/C++ source code generated on : Fri Mar  8 15:34:25 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -390,7 +390,9 @@ typedef struct {
   real_T Joystick_Right_POV;           /* '<Root>/Joystick_Right_POV' */
   real_T Joystick_Right_B8;            /* '<Root>/Joystick_Right_B8' */
   real_T Joystick_Right_B10;           /* '<Root>/Joystick_Right_B10' */
+  real_T Gamepad_Stick_Left_X;         /* '<Root>/Gamepad_Stick_Left_X' */
   real_T Gamepad_Stick_Left_Y;         /* '<Root>/Gamepad_Stick_Left_Y' */
+  real_T Gamepad_Stick_Right_X;        /* '<Root>/Gamepad_Stick_Right_X' */
   real_T Gamepad_Stick_Right_Y;        /* '<Root>/Gamepad_Stick_Right_Y' */
   real_T Gamepad_B1_A;                 /* '<Root>/Gamepad_B1_A' */
   real_T Gamepad_LB;                   /* '<Root>/Gamepad_LB' */

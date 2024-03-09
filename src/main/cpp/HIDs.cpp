@@ -11,13 +11,6 @@ void HIDs::PreStep() {
     Code_Gen_Model_U.Joystick_Right_Y = -m_Right_Joystick.GetX();
     Code_Gen_Model_U.Joystick_Right_Z = m_Right_Joystick.GetZ();
 
-    // Gamepad Controller
-    // Code_Gen_Model_U.Drive_Joystick_X = -m_Gamepad.GetRawAxis(1);
-    // Code_Gen_Model_U.Drive_Joystick_Y = -m_Gamepad.GetRawAxis(0);
-    // Code_Gen_Model_U.Steer_Joystick_X = -m_Gamepad.GetRawAxis(5);
-    // Code_Gen_Model_U.Steer_Joystick_Y = -m_Gamepad.GetRawAxis(4);
-
-
     // Trigger
     Code_Gen_Model_U.Joystick_Left_B1 = m_Left_Joystick.GetRawButton(1);
     Code_Gen_Model_U.Joystick_Left_B2 = m_Left_Joystick.GetRawButton(2);            
@@ -35,8 +28,10 @@ void HIDs::PreStep() {
 
     // Gamepad
 
-    Code_Gen_Model_U.Gamepad_Stick_Left_Y = -m_Gamepad.GetRawAxis(1);
-    Code_Gen_Model_U.Gamepad_Stick_Right_Y = -m_Gamepad.GetRawAxis(5);
+    Code_Gen_Model_U.Gamepad_Stick_Left_X = m_Gamepad.GetRawAxis(0);
+    Code_Gen_Model_U.Gamepad_Stick_Left_Y = -m_Gamepad.GetRawAxis(1);    
+    Code_Gen_Model_U.Gamepad_Stick_Right_X = m_Gamepad.GetRawAxis(4);
+    Code_Gen_Model_U.Gamepad_Stick_Right_Y = -m_Gamepad.GetRawAxis(5);    
     Code_Gen_Model_U.Gamepad_B1_A = m_Gamepad.GetRawButton(1);
     Code_Gen_Model_U.Gamepad_B3_X = m_Gamepad.GetRawButton(3);    
     Code_Gen_Model_U.Gamepad_LB = m_Gamepad.GetRawButton(5);

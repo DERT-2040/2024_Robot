@@ -119,7 +119,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Dist_Per_Rev_Ball_Screw__Entry = NTtable_Tune->GetEntry("Dist_Per_Rev_Ball_Screw");
     NTinst.AddListener(__Dist_Per_Rev_Ball_Screw__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Dist_Per_Rev_Ball_Screw = event.GetValueEventData()->value.GetDouble();});
-    __Dist_Per_Rev_Ball_Screw__Entry.SetDouble(0.106);
+    __Dist_Per_Rev_Ball_Screw__Entry.SetDouble(0.35278);
  
     __Dist_Per_Rev_Front__Entry = NTtable_Tune->GetEntry("Dist_Per_Rev_Front");
     NTinst.AddListener(__Dist_Per_Rev_Front__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Dist_Per_Rev_Front = event.GetValueEventData()->value.GetDouble();});
@@ -479,27 +479,27 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Test_DC_Gain_BackLower__Entry = NTtable_Tune->GetEntry("Test_DC_Gain_BackLower");
     NTinst.AddListener(__Test_DC_Gain_BackLower__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Test_DC_Gain_BackLower = event.GetValueEventData()->value.GetDouble();});
-    __Test_DC_Gain_BackLower__Entry.SetDouble(0.5);
+    __Test_DC_Gain_BackLower__Entry.SetDouble(0.3);
  
     __Test_DC_Gain_BackUpper__Entry = NTtable_Tune->GetEntry("Test_DC_Gain_BackUpper");
     NTinst.AddListener(__Test_DC_Gain_BackUpper__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Test_DC_Gain_BackUpper = event.GetValueEventData()->value.GetDouble();});
-    __Test_DC_Gain_BackUpper__Entry.SetDouble(0.5);
+    __Test_DC_Gain_BackUpper__Entry.SetDouble(0.3);
  
     __Test_DC_Gain_BallScrew__Entry = NTtable_Tune->GetEntry("Test_DC_Gain_BallScrew");
     NTinst.AddListener(__Test_DC_Gain_BallScrew__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Test_DC_Gain_BallScrew = event.GetValueEventData()->value.GetDouble();});
-    __Test_DC_Gain_BallScrew__Entry.SetDouble(0.5);
+    __Test_DC_Gain_BallScrew__Entry.SetDouble(0.2);
  
     __Test_DC_Gain_Front__Entry = NTtable_Tune->GetEntry("Test_DC_Gain_Front");
     NTinst.AddListener(__Test_DC_Gain_Front__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Test_DC_Gain_Front = event.GetValueEventData()->value.GetDouble();});
-    __Test_DC_Gain_Front__Entry.SetDouble(0.5);
+    __Test_DC_Gain_Front__Entry.SetDouble(0.3);
  
     __Test_DC_Gain_Intake__Entry = NTtable_Tune->GetEntry("Test_DC_Gain_Intake");
     NTinst.AddListener(__Test_DC_Gain_Intake__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Test_DC_Gain_Intake = event.GetValueEventData()->value.GetDouble();});
-    __Test_DC_Gain_Intake__Entry.SetDouble(1);
+    __Test_DC_Gain_Intake__Entry.SetDouble(-1);
  
     __Test_DC_Gain_Shooter__Entry = NTtable_Tune->GetEntry("Test_DC_Gain_Shooter");
     NTinst.AddListener(__Test_DC_Gain_Shooter__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Test_DC_Gain_Shooter = event.GetValueEventData()->value.GetDouble();});
-    __Test_DC_Gain_Shooter__Entry.SetDouble(0.2);
+    __Test_DC_Gain_Shooter__Entry.SetDouble(1);
  
     __Tol_Angle__Entry = NTtable_Tune->GetEntry("Tol_Angle");
     NTinst.AddListener(__Tol_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Tol_Angle = event.GetValueEventData()->value.GetDouble();});
@@ -585,7 +585,9 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Gamepad_LT__Entry = NTtable_Inport->GetEntry("Gamepad_LT");
     __Gamepad_RB__Entry = NTtable_Inport->GetEntry("Gamepad_RB");
     __Gamepad_RT__Entry = NTtable_Inport->GetEntry("Gamepad_RT");
+    __Gamepad_Stick_Left_X__Entry = NTtable_Inport->GetEntry("Gamepad_Stick_Left_X");
     __Gamepad_Stick_Left_Y__Entry = NTtable_Inport->GetEntry("Gamepad_Stick_Left_Y");
+    __Gamepad_Stick_Right_X__Entry = NTtable_Inport->GetEntry("Gamepad_Stick_Right_X");
     __Gamepad_Stick_Right_Y__Entry = NTtable_Inport->GetEntry("Gamepad_Stick_Right_Y");
     __Gyro_Angle__Entry = NTtable_Inport->GetEntry("Gyro_Angle");
     __Intake_TOF_Dist__Entry = NTtable_Inport->GetEntry("Intake_TOF_Dist");
@@ -771,7 +773,9 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Gamepad_LT__Entry.SetDouble(Code_Gen_Model_U.Gamepad_LT);
     __Gamepad_RB__Entry.SetDouble(Code_Gen_Model_U.Gamepad_RB);
     __Gamepad_RT__Entry.SetDouble(Code_Gen_Model_U.Gamepad_RT);
+    __Gamepad_Stick_Left_X__Entry.SetDouble(Code_Gen_Model_U.Gamepad_Stick_Left_X);
     __Gamepad_Stick_Left_Y__Entry.SetDouble(Code_Gen_Model_U.Gamepad_Stick_Left_Y);
+    __Gamepad_Stick_Right_X__Entry.SetDouble(Code_Gen_Model_U.Gamepad_Stick_Right_X);
     __Gamepad_Stick_Right_Y__Entry.SetDouble(Code_Gen_Model_U.Gamepad_Stick_Right_Y);
     __Gyro_Angle__Entry.SetDouble(Code_Gen_Model_U.Gyro_Angle);
     __Intake_TOF_Dist__Entry.SetDouble(Code_Gen_Model_U.Intake_TOF_Dist);

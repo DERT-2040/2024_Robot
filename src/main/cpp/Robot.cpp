@@ -5,7 +5,7 @@
 //local
 #include "include/Robot.h"
 
-void Robot::RobotInit() 
+void Robot::RobotInit()
 {
   Initalize();
   Code_Gen_Model_U.GameState = -1;
@@ -17,9 +17,10 @@ void Robot::RobotInit()
   BindSDCallbacks();
 }
 
-void Robot::RobotPeriodic() 
+void Robot::RobotPeriodic()
 {  
     m_Tracer.ResetTimer();
+    m_Tracer.AddEpoch("After ResetTimer");
     
   if(Robot::m_HIDs.Get_Left_Joystick().GetRawButtonPressed(Constants::k_Toggle_Absolute_Translation_Button)){
     m_SwerveDrive.Toggle_Absolute_Translation();
