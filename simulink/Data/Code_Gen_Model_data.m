@@ -19,9 +19,32 @@ Not_Tunable_List = {'t_sample',...
 % sample time model
 t_sample = 0.020;
 
-%% Joystick Command Profiling
 
-% Thresholds for treating sticks as discrete inputs
+%% TEST mode parameters
+% Test Mode gains to convert gamepad inputs to duty cycle
+Test_DC_Gain_BackUpper = 0.3;
+Test_DC_Gain_Front = 0.3;
+Test_DC_Gain_BackLower = 0.3;
+Test_DC_Gain_BallScrew = 0.2;  % do not make this larger than 0.2
+Test_DC_Gain_Intake = -1;
+Test_DC_Gain_Shooter = 1;
+
+% Test Mode for swerve drive
+% When this is set to 1 then the control will listen to joystick button
+% inputs to toggle absolute or relative
+TEST_Swerve_Mode_Override_Flag = 0;
+
+% temporary variables for testing
+TEST_Servo_Override_Flag = 0;
+TEST_Servo_Override_Value = 0;
+
+% Testing
+TEST_Speaker_Height = 0;  % mm
+TEST_Speaker_Angle = 45;  % degrees
+
+
+%% Joystick Command Profiling
+% Thresholds for treating gamepad sticks as discrete inputs
 Gamepad_Stick_Neg_Threshold = -0.5;
 Gamepad_Stick_Pos_Threshold = 0.5;
 
@@ -45,25 +68,21 @@ temp_y = [0.0 0.01 0.04 0.10 0.17 0.27 0.40 0.55 0.75 1.0];
 Steering_Mod_Str_Rel_in = [-fliplr(temp_x) 0 temp_x];
 Steering_Mod_Str_Rel_out = [-fliplr(temp_y) 0 temp_y];
 
-Steering_Twist_Gain = -0.015;
-
 clear temp_x temp_y
 
+% Steering Relative Gain
 Steering_Relative_Gain = 1.3;
 
+% Boost Trigger
 Boost_Trigger_High_Speed = 3.658; % m/s
 Boost_Trigger_Low_Speed = 1.5; % m/s
 
 Boost_Trigger_Increasing_Limit = 2/1*0.02;
 Boost_Trigger_Decreasing_Limit = -2/0.9*0.02;
 
-% Test Mode gains to convert gamepad inputs to duty cycle
-Test_DC_Gain_BackUpper = 0.3;
-Test_DC_Gain_Front = 0.3;
-Test_DC_Gain_BackLower = 0.3;
-Test_DC_Gain_BallScrew = 0.2;  % do not make this larger than 0.2
-Test_DC_Gain_Intake = -1;
-Test_DC_Gain_Shooter = 1;
+% Joystick Twist Axis Gains
+Steering_Twist_Gain = -0.015;
+Translation_Twist_Gain = -0.5;
 
 %% Wheel Gear Ratio
 gear_ratio = 8.14;
@@ -326,10 +345,6 @@ Shooter_Motor_Control_I = 0.00002;
 Shooter_Motor_Control_I_UL = 0.1;
 Shooter_Motor_Control_I_LL = -0.1;
 
-% temporary variables for testing
-TEST_Servo_Override_Flag = 0;
-TEST_Servo_Override_Value = 0;
-
 
 %% Arms Dimension Data
 % vertical offset of back Argos Arm
@@ -436,10 +451,6 @@ Tol_Gap = 0.5*25.4;
 Speaker_Angle_in = [25 30 35 40 45 50 55]; % degrees
 Spearker_Height_out = [24.7 24.7 24.7 24.7 24.7 24.7 24.7]*25.4; % mm
 Speaker_Gap = 11*25.4;
-
-% Testing
-TEST_Speaker_Height = 0;  % mm
-TEST_Speaker_Angle = 45;  % degrees
 
 
 %% Arm Control Gains
