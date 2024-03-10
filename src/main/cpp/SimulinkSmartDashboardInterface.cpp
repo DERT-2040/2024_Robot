@@ -45,6 +45,86 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     NTinst.AddListener(__AA_TC_UL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AA_TC_UL = event.GetValueEventData()->value.GetDouble();});
     __AA_TC_UL__Entry.SetDouble(0.4);
  
+    __AT_Tag_11_Yaw_Offset__Entry = NTtable_Tune->GetEntry("AT_Tag_11_Yaw_Offset");
+    NTinst.AddListener(__AT_Tag_11_Yaw_Offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Tag_11_Yaw_Offset = event.GetValueEventData()->value.GetDouble();});
+    __AT_Tag_11_Yaw_Offset__Entry.SetDouble(0);
+ 
+    __AT_Tag_12_Yaw_Offset__Entry = NTtable_Tune->GetEntry("AT_Tag_12_Yaw_Offset");
+    NTinst.AddListener(__AT_Tag_12_Yaw_Offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Tag_12_Yaw_Offset = event.GetValueEventData()->value.GetDouble();});
+    __AT_Tag_12_Yaw_Offset__Entry.SetDouble(0);
+ 
+    __AT_Tag_13_Coordinate_Y__Entry = NTtable_Tune->GetEntry("AT_Tag_13_Coordinate_Y");
+    NTinst.AddListener(__AT_Tag_13_Coordinate_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Tag_13_Coordinate_Y = event.GetValueEventData()->value.GetDouble();});
+    __AT_Tag_13_Coordinate_Y__Entry.SetDouble(4.1051);
+ 
+    __AT_Tag_13_Yaw_Offset__Entry = NTtable_Tune->GetEntry("AT_Tag_13_Yaw_Offset");
+    NTinst.AddListener(__AT_Tag_13_Yaw_Offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Tag_13_Yaw_Offset = event.GetValueEventData()->value.GetDouble();});
+    __AT_Tag_13_Yaw_Offset__Entry.SetDouble(0);
+ 
+    __AT_Tag_14_Coordinate_Y__Entry = NTtable_Tune->GetEntry("AT_Tag_14_Coordinate_Y");
+    NTinst.AddListener(__AT_Tag_14_Coordinate_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Tag_14_Coordinate_Y = event.GetValueEventData()->value.GetDouble();});
+    __AT_Tag_14_Coordinate_Y__Entry.SetDouble(4.1051);
+ 
+    __AT_Tag_14_Yaw_Offset__Entry = NTtable_Tune->GetEntry("AT_Tag_14_Yaw_Offset");
+    NTinst.AddListener(__AT_Tag_14_Yaw_Offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Tag_14_Yaw_Offset = event.GetValueEventData()->value.GetDouble();});
+    __AT_Tag_14_Yaw_Offset__Entry.SetDouble(0);
+ 
+    __AT_Tag_15_Yaw_Offset__Entry = NTtable_Tune->GetEntry("AT_Tag_15_Yaw_Offset");
+    NTinst.AddListener(__AT_Tag_15_Yaw_Offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Tag_15_Yaw_Offset = event.GetValueEventData()->value.GetDouble();});
+    __AT_Tag_15_Yaw_Offset__Entry.SetDouble(0);
+ 
+    __AT_Tag_16_Yaw_Offset__Entry = NTtable_Tune->GetEntry("AT_Tag_16_Yaw_Offset");
+    NTinst.AddListener(__AT_Tag_16_Yaw_Offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Tag_16_Yaw_Offset = event.GetValueEventData()->value.GetDouble();});
+    __AT_Tag_16_Yaw_Offset__Entry.SetDouble(0);
+ 
+    __AT_Tag_4_Coordinate_X__Entry = NTtable_Tune->GetEntry("AT_Tag_4_Coordinate_X");
+    NTinst.AddListener(__AT_Tag_4_Coordinate_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Tag_4_Coordinate_X = event.GetValueEventData()->value.GetDouble();});
+    __AT_Tag_4_Coordinate_X__Entry.SetDouble(16.5793);
+ 
+    __AT_Tag_4_Coordinate_Y__Entry = NTtable_Tune->GetEntry("AT_Tag_4_Coordinate_Y");
+    NTinst.AddListener(__AT_Tag_4_Coordinate_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Tag_4_Coordinate_Y = event.GetValueEventData()->value.GetDouble();});
+    __AT_Tag_4_Coordinate_Y__Entry.SetDouble(5.5479);
+ 
+    __AT_Tag_4_Yaw_Offset__Entry = NTtable_Tune->GetEntry("AT_Tag_4_Yaw_Offset");
+    NTinst.AddListener(__AT_Tag_4_Yaw_Offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Tag_4_Yaw_Offset = event.GetValueEventData()->value.GetDouble();});
+    __AT_Tag_4_Yaw_Offset__Entry.SetDouble(0);
+ 
+    __AT_Tag_5_Coordinate_X__Entry = NTtable_Tune->GetEntry("AT_Tag_5_Coordinate_X");
+    NTinst.AddListener(__AT_Tag_5_Coordinate_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Tag_5_Coordinate_X = event.GetValueEventData()->value.GetDouble();});
+    __AT_Tag_5_Coordinate_X__Entry.SetDouble(14.7008);
+ 
+    __AT_Tag_5_Yaw_Offset__Entry = NTtable_Tune->GetEntry("AT_Tag_5_Yaw_Offset");
+    NTinst.AddListener(__AT_Tag_5_Yaw_Offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Tag_5_Yaw_Offset = event.GetValueEventData()->value.GetDouble();});
+    __AT_Tag_5_Yaw_Offset__Entry.SetDouble(0);
+ 
+    __AT_Tag_6_Coordinate_X__Entry = NTtable_Tune->GetEntry("AT_Tag_6_Coordinate_X");
+    NTinst.AddListener(__AT_Tag_6_Coordinate_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Tag_6_Coordinate_X = event.GetValueEventData()->value.GetDouble();});
+    __AT_Tag_6_Coordinate_X__Entry.SetDouble(1.8415);
+ 
+    __AT_Tag_6_Yaw_Offset__Entry = NTtable_Tune->GetEntry("AT_Tag_6_Yaw_Offset");
+    NTinst.AddListener(__AT_Tag_6_Yaw_Offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Tag_6_Yaw_Offset = event.GetValueEventData()->value.GetDouble();});
+    __AT_Tag_6_Yaw_Offset__Entry.SetDouble(0);
+ 
+    __AT_Tag_7_Coordinate_X__Entry = NTtable_Tune->GetEntry("AT_Tag_7_Coordinate_X");
+    NTinst.AddListener(__AT_Tag_7_Coordinate_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Tag_7_Coordinate_X = event.GetValueEventData()->value.GetDouble();});
+    __AT_Tag_7_Coordinate_X__Entry.SetDouble(-0.0381);
+ 
+    __AT_Tag_7_Coordinate_Y__Entry = NTtable_Tune->GetEntry("AT_Tag_7_Coordinate_Y");
+    NTinst.AddListener(__AT_Tag_7_Coordinate_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Tag_7_Coordinate_Y = event.GetValueEventData()->value.GetDouble();});
+    __AT_Tag_7_Coordinate_Y__Entry.SetDouble(5.5479);
+ 
+    __AT_Tag_7_Yaw_Offset__Entry = NTtable_Tune->GetEntry("AT_Tag_7_Yaw_Offset");
+    NTinst.AddListener(__AT_Tag_7_Yaw_Offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Tag_7_Yaw_Offset = event.GetValueEventData()->value.GetDouble();});
+    __AT_Tag_7_Yaw_Offset__Entry.SetDouble(0);
+ 
+    __AT_XY_Control_Gain__Entry = NTtable_Tune->GetEntry("AT_XY_Control_Gain");
+    NTinst.AddListener(__AT_XY_Control_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_XY_Control_Gain = event.GetValueEventData()->value.GetDouble();});
+    __AT_XY_Control_Gain__Entry.SetDouble(0);
+ 
+    __AT_Yaw_Control_Gain__Entry = NTtable_Tune->GetEntry("AT_Yaw_Control_Gain");
+    NTinst.AddListener(__AT_Yaw_Control_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Yaw_Control_Gain = event.GetValueEventData()->value.GetDouble();});
+    __AT_Yaw_Control_Gain__Entry.SetDouble(0);
+ 
     __Amp_Angle__Entry = NTtable_Tune->GetEntry("Amp_Angle");
     NTinst.AddListener(__Amp_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Amp_Angle = event.GetValueEventData()->value.GetDouble();});
     __Amp_Angle__Entry.SetDouble(-50);
@@ -667,6 +747,9 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Shooter_Servo_Position__Entry = NTtable_Outport->GetEntry("Shooter_Servo_Position");
  
 // Test Points
+    __AT_Error_X__Entry = NTtable_TPoint->GetEntry("AT_Error_X");
+    __AT_Error_Y__Entry = NTtable_TPoint->GetEntry("AT_Error_Y");
+    __AT_Error_Yaw__Entry = NTtable_TPoint->GetEntry("AT_Error_Yaw");
     __Align_Amp__Entry = NTtable_TPoint->GetEntry("Align_Amp");
     __Align_Speaker__Entry = NTtable_TPoint->GetEntry("Align_Speaker");
     __Align_Trap__Entry = NTtable_TPoint->GetEntry("Align_Trap");
@@ -692,6 +775,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Desired_Front_Dist__Entry = NTtable_TPoint->GetEntry("Desired_Front_Dist");
     __Desired_Gap__Entry = NTtable_TPoint->GetEntry("Desired_Gap");
     __Desired_Height__Entry = NTtable_TPoint->GetEntry("Desired_Height");
+    __Distance_Speaker__Entry = NTtable_TPoint->GetEntry("Distance_Speaker");
     __Drive_Joystick_X__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_X");
     __Drive_Joystick_Y__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Y");
     __Drive_Joystick_Z__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Z");
@@ -728,6 +812,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Odometry_X_global_est_ft__Entry = NTtable_TPoint->GetEntry("Odometry_X_global_est_ft");
     __Odometry_Y_global_TEAR_ft__Entry = NTtable_TPoint->GetEntry("Odometry_Y_global_TEAR_ft");
     __Odometry_Y_global_est_ft__Entry = NTtable_TPoint->GetEntry("Odometry_Y_global_est_ft");
+    __Prev_GameState__Entry = NTtable_TPoint->GetEntry("Prev_GameState");
     __Robot_Reached_Destination__Entry = NTtable_TPoint->GetEntry("Robot_Reached_Destination");
     __Shooter_Motor_DC_Left__Entry = NTtable_TPoint->GetEntry("Shooter_Motor_DC_Left");
     __Shooter_Motor_DC_Right__Entry = NTtable_TPoint->GetEntry("Shooter_Motor_DC_Right");
@@ -870,6 +955,9 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Shooter_Right_Motor_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.Shooter_Right_Motor_DutyCycle);
     __Shooter_Servo_Position__Entry.SetDouble(Code_Gen_Model_Y.Shooter_Servo_Position);
     // Test Points
+    __AT_Error_X__Entry.SetDouble(Code_Gen_Model_B.AT_Error_X);
+    __AT_Error_Y__Entry.SetDouble(Code_Gen_Model_B.AT_Error_Y);
+    __AT_Error_Yaw__Entry.SetDouble(Code_Gen_Model_B.AT_Error_Yaw);
     __Align_Amp__Entry.SetDouble(Code_Gen_Model_B.Align_Amp);
     __Align_Speaker__Entry.SetDouble(Code_Gen_Model_B.Align_Speaker);
     __Align_Trap__Entry.SetDouble(Code_Gen_Model_B.Align_Trap);
@@ -895,6 +983,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Desired_Front_Dist__Entry.SetDouble(Code_Gen_Model_B.Desired_Front_Dist);
     __Desired_Gap__Entry.SetDouble(Code_Gen_Model_B.Desired_Gap);
     __Desired_Height__Entry.SetDouble(Code_Gen_Model_B.Desired_Height);
+    __Distance_Speaker__Entry.SetDouble(Code_Gen_Model_B.Distance_Speaker);
     __Drive_Joystick_X__Entry.SetDouble(Code_Gen_Model_B.Drive_Joystick_X);
     __Drive_Joystick_Y__Entry.SetDouble(Code_Gen_Model_B.Drive_Joystick_Y);
     __Drive_Joystick_Z__Entry.SetDouble(Code_Gen_Model_B.Drive_Joystick_Z);
@@ -931,6 +1020,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Odometry_X_global_est_ft__Entry.SetDouble(Code_Gen_Model_B.Odometry_X_global_est_ft);
     __Odometry_Y_global_TEAR_ft__Entry.SetDouble(Code_Gen_Model_B.Odometry_Y_global_TEAR_ft);
     __Odometry_Y_global_est_ft__Entry.SetDouble(Code_Gen_Model_B.Odometry_Y_global_est_ft);
+    __Prev_GameState__Entry.SetDouble(Code_Gen_Model_B.Prev_GameState);
     __Robot_Reached_Destination__Entry.SetDouble(Code_Gen_Model_B.Robot_Reached_Destination);
     __Shooter_Motor_DC_Left__Entry.SetDouble(Code_Gen_Model_B.Shooter_Motor_DC_Left);
     __Shooter_Motor_DC_Right__Entry.SetDouble(Code_Gen_Model_B.Shooter_Motor_DC_Right);

@@ -482,5 +482,59 @@ BS_TC_LL = -0.3;
 
 
 %% Autonmous
-%LineSensor
+% LineSensor
 FloorDistance = 850;
+
+
+%% PhotonVision
+% April Tag locations, dimensions in inches
+% https://firstfrc.blob.core.windows.net/frc2024/FieldAssets/2024LayoutMarkingDiagram.pdf
+%
+% ID    X      Y       Z       Rotation
+% 1     593.68 9.68    53.38   120°
+% 2     637.21 34.79   53.38   120°
+% 3     652.73 196.17  57.13   180°
+% 4     652.73 218.42  57.13   180°
+% 5     578.77 323.00  53.38   270°
+% 6     72.5   323.00  53.38   270°
+% 7    -1.50   218.42  57.13   0°
+% 8    -1.50   196.17  57.13   0°
+% 9     14.02  34.79   53.38   60°
+% 10    57.54  9.68    53.38   60°
+% 11    468.69 146.19  52.00   300°
+% 12    468.69 177.10  52.00   60°
+% 13    441.74 161.62  52.00   180°
+% 14    209.48 161.62  52.00   0°
+% 15    182.73 177.10  52.00   120°
+% 16    182.73 146.19  52.00   240°
+
+% Yaw Offsets
+AT_Tag_4_Yaw_Offset = 0;
+AT_Tag_5_Yaw_Offset = 0;
+AT_Tag_6_Yaw_Offset = 0;
+AT_Tag_7_Yaw_Offset = 0;
+AT_Tag_11_Yaw_Offset = 0;
+AT_Tag_12_Yaw_Offset = 0;
+AT_Tag_13_Yaw_Offset = 0; 
+AT_Tag_14_Yaw_Offset = 0;
+AT_Tag_15_Yaw_Offset = 0;
+AT_Tag_16_Yaw_Offset = 0;
+
+% Amp X Coordinates
+AT_Tag_5_Coordinate_X = 578.77*0.0254;  % meters
+AT_Tag_6_Coordinate_X = 72.5*0.0254;    % meters
+
+% Trap Y Coordinates for the non-visible trap
+AT_Tag_13_Coordinate_Y = 161.62*0.0254; % meters
+AT_Tag_14_Coordinate_Y = 161.62*0.0254; % meters
+
+% Speaker X and Y Coordinates
+AT_Tag_4_Coordinate_X = 652.73*0.0254; % meters
+AT_Tag_4_Coordinate_Y = 218.42*0.0254; % meters
+AT_Tag_7_Coordinate_X = -1.50*0.0254; % meters
+AT_Tag_7_Coordinate_Y = 218.42*0.0254; % meters
+
+% Control gain
+AT_Yaw_Control_Gain = 0;
+AT_XY_Control_Gain = 0;
+

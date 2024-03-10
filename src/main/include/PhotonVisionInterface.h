@@ -44,8 +44,8 @@ class PhotonVisionInterface {
     frc::AprilTagFieldLayout AprilTagFieldLayout = frc::AprilTagFieldLayout(AprilTagList, 4.5212_m, 4.572_m);
 */
   const frc::Transform3d robotToCam{
-        frc::Translation3d{0.254_m, 0.0508_m, 0.1524_m},
-        frc::Rotation3d{0_rad, - 0.261799_rad, 0_rad}};
+        frc::Translation3d{-0.3556_m, 0.187325_m, 0.2667_m},
+        frc::Rotation3d{0_rad, 0.383972435_rad, 0.052359878_rad}};
   
   photon::PhotonPoseEstimator photonEstimator{
       frc::LoadAprilTagLayoutField(frc::AprilTagField::k2024Crescendo),

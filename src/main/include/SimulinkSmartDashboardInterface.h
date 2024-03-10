@@ -21,6 +21,26 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __AA_Prop_Gain__Entry;
         nt::NetworkTableEntry __AA_TC_LL__Entry;
         nt::NetworkTableEntry __AA_TC_UL__Entry;
+        nt::NetworkTableEntry __AT_Tag_11_Yaw_Offset__Entry;
+        nt::NetworkTableEntry __AT_Tag_12_Yaw_Offset__Entry;
+        nt::NetworkTableEntry __AT_Tag_13_Coordinate_Y__Entry;
+        nt::NetworkTableEntry __AT_Tag_13_Yaw_Offset__Entry;
+        nt::NetworkTableEntry __AT_Tag_14_Coordinate_Y__Entry;
+        nt::NetworkTableEntry __AT_Tag_14_Yaw_Offset__Entry;
+        nt::NetworkTableEntry __AT_Tag_15_Yaw_Offset__Entry;
+        nt::NetworkTableEntry __AT_Tag_16_Yaw_Offset__Entry;
+        nt::NetworkTableEntry __AT_Tag_4_Coordinate_X__Entry;
+        nt::NetworkTableEntry __AT_Tag_4_Coordinate_Y__Entry;
+        nt::NetworkTableEntry __AT_Tag_4_Yaw_Offset__Entry;
+        nt::NetworkTableEntry __AT_Tag_5_Coordinate_X__Entry;
+        nt::NetworkTableEntry __AT_Tag_5_Yaw_Offset__Entry;
+        nt::NetworkTableEntry __AT_Tag_6_Coordinate_X__Entry;
+        nt::NetworkTableEntry __AT_Tag_6_Yaw_Offset__Entry;
+        nt::NetworkTableEntry __AT_Tag_7_Coordinate_X__Entry;
+        nt::NetworkTableEntry __AT_Tag_7_Coordinate_Y__Entry;
+        nt::NetworkTableEntry __AT_Tag_7_Yaw_Offset__Entry;
+        nt::NetworkTableEntry __AT_XY_Control_Gain__Entry;
+        nt::NetworkTableEntry __AT_Yaw_Control_Gain__Entry;
         nt::NetworkTableEntry __Amp_Angle__Entry;
         nt::NetworkTableEntry __Amp_Gap__Entry;
         nt::NetworkTableEntry __Amp_Height__Entry;
@@ -256,6 +276,9 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Shooter_Servo_Position__Entry;
  
         // Test Points
+        nt::NetworkTableEntry __AT_Error_X__Entry;
+        nt::NetworkTableEntry __AT_Error_Y__Entry;
+        nt::NetworkTableEntry __AT_Error_Yaw__Entry;
         nt::NetworkTableEntry __Align_Amp__Entry;
         nt::NetworkTableEntry __Align_Speaker__Entry;
         nt::NetworkTableEntry __Align_Trap__Entry;
@@ -281,6 +304,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Desired_Front_Dist__Entry;
         nt::NetworkTableEntry __Desired_Gap__Entry;
         nt::NetworkTableEntry __Desired_Height__Entry;
+        nt::NetworkTableEntry __Distance_Speaker__Entry;
         nt::NetworkTableEntry __Drive_Joystick_X__Entry;
         nt::NetworkTableEntry __Drive_Joystick_Y__Entry;
         nt::NetworkTableEntry __Drive_Joystick_Z__Entry;
@@ -317,6 +341,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Odometry_X_global_est_ft__Entry;
         nt::NetworkTableEntry __Odometry_Y_global_TEAR_ft__Entry;
         nt::NetworkTableEntry __Odometry_Y_global_est_ft__Entry;
+        nt::NetworkTableEntry __Prev_GameState__Entry;
         nt::NetworkTableEntry __Robot_Reached_Destination__Entry;
         nt::NetworkTableEntry __Shooter_Motor_DC_Left__Entry;
         nt::NetworkTableEntry __Shooter_Motor_DC_Right__Entry;
