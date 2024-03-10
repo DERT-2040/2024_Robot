@@ -317,7 +317,7 @@ Note_Detect_Dist_Shooter = 60;  % mm
 Note_Time_Transfer_Spin_Up = 0.5;  % seconds
 
 % Shooter desired speed for storing note
-Shooter_Motor_DesSpd_Store = 450; % rpm
+Shooter_Motor_DesSpd_Store = 300; % rpm
 
 % Time to continue running shooter after detecting the note
 Note_Time_Transfer = 0.1;  % seconds
@@ -335,8 +335,8 @@ Shooter_Motor_Speed_Transition = 2000;
 Note_Time_Speaker_Spin_Up = 0.2;
 
 % Shooter Servo (note stopper)
-Servo_Position_Store = 0; % ratio of max travel
-Servo_Position_Deploy = 1; % ratio of max travel
+Servo_Position_Store = .8; % ratio of max travel
+Servo_Position_Deploy = 0; % ratio of max travel
 Servo_Time_Store = 0.2; % seconds
 Servo_Time_Deploy = 0.4; % seconds
 

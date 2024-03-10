@@ -407,11 +407,11 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Servo_Position_Deploy__Entry = NTtable_Tune->GetEntry("Servo_Position_Deploy");
     NTinst.AddListener(__Servo_Position_Deploy__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Servo_Position_Deploy = event.GetValueEventData()->value.GetDouble();});
-    __Servo_Position_Deploy__Entry.SetDouble(1);
+    __Servo_Position_Deploy__Entry.SetDouble(0);
  
     __Servo_Position_Store__Entry = NTtable_Tune->GetEntry("Servo_Position_Store");
     NTinst.AddListener(__Servo_Position_Store__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Servo_Position_Store = event.GetValueEventData()->value.GetDouble();});
-    __Servo_Position_Store__Entry.SetDouble(0);
+    __Servo_Position_Store__Entry.SetDouble(0.8);
  
     __Servo_Time_Deploy__Entry = NTtable_Tune->GetEntry("Servo_Time_Deploy");
     NTinst.AddListener(__Servo_Time_Deploy__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Servo_Time_Deploy = event.GetValueEventData()->value.GetDouble();});
@@ -447,7 +447,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Shooter_Motor_DesSpd_Store__Entry = NTtable_Tune->GetEntry("Shooter_Motor_DesSpd_Store");
     NTinst.AddListener(__Shooter_Motor_DesSpd_Store__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Shooter_Motor_DesSpd_Store = event.GetValueEventData()->value.GetDouble();});
-    __Shooter_Motor_DesSpd_Store__Entry.SetDouble(450);
+    __Shooter_Motor_DesSpd_Store__Entry.SetDouble(300);
  
     __Shooter_Motor_Speed_Transition__Entry = NTtable_Tune->GetEntry("Shooter_Motor_Speed_Transition");
     NTinst.AddListener(__Shooter_Motor_Speed_Transition__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Shooter_Motor_Speed_Transition = event.GetValueEventData()->value.GetDouble();});
