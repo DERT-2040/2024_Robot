@@ -109,8 +109,6 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Odometry_IC_Y__Entry;
         nt::NetworkTableEntry __Odometry_Reset_IC__Entry;
         nt::NetworkTableEntry __Odometry_X_Y_TEAR__Entry;
-        nt::NetworkTableEntry __Servo_Position_Deploy__Entry;
-        nt::NetworkTableEntry __Servo_Position_Store__Entry;
         nt::NetworkTableEntry __Servo_Time_Deploy__Entry;
         nt::NetworkTableEntry __Servo_Time_Store__Entry;
         nt::NetworkTableEntry __Shooter_DC_Eject__Entry;
@@ -227,7 +225,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __FrontRight_Turn_Offset__Entry;
         nt::NetworkTableEntry __GameState__Entry;
         nt::NetworkTableEntry __Gamepad_B1_A__Entry;
-        nt::NetworkTableEntry __Gamepad_B3_X__Entry;
+        nt::NetworkTableEntry __Gamepad_B4_Y__Entry;
         nt::NetworkTableEntry __Gamepad_LB__Entry;
         nt::NetworkTableEntry __Gamepad_LT__Entry;
         nt::NetworkTableEntry __Gamepad_RB__Entry;
@@ -253,6 +251,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Joystick_Left_Z__Entry;
         nt::NetworkTableEntry __Joystick_Right_B1__Entry;
         nt::NetworkTableEntry __Joystick_Right_B10__Entry;
+        nt::NetworkTableEntry __Joystick_Right_B14__Entry;
         nt::NetworkTableEntry __Joystick_Right_B2__Entry;
         nt::NetworkTableEntry __Joystick_Right_B3__Entry;
         nt::NetworkTableEntry __Joystick_Right_B4__Entry;
@@ -365,7 +364,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Shooter_Motor_Speed_Left__Entry;
         nt::NetworkTableEntry __Shooter_Motor_Speed_Right__Entry;
         nt::NetworkTableEntry __Shooter_Pos_State__Entry;
-        nt::NetworkTableEntry __Shooter_Servo_Pos__Entry;
+        nt::NetworkTableEntry __Shooter_Servo__Entry;
         nt::NetworkTableEntry __Spline_Enable__Entry;
         nt::NetworkTableEntry __Spline_Index__Entry;
         nt::NetworkTableEntry __Spline_Num_Poses__Entry;

@@ -306,48 +306,6 @@ Spline_Last_Pose_Distance_to_Velocity_Gain = 2; % (m/sec) / (m)
 Spline_Velocity_Multiplier_TEST = 1.0;  % velocity scaling for test purposes only
 
 
-%% Intake and Shooter Parameters
-% Time of Flight sensor distance for detecting in intake
-Note_Detect_Dist_Intake = 100;  % mm
-
-% Time of Flight sensor distance for detecting in shooter
-Note_Detect_Dist_Shooter = 60;  % mm
-
-% Time to run shooter before running intake
-Note_Time_Transfer_Spin_Up = 0.5;  % seconds
-
-% Shooter desired speed for storing note
-Shooter_Motor_DesSpd_Store = 300; % rpm
-
-% Time to continue running shooter after detecting the note
-Note_Time_Transfer = 0.1;  % seconds
-
-% Shooter duty cycle for ejecting note
-Shooter_DC_Eject = 0.2; % duty cycle
-
-% Time to run shooter for secoring in amp/trap
-Note_Time_Eject = 0.5; % seconds
-
-% Lookup table from angle input
-Shooter_Angle_Input = [25 35 45 55];
-Shooter_Speed_Output = [6000 5000 4000 3000];
-Shooter_Motor_Speed_Transition = 2000;
-Note_Time_Speaker_Spin_Up = 0.2;
-
-% Shooter Servo (note stopper)
-Servo_Position_Store = 0.7; % ratio of max travel
-Servo_Position_Deploy = 0; % ratio of max travel
-Servo_Time_Store = 0.2; % seconds
-Servo_Time_Deploy = 0.4; % seconds
-
-% Shooter speed control PID for transfer
-Shooter_Motor_Control_FF= 0.00025;  % 1 DC / Max Speed RPM;
-Shooter_Motor_Control_P = 0.00010;
-Shooter_Motor_Control_I = 0.00002;
-Shooter_Motor_Control_I_UL = 0.1;
-Shooter_Motor_Control_I_LL = -0.1;
-
-
 %% Arms Dimension Data
 % vertical offset of back Argos Arm
 l_1 = 1.0*25.4;
@@ -487,6 +445,50 @@ BS_TC_UL = 0.3;
 BS_TC_LL = -0.3;
 
 
+%% Intake and Shooter Parameters
+% Time of Flight sensor distance for detecting in intake
+Note_Detect_Dist_Intake = 100;  % mm
+
+% Time of Flight sensor distance for detecting in shooter
+Note_Detect_Dist_Shooter = 60;  % mm
+
+% Time to run shooter before running intake
+Note_Time_Transfer_Spin_Up = 0.5;  % seconds
+
+% Shooter desired speed for storing note
+Shooter_Motor_DesSpd_Store = 300; % rpm
+
+% Time to continue running shooter after detecting the note
+Note_Time_Transfer = 0.1;  % seconds
+
+% Shooter duty cycle for ejecting note
+Shooter_DC_Eject = 0.2; % duty cycle
+
+% Time to run shooter for secoring in amp/trap
+Note_Time_Eject = 0.5; % seconds
+
+% Lookup table from angle input
+Shooter_Angle_Input = [25 35 45 55];
+Shooter_Speed_Output = [6000 5000 4000 3000];
+Shooter_Motor_Speed_Transition = 2000;
+Note_Time_Speaker_Spin_Up = 0.2;
+
+% Shooter Servo (note stopper)
+Servo_Time_Store = 0.2; % seconds
+Servo_Time_Deploy = 0.4; % seconds
+
+% Shooter Servo lookup table based on front extension length
+Servo_Position_Front_Arm_Length = [Front_AA_Min_Ext 50 100 150 200 250 300 Front_AA_Max_Ext];
+Servo_Position_Command = [0.5 0.55 0.62 0.7 0.8 0.9 1 1];
+
+% Shooter speed control PID for transfer
+Shooter_Motor_Control_FF= 0.00025;  % 1 DC / Max Speed RPM;
+Shooter_Motor_Control_P = 0.00010;
+Shooter_Motor_Control_I = 0.00002;
+Shooter_Motor_Control_I_UL = 0.1;
+Shooter_Motor_Control_I_LL = -0.1;
+
+
 %% Autonmous
 % LineSensor
 FloorDistance = 850;
@@ -619,6 +621,5 @@ clear AT_Data
 
 % Control gains
 AT_Yaw_Control_Gain = -0.0006;
-AT_XY_Control_Gain = 1
-;
+AT_XY_Control_Gain = 1;
 

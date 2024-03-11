@@ -25,7 +25,8 @@ void HIDs::PreStep() {
     Code_Gen_Model_U.Joystick_Right_B4 = m_Right_Joystick.GetRawButton(4);             
     Code_Gen_Model_U.Joystick_Right_B7 = m_Right_Joystick.GetRawButton(7);
     Code_Gen_Model_U.Joystick_Right_B8 = m_Right_Joystick.GetRawButton(8);    
-    Code_Gen_Model_U.Joystick_Right_B10 = m_Right_Joystick.GetRawButton(10);   
+    Code_Gen_Model_U.Joystick_Right_B10 = m_Right_Joystick.GetRawButton(10);
+    Code_Gen_Model_U.Joystick_Right_B14 = m_Right_Joystick.GetRawButton(14); 
     Code_Gen_Model_U.Joystick_Right_POV = m_Right_Joystick.GetPOV();
 
     // Gamepad
@@ -34,7 +35,7 @@ void HIDs::PreStep() {
     Code_Gen_Model_U.Gamepad_Stick_Right_X = m_Gamepad.GetRawAxis(4);
     Code_Gen_Model_U.Gamepad_Stick_Right_Y = -m_Gamepad.GetRawAxis(5);    
     Code_Gen_Model_U.Gamepad_B1_A = m_Gamepad.GetRawButton(1);
-    Code_Gen_Model_U.Gamepad_B3_X = m_Gamepad.GetRawButton(3);    
+    Code_Gen_Model_U.Gamepad_B4_Y = m_Gamepad.GetRawButton(4);    
     Code_Gen_Model_U.Gamepad_LB = m_Gamepad.GetRawButton(5);
     Code_Gen_Model_U.Gamepad_RB = m_Gamepad.GetRawButton(6);
     Code_Gen_Model_U.Gamepad_LT = m_Gamepad.GetRawAxis(2);
