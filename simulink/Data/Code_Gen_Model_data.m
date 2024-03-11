@@ -85,7 +85,7 @@ Boost_Trigger_Decreasing_Limit = -2/0.9*0.02;
 
 % Joystick Twist Axis Gains
 Steering_Twist_Gain = -0.015;
-Translation_Twist_Gain = -0.5;
+Translation_Twist_Gain = 0.5;
 
 %% Wheel Gear Ratio
 gear_ratio = 8.14;
@@ -430,12 +430,15 @@ Speaker_Shooter_Speed_out = [3000 3000 3000 3000 3000 3000 3000 3000 3000 3000 3
 
 %% Arm Control Gains
 % Argos Arms Desired Position Rate Limits
-AA_Position_Inc_RL = 2*t_sample/0.02; %1/1*(25.4*t_sample); % in/sec converted to mm/loop
-AA_Position_Dec_RL = -2*t_sample/0.02; %-1/1*(25.4*t_sample); % in/sec converted to mm/loop
+AA_Position_Back_Inc_RL = 1; % mm/loop
+AA_Position_Back_Dec_RL = -1; % mm/loop
+
+AA_Position_Front_Inc_RL = 2; % mm/loop
+AA_Position_Front_Dec_RL = -2; % mm/loop
 
 % Ball Screw Desired Position Rate Limits
-BS_Position_Inc_RL = 2*t_sample/0.02; %0.1/1*(25.4*t_sample); % in/sec converted to mm/loop
-BS_Position_Dec_RL = -2*t_sample/0.02; %-0.1/1*(25.4*t_sample); % in/sec converted to mm/loop
+BS_Position_Inc_RL = 4; % mm/loop
+BS_Position_Dec_RL = -4; % mm/loop
 
 % Argos Arms P+I Control
 AA_Prop_Gain = 0.01;
@@ -486,9 +489,10 @@ Note_Time_Speaker_Spin_Up = 0.2;
 Servo_Time_Store = 0.2; % seconds
 Servo_Time_Deploy = 0.4; % seconds
 
-% Shooter Servo lookup table based on front extension length
-Servo_Position_Front_Arm_Length = [Front_AA_Min_Ext 50 100 150 200 250 300 Front_AA_Max_Ext];
-Servo_Position_Command = [0.5 0.55 0.62 0.7 0.8 0.9 1 1];
+% Maximum servo store position vs. calculated shooter angle
+% Servo = Angle(deg) * Gain + Offset
+Servo_Store_Offset = 0.6;  % setting this larger will make it stick out more all the time
+Servo_Store_Gain = 0.0071429;  % this is tuned to keep a constant angle as the shooter rotates
 
 % Shooter speed control PID for transfer
 Shooter_Motor_Control_FF= 0.00025;  % 1 DC / Max Speed RPM;

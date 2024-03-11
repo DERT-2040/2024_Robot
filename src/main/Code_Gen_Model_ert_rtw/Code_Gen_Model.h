@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.124
+ * Model version                  : 2.125
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Mon Mar 11 07:27:59 2024
+ * C/C++ source code generated on : Mon Mar 11 17:07:08 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -87,18 +87,18 @@ typedef struct {
   real_T BL_Desired_Wheel_Speed;       /* '<S358>/Product2' */
   real_T BL_Desired_Module_Angle;      /* '<S373>/Switch' */
   real_T State_Request_Intake_Shooter_h;/* '<S11>/Merge11' */
-  real_T Ball_Screw_Arm_Length;        /* '<S22>/Subtract1' */
-  real_T State_Request_Arm_d;          /* '<S11>/Merge12' */
   real_T Back_Lower_Arm_Length;        /* '<S20>/Subtract1' */
   real_T Back_Upper_Arm_Length;        /* '<S21>/Subtract1' */
   real_T Meas_Back_AA_Length;          /* '<S141>/Sqrt' */
   real_T Front_Arm_Length;             /* '<S23>/Subtract1' */
   real_T Meas_Front_AA_Length;         /* '<S145>/Sqrt' */
+  real_T Ball_Screw_Arm_Length;        /* '<S22>/Subtract1' */
   real_T Meas_Angle;                   /* '<S14>/Gain2' */
-  real_T Desired_Ball_Screw_Dist;      /* '<S170>/Sum' */
+  real_T State_Request_Arm_d;          /* '<S11>/Merge12' */
   real_T Desired_Back_Upper_Dist;      /* '<S167>/Sum' */
   real_T Desired_Back_Lower_Dist;      /* '<S164>/Sum' */
   real_T Desired_Front_Dist;           /* '<S173>/Sum' */
+  real_T Desired_Ball_Screw_Dist;      /* '<S170>/Sum' */
   real_T Odometry_Y_global_est_ft;     /* '<S137>/meters to feet1' */
   real_T Odometry_Y_global_TEAR_ft;    /* '<S137>/Subtract1' */
   real_T Odometry_X_global_est_ft;     /* '<S137>/meters to feet' */
@@ -190,17 +190,17 @@ typedef struct {
   real_T UnitDelay1_DSTATE_nw;         /* '<S307>/Unit Delay1' */
   real_T UD_DSTATE_k;                  /* '<S306>/UD' */
   real_T UnitDelay_DSTATE_k;           /* '<S292>/Unit Delay' */
-  real_T UnitDelay_DSTATE_mw;          /* '<S70>/Unit Delay' */
-  real_T UnitDelay_DSTATE_h;           /* '<S71>/Unit Delay' */
-  real_T UnitDelay1_DSTATE_fp;         /* '<S22>/Unit Delay1' */
   real_T UnitDelay1_DSTATE_g;          /* '<S20>/Unit Delay1' */
   real_T UnitDelay1_DSTATE_nc;         /* '<S21>/Unit Delay1' */
   real_T UnitDelay1_DSTATE_bc;         /* '<S23>/Unit Delay1' */
-  real_T UnitDelay1_DSTATE_j;          /* '<S157>/Unit Delay1' */
-  real_T UD_DSTATE_ii;                 /* '<S156>/UD' */
+  real_T UnitDelay1_DSTATE_fp;         /* '<S22>/Unit Delay1' */
   real_T UnitDelay_DSTATE_mg;          /* '<S149>/Unit Delay' */
   real_T UnitDelay_DSTATE_c;           /* '<S150>/Unit Delay' */
   real_T UnitDelay_DSTATE_j;           /* '<S151>/Unit Delay' */
+  real_T UnitDelay1_DSTATE_j;          /* '<S157>/Unit Delay1' */
+  real_T UD_DSTATE_ii;                 /* '<S156>/UD' */
+  real_T UnitDelay_DSTATE_mw;          /* '<S70>/Unit Delay' */
+  real_T UnitDelay_DSTATE_h;           /* '<S71>/Unit Delay' */
   real_T UnitDelay1_DSTATE_d;          /* '<S137>/Unit Delay1' */
   real_T UnitDelay_DSTATE_cg;          /* '<S137>/Unit Delay' */
   real_T UnitDelay_DSTATE_gj;          /* '<S385>/Unit Delay' */
@@ -222,10 +222,10 @@ typedef struct {
   int32_T Selector4_DIMS1[2];          /* '<S199>/Selector4' */
   uint8_T FixPtUnitDelay2_DSTATE;      /* '<S341>/FixPt Unit Delay2' */
   uint8_T FixPtUnitDelay2_DSTATE_c;    /* '<S350>/FixPt Unit Delay2' */
-  uint8_T FixPtUnitDelay2_DSTATE_j;    /* '<S172>/FixPt Unit Delay2' */
   uint8_T FixPtUnitDelay2_DSTATE_l;    /* '<S169>/FixPt Unit Delay2' */
   uint8_T FixPtUnitDelay2_DSTATE_h;    /* '<S166>/FixPt Unit Delay2' */
   uint8_T FixPtUnitDelay2_DSTATE_g;    /* '<S175>/FixPt Unit Delay2' */
+  uint8_T FixPtUnitDelay2_DSTATE_j;    /* '<S172>/FixPt Unit Delay2' */
   uint8_T FixPtUnitDelay2_DSTATE_a;    /* '<S410>/FixPt Unit Delay2' */
   boolean_T DelayInput1_DSTATE;        /* '<S57>/Delay Input1' */
   boolean_T UnitDelay_DSTATE_ll;       /* '<S9>/Unit Delay' */
@@ -284,16 +284,6 @@ typedef struct {
 
 /* Constant parameters (default storage) */
 typedef struct {
-  /* Expression: Servo_Position_Command
-   * Referenced by: '<S8>/Lookup Servo based on Front Arm Extension'
-   */
-  real_T LookupServobasedonFrontArmExten[8];
-
-  /* Expression: Servo_Position_Front_Arm_Length
-   * Referenced by: '<S8>/Lookup Servo based on Front Arm Extension'
-   */
-  real_T LookupServobasedonFrontArmExt_h[8];
-
   /* Expression: Speaker_Shooter_Speed_out
    * Referenced by: '<S8>/1-D Lookup Table'
    */
@@ -575,17 +565,21 @@ extern real_T AA_Integral_UL;          /* Variable: AA_Integral_UL
                                         *   '<S150>/Saturation1'
                                         *   '<S151>/Saturation1'
                                         */
-extern real_T AA_Position_Dec_RL;      /* Variable: AA_Position_Dec_RL
+extern real_T AA_Position_Back_Dec_RL; /* Variable: AA_Position_Back_Dec_RL
                                         * Referenced by:
                                         *   '<S152>/Constant1'
                                         *   '<S153>/Constant1'
-                                        *   '<S155>/Constant1'
                                         */
-extern real_T AA_Position_Inc_RL;      /* Variable: AA_Position_Inc_RL
+extern real_T AA_Position_Back_Inc_RL; /* Variable: AA_Position_Back_Inc_RL
                                         * Referenced by:
                                         *   '<S152>/Constant3'
                                         *   '<S153>/Constant3'
-                                        *   '<S155>/Constant3'
+                                        */
+extern real_T AA_Position_Front_Dec_RL;/* Variable: AA_Position_Front_Dec_RL
+                                        * Referenced by: '<S155>/Constant1'
+                                        */
+extern real_T AA_Position_Front_Inc_RL;/* Variable: AA_Position_Front_Inc_RL
+                                        * Referenced by: '<S155>/Constant3'
                                         */
 extern real_T AA_Prop_Gain;            /* Variable: AA_Prop_Gain
                                         * Referenced by:
@@ -937,6 +931,12 @@ extern real_T Odometry_Reset_IC;       /* Variable: Odometry_Reset_IC
                                         */
 extern real_T Odometry_X_Y_TEAR;       /* Variable: Odometry_X_Y_TEAR
                                         * Referenced by: '<S137>/Constant'
+                                        */
+extern real_T Servo_Store_Gain;        /* Variable: Servo_Store_Gain
+                                        * Referenced by: '<S8>/Gain'
+                                        */
+extern real_T Servo_Store_Offset;      /* Variable: Servo_Store_Offset
+                                        * Referenced by: '<S8>/Constant1'
                                         */
 extern real_T Servo_Time_Deploy;       /* Variable: Servo_Time_Deploy
                                         * Referenced by: '<S8>/Chart_Intake_and_Shooter'

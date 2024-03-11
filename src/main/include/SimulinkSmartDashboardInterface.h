@@ -16,8 +16,10 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __AA_Integral_IC__Entry;
         nt::NetworkTableEntry __AA_Integral_LL__Entry;
         nt::NetworkTableEntry __AA_Integral_UL__Entry;
-        nt::NetworkTableEntry __AA_Position_Dec_RL__Entry;
-        nt::NetworkTableEntry __AA_Position_Inc_RL__Entry;
+        nt::NetworkTableEntry __AA_Position_Back_Dec_RL__Entry;
+        nt::NetworkTableEntry __AA_Position_Back_Inc_RL__Entry;
+        nt::NetworkTableEntry __AA_Position_Front_Dec_RL__Entry;
+        nt::NetworkTableEntry __AA_Position_Front_Inc_RL__Entry;
         nt::NetworkTableEntry __AA_Prop_Gain__Entry;
         nt::NetworkTableEntry __AA_TC_LL__Entry;
         nt::NetworkTableEntry __AA_TC_UL__Entry;
@@ -109,6 +111,8 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Odometry_IC_Y__Entry;
         nt::NetworkTableEntry __Odometry_Reset_IC__Entry;
         nt::NetworkTableEntry __Odometry_X_Y_TEAR__Entry;
+        nt::NetworkTableEntry __Servo_Store_Gain__Entry;
+        nt::NetworkTableEntry __Servo_Store_Offset__Entry;
         nt::NetworkTableEntry __Servo_Time_Deploy__Entry;
         nt::NetworkTableEntry __Servo_Time_Store__Entry;
         nt::NetworkTableEntry __Shooter_DC_Eject__Entry;
