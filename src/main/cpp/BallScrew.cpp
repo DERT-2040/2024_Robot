@@ -32,6 +32,19 @@ void BallScrew::Initalize()
     
     //kStatus1
     m_BallScrew_Motor.SetPeriodicFramePeriod(rev::CANSparkMaxLowLevel::PeriodicFrame::kStatus1, Constants::CAN_Adjustment_Values::kStatus2_ms);
+
+    if(!frc::Preferences::ContainsKey(Constants::BallScrew_Constants::k_Ball_Screw_Off_Position_Key))
+        frc::Preferences::SetDouble(Constants::BallScrew_Constants::k_Ball_Screw_Off_Position_Key, 0.0);
+}
+
+void BallScrew::SetBallScrewPosition()
+{
+    frc::Preferences::SetDouble(Constants::BallScrew_Constants::k_Ball_Screw_Off_Position_Key, m_BallScrew_Encoder.GetPosition());
+}
+
+void BallScrew::ResetBallScrew()
+{
+    m_BallScrew_Encoder.SetPosition(0);
 }
 
 // void BallScrew::RobotCallback(Robot MainRobot)

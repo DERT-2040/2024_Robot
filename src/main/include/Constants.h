@@ -83,6 +83,9 @@ public:
         static constexpr bool k_Ball_Screw_Is_Reversed = false;        
         static constexpr double k_Ball_Screw_Smart_Current_Limit = 3;
         static constexpr double k_Ball_Screw_Secondary_Current_Limit = 5;
+        static constexpr int k_Reset_Zero_Button = 2;
+        static constexpr int k_Set_Off_Position = 3;
+        static constexpr std::string_view k_Ball_Screw_Off_Position_Key = "BallScrewKey";
     };
 
     class TelescopingArm_Constants

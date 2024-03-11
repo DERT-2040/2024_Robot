@@ -67,10 +67,12 @@ void Robot::TestPeriodic()
      * 4. Push the Calibrate button (see Constants file).
      * 5. (optional) Push the Wheel On button (see Constants file).  
      */
-  if(Robot::m_HIDs.Get_Left_Joystick().GetRawButtonPressed(Constants::k_Reset_Wheel_Offset_Button)){
+  if(Robot::m_HIDs.Get_Left_Joystick().GetRawButtonPressed(Constants::k_Reset_Wheel_Offset_Button))
     m_SwerveDrive.Reset_Wheel_Offset();
-    std::cout << "Wheel Offsets Reset" << std::endl;
-  }
+  if(m_HIDs.Get_Gamepad().GetRawButtonPressed(Constants::BallScrew_Constants::k_Reset_Zero_Button))
+    m_BallScrew.ResetBallScrew();
+  if(m_HIDs.Get_Gamepad().GetRawButtonPressed(Constants::BallScrew_Constants::k_Set_Off_Position))
+    m_BallScrew.SetBallScrewPosition();
 }
 
 void Robot::SimulationInit() {}
