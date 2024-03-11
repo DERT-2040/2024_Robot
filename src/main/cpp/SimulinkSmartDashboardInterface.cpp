@@ -749,6 +749,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Joystick_Left_B4__Entry = NTtable_Inport->GetEntry("Joystick_Left_B4");
     __Joystick_Left_B7__Entry = NTtable_Inport->GetEntry("Joystick_Left_B7");
     __Joystick_Left_B8__Entry = NTtable_Inport->GetEntry("Joystick_Left_B8");
+    __Joystick_Left_POV__Entry = NTtable_Inport->GetEntry("Joystick_Left_POV");
     __Joystick_Left_X__Entry = NTtable_Inport->GetEntry("Joystick_Left_X");
     __Joystick_Left_Y__Entry = NTtable_Inport->GetEntry("Joystick_Left_Y");
     __Joystick_Left_Z__Entry = NTtable_Inport->GetEntry("Joystick_Left_Z");
@@ -825,6 +826,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Drive_Joystick_X__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_X");
     __Drive_Joystick_Y__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Y");
     __Drive_Joystick_Z__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Z");
+    __Drive_Joystick_Z_Mode__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Z_Mode");
     __FL_Desired_Module_Angle__Entry = NTtable_TPoint->GetEntry("FL_Desired_Module_Angle");
     __FL_Desired_Wheel_Speed__Entry = NTtable_TPoint->GetEntry("FL_Desired_Wheel_Speed");
     __FL_Desired_Wheel_Speed_in__Entry = NTtable_TPoint->GetEntry("FL_Desired_Wheel_Speed_in");
@@ -963,6 +965,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Joystick_Left_B4__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_B4);
     __Joystick_Left_B7__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_B7);
     __Joystick_Left_B8__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_B8);
+    __Joystick_Left_POV__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_POV);
     __Joystick_Left_X__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_X);
     __Joystick_Left_Y__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_Y);
     __Joystick_Left_Z__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_Z);
@@ -1037,6 +1040,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Drive_Joystick_X__Entry.SetDouble(Code_Gen_Model_B.Drive_Joystick_X);
     __Drive_Joystick_Y__Entry.SetDouble(Code_Gen_Model_B.Drive_Joystick_Y);
     __Drive_Joystick_Z__Entry.SetDouble(Code_Gen_Model_B.Drive_Joystick_Z);
+    __Drive_Joystick_Z_Mode__Entry.SetDouble(Code_Gen_Model_B.Drive_Joystick_Z_Mode);
     __FL_Desired_Module_Angle__Entry.SetDouble(Code_Gen_Model_B.FL_Desired_Module_Angle);
     __FL_Desired_Wheel_Speed__Entry.SetDouble(Code_Gen_Model_B.FL_Desired_Wheel_Speed);
     __FL_Desired_Wheel_Speed_in__Entry.SetDouble(Code_Gen_Model_B.FL_Desired_Wheel_Speed_in);

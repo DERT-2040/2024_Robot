@@ -246,6 +246,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Joystick_Left_B4__Entry;
         nt::NetworkTableEntry __Joystick_Left_B7__Entry;
         nt::NetworkTableEntry __Joystick_Left_B8__Entry;
+        nt::NetworkTableEntry __Joystick_Left_POV__Entry;
         nt::NetworkTableEntry __Joystick_Left_X__Entry;
         nt::NetworkTableEntry __Joystick_Left_Y__Entry;
         nt::NetworkTableEntry __Joystick_Left_Z__Entry;
@@ -321,6 +322,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Drive_Joystick_X__Entry;
         nt::NetworkTableEntry __Drive_Joystick_Y__Entry;
         nt::NetworkTableEntry __Drive_Joystick_Z__Entry;
+        nt::NetworkTableEntry __Drive_Joystick_Z_Mode__Entry;
         nt::NetworkTableEntry __FL_Desired_Module_Angle__Entry;
         nt::NetworkTableEntry __FL_Desired_Wheel_Speed__Entry;
         nt::NetworkTableEntry __FL_Desired_Wheel_Speed_in__Entry;
