@@ -163,7 +163,7 @@ clear temp
 
 
 %% Kalman Filter
-KF_Enable = 0;
+KF_Enable = 1;
 KF_Odom_Covariance = 0.001*eye(2);
 KF_Vision_Covariance = 0.1*eye(2);
 KF_Vision_Ambiguity_Thresh = 0.25;  % below this threshold trust the vision estimate
@@ -335,7 +335,7 @@ Shooter_Motor_Speed_Transition = 2000;
 Note_Time_Speaker_Spin_Up = 0.2;
 
 % Shooter Servo (note stopper)
-Servo_Position_Store = .8; % ratio of max travel
+Servo_Position_Store = 0.7; % ratio of max travel
 Servo_Position_Deploy = 0; % ratio of max travel
 Servo_Time_Store = 0.2; % seconds
 Servo_Time_Deploy = 0.4; % seconds
@@ -493,17 +493,19 @@ FloorDistance = 850;
 
 
 %% PhotonVision
-% Yaw Offsets
-AT_Tag_4_Yaw_Offset = 0;
+% Yaw Offsets (degrees)
 AT_Tag_5_Yaw_Offset = 0;
-AT_Tag_6_Yaw_Offset = 0;
-AT_Tag_7_Yaw_Offset = 0;
+AT_Tag_6_Yaw_Offset = -3;
 AT_Tag_11_Yaw_Offset = 0;
 AT_Tag_12_Yaw_Offset = 0;
 AT_Tag_13_Yaw_Offset = 0; 
 AT_Tag_14_Yaw_Offset = 0;
 AT_Tag_15_Yaw_Offset = 0;
 AT_Tag_16_Yaw_Offset = 0;
+
+% Distance vs. yaw angle correction table for use with speaker
+Yaw_angle_correction_distance = [5 5.5 6.65 7 8 10 11.4 12.5 14.3]*12*0.0254;  % meters
+Yaw_angle_correction_yaw = -[1.25 1.5 3.61 3.96 4.97 6.38 7.25 7.5 7.98];  % degrees
 
 % April Tag locations, dimensions in inches
 % https://firstfrc.blob.core.windows.net/frc2024/FieldAssets/2024LayoutMarkingDiagram.pdf
@@ -552,7 +554,7 @@ AT_Data = [...
 %   where R = rotation matrix = [cos(angle), -sin(angle); sin(angle), cos(angle)]
 
 % Amp tags
-d_offset = 24; % inches
+d_offset = 60; % inches  (can still 
 
 tag = 5;
 angle = AT_Data(tag,4)*pi/180;
@@ -567,7 +569,7 @@ AT_Target_Tag_6_X = temp(1)*0.0254; % convert from inches to meters
 AT_Target_Tag_6_Y = temp(2)*0.0254; % convert from inches to meters
 
 % Trap tags
-d_offset = 36; % inches
+d_offset = 60; % inches
 
 tag = 11;
 angle = AT_Data(tag,4)*pi/180;
@@ -616,6 +618,7 @@ AT_Tag_7_Coordinate_Y = AT_Data(7,2)*0.0254; % convert from inches to meters
 clear AT_Data
 
 % Control gains
-AT_Yaw_Control_Gain = 0;
-AT_XY_Control_Gain = 0;
+AT_Yaw_Control_Gain = -0.0006;
+AT_XY_Control_Gain = 1
+;
 

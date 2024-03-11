@@ -29,12 +29,10 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __AT_Tag_16_Yaw_Offset__Entry;
         nt::NetworkTableEntry __AT_Tag_4_Coordinate_X__Entry;
         nt::NetworkTableEntry __AT_Tag_4_Coordinate_Y__Entry;
-        nt::NetworkTableEntry __AT_Tag_4_Yaw_Offset__Entry;
         nt::NetworkTableEntry __AT_Tag_5_Yaw_Offset__Entry;
         nt::NetworkTableEntry __AT_Tag_6_Yaw_Offset__Entry;
         nt::NetworkTableEntry __AT_Tag_7_Coordinate_X__Entry;
         nt::NetworkTableEntry __AT_Tag_7_Coordinate_Y__Entry;
-        nt::NetworkTableEntry __AT_Tag_7_Yaw_Offset__Entry;
         nt::NetworkTableEntry __AT_Target_Tag_11_X__Entry;
         nt::NetworkTableEntry __AT_Target_Tag_11_Y__Entry;
         nt::NetworkTableEntry __AT_Target_Tag_12_X__Entry;

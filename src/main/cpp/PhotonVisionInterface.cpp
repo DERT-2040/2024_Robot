@@ -29,7 +29,7 @@ void PhotonVisionInterface::PreStep() {
             }
             if (targetId == 6) {
                 AT_Tag_6_Yaw = target.GetYaw();
-                AT_Tag_5_Found = true;
+                AT_Tag_6_Found = true;
             }
             if (targetId == 5) {
                 AT_Tag_5_Yaw = target.GetYaw();

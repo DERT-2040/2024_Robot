@@ -77,10 +77,6 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     NTinst.AddListener(__AT_Tag_4_Coordinate_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Tag_4_Coordinate_Y = event.GetValueEventData()->value.GetDouble();});
     __AT_Tag_4_Coordinate_Y__Entry.SetDouble(5.5479);
  
-    __AT_Tag_4_Yaw_Offset__Entry = NTtable_Tune->GetEntry("AT_Tag_4_Yaw_Offset");
-    NTinst.AddListener(__AT_Tag_4_Yaw_Offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Tag_4_Yaw_Offset = event.GetValueEventData()->value.GetDouble();});
-    __AT_Tag_4_Yaw_Offset__Entry.SetDouble(0);
- 
     __AT_Tag_5_Yaw_Offset__Entry = NTtable_Tune->GetEntry("AT_Tag_5_Yaw_Offset");
     NTinst.AddListener(__AT_Tag_5_Yaw_Offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Tag_5_Yaw_Offset = event.GetValueEventData()->value.GetDouble();});
     __AT_Tag_5_Yaw_Offset__Entry.SetDouble(0);
@@ -96,10 +92,6 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __AT_Tag_7_Coordinate_Y__Entry = NTtable_Tune->GetEntry("AT_Tag_7_Coordinate_Y");
     NTinst.AddListener(__AT_Tag_7_Coordinate_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Tag_7_Coordinate_Y = event.GetValueEventData()->value.GetDouble();});
     __AT_Tag_7_Coordinate_Y__Entry.SetDouble(5.5479);
- 
-    __AT_Tag_7_Yaw_Offset__Entry = NTtable_Tune->GetEntry("AT_Tag_7_Yaw_Offset");
-    NTinst.AddListener(__AT_Tag_7_Yaw_Offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Tag_7_Yaw_Offset = event.GetValueEventData()->value.GetDouble();});
-    __AT_Tag_7_Yaw_Offset__Entry.SetDouble(0);
  
     __AT_Target_Tag_11_X__Entry = NTtable_Tune->GetEntry("AT_Target_Tag_11_X");
     NTinst.AddListener(__AT_Target_Tag_11_X__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Target_Tag_11_X = event.GetValueEventData()->value.GetDouble();});
@@ -347,7 +339,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __KF_Enable__Entry = NTtable_Tune->GetEntry("KF_Enable");
     NTinst.AddListener(__KF_Enable__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {KF_Enable = event.GetValueEventData()->value.GetDouble();});
-    __KF_Enable__Entry.SetDouble(0);
+    __KF_Enable__Entry.SetDouble(1);
  
     __KF_Vision_Ambiguity_Thresh__Entry = NTtable_Tune->GetEntry("KF_Vision_Ambiguity_Thresh");
     NTinst.AddListener(__KF_Vision_Ambiguity_Thresh__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {KF_Vision_Ambiguity_Thresh = event.GetValueEventData()->value.GetDouble();});
