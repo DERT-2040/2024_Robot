@@ -41,8 +41,9 @@ TEST_Servo_Override_Flag = 0;
 TEST_Servo_Override_Value = 0;
 
 % Testing
+TEST_Speaker_Angle = 0;  % degrees
 TEST_Speaker_Height = 0;  % mm
-TEST_Speaker_Angle = 45;  % degrees
+TEST_Speaker_Speed = 0;  % rpm
 
 
 %% Joystick Command Profiling
@@ -411,10 +412,20 @@ Tol_Angle = 5;
 Tol_Height = 0.5*25.4;
 Tol_Gap = 0.5*25.4;
 
-% Position the arms for shooting into the speaker based on desired shooting angle
+% Set the speaker shooting angle based on distance
+Speaker_Distance_in = [5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20]*12*0.0254; % meters
+Speaker_Angle_out = [55 53 51 49 47 45 43 41 39 37 35 33 31 29 27 25]; % degrees
+
+
+% Set the speaker shooting height based on angle
 Speaker_Angle_in = [25 30 35 40 45 50 55]; % degrees
-Spearker_Height_out = [24.7 24.7 24.7 24.7 24.7 24.7 24.7]*25.4; % mm
+Speaker_Height_out = [24.7 24.7 24.7 24.7 24.7 24.7 24.7]*25.4; % mm
+
+% Set the speaker shooting gap to a constant value
 Speaker_Gap = 11*25.4;
+
+% Set the speaker shooting speed based on distance
+Speaker_Shooter_Speed_out = [3000 3000 3000 3000 3000 3000 3000 3000 3000 3000 3000 3000 3000 3000 3000 3000];
 
 
 %% Arm Control Gains
@@ -467,9 +478,7 @@ Shooter_DC_Eject = 0.2; % duty cycle
 % Time to run shooter for secoring in amp/trap
 Note_Time_Eject = 0.5; % seconds
 
-% Lookup table from angle input
-Shooter_Angle_Input = [25 35 45 55];
-Shooter_Speed_Output = [6000 5000 4000 3000];
+% Speaker shooting parameters
 Shooter_Motor_Speed_Transition = 2000;
 Note_Time_Speaker_Spin_Up = 0.2;
 

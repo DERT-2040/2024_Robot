@@ -599,11 +599,15 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __TEST_Speaker_Angle__Entry = NTtable_Tune->GetEntry("TEST_Speaker_Angle");
     NTinst.AddListener(__TEST_Speaker_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Speaker_Angle = event.GetValueEventData()->value.GetDouble();});
-    __TEST_Speaker_Angle__Entry.SetDouble(45);
+    __TEST_Speaker_Angle__Entry.SetDouble(0);
  
     __TEST_Speaker_Height__Entry = NTtable_Tune->GetEntry("TEST_Speaker_Height");
     NTinst.AddListener(__TEST_Speaker_Height__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Speaker_Height = event.GetValueEventData()->value.GetDouble();});
     __TEST_Speaker_Height__Entry.SetDouble(0);
+ 
+    __TEST_Speaker_Speed__Entry = NTtable_Tune->GetEntry("TEST_Speaker_Speed");
+    NTinst.AddListener(__TEST_Speaker_Speed__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Speaker_Speed = event.GetValueEventData()->value.GetDouble();});
+    __TEST_Speaker_Speed__Entry.SetDouble(0);
  
     __TEST_Swerve_Mode_Override_Flag__Entry = NTtable_Tune->GetEntry("TEST_Swerve_Mode_Override_Flag");
     NTinst.AddListener(__TEST_Swerve_Mode_Override_Flag__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Swerve_Mode_Override_Flag = event.GetValueEventData()->value.GetDouble();});

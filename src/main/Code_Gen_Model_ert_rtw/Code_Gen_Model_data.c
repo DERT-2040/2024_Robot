@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.123
+ * Model version                  : 2.124
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Mon Mar 11 06:30:25 2024
+ * C/C++ source code generated on : Mon Mar 11 07:27:59 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -52,7 +52,22 @@ const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP = {
    */
   { 6.35, 50.0, 100.0, 150.0, 200.0, 250.0, 300.0, 443.0 },
 
-  /* Expression: Spearker_Height_out
+  /* Expression: Speaker_Shooter_Speed_out
+   * Referenced by: '<S8>/1-D Lookup Table'
+   */
+  { 3000.0, 3000.0, 3000.0, 3000.0, 3000.0, 3000.0, 3000.0, 3000.0, 3000.0,
+    3000.0, 3000.0, 3000.0, 3000.0, 3000.0, 3000.0, 3000.0 },
+
+  /* Pooled Parameter (Expression: Speaker_Distance_in)
+   * Referenced by:
+   *   '<S8>/1-D Lookup Table'
+   *   '<S14>/1-D Lookup Table1'
+   */
+  { 1.524, 1.8288, 2.1336, 2.4383999999999997, 2.7432, 3.048, 3.3528, 3.6576,
+    3.9623999999999997, 4.2672, 4.572, 4.8767999999999994, 5.1815999999999995,
+    5.4864, 5.7912, 6.096 },
+
+  /* Expression: Speaker_Height_out
    * Referenced by: '<S14>/1-D Lookup Table'
    */
   { 627.38, 627.38, 627.38, 627.38, 627.38, 627.38, 627.38 },
@@ -61,6 +76,12 @@ const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP = {
    * Referenced by: '<S14>/1-D Lookup Table'
    */
   { 25.0, 30.0, 35.0, 40.0, 45.0, 50.0, 55.0 },
+
+  /* Expression: Speaker_Angle_out
+   * Referenced by: '<S14>/1-D Lookup Table1'
+   */
+  { 55.0, 53.0, 51.0, 49.0, 47.0, 45.0, 43.0, 41.0, 39.0, 37.0, 35.0, 33.0, 31.0,
+    29.0, 27.0, 25.0 },
 
   /* Expression: Spline_Capture_Radius
    * Referenced by: '<S177>/Capture Radius'
@@ -160,17 +181,7 @@ const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP = {
    *   '<S291>/1-D Lookup Table'
    *   '<S312>/1-D Lookup Table'
    */
-  { 0.0, 0.78539816339744828 },
-
-  /* Expression: Shooter_Speed_Output
-   * Referenced by: '<S8>/1-D Lookup Table'
-   */
-  { 6000.0, 5000.0, 4000.0, 3000.0 },
-
-  /* Expression: Shooter_Angle_Input
-   * Referenced by: '<S8>/1-D Lookup Table'
-   */
-  { 25.0, 35.0, 45.0, 55.0 }
+  { 0.0, 0.78539816339744828 }
 };
 
 /*

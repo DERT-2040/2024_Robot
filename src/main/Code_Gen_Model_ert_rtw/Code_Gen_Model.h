@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.123
+ * Model version                  : 2.124
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Mon Mar 11 06:30:25 2024
+ * C/C++ source code generated on : Mon Mar 11 07:27:59 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -86,10 +86,6 @@ typedef struct {
   real_T FR_Desired_Module_Angle;      /* '<S368>/Switch' */
   real_T BL_Desired_Wheel_Speed;       /* '<S358>/Product2' */
   real_T BL_Desired_Module_Angle;      /* '<S373>/Switch' */
-  real_T Odometry_Y_global_est_ft;     /* '<S137>/meters to feet1' */
-  real_T Odometry_Y_global_TEAR_ft;    /* '<S137>/Subtract1' */
-  real_T Odometry_X_global_est_ft;     /* '<S137>/meters to feet' */
-  real_T Odometry_X_global_TEAR_ft;    /* '<S137>/Subtract' */
   real_T State_Request_Intake_Shooter_h;/* '<S11>/Merge11' */
   real_T Ball_Screw_Arm_Length;        /* '<S22>/Subtract1' */
   real_T State_Request_Arm_d;          /* '<S11>/Merge12' */
@@ -103,6 +99,10 @@ typedef struct {
   real_T Desired_Back_Upper_Dist;      /* '<S167>/Sum' */
   real_T Desired_Back_Lower_Dist;      /* '<S164>/Sum' */
   real_T Desired_Front_Dist;           /* '<S173>/Sum' */
+  real_T Odometry_Y_global_est_ft;     /* '<S137>/meters to feet1' */
+  real_T Odometry_Y_global_TEAR_ft;    /* '<S137>/Subtract1' */
+  real_T Odometry_X_global_est_ft;     /* '<S137>/meters to feet' */
+  real_T Odometry_X_global_TEAR_ft;    /* '<S137>/Subtract' */
   real_T AT_Error_Yaw;                 /* '<S383>/Switch2' */
   real_T AT_Error_Y;                   /* '<S383>/Switch23' */
   real_T AT_Error_X;                   /* '<S383>/Switch15' */
@@ -190,8 +190,6 @@ typedef struct {
   real_T UnitDelay1_DSTATE_nw;         /* '<S307>/Unit Delay1' */
   real_T UD_DSTATE_k;                  /* '<S306>/UD' */
   real_T UnitDelay_DSTATE_k;           /* '<S292>/Unit Delay' */
-  real_T UnitDelay1_DSTATE_d;          /* '<S137>/Unit Delay1' */
-  real_T UnitDelay_DSTATE_c;           /* '<S137>/Unit Delay' */
   real_T UnitDelay_DSTATE_mw;          /* '<S70>/Unit Delay' */
   real_T UnitDelay_DSTATE_h;           /* '<S71>/Unit Delay' */
   real_T UnitDelay1_DSTATE_fp;         /* '<S22>/Unit Delay1' */
@@ -201,8 +199,10 @@ typedef struct {
   real_T UnitDelay1_DSTATE_j;          /* '<S157>/Unit Delay1' */
   real_T UD_DSTATE_ii;                 /* '<S156>/UD' */
   real_T UnitDelay_DSTATE_mg;          /* '<S149>/Unit Delay' */
-  real_T UnitDelay_DSTATE_c2;          /* '<S150>/Unit Delay' */
+  real_T UnitDelay_DSTATE_c;           /* '<S150>/Unit Delay' */
   real_T UnitDelay_DSTATE_j;           /* '<S151>/Unit Delay' */
+  real_T UnitDelay1_DSTATE_d;          /* '<S137>/Unit Delay1' */
+  real_T UnitDelay_DSTATE_cg;          /* '<S137>/Unit Delay' */
   real_T UnitDelay_DSTATE_gj;          /* '<S385>/Unit Delay' */
   real_T UnitDelay1_DSTATE_d2;         /* '<S395>/Unit Delay1' */
   real_T UnitDelay_DSTATE_g4;          /* '<S395>/Unit Delay' */
@@ -294,15 +294,32 @@ typedef struct {
    */
   real_T LookupServobasedonFrontArmExt_h[8];
 
-  /* Expression: Spearker_Height_out
+  /* Expression: Speaker_Shooter_Speed_out
+   * Referenced by: '<S8>/1-D Lookup Table'
+   */
+  real_T uDLookupTable_tableData[16];
+
+  /* Pooled Parameter (Expression: Speaker_Distance_in)
+   * Referenced by:
+   *   '<S8>/1-D Lookup Table'
+   *   '<S14>/1-D Lookup Table1'
+   */
+  real_T pooled3[16];
+
+  /* Expression: Speaker_Height_out
    * Referenced by: '<S14>/1-D Lookup Table'
    */
-  real_T uDLookupTable_tableData[7];
+  real_T uDLookupTable_tableData_n[7];
 
   /* Expression: Speaker_Angle_in
    * Referenced by: '<S14>/1-D Lookup Table'
    */
   real_T uDLookupTable_bp01Data[7];
+
+  /* Expression: Speaker_Angle_out
+   * Referenced by: '<S14>/1-D Lookup Table1'
+   */
+  real_T uDLookupTable1_tableData[16];
 
   /* Expression: Spline_Capture_Radius
    * Referenced by: '<S177>/Capture Radius'
@@ -314,7 +331,7 @@ typedef struct {
    *   '<S177>/Capture Radius'
    *   '<S177>/Lookahead Distance'
    */
-  real_T pooled7[4];
+  real_T pooled8[4];
 
   /* Expression: Spline_Lookahead_Dist
    * Referenced by: '<S177>/Lookahead Distance'
@@ -378,7 +395,7 @@ typedef struct {
    *   '<S291>/1-D Lookup Table'
    *   '<S312>/1-D Lookup Table'
    */
-  real_T pooled37[2];
+  real_T pooled38[2];
 
   /* Pooled Parameter (Expression: Drive_Motor_Control_Module_Angle_Error)
    * Referenced by:
@@ -387,17 +404,7 @@ typedef struct {
    *   '<S291>/1-D Lookup Table'
    *   '<S312>/1-D Lookup Table'
    */
-  real_T pooled38[2];
-
-  /* Expression: Shooter_Speed_Output
-   * Referenced by: '<S8>/1-D Lookup Table'
-   */
-  real_T uDLookupTable_tableData_l[4];
-
-  /* Expression: Shooter_Angle_Input
-   * Referenced by: '<S8>/1-D Lookup Table'
-   */
-  real_T uDLookupTable_bp01Data_b[4];
+  real_T pooled39[2];
 } ConstP_Code_Gen_Model_T;
 
 /* External inputs (root inport signals with default storage) */
@@ -1148,12 +1155,13 @@ extern real_T TEST_Servo_Override_Value;/* Variable: TEST_Servo_Override_Value
                                          * Referenced by: '<S8>/Constant5'
                                          */
 extern real_T TEST_Speaker_Angle;      /* Variable: TEST_Speaker_Angle
-                                        * Referenced by:
-                                        *   '<S8>/Constant6'
-                                        *   '<S14>/Constant26'
+                                        * Referenced by: '<S14>/Constant26'
                                         */
 extern real_T TEST_Speaker_Height;     /* Variable: TEST_Speaker_Height
                                         * Referenced by: '<S14>/Constant25'
+                                        */
+extern real_T TEST_Speaker_Speed;      /* Variable: TEST_Speaker_Speed
+                                        * Referenced by: '<S8>/Constant6'
                                         */
 extern real_T TEST_Swerve_Mode_Override_Flag;
                                      /* Variable: TEST_Swerve_Mode_Override_Flag
