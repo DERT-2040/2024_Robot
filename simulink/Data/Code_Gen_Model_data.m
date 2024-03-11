@@ -619,6 +619,5 @@ clear AT_Data
 
 % Control gains
 AT_Yaw_Control_Gain = -0.0006;
-AT_XY_Control_Gain = 1
-;
+AT_XY_Control_Gain = 1;
 
