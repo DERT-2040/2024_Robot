@@ -726,6 +726,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __AT_Tag_6_Yaw__Entry = NTtable_Inport->GetEntry("AT_Tag_6_Yaw");
     __AT_Tag_7_Found__Entry = NTtable_Inport->GetEntry("AT_Tag_7_Found");
     __AT_Tag_7_Yaw__Entry = NTtable_Inport->GetEntry("AT_Tag_7_Yaw");
+    __Auto_ID__Entry = NTtable_Inport->GetEntry("Auto_ID");
     __BackLeft_Drive_Motor_Rev__Entry = NTtable_Inport->GetEntry("BackLeft_Drive_Motor_Rev");
     __BackLeft_Drive_Motor_Speed__Entry = NTtable_Inport->GetEntry("BackLeft_Drive_Motor_Speed");
     __BackLeft_Steer_Rev__Entry = NTtable_Inport->GetEntry("BackLeft_Steer_Rev");
@@ -789,6 +790,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Photon_Est_Pose_Ambiguity__Entry = NTtable_Inport->GetEntry("Photon_Est_Pose_Ambiguity");
     __Photon_Est_Pose_X__Entry = NTtable_Inport->GetEntry("Photon_Est_Pose_X");
     __Photon_Est_Pose_Y__Entry = NTtable_Inport->GetEntry("Photon_Est_Pose_Y");
+    __Priority_List__Entry = NTtable_Inport->GetEntry("Priority_List");
     __Shooter_Left_Motor_RPM__Entry = NTtable_Inport->GetEntry("Shooter_Left_Motor_RPM");
     __Shooter_Right_Motor_RPM__Entry = NTtable_Inport->GetEntry("Shooter_Right_Motor_RPM");
     __Shooter_TOF_Dist__Entry = NTtable_Inport->GetEntry("Shooter_TOF_Dist");
@@ -820,6 +822,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Align_Amp__Entry = NTtable_TPoint->GetEntry("Align_Amp");
     __Align_Speaker__Entry = NTtable_TPoint->GetEntry("Align_Speaker");
     __Align_Trap__Entry = NTtable_TPoint->GetEntry("Align_Trap");
+    __ArmStateRequest__Entry = NTtable_TPoint->GetEntry("ArmStateRequest");
     __BL_Desired_Module_Angle__Entry = NTtable_TPoint->GetEntry("BL_Desired_Module_Angle");
     __BL_Desired_Wheel_Speed__Entry = NTtable_TPoint->GetEntry("BL_Desired_Wheel_Speed");
     __BL_Desired_Wheel_Speed_in__Entry = NTtable_TPoint->GetEntry("BL_Desired_Wheel_Speed_in");
@@ -832,6 +835,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Back_Upper_Arm_Length__Entry = NTtable_TPoint->GetEntry("Back_Upper_Arm_Length");
     __Ball_Screw_Arm_Length__Entry = NTtable_TPoint->GetEntry("Ball_Screw_Arm_Length");
     __Chain_Hook__Entry = NTtable_TPoint->GetEntry("Chain_Hook");
+    __CurrentPriorityIndex__Entry = NTtable_TPoint->GetEntry("CurrentPriorityIndex");
     __Desired_Angle__Entry = NTtable_TPoint->GetEntry("Desired_Angle");
     __Desired_BS_Length__Entry = NTtable_TPoint->GetEntry("Desired_BS_Length");
     __Desired_Back_AA_Length__Entry = NTtable_TPoint->GetEntry("Desired_Back_AA_Length");
@@ -863,6 +867,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Gyro_Angle_Adjustment_SPF__Entry = NTtable_TPoint->GetEntry("Gyro_Angle_Adjustment_SPF");
     __Gyro_Angle_Calibrated_deg__Entry = NTtable_TPoint->GetEntry("Gyro_Angle_Calibrated_deg");
     __Intake_Motor_DC__Entry = NTtable_TPoint->GetEntry("Intake_Motor_DC");
+    __Intake_Shooter_State_Request__Entry = NTtable_TPoint->GetEntry("Intake_Shooter_State_Request");
     __Is_Absolute_Steering_SPF__Entry = NTtable_TPoint->GetEntry("Is_Absolute_Steering_SPF");
     __Is_Absolute_Translation_SPF__Entry = NTtable_TPoint->GetEntry("Is_Absolute_Translation_SPF");
     __Is_All_Arms_Cal_Position__Entry = NTtable_TPoint->GetEntry("Is_All_Arms_Cal_Position");
@@ -891,6 +896,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Shooter_Motor_Speed_Right__Entry = NTtable_TPoint->GetEntry("Shooter_Motor_Speed_Right");
     __Shooter_Pos_State__Entry = NTtable_TPoint->GetEntry("Shooter_Pos_State");
     __Shooter_Servo__Entry = NTtable_TPoint->GetEntry("Shooter_Servo");
+    __SplineEnable__Entry = NTtable_TPoint->GetEntry("SplineEnable");
     __Spline_Enable__Entry = NTtable_TPoint->GetEntry("Spline_Enable");
     __Spline_Index__Entry = NTtable_TPoint->GetEntry("Spline_Index");
     __Spline_Num_Poses__Entry = NTtable_TPoint->GetEntry("Spline_Num_Poses");
@@ -942,6 +948,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __AT_Tag_6_Yaw__Entry.SetDouble(Code_Gen_Model_U.AT_Tag_6_Yaw);
     __AT_Tag_7_Found__Entry.SetDouble(Code_Gen_Model_U.AT_Tag_7_Found);
     __AT_Tag_7_Yaw__Entry.SetDouble(Code_Gen_Model_U.AT_Tag_7_Yaw);
+    __Auto_ID__Entry.SetDouble(Code_Gen_Model_U.Auto_ID);
     __BackLeft_Drive_Motor_Rev__Entry.SetDouble(Code_Gen_Model_U.BackLeft_Drive_Motor_Rev);
     __BackLeft_Drive_Motor_Speed__Entry.SetDouble(Code_Gen_Model_U.BackLeft_Drive_Motor_Speed);
     __BackLeft_Steer_Rev__Entry.SetDouble(Code_Gen_Model_U.BackLeft_Steer_Rev);
@@ -1005,6 +1012,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Photon_Est_Pose_Ambiguity__Entry.SetDouble(Code_Gen_Model_U.Photon_Est_Pose_Ambiguity);
     __Photon_Est_Pose_X__Entry.SetDouble(Code_Gen_Model_U.Photon_Est_Pose_X);
     __Photon_Est_Pose_Y__Entry.SetDouble(Code_Gen_Model_U.Photon_Est_Pose_Y);
+    __Priority_List__Entry.SetDouble(Code_Gen_Model_U.Priority_List);
     __Shooter_Left_Motor_RPM__Entry.SetDouble(Code_Gen_Model_U.Shooter_Left_Motor_RPM);
     __Shooter_Right_Motor_RPM__Entry.SetDouble(Code_Gen_Model_U.Shooter_Right_Motor_RPM);
     __Shooter_TOF_Dist__Entry.SetDouble(Code_Gen_Model_U.Shooter_TOF_Dist);
@@ -1034,6 +1042,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Align_Amp__Entry.SetDouble(Code_Gen_Model_B.Align_Amp);
     __Align_Speaker__Entry.SetDouble(Code_Gen_Model_B.Align_Speaker);
     __Align_Trap__Entry.SetDouble(Code_Gen_Model_B.Align_Trap);
+    __ArmStateRequest__Entry.SetDouble(Code_Gen_Model_B.ArmStateRequest);
     __BL_Desired_Module_Angle__Entry.SetDouble(Code_Gen_Model_B.BL_Desired_Module_Angle);
     __BL_Desired_Wheel_Speed__Entry.SetDouble(Code_Gen_Model_B.BL_Desired_Wheel_Speed);
     __BL_Desired_Wheel_Speed_in__Entry.SetDouble(Code_Gen_Model_B.BL_Desired_Wheel_Speed_in);
@@ -1046,6 +1055,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Back_Upper_Arm_Length__Entry.SetDouble(Code_Gen_Model_B.Back_Upper_Arm_Length);
     __Ball_Screw_Arm_Length__Entry.SetDouble(Code_Gen_Model_B.Ball_Screw_Arm_Length);
     __Chain_Hook__Entry.SetDouble(Code_Gen_Model_B.Chain_Hook);
+    __CurrentPriorityIndex__Entry.SetDouble(Code_Gen_Model_B.CurrentPriorityIndex);
     __Desired_Angle__Entry.SetDouble(Code_Gen_Model_B.Desired_Angle);
     __Desired_BS_Length__Entry.SetDouble(Code_Gen_Model_B.Desired_BS_Length);
     __Desired_Back_AA_Length__Entry.SetDouble(Code_Gen_Model_B.Desired_Back_AA_Length);
@@ -1077,6 +1087,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Gyro_Angle_Adjustment_SPF__Entry.SetDouble(Code_Gen_Model_B.Gyro_Angle_Adjustment_SPF);
     __Gyro_Angle_Calibrated_deg__Entry.SetDouble(Code_Gen_Model_B.Gyro_Angle_Calibrated_deg);
     __Intake_Motor_DC__Entry.SetDouble(Code_Gen_Model_B.Intake_Motor_DC);
+    __Intake_Shooter_State_Request__Entry.SetDouble(Code_Gen_Model_B.Intake_Shooter_State_Request);
     __Is_Absolute_Steering_SPF__Entry.SetDouble(Code_Gen_Model_B.Is_Absolute_Steering_SPF);
     __Is_Absolute_Translation_SPF__Entry.SetDouble(Code_Gen_Model_B.Is_Absolute_Translation_SPF);
     __Is_All_Arms_Cal_Position__Entry.SetDouble(Code_Gen_Model_B.Is_All_Arms_Cal_Position);
@@ -1105,6 +1116,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Shooter_Motor_Speed_Right__Entry.SetDouble(Code_Gen_Model_B.Shooter_Motor_Speed_Right);
     __Shooter_Pos_State__Entry.SetDouble(Code_Gen_Model_B.Shooter_Pos_State);
     __Shooter_Servo__Entry.SetDouble(Code_Gen_Model_B.Shooter_Servo);
+    __SplineEnable__Entry.SetDouble(Code_Gen_Model_B.SplineEnable);
     __Spline_Enable__Entry.SetDouble(Code_Gen_Model_B.Spline_Enable);
     __Spline_Index__Entry.SetDouble(Code_Gen_Model_B.Spline_Index);
     __Spline_Num_Poses__Entry.SetDouble(Code_Gen_Model_B.Spline_Num_Poses);

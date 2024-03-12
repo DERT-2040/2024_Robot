@@ -208,6 +208,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __AT_Tag_6_Yaw__Entry;
         nt::NetworkTableEntry __AT_Tag_7_Found__Entry;
         nt::NetworkTableEntry __AT_Tag_7_Yaw__Entry;
+        nt::NetworkTableEntry __Auto_ID__Entry;
         nt::NetworkTableEntry __BackLeft_Drive_Motor_Rev__Entry;
         nt::NetworkTableEntry __BackLeft_Drive_Motor_Speed__Entry;
         nt::NetworkTableEntry __BackLeft_Steer_Rev__Entry;
@@ -271,6 +272,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Photon_Est_Pose_Ambiguity__Entry;
         nt::NetworkTableEntry __Photon_Est_Pose_X__Entry;
         nt::NetworkTableEntry __Photon_Est_Pose_Y__Entry;
+        nt::NetworkTableEntry __Priority_List__Entry;
         nt::NetworkTableEntry __Shooter_Left_Motor_RPM__Entry;
         nt::NetworkTableEntry __Shooter_Right_Motor_RPM__Entry;
         nt::NetworkTableEntry __Shooter_TOF_Dist__Entry;
@@ -301,6 +303,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Align_Amp__Entry;
         nt::NetworkTableEntry __Align_Speaker__Entry;
         nt::NetworkTableEntry __Align_Trap__Entry;
+        nt::NetworkTableEntry __ArmStateRequest__Entry;
         nt::NetworkTableEntry __BL_Desired_Module_Angle__Entry;
         nt::NetworkTableEntry __BL_Desired_Wheel_Speed__Entry;
         nt::NetworkTableEntry __BL_Desired_Wheel_Speed_in__Entry;
@@ -313,6 +316,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Back_Upper_Arm_Length__Entry;
         nt::NetworkTableEntry __Ball_Screw_Arm_Length__Entry;
         nt::NetworkTableEntry __Chain_Hook__Entry;
+        nt::NetworkTableEntry __CurrentPriorityIndex__Entry;
         nt::NetworkTableEntry __Desired_Angle__Entry;
         nt::NetworkTableEntry __Desired_BS_Length__Entry;
         nt::NetworkTableEntry __Desired_Back_AA_Length__Entry;
@@ -344,6 +348,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Gyro_Angle_Adjustment_SPF__Entry;
         nt::NetworkTableEntry __Gyro_Angle_Calibrated_deg__Entry;
         nt::NetworkTableEntry __Intake_Motor_DC__Entry;
+        nt::NetworkTableEntry __Intake_Shooter_State_Request__Entry;
         nt::NetworkTableEntry __Is_Absolute_Steering_SPF__Entry;
         nt::NetworkTableEntry __Is_Absolute_Translation_SPF__Entry;
         nt::NetworkTableEntry __Is_All_Arms_Cal_Position__Entry;
@@ -372,6 +377,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Shooter_Motor_Speed_Right__Entry;
         nt::NetworkTableEntry __Shooter_Pos_State__Entry;
         nt::NetworkTableEntry __Shooter_Servo__Entry;
+        nt::NetworkTableEntry __SplineEnable__Entry;
         nt::NetworkTableEntry __Spline_Enable__Entry;
         nt::NetworkTableEntry __Spline_Index__Entry;
         nt::NetworkTableEntry __Spline_Num_Poses__Entry;
