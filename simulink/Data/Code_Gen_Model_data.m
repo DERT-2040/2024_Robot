@@ -27,7 +27,7 @@ Gyro_Calibration_Value = 0; % degrees
 Test_DC_Gain_BackUpper = 0.3;
 Test_DC_Gain_Front = 0.3;
 Test_DC_Gain_BackLower = 0.3;
-Test_DC_Gain_BallScrew = 0.2;  % do not make this larger than 0.2
+Test_DC_Gain_BallScrew = 0.2;  % do not make this larger than 0.2 or you may damage the ball screw nut
 Test_DC_Gain_Intake = -1;
 Test_DC_Gain_Shooter = 1;
 
@@ -40,10 +40,11 @@ TEST_Swerve_Mode_Override_Flag = 0;
 TEST_Servo_Override_Flag = 0;
 TEST_Servo_Override_Value = 0;
 
-% Testing
-TEST_Speaker_Angle = 0;  % degrees
+% These overrides take effect when values are changed to non-zero
+TEST_Speaker_Angle = 0;   % degrees
 TEST_Speaker_Height = 0;  % mm
-TEST_Speaker_Speed = 0;  % rpm
+TEST_Speaker_Gap = 0;     % mm
+TEST_Speaker_Speed = 0;   % rpm
 
 
 %% Joystick Command Profiling
@@ -394,8 +395,8 @@ Stage_Gap = 9.5*25.4;     % mm
 
 % Position arms for transfering a note into the shooter for scoring in the amp or trap
 LoadShooter_Angle = 35;
-LoadShooter_Height = 24.6*25.4;
-LoadShooter_Gap = 11*25.4;
+LoadShooter_Height = 610;
+LoadShooter_Gap = 293;
 
 % Position the arms for scoring in the amp
 Amp_Angle = -50;
@@ -412,20 +413,12 @@ Tol_Angle = 5;
 Tol_Height = 0.5*25.4;
 Tol_Gap = 0.5*25.4;
 
-% Set the speaker shooting angle based on distance
-Speaker_Distance_in = [5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20]*12*0.0254; % meters
-Speaker_Angle_out = [55 53 51 49 47 45 43 41 39 37 35 33 31 29 27 25]; % degrees
-
-
-% Set the speaker shooting height based on angle
-Speaker_Angle_in = [25 30 35 40 45 50 55]; % degrees
-Speaker_Height_out = [24.7 24.7 24.7 24.7 24.7 24.7 24.7]*25.4; % mm
-
-% Set the speaker shooting gap to a constant value
-Speaker_Gap = 11*25.4;
-
-% Set the speaker shooting speed based on distance
-Speaker_Shooter_Speed_out = [3000 3000 3000 3000 3000 3000 3000 3000 3000 3000 3000 3000 3000 3000 3000 3000];
+% Set the speaker parameters based on distance from the April Tag
+Speaker_Distance_in =   [1.44   1.71	2.3	    2.7	    3	    3.3	    3.5	    4	    4.2	    4.7];
+Speaker_Angle_out =     [45	    42.5	38	    34.5	33.5	33	    32.5	30.5	29	    23];
+Speaker_Height_out =    [657    626	    612	    607	    603	    600	    599	    597	    597	    597];
+Speaker_Gap_out =       [303	303	    293	    293	    293	    293	    293	    293	    293	    293];
+Speaker_MotorSpeed_out= [2500	2600	2850	3000	3100	3250	3400	4000	4500	4500];
 
 
 %% Arm Control Gains

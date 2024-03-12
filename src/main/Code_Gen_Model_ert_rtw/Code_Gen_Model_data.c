@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.125
+ * Model version                  : 2.126
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Mon Mar 11 17:07:08 2024
+ * C/C++ source code generated on : Mon Mar 11 23:00:58 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -42,36 +42,35 @@ const ConstB_Code_Gen_Model_T Code_Gen_Model_ConstB = {
 
 /* Constant parameters (default storage) */
 const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP = {
-  /* Expression: Speaker_Shooter_Speed_out
-   * Referenced by: '<S8>/1-D Lookup Table'
+  /* Expression: Speaker_MotorSpeed_out
+   * Referenced by: '<S8>/1-D Lookup Table1'
    */
-  { 3000.0, 3000.0, 3000.0, 3000.0, 3000.0, 3000.0, 3000.0, 3000.0, 3000.0,
-    3000.0, 3000.0, 3000.0, 3000.0, 3000.0, 3000.0, 3000.0 },
+  { 2500.0, 2600.0, 2850.0, 3000.0, 3100.0, 3250.0, 3400.0, 4000.0, 4500.0,
+    4500.0 },
 
   /* Pooled Parameter (Expression: Speaker_Distance_in)
    * Referenced by:
-   *   '<S8>/1-D Lookup Table'
+   *   '<S8>/1-D Lookup Table1'
    *   '<S14>/1-D Lookup Table1'
+   *   '<S14>/1-D Lookup Table2'
+   *   '<S14>/1-D Lookup Table3'
    */
-  { 1.524, 1.8288, 2.1336, 2.4383999999999997, 2.7432, 3.048, 3.3528, 3.6576,
-    3.9623999999999997, 4.2672, 4.572, 4.8767999999999994, 5.1815999999999995,
-    5.4864, 5.7912, 6.096 },
+  { 1.44, 1.71, 2.3, 2.7, 3.0, 3.3, 3.5, 4.0, 4.2, 4.7 },
 
   /* Expression: Speaker_Height_out
-   * Referenced by: '<S14>/1-D Lookup Table'
+   * Referenced by: '<S14>/1-D Lookup Table2'
    */
-  { 627.38, 627.38, 627.38, 627.38, 627.38, 627.38, 627.38 },
-
-  /* Expression: Speaker_Angle_in
-   * Referenced by: '<S14>/1-D Lookup Table'
-   */
-  { 25.0, 30.0, 35.0, 40.0, 45.0, 50.0, 55.0 },
+  { 657.0, 626.0, 612.0, 607.0, 603.0, 600.0, 599.0, 597.0, 597.0, 597.0 },
 
   /* Expression: Speaker_Angle_out
    * Referenced by: '<S14>/1-D Lookup Table1'
    */
-  { 55.0, 53.0, 51.0, 49.0, 47.0, 45.0, 43.0, 41.0, 39.0, 37.0, 35.0, 33.0, 31.0,
-    29.0, 27.0, 25.0 },
+  { 45.0, 42.5, 38.0, 34.5, 33.5, 33.0, 32.5, 30.5, 29.0, 23.0 },
+
+  /* Expression: Speaker_Gap_out
+   * Referenced by: '<S14>/1-D Lookup Table3'
+   */
+  { 303.0, 303.0, 293.0, 293.0, 293.0, 293.0, 293.0, 293.0, 293.0, 293.0 },
 
   /* Expression: Spline_Capture_Radius
    * Referenced by: '<S177>/Capture Radius'

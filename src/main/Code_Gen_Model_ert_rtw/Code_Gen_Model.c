@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.125
+ * Model version                  : 2.126
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Mon Mar 11 17:07:08 2024
+ * C/C++ source code generated on : Mon Mar 11 23:00:58 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -417,10 +417,10 @@ real_T KF_Vision_Ambiguity_Thresh = 0.25;/* Variable: KF_Vision_Ambiguity_Thresh
 real_T LoadShooter_Angle = 35.0;       /* Variable: LoadShooter_Angle
                                         * Referenced by: '<S14>/Chart_Shooter_Position'
                                         */
-real_T LoadShooter_Gap = 279.4;        /* Variable: LoadShooter_Gap
+real_T LoadShooter_Gap = 293.0;        /* Variable: LoadShooter_Gap
                                         * Referenced by: '<S14>/Chart_Shooter_Position'
                                         */
-real_T LoadShooter_Height = 624.84;    /* Variable: LoadShooter_Height
+real_T LoadShooter_Height = 610.0;     /* Variable: LoadShooter_Height
                                         * Referenced by: '<S14>/Chart_Shooter_Position'
                                         */
 real_T Note_Detect_Dist_Intake = 100.0;/* Variable: Note_Detect_Dist_Intake
@@ -500,9 +500,6 @@ real_T Shooter_Motor_Speed_Transition = 2000.0;
                                      /* Variable: Shooter_Motor_Speed_Transition
                                       * Referenced by: '<S8>/Chart_Intake_and_Shooter'
                                       */
-real_T Speaker_Gap = 279.4;            /* Variable: Speaker_Gap
-                                        * Referenced by: '<S14>/Chart_Shooter_Position'
-                                        */
 real_T Spline_Last_Pose_Distance_to_Velocity_Gain = 2.0;
                          /* Variable: Spline_Last_Pose_Distance_to_Velocity_Gain
                           * Referenced by: '<S232>/Constant2'
@@ -678,11 +675,14 @@ real_T TEST_Servo_Override_Value = 0.0;/* Variable: TEST_Servo_Override_Value
 real_T TEST_Speaker_Angle = 0.0;       /* Variable: TEST_Speaker_Angle
                                         * Referenced by: '<S14>/Constant26'
                                         */
+real_T TEST_Speaker_Gap = 0.0;         /* Variable: TEST_Speaker_Gap
+                                        * Referenced by: '<S14>/Constant27'
+                                        */
 real_T TEST_Speaker_Height = 0.0;      /* Variable: TEST_Speaker_Height
                                         * Referenced by: '<S14>/Constant25'
                                         */
 real_T TEST_Speaker_Speed = 0.0;       /* Variable: TEST_Speaker_Speed
-                                        * Referenced by: '<S8>/Constant6'
+                                        * Referenced by: '<S8>/Constant26'
                                         */
 real_T TEST_Swerve_Mode_Override_Flag = 0.0;
                                      /* Variable: TEST_Swerve_Mode_Override_Flag
@@ -773,7 +773,7 @@ static void Code_Gen_M_Waiting_for_Requests(const boolean_T
   *FixPtRelationalOperator, const boolean_T *FixPtRelationalOperator_n, const
   boolean_T *FixPtRelationalOperator_k, const boolean_T
   *FixPtRelationalOperator_i, const boolean_T *FixPtRelationalOperator_o, const
-  real_T *Switch7);
+  real_T *Switch9);
 
 /* Lookup Binary Search Utility BINARYSEARCH_real_T */
 void BINARYSEARCH_real_T(uint32_T *piLeft, uint32_T *piRght, real_T u, const
@@ -1043,7 +1043,7 @@ static void Code_Gen_M_Waiting_for_Requests(const boolean_T
   *FixPtRelationalOperator, const boolean_T *FixPtRelationalOperator_n, const
   boolean_T *FixPtRelationalOperator_k, const boolean_T
   *FixPtRelationalOperator_i, const boolean_T *FixPtRelationalOperator_o, const
-  real_T *Switch7)
+  real_T *Switch9)
 {
   Code_Gen_Model_B.Note_State_ID = 0.0;
   Code_Gen_Model_B.Intake_Motor_DC = 0.0;
@@ -1089,8 +1089,8 @@ static void Code_Gen_M_Waiting_for_Requests(const boolean_T
     /* Outport: '<Root>/Shooter_Brake_Enable' */
     Code_Gen_Model_Y.Shooter_Brake_Enable = false;
     Code_Gen_Model_B.Shooter_Motor_Speed_Control_Ena = true;
-    Code_Gen_Model_B.Shooter_Motor_Speed_Left = -(*Switch7);
-    Code_Gen_Model_B.Shooter_Motor_Speed_Right = *Switch7;
+    Code_Gen_Model_B.Shooter_Motor_Speed_Left = -(*Switch9);
+    Code_Gen_Model_B.Shooter_Motor_Speed_Right = *Switch9;
   }
 }
 
@@ -2210,8 +2210,8 @@ void Code_Gen_Model_step(void)
      */
     rtb_Rotationmatrixfromlocalto_1 = look1_binlcpw
       (Code_Gen_Model_B.Distance_Speaker,
-       Code_Gen_Model_ConstP.uDLookupTable_bp01Data_g,
-       Code_Gen_Model_ConstP.uDLookupTable_tableData_j, 8U);
+       Code_Gen_Model_ConstP.uDLookupTable_bp01Data,
+       Code_Gen_Model_ConstP.uDLookupTable_tableData, 8U);
 
     /* Logic: '<S383>/Logical Operator2' incorporates:
      *  Inport: '<Root>/AT_Tag_5_Found'
@@ -6886,23 +6886,23 @@ void Code_Gen_Model_step(void)
 
   /* End of Saturate: '<S292>/Saturation2' */
 
-  /* Switch: '<S8>/Switch7' incorporates:
-   *  Constant: '<S8>/Constant6'
+  /* Switch: '<S8>/Switch9' incorporates:
+   *  Constant: '<S8>/Constant26'
    */
   if (TEST_Speaker_Speed != 0.0) {
-    /* Switch: '<S8>/Switch7' */
+    /* Switch: '<S8>/Switch9' */
     rtb_Switch2_c = TEST_Speaker_Speed;
   } else {
-    /* Switch: '<S8>/Switch7' incorporates:
-     *  Lookup_n-D: '<S8>/1-D Lookup Table'
+    /* Switch: '<S8>/Switch9' incorporates:
+     *  Lookup_n-D: '<S8>/1-D Lookup Table1'
      *  Switch: '<S5>/Switch'
      */
     rtb_Switch2_c = look1_binlcpw(Code_Gen_Model_B.Distance_Speaker,
       Code_Gen_Model_ConstP.pooled3,
-      Code_Gen_Model_ConstP.uDLookupTable_tableData, 15U);
+      Code_Gen_Model_ConstP.uDLookupTable1_tableData, 9U);
   }
 
-  /* End of Switch: '<S8>/Switch7' */
+  /* End of Switch: '<S8>/Switch9' */
 
   /* RelationalOperator: '<S59>/Compare' incorporates:
    *  Constant: '<S59>/Constant'
@@ -7406,25 +7406,40 @@ void Code_Gen_Model_step(void)
   } else {
     rtb_Switch5_aj = look1_binlcpw(Code_Gen_Model_B.Distance_Speaker,
       Code_Gen_Model_ConstP.pooled3,
-      Code_Gen_Model_ConstP.uDLookupTable1_tableData, 15U);
+      Code_Gen_Model_ConstP.uDLookupTable1_tableData_p, 9U);
   }
 
   /* End of Switch: '<S14>/Switch5' */
 
   /* Switch: '<S14>/Switch4' incorporates:
    *  Constant: '<S14>/Constant25'
-   *  Lookup_n-D: '<S14>/1-D Lookup Table'
-   *  Switch: '<S14>/Switch5'
+   *  Lookup_n-D: '<S14>/1-D Lookup Table2'
+   *  Switch: '<S5>/Switch'
    */
   if (TEST_Speaker_Height != 0.0) {
     rtb_Switch2_c = TEST_Speaker_Height;
   } else {
-    rtb_Switch2_c = look1_binlcpw(rtb_Switch5_aj,
-      Code_Gen_Model_ConstP.uDLookupTable_bp01Data,
-      Code_Gen_Model_ConstP.uDLookupTable_tableData_n, 6U);
+    rtb_Switch2_c = look1_binlcpw(Code_Gen_Model_B.Distance_Speaker,
+      Code_Gen_Model_ConstP.pooled3,
+      Code_Gen_Model_ConstP.uDLookupTable2_tableData, 9U);
   }
 
   /* End of Switch: '<S14>/Switch4' */
+
+  /* Switch: '<S14>/Switch6' incorporates:
+   *  Constant: '<S14>/Constant27'
+   *  Lookup_n-D: '<S14>/1-D Lookup Table3'
+   *  Switch: '<S5>/Switch'
+   */
+  if (TEST_Speaker_Gap != 0.0) {
+    rtb_Add_dl = TEST_Speaker_Gap;
+  } else {
+    rtb_Add_dl = look1_binlcpw(Code_Gen_Model_B.Distance_Speaker,
+      Code_Gen_Model_ConstP.pooled3,
+      Code_Gen_Model_ConstP.uDLookupTable3_tableData, 9U);
+  }
+
+  /* End of Switch: '<S14>/Switch6' */
 
   /* Chart: '<S14>/Chart_Shooter_Position' */
   if (Code_Gen_Model_DW.is_active_c5_Code_Gen_Model == 0U) {
@@ -7438,7 +7453,6 @@ void Code_Gen_Model_step(void)
     switch (Code_Gen_Model_DW.is_c5_Code_Gen_Model) {
      case Code_Gen_Model_IN_Amp:
       Code_Gen_Model_B.Shooter_Pos_State = 4.0;
-      Code_Gen_Model_B.Desired_Gap = Amp_Gap;
       if (rtb_DataTypeConversion_l == Code_Gen_Mode_State_LoadShooter) {
         Code_Gen_Model_DW.is_c5_Code_Gen_Model = Code_Gen_Model_IN_LoadShooter;
         Code_Gen_Model_B.Shooter_Pos_State = 5.0;
@@ -7456,7 +7470,6 @@ void Code_Gen_Model_step(void)
 
      case Code_Gen_Model_IN_LoadShooter:
       Code_Gen_Model_B.Shooter_Pos_State = 5.0;
-      Code_Gen_Model_B.Desired_Gap = LoadShooter_Gap;
       if (rtb_DataTypeConversion_l == Code_Gen_Model_State_Amp) {
         Code_Gen_Model_DW.is_c5_Code_Gen_Model = Code_Gen_Model_IN_Amp;
         Code_Gen_Model_B.Shooter_Pos_State = 4.0;
@@ -7474,18 +7487,20 @@ void Code_Gen_Model_step(void)
 
      case Code_Gen_Model_IN_Speaker:
       Code_Gen_Model_B.Shooter_Pos_State = 2.0;
-      Code_Gen_Model_B.Desired_Gap = Speaker_Gap;
       if (rtb_DataTypeConversion_l == Code_Gen_Model_State_Stage) {
         Code_Gen_Model_DW.is_c5_Code_Gen_Model = Code_Gen_Mo_IN_Speaker_to_Stage;
         Code_Gen_Model_B.Shooter_Pos_State = 3.0;
         Code_Gen_Model_B.Desired_Angle = Stage_Angle;
         Code_Gen_Model_B.Desired_Gap = Stage_Gap;
+      } else {
+        Code_Gen_Model_B.Desired_Angle = rtb_Switch5_aj;
+        Code_Gen_Model_B.Desired_Height = rtb_Switch2_c;
+        Code_Gen_Model_B.Desired_Gap = rtb_Add_dl;
       }
       break;
 
      case Code_Gen_Mo_IN_Speaker_to_Stage:
       Code_Gen_Model_B.Shooter_Pos_State = 3.0;
-      Code_Gen_Model_B.Desired_Gap = Stage_Gap;
       if ((((Code_Gen_Model_B.Meas_Angle < (Stage_Angle + Tol_Angle)) &&
             (Code_Gen_Model_B.Meas_Angle > (Stage_Angle - Tol_Angle))) &&
            (Code_Gen_Model_B.Meas_Gap < (Stage_Gap + Tol_Gap))) &&
@@ -7494,12 +7509,12 @@ void Code_Gen_Model_step(void)
         Code_Gen_Model_B.Shooter_Pos_State = 0.0;
         Code_Gen_Model_B.Desired_Angle = Stage_Angle;
         Code_Gen_Model_B.Desired_Height = Stage_Height;
+        Code_Gen_Model_B.Desired_Gap = Stage_Gap;
       }
       break;
 
      case Code_Gen_Model_IN_Stage:
       Code_Gen_Model_B.Shooter_Pos_State = 0.0;
-      Code_Gen_Model_B.Desired_Gap = Stage_Gap;
       if (rtb_DataTypeConversion_l == Code_Gen_Model_State_Speaker) {
         Code_Gen_Model_DW.is_c5_Code_Gen_Model = Code_Gen_Mo_IN_Stage_to_Speaker;
         Code_Gen_Model_B.Shooter_Pos_State = 1.0;
@@ -7533,14 +7548,13 @@ void Code_Gen_Model_step(void)
         Code_Gen_Model_B.Shooter_Pos_State = 2.0;
         Code_Gen_Model_B.Desired_Angle = rtb_Switch5_aj;
         Code_Gen_Model_B.Desired_Height = rtb_Switch2_c;
-        Code_Gen_Model_B.Desired_Gap = Speaker_Gap;
+        Code_Gen_Model_B.Desired_Gap = rtb_Add_dl;
       }
       break;
 
      default:
       /* case IN_Trap: */
       Code_Gen_Model_B.Shooter_Pos_State = 6.0;
-      Code_Gen_Model_B.Desired_Gap = Trap_Gap;
       if (rtb_DataTypeConversion_l == Code_Gen_Model_State_Stage) {
         Code_Gen_Model_DW.is_c5_Code_Gen_Model = Code_Gen_Model_IN_Stage;
         Code_Gen_Model_B.Shooter_Pos_State = 0.0;

@@ -359,11 +359,11 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __LoadShooter_Gap__Entry = NTtable_Tune->GetEntry("LoadShooter_Gap");
     NTinst.AddListener(__LoadShooter_Gap__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {LoadShooter_Gap = event.GetValueEventData()->value.GetDouble();});
-    __LoadShooter_Gap__Entry.SetDouble(279.4);
+    __LoadShooter_Gap__Entry.SetDouble(293);
  
     __LoadShooter_Height__Entry = NTtable_Tune->GetEntry("LoadShooter_Height");
     NTinst.AddListener(__LoadShooter_Height__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {LoadShooter_Height = event.GetValueEventData()->value.GetDouble();});
-    __LoadShooter_Height__Entry.SetDouble(624.84);
+    __LoadShooter_Height__Entry.SetDouble(610);
  
     __Note_Detect_Dist_Intake__Entry = NTtable_Tune->GetEntry("Note_Detect_Dist_Intake");
     NTinst.AddListener(__Note_Detect_Dist_Intake__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Note_Detect_Dist_Intake = event.GetValueEventData()->value.GetDouble();});
@@ -452,10 +452,6 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Shooter_Motor_Speed_Transition__Entry = NTtable_Tune->GetEntry("Shooter_Motor_Speed_Transition");
     NTinst.AddListener(__Shooter_Motor_Speed_Transition__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Shooter_Motor_Speed_Transition = event.GetValueEventData()->value.GetDouble();});
     __Shooter_Motor_Speed_Transition__Entry.SetDouble(2000);
- 
-    __Speaker_Gap__Entry = NTtable_Tune->GetEntry("Speaker_Gap");
-    NTinst.AddListener(__Speaker_Gap__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Speaker_Gap = event.GetValueEventData()->value.GetDouble();});
-    __Speaker_Gap__Entry.SetDouble(279.4);
  
     __Spline_Last_Pose_Distance_to_Velocity_Gain__Entry = NTtable_Tune->GetEntry("Spline_Last_Pose_Distance_to_Velocity_Gain");
     NTinst.AddListener(__Spline_Last_Pose_Distance_to_Velocity_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Spline_Last_Pose_Distance_to_Velocity_Gain = event.GetValueEventData()->value.GetDouble();});
@@ -616,6 +612,10 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __TEST_Speaker_Angle__Entry = NTtable_Tune->GetEntry("TEST_Speaker_Angle");
     NTinst.AddListener(__TEST_Speaker_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Speaker_Angle = event.GetValueEventData()->value.GetDouble();});
     __TEST_Speaker_Angle__Entry.SetDouble(0);
+ 
+    __TEST_Speaker_Gap__Entry = NTtable_Tune->GetEntry("TEST_Speaker_Gap");
+    NTinst.AddListener(__TEST_Speaker_Gap__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Speaker_Gap = event.GetValueEventData()->value.GetDouble();});
+    __TEST_Speaker_Gap__Entry.SetDouble(0);
  
     __TEST_Speaker_Height__Entry = NTtable_Tune->GetEntry("TEST_Speaker_Height");
     NTinst.AddListener(__TEST_Speaker_Height__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Speaker_Height = event.GetValueEventData()->value.GetDouble();});
