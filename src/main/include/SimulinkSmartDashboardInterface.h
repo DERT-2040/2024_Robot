@@ -123,7 +123,6 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Shooter_Motor_Control_P__Entry;
         nt::NetworkTableEntry __Shooter_Motor_DesSpd_Store__Entry;
         nt::NetworkTableEntry __Shooter_Motor_Speed_Transition__Entry;
-        nt::NetworkTableEntry __Speaker_Gap__Entry;
         nt::NetworkTableEntry __Spline_Last_Pose_Distance_to_Velocity_Gain__Entry;
         nt::NetworkTableEntry __Spline_Max_Centripital_Acceleration__Entry;
         nt::NetworkTableEntry __Spline_Pose_Num_Before_End_Reduce_Speed__Entry;
@@ -164,6 +163,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __TEST_Servo_Override_Flag__Entry;
         nt::NetworkTableEntry __TEST_Servo_Override_Value__Entry;
         nt::NetworkTableEntry __TEST_Speaker_Angle__Entry;
+        nt::NetworkTableEntry __TEST_Speaker_Gap__Entry;
         nt::NetworkTableEntry __TEST_Speaker_Height__Entry;
         nt::NetworkTableEntry __TEST_Speaker_Speed__Entry;
         nt::NetworkTableEntry __TEST_Swerve_Mode_Override_Flag__Entry;

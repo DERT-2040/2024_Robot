@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.125
+ * Model version                  : 2.126
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Mon Mar 11 17:07:08 2024
+ * C/C++ source code generated on : Mon Mar 11 23:00:58 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -284,32 +284,34 @@ typedef struct {
 
 /* Constant parameters (default storage) */
 typedef struct {
-  /* Expression: Speaker_Shooter_Speed_out
-   * Referenced by: '<S8>/1-D Lookup Table'
+  /* Expression: Speaker_MotorSpeed_out
+   * Referenced by: '<S8>/1-D Lookup Table1'
    */
-  real_T uDLookupTable_tableData[16];
+  real_T uDLookupTable1_tableData[10];
 
   /* Pooled Parameter (Expression: Speaker_Distance_in)
    * Referenced by:
-   *   '<S8>/1-D Lookup Table'
+   *   '<S8>/1-D Lookup Table1'
    *   '<S14>/1-D Lookup Table1'
+   *   '<S14>/1-D Lookup Table2'
+   *   '<S14>/1-D Lookup Table3'
    */
-  real_T pooled3[16];
+  real_T pooled3[10];
 
   /* Expression: Speaker_Height_out
-   * Referenced by: '<S14>/1-D Lookup Table'
+   * Referenced by: '<S14>/1-D Lookup Table2'
    */
-  real_T uDLookupTable_tableData_n[7];
-
-  /* Expression: Speaker_Angle_in
-   * Referenced by: '<S14>/1-D Lookup Table'
-   */
-  real_T uDLookupTable_bp01Data[7];
+  real_T uDLookupTable2_tableData[10];
 
   /* Expression: Speaker_Angle_out
    * Referenced by: '<S14>/1-D Lookup Table1'
    */
-  real_T uDLookupTable1_tableData[16];
+  real_T uDLookupTable1_tableData_p[10];
+
+  /* Expression: Speaker_Gap_out
+   * Referenced by: '<S14>/1-D Lookup Table3'
+   */
+  real_T uDLookupTable3_tableData[10];
 
   /* Expression: Spline_Capture_Radius
    * Referenced by: '<S177>/Capture Radius'
@@ -346,12 +348,12 @@ typedef struct {
   /* Expression: Yaw_angle_correction_yaw
    * Referenced by: '<S383>/1-D Lookup Table'
    */
-  real_T uDLookupTable_tableData_j[9];
+  real_T uDLookupTable_tableData[9];
 
   /* Expression: Yaw_angle_correction_distance
    * Referenced by: '<S383>/1-D Lookup Table'
    */
-  real_T uDLookupTable_bp01Data_g[9];
+  real_T uDLookupTable_bp01Data[9];
 
   /* Expression: Steering_Mod_Drv_out
    * Referenced by: '<S386>/Modulation_Drv'
@@ -979,9 +981,6 @@ extern real_T Shooter_Motor_Speed_Transition;
                                      /* Variable: Shooter_Motor_Speed_Transition
                                       * Referenced by: '<S8>/Chart_Intake_and_Shooter'
                                       */
-extern real_T Speaker_Gap;             /* Variable: Speaker_Gap
-                                        * Referenced by: '<S14>/Chart_Shooter_Position'
-                                        */
 extern real_T Spline_Last_Pose_Distance_to_Velocity_Gain;
                          /* Variable: Spline_Last_Pose_Distance_to_Velocity_Gain
                           * Referenced by: '<S232>/Constant2'
@@ -1157,11 +1156,14 @@ extern real_T TEST_Servo_Override_Value;/* Variable: TEST_Servo_Override_Value
 extern real_T TEST_Speaker_Angle;      /* Variable: TEST_Speaker_Angle
                                         * Referenced by: '<S14>/Constant26'
                                         */
+extern real_T TEST_Speaker_Gap;        /* Variable: TEST_Speaker_Gap
+                                        * Referenced by: '<S14>/Constant27'
+                                        */
 extern real_T TEST_Speaker_Height;     /* Variable: TEST_Speaker_Height
                                         * Referenced by: '<S14>/Constant25'
                                         */
 extern real_T TEST_Speaker_Speed;      /* Variable: TEST_Speaker_Speed
-                                        * Referenced by: '<S8>/Constant6'
+                                        * Referenced by: '<S8>/Constant26'
                                         */
 extern real_T TEST_Swerve_Mode_Override_Flag;
                                      /* Variable: TEST_Swerve_Mode_Override_Flag
