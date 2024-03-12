@@ -636,3 +636,5 @@ clear AT_Data
 AT_Yaw_Control_Gain = -0.0006;
 AT_XY_Control_Gain = 1;
 
+Autos;
+Paths;
