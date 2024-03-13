@@ -35,6 +35,7 @@ void BallScrew::Initalize()
 
     if(!frc::Preferences::ContainsKey(Constants::BallScrew_Constants::k_Ball_Screw_Off_Position_Key))
         frc::Preferences::SetDouble(Constants::BallScrew_Constants::k_Ball_Screw_Off_Position_Key, 0.0);
+    m_BallScrew_Encoder.SetPosition(frc::Preferences::GetDouble(Constants::BallScrew_Constants::k_Ball_Screw_Off_Position_Key));
 }
 
 void BallScrew::SetBallScrewPosition()

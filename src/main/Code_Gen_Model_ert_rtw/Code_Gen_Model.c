@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.137
+ * Model version                  : 2.139
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Wed Mar 13 00:38:01 2024
+ * C/C++ source code generated on : Wed Mar 13 16:00:21 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -110,20 +110,20 @@ real_T AA_Integral_UL = 0.5;           /* Variable: AA_Integral_UL
                                         *   '<S164>/Saturation1'
                                         *   '<S165>/Saturation1'
                                         */
-real_T AA_Position_Back_Dec_RL = -1.0; /* Variable: AA_Position_Back_Dec_RL
+real_T AA_Position_Back_Dec_RL = -4.0; /* Variable: AA_Position_Back_Dec_RL
                                         * Referenced by:
                                         *   '<S166>/Constant1'
                                         *   '<S167>/Constant1'
                                         */
-real_T AA_Position_Back_Inc_RL = 1.0;  /* Variable: AA_Position_Back_Inc_RL
+real_T AA_Position_Back_Inc_RL = 4.0;  /* Variable: AA_Position_Back_Inc_RL
                                         * Referenced by:
                                         *   '<S166>/Constant3'
                                         *   '<S167>/Constant3'
                                         */
-real_T AA_Position_Front_Dec_RL = -2.0;/* Variable: AA_Position_Front_Dec_RL
+real_T AA_Position_Front_Dec_RL = -8.0;/* Variable: AA_Position_Front_Dec_RL
                                         * Referenced by: '<S169>/Constant1'
                                         */
-real_T AA_Position_Front_Inc_RL = 2.0; /* Variable: AA_Position_Front_Inc_RL
+real_T AA_Position_Front_Inc_RL = 8.0; /* Variable: AA_Position_Front_Inc_RL
                                         * Referenced by: '<S169>/Constant3'
                                         */
 real_T AA_Prop_Gain = 0.01;            /* Variable: AA_Prop_Gain
@@ -132,7 +132,7 @@ real_T AA_Prop_Gain = 0.01;            /* Variable: AA_Prop_Gain
                                         *   '<S164>/Gain1'
                                         *   '<S165>/Gain1'
                                         */
-real_T AA_TC_LL = -0.4;                /* Variable: AA_TC_LL
+real_T AA_TC_LL = -0.6;                /* Variable: AA_TC_LL
                                         * Referenced by:
                                         *   '<S163>/Constant1'
                                         *   '<S163>/Saturation2'
@@ -141,7 +141,7 @@ real_T AA_TC_LL = -0.4;                /* Variable: AA_TC_LL
                                         *   '<S165>/Constant1'
                                         *   '<S165>/Saturation2'
                                         */
-real_T AA_TC_UL = 0.4;                 /* Variable: AA_TC_UL
+real_T AA_TC_UL = 0.6;                 /* Variable: AA_TC_UL
                                         * Referenced by:
                                         *   '<S163>/Constant'
                                         *   '<S163>/Saturation2'
@@ -520,7 +520,7 @@ real_T Odometry_X_Y_TEAR = 0.0;        /* Variable: Odometry_X_Y_TEAR
 real_T Servo_Store_Gain = 0.0071429;   /* Variable: Servo_Store_Gain
                                         * Referenced by: '<S9>/Gain'
                                         */
-real_T Servo_Store_Offset = 0.6;       /* Variable: Servo_Store_Offset
+real_T Servo_Store_Offset = 0.4;       /* Variable: Servo_Store_Offset
                                         * Referenced by: '<S9>/Constant1'
                                         */
 real_T Servo_Time_Deploy = 0.4;        /* Variable: Servo_Time_Deploy
@@ -7604,9 +7604,12 @@ void Code_Gen_Model_step(void)
   if (rtb_rx_d <= 98.425) {
     rtb_thetay_f = 79.375;
     rtb_rx_d = 19.049999999999997;
+  } else if (rtb_rx_d <= 188.425) {
+    rtb_thetay_f = rtb_rx_d - 19.049999999999997;
+    rtb_rx_d = 19.049999999999997;
   } else {
-    rtb_thetay_f = fmin(fmax((((rtb_rx_d - 79.375) - 19.049999999999997) * 0.43)
-      + 79.375, 79.375), 317.0);
+    rtb_thetay_f = fmin(fmax(((((rtb_rx_d - 90.0) - 19.049999999999997) - 79.375)
+      * 0.32) + 169.375, 79.375), 317.0);
     rtb_rx_d = fmin(fmax(rtb_rx_d - rtb_thetay_f, 19.049999999999997), 334.0);
   }
 
@@ -7752,15 +7755,36 @@ void Code_Gen_Model_step(void)
 
   /* End of Switch: '<S15>/Switch1' */
 
+  /* Switch: '<S166>/Switch' incorporates:
+   *  Constant: '<S15>/Constant28'
+   *  Constant: '<S166>/Constant'
+   *  Constant: '<S166>/Constant2'
+   *  MATLAB Function: '<S15>/Back_AA_To_Extentions'
+   *  RelationalOperator: '<S166>/Relational Operator'
+   *  UnitDelay: '<S166>/Unit Delay'
+   */
+  if (Code_Gen_Model_B.Desired_Back_Lower_Dist < 169.375) {
+    Top_Front_Pivot_y = 2.0;
+  } else {
+    Top_Front_Pivot_y = 1.0;
+  }
+
+  /* End of Switch: '<S166>/Switch' */
+
+  /* Product: '<S166>/Product' incorporates:
+   *  Constant: '<S166>/Constant3'
+   */
+  rtb_thetay_g = AA_Position_Back_Inc_RL * Top_Front_Pivot_y;
+
   /* Switch: '<S180>/Init' incorporates:
    *  MATLAB Function: '<S15>/Back_AA_To_Extentions'
    *  UnitDelay: '<S180>/FixPt Unit Delay1'
    *  UnitDelay: '<S180>/FixPt Unit Delay2'
    */
-  if (Code_Gen_Model_DW.FixPtUnitDelay2_DSTATE_h != 0) {
-    rtb_thetay_g = rtb_thetay_f;
+  if (Code_Gen_Model_DW.FixPtUnitDelay2_DSTATE_l5 != 0) {
+    rtb_rx_d = rtb_thetay_f;
   } else {
-    rtb_thetay_g = Code_Gen_Model_B.Desired_Back_Lower_Dist;
+    rtb_rx_d = Code_Gen_Model_B.Desired_Back_Lower_Dist;
   }
 
   /* End of Switch: '<S180>/Init' */
@@ -7768,28 +7792,31 @@ void Code_Gen_Model_step(void)
   /* Sum: '<S178>/Sum1' incorporates:
    *  MATLAB Function: '<S15>/Back_AA_To_Extentions'
    */
-  rtb_rx_d = rtb_thetay_f - rtb_thetay_g;
+  rtb_thetay_f -= rtb_rx_d;
 
   /* Switch: '<S179>/Switch2' incorporates:
-   *  Constant: '<S166>/Constant1'
-   *  Constant: '<S166>/Constant3'
    *  RelationalOperator: '<S179>/LowerRelop1'
-   *  RelationalOperator: '<S179>/UpperRelop'
-   *  Switch: '<S179>/Switch'
    */
-  if (rtb_rx_d > AA_Position_Back_Inc_RL) {
-    rtb_rx_d = AA_Position_Back_Inc_RL;
-  } else if (rtb_rx_d < AA_Position_Back_Dec_RL) {
-    /* Switch: '<S179>/Switch' incorporates:
+  if (!(rtb_thetay_f > rtb_thetay_g)) {
+    /* Product: '<S166>/Product1' incorporates:
      *  Constant: '<S166>/Constant1'
      */
-    rtb_rx_d = AA_Position_Back_Dec_RL;
+    rtb_thetay_g = AA_Position_Back_Dec_RL * Top_Front_Pivot_y;
+
+    /* Switch: '<S179>/Switch' incorporates:
+     *  RelationalOperator: '<S179>/UpperRelop'
+     */
+    if (!(rtb_thetay_f < rtb_thetay_g)) {
+      rtb_thetay_g = rtb_thetay_f;
+    }
+
+    /* End of Switch: '<S179>/Switch' */
   }
 
   /* End of Switch: '<S179>/Switch2' */
 
   /* Sum: '<S178>/Sum' */
-  Code_Gen_Model_B.Desired_Back_Lower_Dist = rtb_rx_d + rtb_thetay_g;
+  Code_Gen_Model_B.Desired_Back_Lower_Dist = rtb_thetay_g + rtb_rx_d;
 
   /* Sum: '<S164>/Sum' */
   rtb_thetay_g = Code_Gen_Model_B.Desired_Back_Lower_Dist -
@@ -8918,7 +8945,7 @@ void Code_Gen_Model_step(void)
   /* Update for UnitDelay: '<S180>/FixPt Unit Delay2' incorporates:
    *  Constant: '<S180>/FixPt Constant'
    */
-  Code_Gen_Model_DW.FixPtUnitDelay2_DSTATE_h = 0U;
+  Code_Gen_Model_DW.FixPtUnitDelay2_DSTATE_l5 = 0U;
 
   /* Update for UnitDelay: '<S174>/Delay Input1'
    *
@@ -9088,7 +9115,7 @@ void Code_Gen_Model_initialize(void)
     Code_Gen_Model_DW.FixPtUnitDelay2_DSTATE_l = 1U;
 
     /* InitializeConditions for UnitDelay: '<S180>/FixPt Unit Delay2' */
-    Code_Gen_Model_DW.FixPtUnitDelay2_DSTATE_h = 1U;
+    Code_Gen_Model_DW.FixPtUnitDelay2_DSTATE_l5 = 1U;
 
     /* InitializeConditions for UnitDelay: '<S189>/FixPt Unit Delay2' */
     Code_Gen_Model_DW.FixPtUnitDelay2_DSTATE_g = 1U;

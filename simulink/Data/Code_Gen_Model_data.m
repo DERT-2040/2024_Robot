@@ -404,9 +404,9 @@ Amp_Height = 36.2*25.4;
 Amp_Gap = 22.5*25.4;
 
 % Position the arms for scoring in the trap
-Trap_Angle = -26.5;
-Trap_Height = 42.5*25.4;
-Trap_Gap = 27.3*25.4;
+Trap_Angle = 50;
+Trap_Height = 845;
+Trap_Gap = 460;
 
 % Tolerance checks for transitioning to the next state in Stateflow
 Tol_Angle = 5;
@@ -423,11 +423,11 @@ Speaker_MotorSpeed_out= [2500	2600	2850	3000	3100	3250	3400	4000	4500	4500];
 
 %% Arm Control Gains
 % Argos Arms Desired Position Rate Limits
-AA_Position_Back_Inc_RL = 1; % mm/loop
-AA_Position_Back_Dec_RL = -1; % mm/loop
+AA_Position_Back_Inc_RL = 4; % mm/loop
+AA_Position_Back_Dec_RL = -4; % mm/loop
 
-AA_Position_Front_Inc_RL = 2; % mm/loop
-AA_Position_Front_Dec_RL = -2; % mm/loop
+AA_Position_Front_Inc_RL = 8; % mm/loop
+AA_Position_Front_Dec_RL = -8; % mm/loop
 
 % Ball Screw Desired Position Rate Limits
 BS_Position_Inc_RL = 4; % mm/loop
@@ -439,8 +439,8 @@ AA_Integral_Gain = 0.0005;
 AA_Integral_IC = 0;
 AA_Integral_UL = 0.5;
 AA_Integral_LL = -0.5;
-AA_TC_UL = 0.4;
-AA_TC_LL = -0.4;
+AA_TC_UL = 0.6;
+AA_TC_LL = -0.6;
 
 % Ball Screw P+D Control
 BS_Prop_Gain = 0.1;
@@ -508,12 +508,12 @@ Servo_Time_Deploy = 0.4; % seconds
 
 % Maximum servo store position vs. calculated shooter angle
 % Servo = Angle(deg) * Gain + Offset
-Servo_Store_Offset = 0.6;  % setting this larger will make it stick out more all the time
+Servo_Store_Offset = 0.4;  % setting this larger will make it stick out more all the time
 Servo_Store_Gain = 0.0071429;  % this is tuned to keep a constant angle as the shooter rotates
 
 % Add more based on front arm height
 Servo_Front_Arm_Length_in = [250 350];
-Servo_Addition_out = [0 0.3];
+Servo_Addition_out = [0 0.4];
 
 % Shooter speed control PID for transfer
 Shooter_Motor_Control_FF= 0.00025;  % 1 DC / Max Speed RPM;

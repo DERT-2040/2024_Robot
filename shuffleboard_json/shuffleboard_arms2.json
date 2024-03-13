@@ -192,6 +192,32 @@
               "_glyph": 148,
               "_showGlyph": false
             }
+          },
+          "3,3": {
+            "size": [
+              3,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///Simulink Top Level Ports/Encoder_Revs_Ball_Screw",
+              "_title": "/Simulink Top Level Ports/Encoder_Revs_Ball_Screw",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "7,3": {
+            "size": [
+              3,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///Preferences/BallScrewKey",
+              "_title": "/Preferences/BallScrewKey",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
           }
         }
       }
@@ -207,6 +233,124 @@
         "vgap": 16.0,
         "titleType": 0,
         "tiles": {}
+      }
+    },
+    {
+      "title": "Tab 3",
+      "autoPopulate": false,
+      "autoPopulatePrefix": "",
+      "widgetPane": {
+        "gridSize": 128.0,
+        "showGrid": true,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "titleType": 0,
+        "tiles": {
+          "3,0": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///Simulink Test Points/Climber_Length",
+              "_title": "/Simulink Test Points/Climber_Length",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "3,1": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///Simulink Test Points/Climber_Desired_Position",
+              "_title": "/Simulink Test Points/Climber_Desired_Position",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "3,2": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///Simulink Test Points/Climber_Cmd_Direction",
+              "_title": "/Simulink Test Points/Climber_Cmd_Direction",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "5,3": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///Simulink Top Level Ports/Climber_DutyCycle",
+              "_title": "/Simulink Top Level Ports/Climber_DutyCycle",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "6,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///Simulink Tunable Params/Climber_Prop_Gain",
+              "_title": "/Simulink Tunable Params/Climber_Prop_Gain",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "6,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///Simulink Tunable Params/Climber_Integral_Gain",
+              "_title": "/Simulink Tunable Params/Climber_Integral_Gain",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "8,2": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///Simulink Tunable Params/Climber_Distance_UL",
+              "_title": "/Simulink Tunable Params/Climber_Distance_UL",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          },
+          "8,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///Simulink Tunable Params/Dist_Per_Rev_Climber",
+              "_title": "/Simulink Tunable Params/Dist_Per_Rev_Climber",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
+          }
+        }
       }
     }
   ],

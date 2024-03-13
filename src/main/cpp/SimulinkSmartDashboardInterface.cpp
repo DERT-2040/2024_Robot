@@ -27,19 +27,19 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __AA_Position_Back_Dec_RL__Entry = NTtable_Tune->GetEntry("AA_Position_Back_Dec_RL");
     NTinst.AddListener(__AA_Position_Back_Dec_RL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AA_Position_Back_Dec_RL = event.GetValueEventData()->value.GetDouble();});
-    __AA_Position_Back_Dec_RL__Entry.SetDouble(-1);
+    __AA_Position_Back_Dec_RL__Entry.SetDouble(-4);
  
     __AA_Position_Back_Inc_RL__Entry = NTtable_Tune->GetEntry("AA_Position_Back_Inc_RL");
     NTinst.AddListener(__AA_Position_Back_Inc_RL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AA_Position_Back_Inc_RL = event.GetValueEventData()->value.GetDouble();});
-    __AA_Position_Back_Inc_RL__Entry.SetDouble(1);
+    __AA_Position_Back_Inc_RL__Entry.SetDouble(4);
  
     __AA_Position_Front_Dec_RL__Entry = NTtable_Tune->GetEntry("AA_Position_Front_Dec_RL");
     NTinst.AddListener(__AA_Position_Front_Dec_RL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AA_Position_Front_Dec_RL = event.GetValueEventData()->value.GetDouble();});
-    __AA_Position_Front_Dec_RL__Entry.SetDouble(-2);
+    __AA_Position_Front_Dec_RL__Entry.SetDouble(-8);
  
     __AA_Position_Front_Inc_RL__Entry = NTtable_Tune->GetEntry("AA_Position_Front_Inc_RL");
     NTinst.AddListener(__AA_Position_Front_Inc_RL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AA_Position_Front_Inc_RL = event.GetValueEventData()->value.GetDouble();});
-    __AA_Position_Front_Inc_RL__Entry.SetDouble(2);
+    __AA_Position_Front_Inc_RL__Entry.SetDouble(8);
  
     __AA_Prop_Gain__Entry = NTtable_Tune->GetEntry("AA_Prop_Gain");
     NTinst.AddListener(__AA_Prop_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AA_Prop_Gain = event.GetValueEventData()->value.GetDouble();});
@@ -47,11 +47,11 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __AA_TC_LL__Entry = NTtable_Tune->GetEntry("AA_TC_LL");
     NTinst.AddListener(__AA_TC_LL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AA_TC_LL = event.GetValueEventData()->value.GetDouble();});
-    __AA_TC_LL__Entry.SetDouble(-0.4);
+    __AA_TC_LL__Entry.SetDouble(-0.6);
  
     __AA_TC_UL__Entry = NTtable_Tune->GetEntry("AA_TC_UL");
     NTinst.AddListener(__AA_TC_UL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AA_TC_UL = event.GetValueEventData()->value.GetDouble();});
-    __AA_TC_UL__Entry.SetDouble(0.4);
+    __AA_TC_UL__Entry.SetDouble(0.6);
  
     __AT_Tag_11_Yaw_Offset__Entry = NTtable_Tune->GetEntry("AT_Tag_11_Yaw_Offset");
     NTinst.AddListener(__AT_Tag_11_Yaw_Offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Tag_11_Yaw_Offset = event.GetValueEventData()->value.GetDouble();});
@@ -459,7 +459,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Servo_Store_Offset__Entry = NTtable_Tune->GetEntry("Servo_Store_Offset");
     NTinst.AddListener(__Servo_Store_Offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Servo_Store_Offset = event.GetValueEventData()->value.GetDouble();});
-    __Servo_Store_Offset__Entry.SetDouble(0.6);
+    __Servo_Store_Offset__Entry.SetDouble(0.4);
  
     __Servo_Time_Deploy__Entry = NTtable_Tune->GetEntry("Servo_Time_Deploy");
     NTinst.AddListener(__Servo_Time_Deploy__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Servo_Time_Deploy = event.GetValueEventData()->value.GetDouble();});

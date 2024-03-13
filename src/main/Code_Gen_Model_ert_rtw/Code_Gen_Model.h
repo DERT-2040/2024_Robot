@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.137
+ * Model version                  : 2.139
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Wed Mar 13 00:38:01 2024
+ * C/C++ source code generated on : Wed Mar 13 16:00:21 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -237,7 +237,7 @@ typedef struct {
   uint8_T FixPtUnitDelay2_DSTATE;      /* '<S355>/FixPt Unit Delay2' */
   uint8_T FixPtUnitDelay2_DSTATE_c;    /* '<S364>/FixPt Unit Delay2' */
   uint8_T FixPtUnitDelay2_DSTATE_l;    /* '<S183>/FixPt Unit Delay2' */
-  uint8_T FixPtUnitDelay2_DSTATE_h;    /* '<S180>/FixPt Unit Delay2' */
+  uint8_T FixPtUnitDelay2_DSTATE_l5;   /* '<S180>/FixPt Unit Delay2' */
   uint8_T FixPtUnitDelay2_DSTATE_g;    /* '<S189>/FixPt Unit Delay2' */
   uint8_T FixPtUnitDelay2_DSTATE_j;    /* '<S186>/FixPt Unit Delay2' */
   uint8_T FixPtUnitDelay2_DSTATE_a;    /* '<S424>/FixPt Unit Delay2' */
