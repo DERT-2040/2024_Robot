@@ -126,7 +126,6 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Spline_Last_Pose_Distance_to_Velocity_Gain__Entry;
         nt::NetworkTableEntry __Spline_Max_Centripital_Acceleration__Entry;
         nt::NetworkTableEntry __Spline_Pose_Num_Before_End_Reduce_Speed__Entry;
-        nt::NetworkTableEntry __Spline_Ref_Poses_switch_num__Entry;
         nt::NetworkTableEntry __Spline_Stop_Radius__Entry;
         nt::NetworkTableEntry __Spline_Velocity_Multiplier_TEST__Entry;
         nt::NetworkTableEntry __Stage_Angle__Entry;
@@ -272,7 +271,6 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Photon_Est_Pose_Ambiguity__Entry;
         nt::NetworkTableEntry __Photon_Est_Pose_X__Entry;
         nt::NetworkTableEntry __Photon_Est_Pose_Y__Entry;
-        nt::NetworkTableEntry __Priority_List__Entry;
         nt::NetworkTableEntry __Shooter_Left_Motor_RPM__Entry;
         nt::NetworkTableEntry __Shooter_Right_Motor_RPM__Entry;
         nt::NetworkTableEntry __Shooter_TOF_Dist__Entry;
@@ -370,6 +368,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Odometry_Y_global_est_ft__Entry;
         nt::NetworkTableEntry __Prev_GameState__Entry;
         nt::NetworkTableEntry __Robot_Reached_Destination__Entry;
+        nt::NetworkTableEntry __Shooter_Brake_Enable_out__Entry;
         nt::NetworkTableEntry __Shooter_Motor_DC_Left__Entry;
         nt::NetworkTableEntry __Shooter_Motor_DC_Right__Entry;
         nt::NetworkTableEntry __Shooter_Motor_Speed_Control_Ena__Entry;

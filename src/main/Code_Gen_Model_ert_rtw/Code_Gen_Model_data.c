@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.128
+ * Model version                  : 2.132
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Tue Mar 12 18:07:28 2024
+ * C/C++ source code generated on : Tue Mar 12 20:54:29 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -42,6 +42,16 @@ const ConstB_Code_Gen_Model_T Code_Gen_Model_ConstB = {
 
 /* Constant parameters (default storage) */
 const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP = {
+  /* Expression: Servo_Addition_out
+   * Referenced by: '<S8>/1-D Lookup Table'
+   */
+  { 0.0, 0.3 },
+
+  /* Expression: Servo_Front_Arm_Length_in
+   * Referenced by: '<S8>/1-D Lookup Table'
+   */
+  { 250.0, 350.0 },
+
   /* Expression: Speaker_MotorSpeed_out
    * Referenced by: '<S8>/1-D Lookup Table1'
    */
@@ -123,6 +133,11 @@ const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP = {
    */
   { -1.0, -0.9, -0.8, -0.7, -0.6, -0.5, -0.4, -0.3, -0.25, -0.2, 0.0, 0.2, 0.25,
     0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0 },
+
+  /* Expression: [0 1 2]
+   * Referenced by: '<Root>/Constant'
+   */
+  { 0.0, 1.0, 2.0 },
 
   /* Expression: Rotation_Local_Inv
    * Referenced by: '<S12>/Constant4'

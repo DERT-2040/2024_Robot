@@ -260,7 +260,7 @@ Spline_Velocity_Axis  = [0.50 1.50 2.50 3.50]; % m/s
 Spline_Capture_Radius = [0.20 0.20 0.25 0.50]; % m
 Spline_Lookahead_Dist = [0.20 0.20 0.20 0.40]; % m
 
-Spline_Ref_Poses_switch_num = 1;
+% Spline_Ref_Poses_switch_num = 1;
 velocity_gain = Drive_Wheel_Max_Speed*2;
 Spline_Num_Poses_auto1 = 3;
 Spline_Ref_Poses_auto1 = [% x, y, velocity, field-oriented heading
@@ -395,7 +395,7 @@ Stage_Gap = 9.5*25.4;     % mm
 
 % Position arms for transfering a note into the shooter for scoring in the amp or trap
 LoadShooter_Angle = 35;
-LoadShooter_Height = 610;
+LoadShooter_Height = 580;
 LoadShooter_Gap = 293;
 
 % Position the arms for scoring in the amp
@@ -452,6 +452,32 @@ BS_TC_UL = 0.3;
 BS_TC_LL = -0.3;
 
 
+%% Climber Control
+% Distance gain
+Dist_Per_Rev_Climber = ((1.75 * pi) / (5*4*2)) * 25.4; % 5:1 gear box, 4:1 gear box, 2:1 gear box, 1.75 inch diameter sprocket, 25.4 mm per inch
+Dist_Climber_Cal_Tol = 5; % mm, Argos Arms
+
+% Rate limit
+Climber_Position_Inc_RL = 3*25.4*t_sample; % mm/loop
+Climber_Position_Dec_RL = -1*25.4*t_sample; % mm/loop
+
+% Minimum desired position to enable integral
+Climber_Position_Integral_Enable = 10; % mm
+
+Climber_Distance_LL = 0.5*25.4;  % mm, command hooks up a little bit at the start to avoid commanding to the lower stop
+Climber_Distance_UL = 13.5*25.4;  % mm, upper limit to avoid commanding at the upper stop
+
+% P+I
+Climber_Prop_Gain = 0.01;
+Climber_Integral_Gain = 0.0005;
+Climber_Integral_IC = 0;
+Climber_Integral_UL = 0.5;
+Climber_Integral_LL = -0.5;
+Climber_TC_UL = 0.5;
+Climber_TC_LL = -0.5;
+
+
+
 %% Intake and Shooter Parameters
 % Time of Flight sensor distance for detecting in intake
 Note_Detect_Dist_Intake = 100;  % mm
@@ -486,6 +512,10 @@ Servo_Time_Deploy = 0.4; % seconds
 % Servo = Angle(deg) * Gain + Offset
 Servo_Store_Offset = 0.6;  % setting this larger will make it stick out more all the time
 Servo_Store_Gain = 0.0071429;  % this is tuned to keep a constant angle as the shooter rotates
+
+% Add more based on front arm height
+Servo_Front_Arm_Length_in = [250 350];
+Servo_Addition_out = [0 0.3];
 
 % Shooter speed control PID for transfer
 Shooter_Motor_Control_FF= 0.00025;  % 1 DC / Max Speed RPM;

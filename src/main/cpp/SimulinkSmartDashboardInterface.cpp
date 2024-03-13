@@ -363,7 +363,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __LoadShooter_Height__Entry = NTtable_Tune->GetEntry("LoadShooter_Height");
     NTinst.AddListener(__LoadShooter_Height__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {LoadShooter_Height = event.GetValueEventData()->value.GetDouble();});
-    __LoadShooter_Height__Entry.SetDouble(610);
+    __LoadShooter_Height__Entry.SetDouble(580);
  
     __Note_Detect_Dist_Intake__Entry = NTtable_Tune->GetEntry("Note_Detect_Dist_Intake");
     NTinst.AddListener(__Note_Detect_Dist_Intake__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Note_Detect_Dist_Intake = event.GetValueEventData()->value.GetDouble();});
@@ -464,10 +464,6 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Spline_Pose_Num_Before_End_Reduce_Speed__Entry = NTtable_Tune->GetEntry("Spline_Pose_Num_Before_End_Reduce_Speed");
     NTinst.AddListener(__Spline_Pose_Num_Before_End_Reduce_Speed__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Spline_Pose_Num_Before_End_Reduce_Speed = event.GetValueEventData()->value.GetDouble();});
     __Spline_Pose_Num_Before_End_Reduce_Speed__Entry.SetDouble(1);
- 
-    __Spline_Ref_Poses_switch_num__Entry = NTtable_Tune->GetEntry("Spline_Ref_Poses_switch_num");
-    NTinst.AddListener(__Spline_Ref_Poses_switch_num__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Spline_Ref_Poses_switch_num = event.GetValueEventData()->value.GetDouble();});
-    __Spline_Ref_Poses_switch_num__Entry.SetDouble(1);
  
     __Spline_Stop_Radius__Entry = NTtable_Tune->GetEntry("Spline_Stop_Radius");
     NTinst.AddListener(__Spline_Stop_Radius__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Spline_Stop_Radius = event.GetValueEventData()->value.GetDouble();});
@@ -790,7 +786,6 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Photon_Est_Pose_Ambiguity__Entry = NTtable_Inport->GetEntry("Photon_Est_Pose_Ambiguity");
     __Photon_Est_Pose_X__Entry = NTtable_Inport->GetEntry("Photon_Est_Pose_X");
     __Photon_Est_Pose_Y__Entry = NTtable_Inport->GetEntry("Photon_Est_Pose_Y");
-    __Priority_List__Entry = NTtable_Inport->GetEntry("Priority_List");
     __Shooter_Left_Motor_RPM__Entry = NTtable_Inport->GetEntry("Shooter_Left_Motor_RPM");
     __Shooter_Right_Motor_RPM__Entry = NTtable_Inport->GetEntry("Shooter_Right_Motor_RPM");
     __Shooter_TOF_Dist__Entry = NTtable_Inport->GetEntry("Shooter_TOF_Dist");
@@ -889,6 +884,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Odometry_Y_global_est_ft__Entry = NTtable_TPoint->GetEntry("Odometry_Y_global_est_ft");
     __Prev_GameState__Entry = NTtable_TPoint->GetEntry("Prev_GameState");
     __Robot_Reached_Destination__Entry = NTtable_TPoint->GetEntry("Robot_Reached_Destination");
+    __Shooter_Brake_Enable_out__Entry = NTtable_TPoint->GetEntry("Shooter_Brake_Enable_out");
     __Shooter_Motor_DC_Left__Entry = NTtable_TPoint->GetEntry("Shooter_Motor_DC_Left");
     __Shooter_Motor_DC_Right__Entry = NTtable_TPoint->GetEntry("Shooter_Motor_DC_Right");
     __Shooter_Motor_Speed_Control_Ena__Entry = NTtable_TPoint->GetEntry("Shooter_Motor_Speed_Control_Ena");
@@ -1012,7 +1008,6 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Photon_Est_Pose_Ambiguity__Entry.SetDouble(Code_Gen_Model_U.Photon_Est_Pose_Ambiguity);
     __Photon_Est_Pose_X__Entry.SetDouble(Code_Gen_Model_U.Photon_Est_Pose_X);
     __Photon_Est_Pose_Y__Entry.SetDouble(Code_Gen_Model_U.Photon_Est_Pose_Y);
-    __Priority_List__Entry.SetDouble(Code_Gen_Model_U.Priority_List);
     __Shooter_Left_Motor_RPM__Entry.SetDouble(Code_Gen_Model_U.Shooter_Left_Motor_RPM);
     __Shooter_Right_Motor_RPM__Entry.SetDouble(Code_Gen_Model_U.Shooter_Right_Motor_RPM);
     __Shooter_TOF_Dist__Entry.SetDouble(Code_Gen_Model_U.Shooter_TOF_Dist);
@@ -1109,6 +1104,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Odometry_Y_global_est_ft__Entry.SetDouble(Code_Gen_Model_B.Odometry_Y_global_est_ft);
     __Prev_GameState__Entry.SetDouble(Code_Gen_Model_B.Prev_GameState);
     __Robot_Reached_Destination__Entry.SetDouble(Code_Gen_Model_B.Robot_Reached_Destination);
+    __Shooter_Brake_Enable_out__Entry.SetDouble(Code_Gen_Model_B.Shooter_Brake_Enable_out);
     __Shooter_Motor_DC_Left__Entry.SetDouble(Code_Gen_Model_B.Shooter_Motor_DC_Left);
     __Shooter_Motor_DC_Right__Entry.SetDouble(Code_Gen_Model_B.Shooter_Motor_DC_Right);
     __Shooter_Motor_Speed_Control_Ena__Entry.SetDouble(Code_Gen_Model_B.Shooter_Motor_Speed_Control_Ena);
