@@ -113,10 +113,11 @@ public:
     public:
         static constexpr int Line_SensorID = 47;
     };
+    
     class Climber_Constants
     {
     public:
         static constexpr int Climber_Motor_Device_ID = 38;
-
+        static constexpr bool k_Climber_Is_Reversed = true;
     };
 };

@@ -17,6 +17,7 @@
 #include "include/Shooter.h"
 #include "include/BallScrew.h"
 #include "include/LineSensor.h"
+#include "include/Climber.h"
 
 //frc
 #include <frc/TimedRobot.h>
@@ -173,6 +174,13 @@ private:
   */
   TelescopingArm m_TelescopingArm;  
 
-  
+   /**
+   * Component for the autonomous line sensor 
+  */ 
   LineSensor m_LineSensor;
+
+  /**
+   * Component for the autonomous line sensor 
+  */ 
+  Climber m_Climber;
 };

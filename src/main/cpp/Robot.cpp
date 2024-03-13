@@ -89,6 +89,7 @@ void Robot::PreStep()
   m_BallScrew.PreStep();
   m_TelescopingArm.PreStep();
   m_LineSensor.PreStep();
+  m_Climber.PreStep();
 }
 
 void Robot::PostStep() 
@@ -103,6 +104,7 @@ void Robot::PostStep()
   m_BallScrew.PostStep();
   m_TelescopingArm.PostStep();
   m_LineSensor.PostStep();
+  m_Climber.PostStep();
 }
 
 void Robot::GameInitValues() 
@@ -125,6 +127,7 @@ void Robot::Initalize()
   m_Shooter.Initalize();
   m_SwerveDrive.Initalize();
   m_TelescopingArm.Initalize();
+  m_Climber.Initalize();
 }
 
 #ifndef RUNNING_FRC_TESTS

@@ -237,6 +237,50 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     NTinst.AddListener(__Boost_Trigger_Low_Speed__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Boost_Trigger_Low_Speed = event.GetValueEventData()->value.GetDouble();});
     __Boost_Trigger_Low_Speed__Entry.SetDouble(1.5);
  
+    __Climber_Distance_LL__Entry = NTtable_Tune->GetEntry("Climber_Distance_LL");
+    NTinst.AddListener(__Climber_Distance_LL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Climber_Distance_LL = event.GetValueEventData()->value.GetDouble();});
+    __Climber_Distance_LL__Entry.SetDouble(12.7);
+ 
+    __Climber_Distance_UL__Entry = NTtable_Tune->GetEntry("Climber_Distance_UL");
+    NTinst.AddListener(__Climber_Distance_UL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Climber_Distance_UL = event.GetValueEventData()->value.GetDouble();});
+    __Climber_Distance_UL__Entry.SetDouble(342.9);
+ 
+    __Climber_Integral_Gain__Entry = NTtable_Tune->GetEntry("Climber_Integral_Gain");
+    NTinst.AddListener(__Climber_Integral_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Climber_Integral_Gain = event.GetValueEventData()->value.GetDouble();});
+    __Climber_Integral_Gain__Entry.SetDouble(0.0002);
+ 
+    __Climber_Integral_IC__Entry = NTtable_Tune->GetEntry("Climber_Integral_IC");
+    NTinst.AddListener(__Climber_Integral_IC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Climber_Integral_IC = event.GetValueEventData()->value.GetDouble();});
+    __Climber_Integral_IC__Entry.SetDouble(0);
+ 
+    __Climber_Integral_LL__Entry = NTtable_Tune->GetEntry("Climber_Integral_LL");
+    NTinst.AddListener(__Climber_Integral_LL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Climber_Integral_LL = event.GetValueEventData()->value.GetDouble();});
+    __Climber_Integral_LL__Entry.SetDouble(-0.5);
+ 
+    __Climber_Integral_UL__Entry = NTtable_Tune->GetEntry("Climber_Integral_UL");
+    NTinst.AddListener(__Climber_Integral_UL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Climber_Integral_UL = event.GetValueEventData()->value.GetDouble();});
+    __Climber_Integral_UL__Entry.SetDouble(0.5);
+ 
+    __Climber_Position_Dec_RL__Entry = NTtable_Tune->GetEntry("Climber_Position_Dec_RL");
+    NTinst.AddListener(__Climber_Position_Dec_RL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Climber_Position_Dec_RL = event.GetValueEventData()->value.GetDouble();});
+    __Climber_Position_Dec_RL__Entry.SetDouble(-2.54);
+ 
+    __Climber_Position_Inc_RL__Entry = NTtable_Tune->GetEntry("Climber_Position_Inc_RL");
+    NTinst.AddListener(__Climber_Position_Inc_RL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Climber_Position_Inc_RL = event.GetValueEventData()->value.GetDouble();});
+    __Climber_Position_Inc_RL__Entry.SetDouble(1.016);
+ 
+    __Climber_Prop_Gain__Entry = NTtable_Tune->GetEntry("Climber_Prop_Gain");
+    NTinst.AddListener(__Climber_Prop_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Climber_Prop_Gain = event.GetValueEventData()->value.GetDouble();});
+    __Climber_Prop_Gain__Entry.SetDouble(0.01);
+ 
+    __Climber_TC_LL__Entry = NTtable_Tune->GetEntry("Climber_TC_LL");
+    NTinst.AddListener(__Climber_TC_LL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Climber_TC_LL = event.GetValueEventData()->value.GetDouble();});
+    __Climber_TC_LL__Entry.SetDouble(-0.5);
+ 
+    __Climber_TC_UL__Entry = NTtable_Tune->GetEntry("Climber_TC_UL");
+    NTinst.AddListener(__Climber_TC_UL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Climber_TC_UL = event.GetValueEventData()->value.GetDouble();});
+    __Climber_TC_UL__Entry.SetDouble(0.5);
+ 
     __Dist_AA_Cal_Tol__Entry = NTtable_Tune->GetEntry("Dist_AA_Cal_Tol");
     NTinst.AddListener(__Dist_AA_Cal_Tol__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Dist_AA_Cal_Tol = event.GetValueEventData()->value.GetDouble();});
     __Dist_AA_Cal_Tol__Entry.SetDouble(5);
@@ -256,6 +300,10 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Dist_Per_Rev_Ball_Screw__Entry = NTtable_Tune->GetEntry("Dist_Per_Rev_Ball_Screw");
     NTinst.AddListener(__Dist_Per_Rev_Ball_Screw__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Dist_Per_Rev_Ball_Screw = event.GetValueEventData()->value.GetDouble();});
     __Dist_Per_Rev_Ball_Screw__Entry.SetDouble(0.35278);
+ 
+    __Dist_Per_Rev_Climber__Entry = NTtable_Tune->GetEntry("Dist_Per_Rev_Climber");
+    NTinst.AddListener(__Dist_Per_Rev_Climber__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Dist_Per_Rev_Climber = event.GetValueEventData()->value.GetDouble();});
+    __Dist_Per_Rev_Climber__Entry.SetDouble(4.7408);
  
     __Dist_Per_Rev_Front__Entry = NTtable_Tune->GetEntry("Dist_Per_Rev_Front");
     NTinst.AddListener(__Dist_Per_Rev_Front__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Dist_Per_Rev_Front = event.GetValueEventData()->value.GetDouble();});
@@ -734,6 +782,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Encoder_Revs_Back_Lower__Entry = NTtable_Inport->GetEntry("Encoder_Revs_Back_Lower");
     __Encoder_Revs_Back_Upper__Entry = NTtable_Inport->GetEntry("Encoder_Revs_Back_Upper");
     __Encoder_Revs_Ball_Screw__Entry = NTtable_Inport->GetEntry("Encoder_Revs_Ball_Screw");
+    __Encoder_Revs_Climber__Entry = NTtable_Inport->GetEntry("Encoder_Revs_Climber");
     __Encoder_Revs_Front__Entry = NTtable_Inport->GetEntry("Encoder_Revs_Front");
     __FrontLeft_Drive_Motor_Rev__Entry = NTtable_Inport->GetEntry("FrontLeft_Drive_Motor_Rev");
     __FrontLeft_Drive_Motor_Speed__Entry = NTtable_Inport->GetEntry("FrontLeft_Drive_Motor_Speed");
@@ -798,7 +847,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Back_Lower_Arm_DutyCycle__Entry = NTtable_Outport->GetEntry("Back_Lower_Arm_DutyCycle");
     __Back_Upper_Arm_DutyCycle__Entry = NTtable_Outport->GetEntry("Back_Upper_Arm_DutyCycle");
     __Ball_Screw_Arm_DutyCycle__Entry = NTtable_Outport->GetEntry("Ball_Screw_Arm_DutyCycle");
-    __Chain_DutyCycle__Entry = NTtable_Outport->GetEntry("Chain_DutyCycle");
+    __Climber_DutyCycle__Entry = NTtable_Outport->GetEntry("Climber_DutyCycle");
     __FrontLeft_Drive_DutyCycle__Entry = NTtable_Outport->GetEntry("FrontLeft_Drive_DutyCycle");
     __FrontLeft_Steer_DutyCycle__Entry = NTtable_Outport->GetEntry("FrontLeft_Steer_DutyCycle");
     __FrontRight_Drive_DutyCycle__Entry = NTtable_Outport->GetEntry("FrontRight_Drive_DutyCycle");
@@ -829,7 +878,9 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Back_Lower_Arm_Length__Entry = NTtable_TPoint->GetEntry("Back_Lower_Arm_Length");
     __Back_Upper_Arm_Length__Entry = NTtable_TPoint->GetEntry("Back_Upper_Arm_Length");
     __Ball_Screw_Arm_Length__Entry = NTtable_TPoint->GetEntry("Ball_Screw_Arm_Length");
-    __Chain_Hook__Entry = NTtable_TPoint->GetEntry("Chain_Hook");
+    __Climber_Cmd_Direction__Entry = NTtable_TPoint->GetEntry("Climber_Cmd_Direction");
+    __Climber_Desired_Position__Entry = NTtable_TPoint->GetEntry("Climber_Desired_Position");
+    __Climber_Length__Entry = NTtable_TPoint->GetEntry("Climber_Length");
     __CurrentPriorityIndex__Entry = NTtable_TPoint->GetEntry("CurrentPriorityIndex");
     __Desired_Angle__Entry = NTtable_TPoint->GetEntry("Desired_Angle");
     __Desired_BS_Length__Entry = NTtable_TPoint->GetEntry("Desired_BS_Length");
@@ -956,6 +1007,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Encoder_Revs_Back_Lower__Entry.SetDouble(Code_Gen_Model_U.Encoder_Revs_Back_Lower);
     __Encoder_Revs_Back_Upper__Entry.SetDouble(Code_Gen_Model_U.Encoder_Revs_Back_Upper);
     __Encoder_Revs_Ball_Screw__Entry.SetDouble(Code_Gen_Model_U.Encoder_Revs_Ball_Screw);
+    __Encoder_Revs_Climber__Entry.SetDouble(Code_Gen_Model_U.Encoder_Revs_Climber);
     __Encoder_Revs_Front__Entry.SetDouble(Code_Gen_Model_U.Encoder_Revs_Front);
     __FrontLeft_Drive_Motor_Rev__Entry.SetDouble(Code_Gen_Model_U.FrontLeft_Drive_Motor_Rev);
     __FrontLeft_Drive_Motor_Speed__Entry.SetDouble(Code_Gen_Model_U.FrontLeft_Drive_Motor_Speed);
@@ -1019,7 +1071,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Back_Lower_Arm_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.Back_Lower_Arm_DutyCycle);
     __Back_Upper_Arm_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.Back_Upper_Arm_DutyCycle);
     __Ball_Screw_Arm_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.Ball_Screw_Arm_DutyCycle);
-    __Chain_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.Chain_DutyCycle);
+    __Climber_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.Climber_DutyCycle);
     __FrontLeft_Drive_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.FrontLeft_Drive_DutyCycle);
     __FrontLeft_Steer_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.FrontLeft_Steer_DutyCycle);
     __FrontRight_Drive_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.FrontRight_Drive_DutyCycle);
@@ -1049,7 +1101,9 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Back_Lower_Arm_Length__Entry.SetDouble(Code_Gen_Model_B.Back_Lower_Arm_Length);
     __Back_Upper_Arm_Length__Entry.SetDouble(Code_Gen_Model_B.Back_Upper_Arm_Length);
     __Ball_Screw_Arm_Length__Entry.SetDouble(Code_Gen_Model_B.Ball_Screw_Arm_Length);
-    __Chain_Hook__Entry.SetDouble(Code_Gen_Model_B.Chain_Hook);
+    __Climber_Cmd_Direction__Entry.SetDouble(Code_Gen_Model_B.Climber_Cmd_Direction);
+    __Climber_Desired_Position__Entry.SetDouble(Code_Gen_Model_B.Climber_Desired_Position);
+    __Climber_Length__Entry.SetDouble(Code_Gen_Model_B.Climber_Length);
     __CurrentPriorityIndex__Entry.SetDouble(Code_Gen_Model_B.CurrentPriorityIndex);
     __Desired_Angle__Entry.SetDouble(Code_Gen_Model_B.Desired_Angle);
     __Desired_BS_Length__Entry.SetDouble(Code_Gen_Model_B.Desired_BS_Length);
