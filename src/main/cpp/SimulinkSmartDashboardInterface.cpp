@@ -175,7 +175,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Amp_Angle__Entry = NTtable_Tune->GetEntry("Amp_Angle");
     NTinst.AddListener(__Amp_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Amp_Angle = event.GetValueEventData()->value.GetDouble();});
-    __Amp_Angle__Entry.SetDouble(-50);
+    __Amp_Angle__Entry.SetDouble(-40);
  
     __Amp_Gap__Entry = NTtable_Tune->GetEntry("Amp_Gap");
     NTinst.AddListener(__Amp_Gap__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Amp_Gap = event.GetValueEventData()->value.GetDouble();});
@@ -227,7 +227,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Boost_Trigger_High_Speed__Entry = NTtable_Tune->GetEntry("Boost_Trigger_High_Speed");
     NTinst.AddListener(__Boost_Trigger_High_Speed__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Boost_Trigger_High_Speed = event.GetValueEventData()->value.GetDouble();});
-    __Boost_Trigger_High_Speed__Entry.SetDouble(3.658);
+    __Boost_Trigger_High_Speed__Entry.SetDouble(4);
  
     __Boost_Trigger_Increasing_Limit__Entry = NTtable_Tune->GetEntry("Boost_Trigger_Increasing_Limit");
     NTinst.AddListener(__Boost_Trigger_Increasing_Limit__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Boost_Trigger_Increasing_Limit = event.GetValueEventData()->value.GetDouble();});
@@ -263,11 +263,11 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Climber_Position_Dec_RL__Entry = NTtable_Tune->GetEntry("Climber_Position_Dec_RL");
     NTinst.AddListener(__Climber_Position_Dec_RL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Climber_Position_Dec_RL = event.GetValueEventData()->value.GetDouble();});
-    __Climber_Position_Dec_RL__Entry.SetDouble(-2.54);
+    __Climber_Position_Dec_RL__Entry.SetDouble(-5.08);
  
     __Climber_Position_Inc_RL__Entry = NTtable_Tune->GetEntry("Climber_Position_Inc_RL");
     NTinst.AddListener(__Climber_Position_Inc_RL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Climber_Position_Inc_RL = event.GetValueEventData()->value.GetDouble();});
-    __Climber_Position_Inc_RL__Entry.SetDouble(1.016);
+    __Climber_Position_Inc_RL__Entry.SetDouble(5.08);
  
     __Climber_Prop_Gain__Entry = NTtable_Tune->GetEntry("Climber_Prop_Gain");
     NTinst.AddListener(__Climber_Prop_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Climber_Prop_Gain = event.GetValueEventData()->value.GetDouble();});
@@ -275,11 +275,11 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Climber_TC_LL__Entry = NTtable_Tune->GetEntry("Climber_TC_LL");
     NTinst.AddListener(__Climber_TC_LL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Climber_TC_LL = event.GetValueEventData()->value.GetDouble();});
-    __Climber_TC_LL__Entry.SetDouble(-0.5);
+    __Climber_TC_LL__Entry.SetDouble(-1);
  
     __Climber_TC_UL__Entry = NTtable_Tune->GetEntry("Climber_TC_UL");
     NTinst.AddListener(__Climber_TC_UL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Climber_TC_UL = event.GetValueEventData()->value.GetDouble();});
-    __Climber_TC_UL__Entry.SetDouble(0.5);
+    __Climber_TC_UL__Entry.SetDouble(1);
  
     __Dist_AA_Cal_Tol__Entry = NTtable_Tune->GetEntry("Dist_AA_Cal_Tol");
     NTinst.AddListener(__Dist_AA_Cal_Tol__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Dist_AA_Cal_Tol = event.GetValueEventData()->value.GetDouble();});
@@ -347,7 +347,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Drive_Motor_Control_FF__Entry = NTtable_Tune->GetEntry("Drive_Motor_Control_FF");
     NTinst.AddListener(__Drive_Motor_Control_FF__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Drive_Motor_Control_FF = event.GetValueEventData()->value.GetDouble();});
-    __Drive_Motor_Control_FF__Entry.SetDouble(0.00018182);
+    __Drive_Motor_Control_FF__Entry.SetDouble(0.00016667);
  
     __Drive_Motor_Control_I__Entry = NTtable_Tune->GetEntry("Drive_Motor_Control_I");
     NTinst.AddListener(__Drive_Motor_Control_I__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Drive_Motor_Control_I = event.GetValueEventData()->value.GetDouble();});
@@ -403,15 +403,15 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __LoadShooter_Angle__Entry = NTtable_Tune->GetEntry("LoadShooter_Angle");
     NTinst.AddListener(__LoadShooter_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {LoadShooter_Angle = event.GetValueEventData()->value.GetDouble();});
-    __LoadShooter_Angle__Entry.SetDouble(35);
+    __LoadShooter_Angle__Entry.SetDouble(47);
  
     __LoadShooter_Gap__Entry = NTtable_Tune->GetEntry("LoadShooter_Gap");
     NTinst.AddListener(__LoadShooter_Gap__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {LoadShooter_Gap = event.GetValueEventData()->value.GetDouble();});
-    __LoadShooter_Gap__Entry.SetDouble(293);
+    __LoadShooter_Gap__Entry.SetDouble(270);
  
     __LoadShooter_Height__Entry = NTtable_Tune->GetEntry("LoadShooter_Height");
     NTinst.AddListener(__LoadShooter_Height__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {LoadShooter_Height = event.GetValueEventData()->value.GetDouble();});
-    __LoadShooter_Height__Entry.SetDouble(580);
+    __LoadShooter_Height__Entry.SetDouble(510);
  
     __Note_Detect_Dist_Intake__Entry = NTtable_Tune->GetEntry("Note_Detect_Dist_Intake");
     NTinst.AddListener(__Note_Detect_Dist_Intake__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Note_Detect_Dist_Intake = event.GetValueEventData()->value.GetDouble();});
@@ -423,11 +423,11 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Note_Time_Eject__Entry = NTtable_Tune->GetEntry("Note_Time_Eject");
     NTinst.AddListener(__Note_Time_Eject__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Note_Time_Eject = event.GetValueEventData()->value.GetDouble();});
-    __Note_Time_Eject__Entry.SetDouble(0.5);
+    __Note_Time_Eject__Entry.SetDouble(1);
  
     __Note_Time_Speaker_Spin_Up__Entry = NTtable_Tune->GetEntry("Note_Time_Speaker_Spin_Up");
     NTinst.AddListener(__Note_Time_Speaker_Spin_Up__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Note_Time_Speaker_Spin_Up = event.GetValueEventData()->value.GetDouble();});
-    __Note_Time_Speaker_Spin_Up__Entry.SetDouble(0.2);
+    __Note_Time_Speaker_Spin_Up__Entry.SetDouble(1);
  
     __Note_Time_Transfer__Entry = NTtable_Tune->GetEntry("Note_Time_Transfer");
     NTinst.AddListener(__Note_Time_Transfer__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Note_Time_Transfer = event.GetValueEventData()->value.GetDouble();});
@@ -459,7 +459,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Servo_Store_Offset__Entry = NTtable_Tune->GetEntry("Servo_Store_Offset");
     NTinst.AddListener(__Servo_Store_Offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Servo_Store_Offset = event.GetValueEventData()->value.GetDouble();});
-    __Servo_Store_Offset__Entry.SetDouble(0.4);
+    __Servo_Store_Offset__Entry.SetDouble(0.5);
  
     __Servo_Time_Deploy__Entry = NTtable_Tune->GetEntry("Servo_Time_Deploy");
     NTinst.AddListener(__Servo_Time_Deploy__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Servo_Time_Deploy = event.GetValueEventData()->value.GetDouble();});
@@ -739,15 +739,15 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Trap_Angle__Entry = NTtable_Tune->GetEntry("Trap_Angle");
     NTinst.AddListener(__Trap_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Trap_Angle = event.GetValueEventData()->value.GetDouble();});
-    __Trap_Angle__Entry.SetDouble(-26.5);
+    __Trap_Angle__Entry.SetDouble(50);
  
     __Trap_Gap__Entry = NTtable_Tune->GetEntry("Trap_Gap");
     NTinst.AddListener(__Trap_Gap__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Trap_Gap = event.GetValueEventData()->value.GetDouble();});
-    __Trap_Gap__Entry.SetDouble(693.42);
+    __Trap_Gap__Entry.SetDouble(460);
  
     __Trap_Height__Entry = NTtable_Tune->GetEntry("Trap_Height");
     NTinst.AddListener(__Trap_Height__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Trap_Height = event.GetValueEventData()->value.GetDouble();});
-    __Trap_Height__Entry.SetDouble(1079.5);
+    __Trap_Height__Entry.SetDouble(845);
  
 // Inports
     __AT_Tag_11_Found__Entry = NTtable_Inport->GetEntry("AT_Tag_11_Found");
