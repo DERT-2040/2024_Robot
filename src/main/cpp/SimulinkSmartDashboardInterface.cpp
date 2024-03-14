@@ -185,6 +185,10 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     NTinst.AddListener(__Amp_Height__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Amp_Height = event.GetValueEventData()->value.GetDouble();});
     __Amp_Height__Entry.SetDouble(919.48);
  
+    __Auto_to_do__Entry = NTtable_Tune->GetEntry("Auto_to_do");
+    NTinst.AddListener(__Auto_to_do__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_to_do = event.GetValueEventData()->value.GetDouble();});
+    __Auto_to_do__Entry.SetDouble(-1);
+ 
     __BS_Deriv_FC__Entry = NTtable_Tune->GetEntry("BS_Deriv_FC");
     NTinst.AddListener(__BS_Deriv_FC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {BS_Deriv_FC = event.GetValueEventData()->value.GetDouble();});
     __BS_Deriv_FC__Entry.SetDouble(0.2);
@@ -739,15 +743,15 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Trap_Angle__Entry = NTtable_Tune->GetEntry("Trap_Angle");
     NTinst.AddListener(__Trap_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Trap_Angle = event.GetValueEventData()->value.GetDouble();});
-    __Trap_Angle__Entry.SetDouble(-26.5);
+    __Trap_Angle__Entry.SetDouble(50);
  
     __Trap_Gap__Entry = NTtable_Tune->GetEntry("Trap_Gap");
     NTinst.AddListener(__Trap_Gap__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Trap_Gap = event.GetValueEventData()->value.GetDouble();});
-    __Trap_Gap__Entry.SetDouble(693.42);
+    __Trap_Gap__Entry.SetDouble(460);
  
     __Trap_Height__Entry = NTtable_Tune->GetEntry("Trap_Height");
     NTinst.AddListener(__Trap_Height__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Trap_Height = event.GetValueEventData()->value.GetDouble();});
-    __Trap_Height__Entry.SetDouble(1079.5);
+    __Trap_Height__Entry.SetDouble(845);
  
 // Inports
     __AT_Tag_11_Found__Entry = NTtable_Inport->GetEntry("AT_Tag_11_Found");
@@ -835,6 +839,14 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Photon_Est_Pose_Ambiguity__Entry = NTtable_Inport->GetEntry("Photon_Est_Pose_Ambiguity");
     __Photon_Est_Pose_X__Entry = NTtable_Inport->GetEntry("Photon_Est_Pose_X");
     __Photon_Est_Pose_Y__Entry = NTtable_Inport->GetEntry("Photon_Est_Pose_Y");
+    __Priority_List_1__Entry = NTtable_Inport->GetEntry("Priority_List_1");
+    __Priority_List_2__Entry = NTtable_Inport->GetEntry("Priority_List_2");
+    __Priority_List_3__Entry = NTtable_Inport->GetEntry("Priority_List_3");
+    __Priority_List_4__Entry = NTtable_Inport->GetEntry("Priority_List_4");
+    __Priority_List_5__Entry = NTtable_Inport->GetEntry("Priority_List_5");
+    __Priority_List_6__Entry = NTtable_Inport->GetEntry("Priority_List_6");
+    __Priority_List_7__Entry = NTtable_Inport->GetEntry("Priority_List_7");
+    __Priority_List_8__Entry = NTtable_Inport->GetEntry("Priority_List_8");
     __Shooter_Left_Motor_RPM__Entry = NTtable_Inport->GetEntry("Shooter_Left_Motor_RPM");
     __Shooter_Right_Motor_RPM__Entry = NTtable_Inport->GetEntry("Shooter_Right_Motor_RPM");
     __Shooter_TOF_Dist__Entry = NTtable_Inport->GetEntry("Shooter_TOF_Dist");
@@ -867,6 +879,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Align_Speaker__Entry = NTtable_TPoint->GetEntry("Align_Speaker");
     __Align_Trap__Entry = NTtable_TPoint->GetEntry("Align_Trap");
     __ArmStateRequest__Entry = NTtable_TPoint->GetEntry("ArmStateRequest");
+    __Auto_State__Entry = NTtable_TPoint->GetEntry("Auto_State");
     __BL_Desired_Module_Angle__Entry = NTtable_TPoint->GetEntry("BL_Desired_Module_Angle");
     __BL_Desired_Wheel_Speed__Entry = NTtable_TPoint->GetEntry("BL_Desired_Wheel_Speed");
     __BL_Desired_Wheel_Speed_in__Entry = NTtable_TPoint->GetEntry("BL_Desired_Wheel_Speed_in");
@@ -943,8 +956,8 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Shooter_Motor_Speed_Right__Entry = NTtable_TPoint->GetEntry("Shooter_Motor_Speed_Right");
     __Shooter_Pos_State__Entry = NTtable_TPoint->GetEntry("Shooter_Pos_State");
     __Shooter_Servo__Entry = NTtable_TPoint->GetEntry("Shooter_Servo");
-    __SplineEnable__Entry = NTtable_TPoint->GetEntry("SplineEnable");
     __Spline_Enable__Entry = NTtable_TPoint->GetEntry("Spline_Enable");
+    __Spline_Enable_b__Entry = NTtable_TPoint->GetEntry("Spline_Enable_b");
     __Spline_Index__Entry = NTtable_TPoint->GetEntry("Spline_Index");
     __Spline_Num_Poses__Entry = NTtable_TPoint->GetEntry("Spline_Num_Poses");
     __Spline_Out_Of_Bounds__Entry = NTtable_TPoint->GetEntry("Spline_Out_Of_Bounds");
@@ -1060,6 +1073,14 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Photon_Est_Pose_Ambiguity__Entry.SetDouble(Code_Gen_Model_U.Photon_Est_Pose_Ambiguity);
     __Photon_Est_Pose_X__Entry.SetDouble(Code_Gen_Model_U.Photon_Est_Pose_X);
     __Photon_Est_Pose_Y__Entry.SetDouble(Code_Gen_Model_U.Photon_Est_Pose_Y);
+    __Priority_List_1__Entry.SetDouble(Code_Gen_Model_U.Priority_List_1);
+    __Priority_List_2__Entry.SetDouble(Code_Gen_Model_U.Priority_List_2);
+    __Priority_List_3__Entry.SetDouble(Code_Gen_Model_U.Priority_List_3);
+    __Priority_List_4__Entry.SetDouble(Code_Gen_Model_U.Priority_List_4);
+    __Priority_List_5__Entry.SetDouble(Code_Gen_Model_U.Priority_List_5);
+    __Priority_List_6__Entry.SetDouble(Code_Gen_Model_U.Priority_List_6);
+    __Priority_List_7__Entry.SetDouble(Code_Gen_Model_U.Priority_List_7);
+    __Priority_List_8__Entry.SetDouble(Code_Gen_Model_U.Priority_List_8);
     __Shooter_Left_Motor_RPM__Entry.SetDouble(Code_Gen_Model_U.Shooter_Left_Motor_RPM);
     __Shooter_Right_Motor_RPM__Entry.SetDouble(Code_Gen_Model_U.Shooter_Right_Motor_RPM);
     __Shooter_TOF_Dist__Entry.SetDouble(Code_Gen_Model_U.Shooter_TOF_Dist);
@@ -1090,6 +1111,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Align_Speaker__Entry.SetDouble(Code_Gen_Model_B.Align_Speaker);
     __Align_Trap__Entry.SetDouble(Code_Gen_Model_B.Align_Trap);
     __ArmStateRequest__Entry.SetDouble(Code_Gen_Model_B.ArmStateRequest);
+    __Auto_State__Entry.SetDouble(Code_Gen_Model_B.Auto_State);
     __BL_Desired_Module_Angle__Entry.SetDouble(Code_Gen_Model_B.BL_Desired_Module_Angle);
     __BL_Desired_Wheel_Speed__Entry.SetDouble(Code_Gen_Model_B.BL_Desired_Wheel_Speed);
     __BL_Desired_Wheel_Speed_in__Entry.SetDouble(Code_Gen_Model_B.BL_Desired_Wheel_Speed_in);
@@ -1166,8 +1188,8 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Shooter_Motor_Speed_Right__Entry.SetDouble(Code_Gen_Model_B.Shooter_Motor_Speed_Right);
     __Shooter_Pos_State__Entry.SetDouble(Code_Gen_Model_B.Shooter_Pos_State);
     __Shooter_Servo__Entry.SetDouble(Code_Gen_Model_B.Shooter_Servo);
-    __SplineEnable__Entry.SetDouble(Code_Gen_Model_B.SplineEnable);
     __Spline_Enable__Entry.SetDouble(Code_Gen_Model_B.Spline_Enable);
+    __Spline_Enable_b__Entry.SetDouble(Code_Gen_Model_B.Spline_Enable_b);
     __Spline_Index__Entry.SetDouble(Code_Gen_Model_B.Spline_Index);
     __Spline_Num_Poses__Entry.SetDouble(Code_Gen_Model_B.Spline_Num_Poses);
     __Spline_Out_Of_Bounds__Entry.SetDouble(Code_Gen_Model_B.Spline_Out_Of_Bounds);

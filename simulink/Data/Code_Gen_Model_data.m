@@ -254,7 +254,7 @@ Steering_Localized_Cmd_NonZero_Final_Scale_Factor = 0.1;
 Spline_Num_Samples = 50;
 Spline_Num_Samples_3x = Spline_Num_Samples*3;
 Spline_Samples_Per_Pass = 10; % must be an even number
-Spline_Max_Num_RefPoses = 6;
+Spline_Max_Num_RefPoses = 10;
 Spline_Tension = 0.5;
 Spline_Velocity_Axis  = [0.50 1.50 2.50 3.50]; % m/s
 Spline_Capture_Radius = [0.20 0.20 0.25 0.50]; % m
@@ -658,4 +658,7 @@ AT_Yaw_Control_Gain = -0.0006;
 AT_XY_Control_Gain = 1;
 
 Autos;
+% Autonomus_Max_Steps = 10;
 Paths;
+
+Auto_to_do = -1;

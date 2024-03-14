@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.139
+ * Model version                  : 2.148
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Wed Mar 13 16:00:21 2024
+ * C/C++ source code generated on : Wed Mar 13 22:06:57 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -26,6 +26,7 @@
 
 #include "Code_Gen_Model_types.h"
 #include "rt_nonfinite.h"
+#include "rtGetInf.h"
 #include "rtGetNaN.h"
 
 /* Macros for accessing real-time model data structure */
@@ -39,6 +40,16 @@
 
 /* Block signals (default storage) */
 typedef struct {
+  real_T FL_Steer_Module_Angle;        /* '<S251>/Add1' */
+  real_T FR_Steer_Module_Angle;        /* '<S252>/Add1' */
+  real_T BL_Steer_Module_Angle;        /* '<S253>/Add1' */
+  real_T BR_Steer_Module_Angle;        /* '<S254>/Add1' */
+  real_T Gyro_Angle_Calibrated_deg;    /* '<S7>/Subtract1' */
+  real_T Product6[2];                  /* '<S13>/Product6' */
+  real_T Odom_Position_X;              /* '<S13>/Accumulator2' */
+  real_T KF_Position_X;                /* '<S11>/Switch' */
+  real_T Odom_Position_Y;              /* '<S13>/Accumulator' */
+  real_T KF_Position_Y;                /* '<S11>/Switch1' */
   real_T Climber_Cmd_Direction;        /* '<S8>/Switch9' */
   real_T Drive_Joystick_X;             /* '<S8>/Signal Copy1' */
   real_T Drive_Joystick_Y;             /* '<S8>/Signal Copy2' */
@@ -48,10 +59,6 @@ typedef struct {
   real_T Steer_Joystick_Z;             /* '<S8>/Signal Copy6' */
   real_T State_Request_Intake_Shooter; /* '<S8>/Switch' */
   real_T State_Request_Arm;            /* '<S8>/Switch4' */
-  real_T Odom_Position_X;              /* '<S13>/Accumulator2' */
-  real_T KF_Position_X;                /* '<S11>/Switch' */
-  real_T Odom_Position_Y;              /* '<S13>/Accumulator' */
-  real_T KF_Position_Y;                /* '<S11>/Switch1' */
   real_T Distance_Speaker;             /* '<S6>/Switch' */
   real_T Spline_Num_Poses;             /* '<S12>/Merge9' */
   real_T Steering_Abs_Cmd;             /* '<S12>/Merge1' */
@@ -61,31 +68,25 @@ typedef struct {
   real_T Translation_Speed_SPF;        /* '<S16>/Merge2' */
   real_T Translation_Speed_RL;         /* '<S353>/Sum' */
   real_T Translation_Angle_SPF;        /* '<S16>/Merge3' */
-  real_T Gyro_Angle_Calibrated_deg;    /* '<S7>/Subtract1' */
   real_T Translation_Steering_Cmd;     /* '<S347>/Switch' */
+  real_T Steering_Rel_Cmd_SPF;         /* '<S16>/Merge1' */
   real_T Steering_Abs_Cmd_SPF;         /* '<S16>/Merge' */
   real_T Gyro_Angle_Adjustment_SPF;    /* '<S16>/Merge6' */
   real_T Steering_Localized_PID;       /* '<S366>/Saturation2' */
-  real_T Steering_Rel_Cmd_SPF;         /* '<S16>/Merge1' */
   real_T Steering_Localized_Cmd;       /* '<S362>/Sum' */
+  real_T BR_Desired_Wheel_Speed_in;    /* '<S392>/Switch1' */
   real_T FL_Desired_Wheel_Speed_in;    /* '<S377>/Switch1' */
   real_T FR_Desired_Wheel_Speed_in;    /* '<S382>/Switch1' */
   real_T BL_Desired_Wheel_Speed_in;    /* '<S387>/Switch1' */
-  real_T BR_Desired_Wheel_Speed_in;    /* '<S392>/Switch1' */
-  real_T FL_Desired_Wheel_Speed;       /* '<S372>/Product' */
-  real_T FL_Desired_Module_Angle;      /* '<S377>/Switch' */
-  real_T FL_Steer_Module_Angle;        /* '<S251>/Add1' */
-  real_T FR_Desired_Wheel_Speed;       /* '<S372>/Product1' */
-  real_T FR_Desired_Module_Angle;      /* '<S382>/Switch' */
-  real_T FR_Steer_Module_Angle;        /* '<S252>/Add1' */
-  real_T BL_Desired_Wheel_Speed;       /* '<S372>/Product2' */
-  real_T BL_Desired_Module_Angle;      /* '<S387>/Switch' */
-  real_T BL_Steer_Module_Angle;        /* '<S253>/Add1' */
   real_T BR_Desired_Wheel_Speed;       /* '<S372>/Product3' */
   real_T BR_Desired_Module_Angle;      /* '<S392>/Switch' */
-  real_T BR_Steer_Module_Angle;        /* '<S254>/Add1' */
+  real_T FL_Desired_Wheel_Speed;       /* '<S372>/Product' */
+  real_T FL_Desired_Module_Angle;      /* '<S377>/Switch' */
+  real_T FR_Desired_Wheel_Speed;       /* '<S372>/Product1' */
+  real_T FR_Desired_Module_Angle;      /* '<S382>/Switch' */
+  real_T BL_Desired_Wheel_Speed;       /* '<S372>/Product2' */
+  real_T BL_Desired_Module_Angle;      /* '<S387>/Switch' */
   real_T State_Request_Intake_Shooter_h;/* '<S12>/Merge11' */
-  real_T State_Request_Arm_d;          /* '<S12>/Merge12' */
   real_T Back_Lower_Arm_Length;        /* '<S21>/Subtract1' */
   real_T Back_Upper_Arm_Length;        /* '<S22>/Subtract1' */
   real_T Meas_Back_AA_Length;          /* '<S155>/Sqrt' */
@@ -93,23 +94,24 @@ typedef struct {
   real_T Meas_Front_AA_Length;         /* '<S159>/Sqrt' */
   real_T Ball_Screw_Arm_Length;        /* '<S23>/Subtract1' */
   real_T Meas_Angle;                   /* '<S15>/Gain2' */
+  real_T State_Request_Arm_d;          /* '<S12>/Merge12' */
   real_T Desired_Back_Upper_Dist;      /* '<S181>/Sum' */
   real_T Desired_Back_Lower_Dist;      /* '<S178>/Sum' */
   real_T Desired_Front_Dist;           /* '<S187>/Sum' */
   real_T Desired_Ball_Screw_Dist;      /* '<S184>/Sum' */
   real_T Climber_Desired_Position;     /* '<S4>/Saturation1' */
   real_T Climber_Length;               /* '<S4>/Product' */
-  real_T Product6[2];                  /* '<S13>/Product6' */
-  real_T Odometry_X_global_est_ft;     /* '<S151>/meters to feet' */
-  real_T Odometry_X_global_TEAR_ft;    /* '<S151>/Subtract' */
   real_T Odometry_Y_global_est_ft;     /* '<S151>/meters to feet1' */
   real_T Odometry_Y_global_TEAR_ft;    /* '<S151>/Subtract1' */
+  real_T Odometry_X_global_est_ft;     /* '<S151>/meters to feet' */
+  real_T Odometry_X_global_TEAR_ft;    /* '<S151>/Subtract' */
   real_T AT_Error_Yaw;                 /* '<S397>/Switch2' */
   real_T AT_Error_Y;                   /* '<S397>/Switch23' */
   real_T AT_Error_X;                   /* '<S397>/Switch15' */
   real_T Intake_Shooter_State_Request; /* '<S28>/Chart' */
-  real_T SplineEnable;                 /* '<S28>/Chart' */
+  real_T Spline_Enable;                /* '<S28>/Chart' */
   real_T CurrentPriorityIndex;         /* '<S28>/Chart' */
+  real_T Auto_State;                   /* '<S28>/Chart' */
   real_T ArmStateRequest;              /* '<S28>/Chart' */
   real_T Spline_Index;                 /* '<S196>/Merge4' */
   real_T Spline_Target_Y;              /* '<S193>/Selector6' */
@@ -143,7 +145,7 @@ typedef struct {
   boolean_T Face_Right_Driver;         /* '<S51>/Compare' */
   boolean_T Face_Left_Driver;          /* '<S52>/Compare' */
   boolean_T Face_Away_Driver;          /* '<S45>/Compare' */
-  boolean_T Spline_Enable;             /* '<S12>/Merge7' */
+  boolean_T Spline_Enable_b;           /* '<S12>/Merge7' */
   boolean_T Is_Absolute_Translation_SPF;/* '<S16>/Merge4' */
   boolean_T Is_Absolute_Steering_SPF;  /* '<S16>/Merge5' */
   boolean_T Test_Mode;                 /* '<S12>/Merge10' */
@@ -158,16 +160,27 @@ typedef struct {
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
+  real_T UD_DSTATE;                    /* '<S143>/UD' */
+  real_T UD_DSTATE_m;                  /* '<S144>/UD' */
+  real_T UD_DSTATE_i;                  /* '<S145>/UD' */
+  real_T UD_DSTATE_c;                  /* '<S146>/UD' */
   real_T TappedDelay_X[6];             /* '<S11>/Tapped Delay' */
   real_T TappedDelay1_X[6];            /* '<S11>/Tapped Delay1' */
   real_T MemoryX_DSTATE[2];            /* '<S88>/MemoryX' */
+  real_T UnitDelay1_DSTATE;            /* '<S7>/Unit Delay1' */
+  real_T UD_DSTATE_d;                  /* '<S142>/UD' */
   real_T Accumulator2_DSTATE;          /* '<S13>/Accumulator2' */
   real_T Accumulator_DSTATE;           /* '<S13>/Accumulator' */
   real_T UnitDelay_DSTATE_o;           /* '<S1>/Unit Delay' */
-  real_T UnitDelay1_DSTATE;            /* '<S7>/Unit Delay1' */
   real_T UnitDelay1_DSTATE_i;          /* '<S369>/Unit Delay1' */
-  real_T UD_DSTATE;                    /* '<S368>/UD' */
+  real_T UD_DSTATE_a;                  /* '<S368>/UD' */
   real_T UnitDelay_DSTATE_m;           /* '<S366>/Unit Delay' */
+  real_T UnitDelay1_DSTATE_k;          /* '<S331>/Unit Delay1' */
+  real_T UD_DSTATE_cs;                 /* '<S330>/UD' */
+  real_T UnitDelay_DSTATE_a;           /* '<S324>/Unit Delay' */
+  real_T UnitDelay1_DSTATE_iw;         /* '<S342>/Unit Delay1' */
+  real_T UD_DSTATE_l;                  /* '<S341>/UD' */
+  real_T UnitDelay_DSTATE_l;           /* '<S327>/Unit Delay' */
   real_T UnitDelay1_DSTATE_a;          /* '<S268>/Unit Delay1' */
   real_T UD_DSTATE_o;                  /* '<S267>/UD' */
   real_T UnitDelay_DSTATE_f;           /* '<S261>/Unit Delay' */
@@ -178,22 +191,14 @@ typedef struct {
   real_T UD_DSTATE_e;                  /* '<S288>/UD' */
   real_T UnitDelay_DSTATE_em;          /* '<S282>/Unit Delay' */
   real_T UnitDelay1_DSTATE_n;          /* '<S300>/Unit Delay1' */
-  real_T UD_DSTATE_i;                  /* '<S299>/UD' */
+  real_T UD_DSTATE_i1;                 /* '<S299>/UD' */
   real_T UnitDelay_DSTATE_dt;          /* '<S285>/Unit Delay' */
   real_T UnitDelay1_DSTATE_f;          /* '<S310>/Unit Delay1' */
-  real_T UD_DSTATE_l;                  /* '<S309>/UD' */
+  real_T UD_DSTATE_lh;                 /* '<S309>/UD' */
   real_T UnitDelay_DSTATE_gp;          /* '<S303>/Unit Delay' */
   real_T UnitDelay1_DSTATE_nw;         /* '<S321>/Unit Delay1' */
   real_T UD_DSTATE_k;                  /* '<S320>/UD' */
   real_T UnitDelay_DSTATE_k;           /* '<S306>/Unit Delay' */
-  real_T UnitDelay1_DSTATE_k;          /* '<S331>/Unit Delay1' */
-  real_T UD_DSTATE_c;                  /* '<S330>/UD' */
-  real_T UnitDelay_DSTATE_a;           /* '<S324>/Unit Delay' */
-  real_T UnitDelay1_DSTATE_iw;         /* '<S342>/Unit Delay1' */
-  real_T UD_DSTATE_ll;                 /* '<S341>/UD' */
-  real_T UnitDelay_DSTATE_l;           /* '<S327>/Unit Delay' */
-  real_T UnitDelay_DSTATE_mw;          /* '<S84>/Unit Delay' */
-  real_T UnitDelay_DSTATE_h;           /* '<S85>/Unit Delay' */
   real_T UnitDelay1_DSTATE_g;          /* '<S21>/Unit Delay1' */
   real_T UnitDelay1_DSTATE_nc;         /* '<S22>/Unit Delay1' */
   real_T UnitDelay1_DSTATE_bc;         /* '<S24>/Unit Delay1' */
@@ -203,15 +208,12 @@ typedef struct {
   real_T UnitDelay_DSTATE_j;           /* '<S165>/Unit Delay' */
   real_T UnitDelay1_DSTATE_j;          /* '<S171>/Unit Delay1' */
   real_T UD_DSTATE_ii;                 /* '<S170>/UD' */
+  real_T UnitDelay_DSTATE_mw;          /* '<S84>/Unit Delay' */
+  real_T UnitDelay_DSTATE_h;           /* '<S85>/Unit Delay' */
   real_T UnitDelay_DSTATE_om;          /* '<S4>/Unit Delay' */
   real_T UnitDelay_DSTATE_ge;          /* '<S36>/Unit Delay' */
-  real_T UD_DSTATE_d;                  /* '<S142>/UD' */
-  real_T UD_DSTATE_j;                  /* '<S143>/UD' */
-  real_T UD_DSTATE_m;                  /* '<S144>/UD' */
-  real_T UD_DSTATE_ic;                 /* '<S145>/UD' */
-  real_T UD_DSTATE_ce;                 /* '<S146>/UD' */
-  real_T UnitDelay_DSTATE_cg;          /* '<S151>/Unit Delay' */
   real_T UnitDelay1_DSTATE_d;          /* '<S151>/Unit Delay1' */
+  real_T UnitDelay_DSTATE_cg;          /* '<S151>/Unit Delay' */
   real_T UnitDelay_DSTATE_gj;          /* '<S399>/Unit Delay' */
   real_T UnitDelay1_DSTATE_d2;         /* '<S409>/Unit Delay1' */
   real_T UnitDelay_DSTATE_g4;          /* '<S409>/Unit Delay' */
@@ -354,12 +356,17 @@ typedef struct {
    *   '<S191>/Capture Radius'
    *   '<S191>/Lookahead Distance'
    */
-  real_T pooled8[4];
+  real_T pooled6[4];
 
   /* Expression: Spline_Lookahead_Dist
    * Referenced by: '<S191>/Lookahead Distance'
    */
   real_T LookaheadDistance_tableData[4];
+
+  /* Expression: All_Paths
+   * Referenced by: '<S3>/Constant20'
+   */
+  real_T Constant20_Value[800];
 
   /* Expression: Yaw_angle_correction_yaw
    * Referenced by: '<S397>/1-D Lookup Table'
@@ -391,15 +398,10 @@ typedef struct {
    */
   real_T Modulation_Str_Y_Rel_bp01Data[21];
 
-  /* Expression: [0 1 2]
-   * Referenced by: '<Root>/Constant'
-   */
-  real_T Constant_Value[3];
-
   /* Expression: Rotation_Local_Inv
    * Referenced by: '<S13>/Constant4'
    */
-  real_T Constant4_Value[16];
+  real_T Constant4_Value_d[16];
 
   /* Pooled Parameter (Expression: Drive_Motor_Control_Scale_Factor)
    * Referenced by:
@@ -408,7 +410,7 @@ typedef struct {
    *   '<S305>/1-D Lookup Table'
    *   '<S326>/1-D Lookup Table'
    */
-  real_T pooled38[2];
+  real_T pooled39[2];
 
   /* Pooled Parameter (Expression: Drive_Motor_Control_Module_Angle_Error)
    * Referenced by:
@@ -417,8 +419,16 @@ typedef struct {
    *   '<S305>/1-D Lookup Table'
    *   '<S326>/1-D Lookup Table'
    */
-  real_T pooled39[2];
+  real_T pooled40[2];
 } ConstP_Code_Gen_Model_T;
+
+/* Constant parameters with dynamic initialization (default storage) */
+typedef struct {
+  /* Expression: All_Autos
+   * Referenced by: '<S28>/Constant9'
+   */
+  real_T Constant9_Value[120];
+} ConstInitP_Code_Gen_Model_T;
 
 /* External inputs (root inport signals with default storage) */
 typedef struct {
@@ -511,6 +521,14 @@ typedef struct {
   boolean_T AT_Tag_16_Found;           /* '<Root>/AT_Tag_16_Found' */
   real_T Line_Sensor_TOF_Range;        /* '<Root>/Line_Sensor_TOF_Range' */
   real_T Auto_ID;                      /* '<Root>/Auto_ID' */
+  real_T Priority_List_1;              /* '<Root>/Priority_List_1' */
+  real_T Priority_List_2;              /* '<Root>/Priority_List_2' */
+  real_T Priority_List_3;              /* '<Root>/Priority_List_3' */
+  real_T Priority_List_4;              /* '<Root>/Priority_List_4' */
+  real_T Priority_List_5;              /* '<Root>/Priority_List_5' */
+  real_T Priority_List_6;              /* '<Root>/Priority_List_6' */
+  real_T Priority_List_7;              /* '<Root>/Priority_List_7' */
+  real_T Priority_List_8;              /* '<Root>/Priority_List_8' */
 } ExtU_Code_Gen_Model_T;
 
 /* External outputs (root outports fed by signals with default storage) */
@@ -557,6 +575,9 @@ extern const ConstB_Code_Gen_Model_T Code_Gen_Model_ConstB;/* constant block i/o
 
 /* Constant parameters (default storage) */
 extern const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP;
+
+/* Constant parameters with dynamic initialization (default storage) */
+extern ConstInitP_Code_Gen_Model_T Code_Gen_Model_ConstInitP;/* constant parameters */
 
 /*
  * Exported Global Parameters
@@ -728,6 +749,9 @@ extern real_T Amp_Gap;                 /* Variable: Amp_Gap
                                         */
 extern real_T Amp_Height;              /* Variable: Amp_Height
                                         * Referenced by: '<S15>/Chart_Shooter_Position'
+                                        */
+extern real_T Auto_to_do;              /* Variable: Auto_to_do
+                                        * Referenced by: '<Root>/Constant'
                                         */
 extern real_T BS_Deriv_FC;             /* Variable: BS_Deriv_FC
                                         * Referenced by: '<S162>/Constant2'
@@ -1304,19 +1328,6 @@ extern RT_MODEL_Code_Gen_Model_T *const Code_Gen_Model_M;
 /*-
  * These blocks were eliminated from the model due to optimizations:
  *
- * Block '<S30>/Compare' : Unused code path elimination
- * Block '<S30>/Constant' : Unused code path elimination
- * Block '<S31>/Compare' : Unused code path elimination
- * Block '<S31>/Constant' : Unused code path elimination
- * Block '<S28>/Constant' : Unused code path elimination
- * Block '<S28>/Constant1' : Unused code path elimination
- * Block '<S28>/Constant2' : Unused code path elimination
- * Block '<S28>/Constant9' : Unused code path elimination
- * Block '<S28>/Multiport Switch' : Unused code path elimination
- * Block '<S28>/Selector' : Unused code path elimination
- * Block '<S28>/Selector1' : Unused code path elimination
- * Block '<S28>/Switch' : Unused code path elimination
- * Block '<S28>/Switch1' : Unused code path elimination
  * Block '<S38>/Data Type Duplicate' : Unused code path elimination
  * Block '<S38>/Data Type Propagation' : Unused code path elimination
  * Block '<S36>/Scope' : Unused code path elimination

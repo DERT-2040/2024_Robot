@@ -5,6 +5,7 @@
 #include "include\PhotonVisionInterface.h"
 #include <vector>
 #include <functional>
+#include "include/Constants.h"
 
 class SmartDashboard {
 public:
@@ -19,4 +20,5 @@ public:
 
 private:
     std::vector<std::function<void()>> vectorOfCallbacks;
+    void UpdateAutonomous();
 };

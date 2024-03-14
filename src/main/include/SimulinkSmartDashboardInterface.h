@@ -56,6 +56,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Amp_Angle__Entry;
         nt::NetworkTableEntry __Amp_Gap__Entry;
         nt::NetworkTableEntry __Amp_Height__Entry;
+        nt::NetworkTableEntry __Auto_to_do__Entry;
         nt::NetworkTableEntry __BS_Deriv_FC__Entry;
         nt::NetworkTableEntry __BS_Deriv_Gain__Entry;
         nt::NetworkTableEntry __BS_Deriv_LL__Entry;
@@ -284,6 +285,14 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Photon_Est_Pose_Ambiguity__Entry;
         nt::NetworkTableEntry __Photon_Est_Pose_X__Entry;
         nt::NetworkTableEntry __Photon_Est_Pose_Y__Entry;
+        nt::NetworkTableEntry __Priority_List_1__Entry;
+        nt::NetworkTableEntry __Priority_List_2__Entry;
+        nt::NetworkTableEntry __Priority_List_3__Entry;
+        nt::NetworkTableEntry __Priority_List_4__Entry;
+        nt::NetworkTableEntry __Priority_List_5__Entry;
+        nt::NetworkTableEntry __Priority_List_6__Entry;
+        nt::NetworkTableEntry __Priority_List_7__Entry;
+        nt::NetworkTableEntry __Priority_List_8__Entry;
         nt::NetworkTableEntry __Shooter_Left_Motor_RPM__Entry;
         nt::NetworkTableEntry __Shooter_Right_Motor_RPM__Entry;
         nt::NetworkTableEntry __Shooter_TOF_Dist__Entry;
@@ -315,6 +324,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Align_Speaker__Entry;
         nt::NetworkTableEntry __Align_Trap__Entry;
         nt::NetworkTableEntry __ArmStateRequest__Entry;
+        nt::NetworkTableEntry __Auto_State__Entry;
         nt::NetworkTableEntry __BL_Desired_Module_Angle__Entry;
         nt::NetworkTableEntry __BL_Desired_Wheel_Speed__Entry;
         nt::NetworkTableEntry __BL_Desired_Wheel_Speed_in__Entry;
@@ -391,8 +401,8 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Shooter_Motor_Speed_Right__Entry;
         nt::NetworkTableEntry __Shooter_Pos_State__Entry;
         nt::NetworkTableEntry __Shooter_Servo__Entry;
-        nt::NetworkTableEntry __SplineEnable__Entry;
         nt::NetworkTableEntry __Spline_Enable__Entry;
+        nt::NetworkTableEntry __Spline_Enable_b__Entry;
         nt::NetworkTableEntry __Spline_Index__Entry;
         nt::NetworkTableEntry __Spline_Num_Poses__Entry;
         nt::NetworkTableEntry __Spline_Out_Of_Bounds__Entry;
