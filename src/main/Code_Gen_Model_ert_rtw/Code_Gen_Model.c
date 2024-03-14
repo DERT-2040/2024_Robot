@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.139
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Thu Mar 14 07:40:05 2024
+ * C/C++ source code generated on : Thu Mar 14 07:56:56 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -280,11 +280,11 @@ real_T Boost_Trigger_Decreasing_Limit = -0.044444;
                                      /* Variable: Boost_Trigger_Decreasing_Limit
                                       * Referenced by: '<S421>/Constant1'
                                       */
-real_T Boost_Trigger_High_Speed = 3.658;/* Variable: Boost_Trigger_High_Speed
-                                         * Referenced by:
-                                         *   '<S417>/Constant'
-                                         *   '<S417>/Saturation'
-                                         */
+real_T Boost_Trigger_High_Speed = 4.0; /* Variable: Boost_Trigger_High_Speed
+                                        * Referenced by:
+                                        *   '<S417>/Constant'
+                                        *   '<S417>/Saturation'
+                                        */
 real_T Boost_Trigger_Increasing_Limit = 0.04;
                                      /* Variable: Boost_Trigger_Increasing_Limit
                                       * Referenced by: '<S421>/Constant3'
@@ -310,21 +310,21 @@ real_T Climber_Integral_LL = -0.5;     /* Variable: Climber_Integral_LL
 real_T Climber_Integral_UL = 0.5;      /* Variable: Climber_Integral_UL
                                         * Referenced by: '<S36>/Saturation1'
                                         */
-real_T Climber_Position_Dec_RL = -2.54;/* Variable: Climber_Position_Dec_RL
+real_T Climber_Position_Dec_RL = -5.08;/* Variable: Climber_Position_Dec_RL
                                         * Referenced by: '<S4>/Constant3'
                                         */
-real_T Climber_Position_Inc_RL = 1.016;/* Variable: Climber_Position_Inc_RL
+real_T Climber_Position_Inc_RL = 5.08; /* Variable: Climber_Position_Inc_RL
                                         * Referenced by: '<S4>/Constant2'
                                         */
 real_T Climber_Prop_Gain = 0.01;       /* Variable: Climber_Prop_Gain
                                         * Referenced by: '<S36>/Gain1'
                                         */
-real_T Climber_TC_LL = -0.5;           /* Variable: Climber_TC_LL
+real_T Climber_TC_LL = -1.0;           /* Variable: Climber_TC_LL
                                         * Referenced by:
                                         *   '<S36>/Constant1'
                                         *   '<S36>/Saturation2'
                                         */
-real_T Climber_TC_UL = 0.5;            /* Variable: Climber_TC_UL
+real_T Climber_TC_UL = 1.0;            /* Variable: Climber_TC_UL
                                         * Referenced by:
                                         *   '<S36>/Constant'
                                         *   '<S36>/Saturation2'
@@ -405,7 +405,7 @@ real_T Drive_Motor_Control_D_UL = 0.2; /* Variable: Drive_Motor_Control_D_UL
                                         *   '<S303>/Saturation'
                                         *   '<S324>/Saturation'
                                         */
-real_T Drive_Motor_Control_FF = 0.00018182;/* Variable: Drive_Motor_Control_FF
+real_T Drive_Motor_Control_FF = 0.00016667;/* Variable: Drive_Motor_Control_FF
                                             * Referenced by:
                                             *   '<S261>/Gain'
                                             *   '<S282>/Gain'
@@ -520,7 +520,7 @@ real_T Odometry_X_Y_TEAR = 0.0;        /* Variable: Odometry_X_Y_TEAR
 real_T Servo_Store_Gain = 0.0071429;   /* Variable: Servo_Store_Gain
                                         * Referenced by: '<S9>/Gain'
                                         */
-real_T Servo_Store_Offset = 0.4;       /* Variable: Servo_Store_Offset
+real_T Servo_Store_Offset = 0.5;       /* Variable: Servo_Store_Offset
                                         * Referenced by: '<S9>/Constant1'
                                         */
 real_T Servo_Time_Deploy = 0.4;        /* Variable: Servo_Time_Deploy
@@ -2254,7 +2254,7 @@ void Code_Gen_Model_step(void)
      */
     UnitDelay = look1_binlcpw(Code_Gen_Model_B.Distance_Speaker,
       Code_Gen_Model_ConstP.uDLookupTable_bp01Data_g,
-      Code_Gen_Model_ConstP.uDLookupTable_tableData_j, 8U);
+      Code_Gen_Model_ConstP.uDLookupTable_tableData, 8U);
 
     /* Logic: '<S397>/Logical Operator2' incorporates:
      *  Inport: '<Root>/AT_Tag_5_Found'
@@ -3348,7 +3348,7 @@ void Code_Gen_Model_step(void)
      *  UnitDelay: '<S191>/Unit Delay'
      */
     rtb_Switch1_nj = look1_binlcpw(Code_Gen_Model_DW.UnitDelay_DSTATE_hn,
-      Code_Gen_Model_ConstP.pooled8,
+      Code_Gen_Model_ConstP.pooled9,
       Code_Gen_Model_ConstP.CaptureRadius_tableData, 3U);
 
     /* SignalConversion generated from: '<S192>/Matrix Concatenate2' */
@@ -3908,7 +3908,7 @@ void Code_Gen_Model_step(void)
      */
     rtb_Switch1_nj = fmin(rtb_Switch1_nj, look1_binlcpw
                           (Code_Gen_Model_DW.UnitDelay_DSTATE_hn,
-      Code_Gen_Model_ConstP.pooled8,
+      Code_Gen_Model_ConstP.pooled9,
       Code_Gen_Model_ConstP.LookaheadDistance_tableData, 3U));
 
     /* Outputs for Iterator SubSystem: '<S193>/Find first index that meets distance target' incorporates:
@@ -4884,7 +4884,7 @@ void Code_Gen_Model_step(void)
    *  Constant: '<S372>/Constant'
    *  MinMax: '<S372>/Max'
    */
-  rtb_rx_d = 3.5944420196850411 / fmax(fmax(fmax(fmax(3.5944420196850411,
+  rtb_rx_d = 3.9212094760200449 / fmax(fmax(fmax(fmax(3.9212094760200449,
     Code_Gen_Model_B.FL_Desired_Wheel_Speed_in),
     Code_Gen_Model_B.FR_Desired_Wheel_Speed_in),
     Code_Gen_Model_B.BL_Desired_Wheel_Speed_in),
@@ -5087,8 +5087,8 @@ void Code_Gen_Model_step(void)
     (Code_Gen_Model_U.FrontLeft_Drive_Motor_Speed) <=
     Drive_Motor_Control_Sign_Change_Deadband))) * rtb_thetay_g) * look1_binlcpw
     (fabs(rt_modd_snf(rtb_Hypot_o + 1.5707963267948966, 3.1415926535897931) -
-          1.5707963267948966), Code_Gen_Model_ConstP.pooled39,
-     Code_Gen_Model_ConstP.pooled38, 1U);
+          1.5707963267948966), Code_Gen_Model_ConstP.pooled40,
+     Code_Gen_Model_ConstP.pooled39, 1U);
 
   /* Gain: '<S261>/Gain' */
   rtb_Switch1_p = Drive_Motor_Control_FF * rtb_thetay_g;
@@ -5511,8 +5511,8 @@ void Code_Gen_Model_step(void)
     (Code_Gen_Model_U.FrontRight_Drive_Motor_Speed) <=
     Drive_Motor_Control_Sign_Change_Deadband))) * rtb_thetay_g) * look1_binlcpw
     (fabs(rt_modd_snf(rtb_Hypot_o + 1.5707963267948966, 3.1415926535897931) -
-          1.5707963267948966), Code_Gen_Model_ConstP.pooled39,
-     Code_Gen_Model_ConstP.pooled38, 1U);
+          1.5707963267948966), Code_Gen_Model_ConstP.pooled40,
+     Code_Gen_Model_ConstP.pooled39, 1U);
 
   /* Gain: '<S282>/Gain' */
   rtb_Hypot_bl = Drive_Motor_Control_FF * rtb_thetay_g;
@@ -5935,8 +5935,8 @@ void Code_Gen_Model_step(void)
     (Code_Gen_Model_U.BackLeft_Drive_Motor_Speed) <=
     Drive_Motor_Control_Sign_Change_Deadband))) * rtb_thetay_g) * look1_binlcpw
     (fabs(rt_modd_snf(rtb_Hypot_o + 1.5707963267948966, 3.1415926535897931) -
-          1.5707963267948966), Code_Gen_Model_ConstP.pooled39,
-     Code_Gen_Model_ConstP.pooled38, 1U);
+          1.5707963267948966), Code_Gen_Model_ConstP.pooled40,
+     Code_Gen_Model_ConstP.pooled39, 1U);
 
   /* Gain: '<S303>/Gain' */
   rtb_Subtract_n = Drive_Motor_Control_FF * rtb_thetay_g;
@@ -6360,8 +6360,8 @@ void Code_Gen_Model_step(void)
     (Code_Gen_Model_U.BackRight_Drive_Motor_Speed) <=
     Drive_Motor_Control_Sign_Change_Deadband))) * rtb_thetay_g) * look1_binlcpw
     (fabs(rt_modd_snf(rtb_Hypot_o + 1.5707963267948966, 3.1415926535897931) -
-          1.5707963267948966), Code_Gen_Model_ConstP.pooled39,
-     Code_Gen_Model_ConstP.pooled38, 1U);
+          1.5707963267948966), Code_Gen_Model_ConstP.pooled40,
+     Code_Gen_Model_ConstP.pooled39, 1U);
 
   /* Gain: '<S324>/Gain' */
   rtb_Minus_k_idx_1 = Drive_Motor_Control_FF * rtb_thetay_g;
@@ -6599,7 +6599,7 @@ void Code_Gen_Model_step(void)
      *  Switch: '<S6>/Switch'
      */
     rtb_rx_d = look1_binlcpw(Code_Gen_Model_B.Distance_Speaker,
-      Code_Gen_Model_ConstP.pooled2,
+      Code_Gen_Model_ConstP.pooled3,
       Code_Gen_Model_ConstP.uDLookupTable1_tableData, 9U);
   }
 
@@ -7194,7 +7194,7 @@ void Code_Gen_Model_step(void)
     rtb_rx_d = TEST_Speaker_Angle;
   } else {
     rtb_rx_d = look1_binlcpw(Code_Gen_Model_B.Distance_Speaker,
-      Code_Gen_Model_ConstP.pooled2,
+      Code_Gen_Model_ConstP.pooled3,
       Code_Gen_Model_ConstP.uDLookupTable1_tableData_p, 9U);
   }
 
@@ -7209,7 +7209,7 @@ void Code_Gen_Model_step(void)
     rtb_thetay_f = TEST_Speaker_Height;
   } else {
     rtb_thetay_f = look1_binlcpw(Code_Gen_Model_B.Distance_Speaker,
-      Code_Gen_Model_ConstP.pooled2,
+      Code_Gen_Model_ConstP.pooled3,
       Code_Gen_Model_ConstP.uDLookupTable2_tableData, 9U);
   }
 
@@ -7224,7 +7224,7 @@ void Code_Gen_Model_step(void)
     rtb_Switch6 = TEST_Speaker_Gap;
   } else {
     rtb_Switch6 = look1_binlcpw(Code_Gen_Model_B.Distance_Speaker,
-      Code_Gen_Model_ConstP.pooled2,
+      Code_Gen_Model_ConstP.pooled3,
       Code_Gen_Model_ConstP.uDLookupTable3_tableData, 9U);
   }
 
@@ -7521,7 +7521,7 @@ void Code_Gen_Model_step(void)
       (Code_Gen_Model_B.Desired_Angle, Code_Gen_Model_B.Meas_Angle)) +
       Servo_Store_Offset) + look1_binlcpw(Code_Gen_Model_B.Front_Arm_Length,
       Code_Gen_Model_ConstP.uDLookupTable_bp01Data,
-      Code_Gen_Model_ConstP.uDLookupTable_tableData, 1U);
+      Code_Gen_Model_ConstP.pooled1, 1U);
   }
 
   /* End of Switch: '<S9>/Switch2' */

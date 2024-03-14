@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.139
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Thu Mar 14 07:40:05 2024
+ * C/C++ source code generated on : Thu Mar 14 07:56:56 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -42,10 +42,12 @@ const ConstB_Code_Gen_Model_T Code_Gen_Model_ConstB = {
 
 /* Constant parameters (default storage) */
 const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP = {
-  /* Expression: Servo_Addition_out
-   * Referenced by: '<S9>/1-D Lookup Table'
+  /* Pooled Parameter (Mixed Expressions)
+   * Referenced by:
+   *   '<S9>/1-D Lookup Table'
+   *   '<S88>/X0'
    */
-  { 0.0, 0.4 },
+  { 0.0, 0.0 },
 
   /* Expression: Servo_Front_Arm_Length_in
    * Referenced by: '<S9>/1-D Lookup Table'

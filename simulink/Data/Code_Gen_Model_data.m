@@ -78,7 +78,7 @@ clear temp_x temp_y
 Steering_Relative_Gain = 1.3;
 
 % Boost Trigger
-Boost_Trigger_High_Speed = 3.658; % m/s
+Boost_Trigger_High_Speed = 4.0; % 3.658; % m/s
 Boost_Trigger_Low_Speed = 1.5; % m/s
 
 Boost_Trigger_Increasing_Limit = 2/1*0.02;
@@ -93,7 +93,7 @@ gear_ratio = 8.14;
 wheel_diameter = 0.101600203;
 Wheel_Speed_to_Motor_Speed = 60*gear_ratio/(wheel_diameter*pi); % (rev/min)/(m/sec)
 
-Drive_Motor_Max_Speed = 5500; % rpm  (also used below for PID feedforward gain)
+Drive_Motor_Max_Speed = 6000; %5500; % rpm  (also used below for PID feedforward gain)
 Drive_Wheel_Max_Speed = Drive_Motor_Max_Speed/Wheel_Speed_to_Motor_Speed; % m/sec
 
 % Ran a test without the adjustment factor with the following results
@@ -462,8 +462,8 @@ Climber_Distance_LL = 0.5*25.4;  % mm, command hooks up a little bit at the star
 Climber_Distance_UL = 13.5*25.4;  % mm, upper limit to avoid commanding at the upper stop
 
 % Rate limit
-Climber_Position_Inc_RL = 2*25.4*t_sample; % mm/loop
-Climber_Position_Dec_RL = -5*25.4*t_sample; % mm/loop
+Climber_Position_Inc_RL = 10*25.4*t_sample; % mm/loop
+Climber_Position_Dec_RL = -10*25.4*t_sample; % mm/loop
 
 % P+I
 Climber_Prop_Gain = 0.01;
@@ -471,8 +471,8 @@ Climber_Integral_Gain = 0.0002;
 Climber_Integral_IC = 0;
 Climber_Integral_UL = 0.5;
 Climber_Integral_LL = -0.5;
-Climber_TC_UL = 0.5;
-Climber_TC_LL = -0.5;
+Climber_TC_UL = 1.0;
+Climber_TC_LL = -1.0;
 
 
 
@@ -508,12 +508,12 @@ Servo_Time_Deploy = 0.4; % seconds
 
 % Maximum servo store position vs. calculated shooter angle
 % Servo = Angle(deg) * Gain + Offset
-Servo_Store_Offset = 0.4;  % setting this larger will make it stick out more all the time
+Servo_Store_Offset = 0.5;  % setting this smaller will make it stick out more all the time
 Servo_Store_Gain = 0.0071429;  % this is tuned to keep a constant angle as the shooter rotates
 
 % Add more based on front arm height
 Servo_Front_Arm_Length_in = [250 350];
-Servo_Addition_out = [0 0.4];
+Servo_Addition_out = [0 0];
 
 % Shooter speed control PID for transfer
 Shooter_Motor_Control_FF= 0.00025;  % 1 DC / Max Speed RPM;

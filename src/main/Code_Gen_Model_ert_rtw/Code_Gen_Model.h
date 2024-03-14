@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.139
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Thu Mar 14 07:40:05 2024
+ * C/C++ source code generated on : Thu Mar 14 07:56:56 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -305,10 +305,12 @@ typedef struct {
 
 /* Constant parameters (default storage) */
 typedef struct {
-  /* Expression: Servo_Addition_out
-   * Referenced by: '<S9>/1-D Lookup Table'
+  /* Pooled Parameter (Mixed Expressions)
+   * Referenced by:
+   *   '<S9>/1-D Lookup Table'
+   *   '<S88>/X0'
    */
-  real_T uDLookupTable_tableData[2];
+  real_T pooled1[2];
 
   /* Expression: Servo_Front_Arm_Length_in
    * Referenced by: '<S9>/1-D Lookup Table'
@@ -327,7 +329,7 @@ typedef struct {
    *   '<S15>/1-D Lookup Table2'
    *   '<S15>/1-D Lookup Table3'
    */
-  real_T pooled2[10];
+  real_T pooled3[10];
 
   /* Expression: Speaker_Height_out
    * Referenced by: '<S15>/1-D Lookup Table2'
@@ -354,7 +356,7 @@ typedef struct {
    *   '<S191>/Capture Radius'
    *   '<S191>/Lookahead Distance'
    */
-  real_T pooled8[4];
+  real_T pooled9[4];
 
   /* Expression: Spline_Lookahead_Dist
    * Referenced by: '<S191>/Lookahead Distance'
@@ -364,7 +366,7 @@ typedef struct {
   /* Expression: Yaw_angle_correction_yaw
    * Referenced by: '<S397>/1-D Lookup Table'
    */
-  real_T uDLookupTable_tableData_j[9];
+  real_T uDLookupTable_tableData[9];
 
   /* Expression: Yaw_angle_correction_distance
    * Referenced by: '<S397>/1-D Lookup Table'
@@ -408,7 +410,7 @@ typedef struct {
    *   '<S305>/1-D Lookup Table'
    *   '<S326>/1-D Lookup Table'
    */
-  real_T pooled38[2];
+  real_T pooled39[2];
 
   /* Pooled Parameter (Expression: Drive_Motor_Control_Module_Angle_Error)
    * Referenced by:
@@ -417,7 +419,7 @@ typedef struct {
    *   '<S305>/1-D Lookup Table'
    *   '<S326>/1-D Lookup Table'
    */
-  real_T pooled39[2];
+  real_T pooled40[2];
 } ConstP_Code_Gen_Model_T;
 
 /* External inputs (root inport signals with default storage) */
