@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.148
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Wed Mar 13 22:06:57 2024
+ * C/C++ source code generated on : Thu Mar 14 07:56:56 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -307,10 +307,12 @@ typedef struct {
 
 /* Constant parameters (default storage) */
 typedef struct {
-  /* Expression: Servo_Addition_out
-   * Referenced by: '<S9>/1-D Lookup Table'
+  /* Pooled Parameter (Mixed Expressions)
+   * Referenced by:
+   *   '<S9>/1-D Lookup Table'
+   *   '<S88>/X0'
    */
-  real_T uDLookupTable_tableData[2];
+  real_T pooled1[2];
 
   /* Expression: Servo_Front_Arm_Length_in
    * Referenced by: '<S9>/1-D Lookup Table'
@@ -329,7 +331,7 @@ typedef struct {
    *   '<S15>/1-D Lookup Table2'
    *   '<S15>/1-D Lookup Table3'
    */
-  real_T pooled2[10];
+  real_T pooled3[10];
 
   /* Expression: Speaker_Height_out
    * Referenced by: '<S15>/1-D Lookup Table2'
@@ -356,7 +358,7 @@ typedef struct {
    *   '<S191>/Capture Radius'
    *   '<S191>/Lookahead Distance'
    */
-  real_T pooled6[4];
+  real_T pooled9[4];
 
   /* Expression: Spline_Lookahead_Dist
    * Referenced by: '<S191>/Lookahead Distance'
@@ -371,7 +373,7 @@ typedef struct {
   /* Expression: Yaw_angle_correction_yaw
    * Referenced by: '<S397>/1-D Lookup Table'
    */
-  real_T uDLookupTable_tableData_j[9];
+  real_T uDLookupTable_tableData[9];
 
   /* Expression: Yaw_angle_correction_distance
    * Referenced by: '<S397>/1-D Lookup Table'
@@ -1331,6 +1333,13 @@ extern RT_MODEL_Code_Gen_Model_T *const Code_Gen_Model_M;
  * Block '<S38>/Data Type Duplicate' : Unused code path elimination
  * Block '<S38>/Data Type Propagation' : Unused code path elimination
  * Block '<S36>/Scope' : Unused code path elimination
+ * Block '<S49>/Compare' : Unused code path elimination
+ * Block '<S49>/Constant' : Unused code path elimination
+ * Block '<S60>/Compare' : Unused code path elimination
+ * Block '<S60>/Constant' : Unused code path elimination
+ * Block '<S8>/Constant9' : Unused code path elimination
+ * Block '<S8>/OR3' : Unused code path elimination
+ * Block '<S8>/Switch8' : Unused code path elimination
  * Block '<S86>/Data Type Duplicate' : Unused code path elimination
  * Block '<S86>/Data Type Propagation' : Unused code path elimination
  * Block '<S84>/Scope' : Unused code path elimination
