@@ -45,7 +45,7 @@ TEST_Speaker_Angle = 0;   % degrees
 TEST_Speaker_Height = 0;  % mm
 TEST_Speaker_Gap = 0;     % mm
 TEST_Speaker_Speed = 0;   % rpm
-
+TEST_Speaker_Distance = 0; % m
 
 %% Joystick Command Profiling
 % Thresholds for treating gamepad sticks as discrete inputs
@@ -223,7 +223,7 @@ Steering_Heading_Control_D_FilterCoeff = 1-exp(-2*pi*Derivative_low_pass_filter_
 Steering_Heading_Control_D_UL = 0;
 Steering_Heading_Control_D_LL = -Steering_Heading_Control_D_UL;
 
-Steering_Heading_Control_Total_UL = 1.3;  % m/sec
+Steering_Heading_Control_Total_UL = 3; %1.3;  % m/sec
 Steering_Heading_Control_Total_LL = -Steering_Heading_Control_Total_UL;
 
 Steering_Heading_Control_Deadzone = 0.1;
@@ -232,8 +232,8 @@ clear Derivative_low_pass_filter_freq
 
 
 %% Translation Speed Rate Limit
-Translation_Speed_Rate_Limit_Inc =  3/0.7*t_sample;
-Translation_Speed_Rate_Limit_Dec = -2/0.2*t_sample;
+Translation_Speed_Rate_Limit_Inc =  1; %3/0.7*t_sample;
+Translation_Speed_Rate_Limit_Dec = -1; %-2/0.2*t_sample;
 Translation_Speed_Approach_Zero_Error_Thresh = 0.2;
 Translation_Speed_Approach_Zero_Final_Thresh = 0.01;
 Translation_Speed_NonZero_Error_Thresh = 0.15;
@@ -399,9 +399,9 @@ LoadShooter_Height = 510;
 LoadShooter_Gap = 270;
 
 % Position the arms for scoring in the amp
-Amp_Angle = -40;
-Amp_Height = 36.2*25.4;
-Amp_Gap = 22.5*25.4;
+Amp_Angle = -35;
+Amp_Height = 1000;
+Amp_Gap = 650;
 
 % Position the arms for scoring in the trap
 Trap_Angle = 50;
@@ -416,18 +416,18 @@ Tol_Gap = 0.5*25.4;
 % Set the speaker parameters based on distance from the April Tag
 Speaker_Distance_in =   [1.44   1.71	2.3	    2.7	    3	    3.3	    3.5	    4	    4.2	    4.7];
 Speaker_Angle_out =     [45	    44 	    42	    37	    34.5	33	    32.5	30.5	29	    23];
-Speaker_Height_out =    [657    626	    612	    607	    603	    600	    599	    597	    597	    597];
-Speaker_Gap_out =       [303	303	    293	    293	    293	    293	    293	    293	    293	    293];
+Speaker_Height_out =    [575    600	    612	    607	    603	    600	    599	    597	    597	    597];
+Speaker_Gap_out =       [293	293	    293	    293	    293	    293	    293	    293	    293	    293];
 Speaker_MotorSpeed_out= [2500	3000	4000	4000	4000	4000	4000	4350	4500	4500];
 
 
 %% Arm Control Gains
 % Argos Arms Desired Position Rate Limits
-AA_Position_Back_Inc_RL = 4; % mm/loop
-AA_Position_Back_Dec_RL = -4; % mm/loop
+AA_Position_Back_Inc_RL = 2.5; % mm/loop
+AA_Position_Back_Dec_RL = -2.5; % mm/loop
 
-AA_Position_Front_Inc_RL = 8; % mm/loop
-AA_Position_Front_Dec_RL = -8; % mm/loop
+AA_Position_Front_Inc_RL = 6; % mm/loop
+AA_Position_Front_Dec_RL = -6; % mm/loop
 
 % Ball Screw Desired Position Rate Limits
 BS_Position_Inc_RL = 4; % mm/loop
@@ -462,12 +462,12 @@ Climber_Distance_LL = 0.5*25.4;  % mm, command hooks up a little bit at the star
 Climber_Distance_UL = 13.5*25.4;  % mm, upper limit to avoid commanding at the upper stop
 
 % Rate limit
-Climber_Position_Inc_RL = 10*25.4*t_sample; % mm/loop
-Climber_Position_Dec_RL = -10*25.4*t_sample; % mm/loop
+Climber_Position_Inc_RL = 5*25.4*t_sample; % mm/loop
+Climber_Position_Dec_RL = -5*25.4*t_sample; % mm/loop
 
 % P+I
 Climber_Prop_Gain = 0.01;
-Climber_Integral_Gain = 0.0002;
+Climber_Integral_Gain = 0.0002*0;
 Climber_Integral_IC = 0;
 Climber_Integral_UL = 0.5;
 Climber_Integral_LL = -0.5;
@@ -478,7 +478,7 @@ Climber_TC_LL = -1.0;
 
 %% Intake and Shooter Parameters
 % Time of Flight sensor distance for detecting in intake
-Note_Detect_Dist_Intake = 100;  % mm
+Note_Detect_Dist_Intake = 200;  % mm
 
 % Time of Flight sensor distance for detecting in shooter
 Note_Detect_Dist_Shooter = 60;  % mm
@@ -487,10 +487,10 @@ Note_Detect_Dist_Shooter = 60;  % mm
 Note_Time_Transfer_Spin_Up = 0.5;  % seconds
 
 % Shooter desired speed for storing note
-Shooter_Motor_DesSpd_Store = 300; % rpm
+Shooter_Motor_DesSpd_Store = 500; % rpm
 
 % Time to continue running shooter after detecting the note
-Note_Time_Transfer = 0.1;  % seconds
+Note_Time_Transfer = 0;  % seconds
 
 % Shooter duty cycle for ejecting note
 Shooter_DC_Eject = 0.2; % duty cycle
