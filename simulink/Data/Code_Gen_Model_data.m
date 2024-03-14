@@ -394,12 +394,12 @@ Stage_Height = 21*25.4; % mm
 Stage_Gap = 9.5*25.4;     % mm
 
 % Position arms for transfering a note into the shooter for scoring in the amp or trap
-LoadShooter_Angle = 35;
-LoadShooter_Height = 580;
-LoadShooter_Gap = 293;
+LoadShooter_Angle = 47;
+LoadShooter_Height = 510;
+LoadShooter_Gap = 270;
 
 % Position the arms for scoring in the amp
-Amp_Angle = -50;
+Amp_Angle = -40;
 Amp_Height = 36.2*25.4;
 Amp_Gap = 22.5*25.4;
 
@@ -415,10 +415,10 @@ Tol_Gap = 0.5*25.4;
 
 % Set the speaker parameters based on distance from the April Tag
 Speaker_Distance_in =   [1.44   1.71	2.3	    2.7	    3	    3.3	    3.5	    4	    4.2	    4.7];
-Speaker_Angle_out =     [45	    42.5	38	    34.5	33.5	33	    32.5	30.5	29	    23];
+Speaker_Angle_out =     [45	    44 	    42	    37	    34.5	33	    32.5	30.5	29	    23];
 Speaker_Height_out =    [657    626	    612	    607	    603	    600	    599	    597	    597	    597];
 Speaker_Gap_out =       [303	303	    293	    293	    293	    293	    293	    293	    293	    293];
-Speaker_MotorSpeed_out= [2500	2600	2850	3000	3100	3250	3400	4000	4500	4500];
+Speaker_MotorSpeed_out= [2500	3000	4000	4000	4000	4000	4000	4350	4500	4500];
 
 
 %% Arm Control Gains
@@ -496,11 +496,11 @@ Note_Time_Transfer = 0.1;  % seconds
 Shooter_DC_Eject = 0.2; % duty cycle
 
 % Time to run shooter for secoring in amp/trap
-Note_Time_Eject = 0.5; % seconds
+Note_Time_Eject = 1.0; % seconds
 
 % Speaker shooting parameters
 Shooter_Motor_Speed_Transition = 2000;
-Note_Time_Speaker_Spin_Up = 0.2;
+Note_Time_Speaker_Spin_Up = 1.0;
 
 % Shooter Servo (note stopper)
 Servo_Time_Store = 0.2; % seconds

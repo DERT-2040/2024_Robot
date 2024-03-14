@@ -175,7 +175,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Amp_Angle__Entry = NTtable_Tune->GetEntry("Amp_Angle");
     NTinst.AddListener(__Amp_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Amp_Angle = event.GetValueEventData()->value.GetDouble();});
-    __Amp_Angle__Entry.SetDouble(-50);
+    __Amp_Angle__Entry.SetDouble(-40);
  
     __Amp_Gap__Entry = NTtable_Tune->GetEntry("Amp_Gap");
     NTinst.AddListener(__Amp_Gap__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Amp_Gap = event.GetValueEventData()->value.GetDouble();});
@@ -403,15 +403,15 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __LoadShooter_Angle__Entry = NTtable_Tune->GetEntry("LoadShooter_Angle");
     NTinst.AddListener(__LoadShooter_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {LoadShooter_Angle = event.GetValueEventData()->value.GetDouble();});
-    __LoadShooter_Angle__Entry.SetDouble(35);
+    __LoadShooter_Angle__Entry.SetDouble(47);
  
     __LoadShooter_Gap__Entry = NTtable_Tune->GetEntry("LoadShooter_Gap");
     NTinst.AddListener(__LoadShooter_Gap__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {LoadShooter_Gap = event.GetValueEventData()->value.GetDouble();});
-    __LoadShooter_Gap__Entry.SetDouble(293);
+    __LoadShooter_Gap__Entry.SetDouble(270);
  
     __LoadShooter_Height__Entry = NTtable_Tune->GetEntry("LoadShooter_Height");
     NTinst.AddListener(__LoadShooter_Height__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {LoadShooter_Height = event.GetValueEventData()->value.GetDouble();});
-    __LoadShooter_Height__Entry.SetDouble(580);
+    __LoadShooter_Height__Entry.SetDouble(510);
  
     __Note_Detect_Dist_Intake__Entry = NTtable_Tune->GetEntry("Note_Detect_Dist_Intake");
     NTinst.AddListener(__Note_Detect_Dist_Intake__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Note_Detect_Dist_Intake = event.GetValueEventData()->value.GetDouble();});
@@ -423,11 +423,11 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Note_Time_Eject__Entry = NTtable_Tune->GetEntry("Note_Time_Eject");
     NTinst.AddListener(__Note_Time_Eject__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Note_Time_Eject = event.GetValueEventData()->value.GetDouble();});
-    __Note_Time_Eject__Entry.SetDouble(0.5);
+    __Note_Time_Eject__Entry.SetDouble(1);
  
     __Note_Time_Speaker_Spin_Up__Entry = NTtable_Tune->GetEntry("Note_Time_Speaker_Spin_Up");
     NTinst.AddListener(__Note_Time_Speaker_Spin_Up__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Note_Time_Speaker_Spin_Up = event.GetValueEventData()->value.GetDouble();});
-    __Note_Time_Speaker_Spin_Up__Entry.SetDouble(0.2);
+    __Note_Time_Speaker_Spin_Up__Entry.SetDouble(1);
  
     __Note_Time_Transfer__Entry = NTtable_Tune->GetEntry("Note_Time_Transfer");
     NTinst.AddListener(__Note_Time_Transfer__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Note_Time_Transfer = event.GetValueEventData()->value.GetDouble();});
@@ -739,15 +739,15 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Trap_Angle__Entry = NTtable_Tune->GetEntry("Trap_Angle");
     NTinst.AddListener(__Trap_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Trap_Angle = event.GetValueEventData()->value.GetDouble();});
-    __Trap_Angle__Entry.SetDouble(-26.5);
+    __Trap_Angle__Entry.SetDouble(50);
  
     __Trap_Gap__Entry = NTtable_Tune->GetEntry("Trap_Gap");
     NTinst.AddListener(__Trap_Gap__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Trap_Gap = event.GetValueEventData()->value.GetDouble();});
-    __Trap_Gap__Entry.SetDouble(693.42);
+    __Trap_Gap__Entry.SetDouble(460);
  
     __Trap_Height__Entry = NTtable_Tune->GetEntry("Trap_Height");
     NTinst.AddListener(__Trap_Height__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Trap_Height = event.GetValueEventData()->value.GetDouble();});
-    __Trap_Height__Entry.SetDouble(1079.5);
+    __Trap_Height__Entry.SetDouble(845);
  
 // Inports
     __AT_Tag_11_Found__Entry = NTtable_Inport->GetEntry("AT_Tag_11_Found");

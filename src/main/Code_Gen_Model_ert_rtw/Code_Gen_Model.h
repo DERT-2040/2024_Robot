@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.139
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Wed Mar 13 16:00:21 2024
+ * C/C++ source code generated on : Thu Mar 14 07:40:05 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -1320,6 +1320,13 @@ extern RT_MODEL_Code_Gen_Model_T *const Code_Gen_Model_M;
  * Block '<S38>/Data Type Duplicate' : Unused code path elimination
  * Block '<S38>/Data Type Propagation' : Unused code path elimination
  * Block '<S36>/Scope' : Unused code path elimination
+ * Block '<S49>/Compare' : Unused code path elimination
+ * Block '<S49>/Constant' : Unused code path elimination
+ * Block '<S60>/Compare' : Unused code path elimination
+ * Block '<S60>/Constant' : Unused code path elimination
+ * Block '<S8>/Constant9' : Unused code path elimination
+ * Block '<S8>/OR3' : Unused code path elimination
+ * Block '<S8>/Switch8' : Unused code path elimination
  * Block '<S86>/Data Type Duplicate' : Unused code path elimination
  * Block '<S86>/Data Type Propagation' : Unused code path elimination
  * Block '<S84>/Scope' : Unused code path elimination

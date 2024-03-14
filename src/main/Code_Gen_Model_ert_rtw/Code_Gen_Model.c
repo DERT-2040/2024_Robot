@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.139
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Wed Mar 13 16:00:21 2024
+ * C/C++ source code generated on : Thu Mar 14 07:40:05 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -240,7 +240,7 @@ real_T AT_XY_Control_Gain = 1.0;       /* Variable: AT_XY_Control_Gain
 real_T AT_Yaw_Control_Gain = -0.0006;  /* Variable: AT_Yaw_Control_Gain
                                         * Referenced by: '<S399>/Constant17'
                                         */
-real_T Amp_Angle = -50.0;              /* Variable: Amp_Angle
+real_T Amp_Angle = -40.0;              /* Variable: Amp_Angle
                                         * Referenced by: '<S15>/Chart_Shooter_Position'
                                         */
 real_T Amp_Gap = 571.5;                /* Variable: Amp_Gap
@@ -478,13 +478,13 @@ real_T KF_Enable = 1.0;                /* Variable: KF_Enable
 real_T KF_Vision_Ambiguity_Thresh = 0.25;/* Variable: KF_Vision_Ambiguity_Thresh
                                           * Referenced by: '<S11>/Constant'
                                           */
-real_T LoadShooter_Angle = 35.0;       /* Variable: LoadShooter_Angle
+real_T LoadShooter_Angle = 47.0;       /* Variable: LoadShooter_Angle
                                         * Referenced by: '<S15>/Chart_Shooter_Position'
                                         */
-real_T LoadShooter_Gap = 293.0;        /* Variable: LoadShooter_Gap
+real_T LoadShooter_Gap = 270.0;        /* Variable: LoadShooter_Gap
                                         * Referenced by: '<S15>/Chart_Shooter_Position'
                                         */
-real_T LoadShooter_Height = 580.0;     /* Variable: LoadShooter_Height
+real_T LoadShooter_Height = 510.0;     /* Variable: LoadShooter_Height
                                         * Referenced by: '<S15>/Chart_Shooter_Position'
                                         */
 real_T Note_Detect_Dist_Intake = 100.0;/* Variable: Note_Detect_Dist_Intake
@@ -493,10 +493,10 @@ real_T Note_Detect_Dist_Intake = 100.0;/* Variable: Note_Detect_Dist_Intake
 real_T Note_Detect_Dist_Shooter = 60.0;/* Variable: Note_Detect_Dist_Shooter
                                         * Referenced by: '<S9>/Chart_Intake_and_Shooter'
                                         */
-real_T Note_Time_Eject = 0.5;          /* Variable: Note_Time_Eject
+real_T Note_Time_Eject = 1.0;          /* Variable: Note_Time_Eject
                                         * Referenced by: '<S9>/Chart_Intake_and_Shooter'
                                         */
-real_T Note_Time_Speaker_Spin_Up = 0.2;/* Variable: Note_Time_Speaker_Spin_Up
+real_T Note_Time_Speaker_Spin_Up = 1.0;/* Variable: Note_Time_Speaker_Spin_Up
                                         * Referenced by: '<S9>/Chart_Intake_and_Shooter'
                                         */
 real_T Note_Time_Transfer = 0.1;       /* Variable: Note_Time_Transfer
@@ -803,13 +803,13 @@ real_T Translation_Speed_Rate_Limit_Inc = 0.085714;
 real_T Translation_Twist_Gain = 0.5;   /* Variable: Translation_Twist_Gain
                                         * Referenced by: '<S400>/Gain'
                                         */
-real_T Trap_Angle = -26.5;             /* Variable: Trap_Angle
+real_T Trap_Angle = 50.0;              /* Variable: Trap_Angle
                                         * Referenced by: '<S15>/Chart_Shooter_Position'
                                         */
-real_T Trap_Gap = 693.42;              /* Variable: Trap_Gap
+real_T Trap_Gap = 460.0;               /* Variable: Trap_Gap
                                         * Referenced by: '<S15>/Chart_Shooter_Position'
                                         */
-real_T Trap_Height = 1079.5;           /* Variable: Trap_Height
+real_T Trap_Height = 845.0;            /* Variable: Trap_Height
                                         * Referenced by: '<S15>/Chart_Shooter_Position'
                                         */
 
@@ -1584,25 +1584,17 @@ void Code_Gen_Model_step(void)
    *  Constant: '<S41>/Constant'
    *  Constant: '<S42>/Constant'
    *  Constant: '<S43>/Constant'
-   *  Constant: '<S49>/Constant'
-   *  Constant: '<S60>/Constant'
    *  Inport: '<Root>/Gamepad_Stick_Left_Y'
    *  Inport: '<Root>/Gamepad_Stick_Right_Y'
-   *  Inport: '<Root>/Joystick_Left_B10'
-   *  Inport: '<Root>/Joystick_Right_B10'
    *  Logic: '<S8>/OR'
-   *  Logic: '<S8>/OR3'
    *  RelationalOperator: '<S40>/Compare'
    *  RelationalOperator: '<S41>/Compare'
    *  RelationalOperator: '<S42>/Compare'
    *  RelationalOperator: '<S43>/Compare'
-   *  RelationalOperator: '<S49>/Compare'
-   *  RelationalOperator: '<S60>/Compare'
    *  RelationalOperator: '<S71>/FixPt Relational Operator'
    *  Switch: '<S8>/Switch5'
    *  Switch: '<S8>/Switch6'
    *  Switch: '<S8>/Switch7'
-   *  Switch: '<S8>/Switch8'
    *  UnitDelay: '<S71>/Delay Input1'
    *
    * Block description for '<S71>/Delay Input1':
@@ -1632,23 +1624,13 @@ void Code_Gen_Model_step(void)
     Code_Gen_Model_B.State_Request_Arm = 2.0;
   } else if (Code_Gen_Model_U.Gamepad_Stick_Right_Y >=
              Gamepad_Stick_Pos_Threshold) {
-    /* Switch: '<S8>/Switch4' incorporates:
+    /* Switch: '<S8>/Switch7' incorporates:
      *  Constant: '<S8>/Constant8'
-     *  Switch: '<S8>/Switch5'
-     *  Switch: '<S8>/Switch6'
-     *  Switch: '<S8>/Switch7'
-     */
-    Code_Gen_Model_B.State_Request_Arm = 3.0;
-  } else if ((Code_Gen_Model_U.Joystick_Left_B10 != 0.0) ||
-             (Code_Gen_Model_U.Joystick_Right_B10 != 0.0)) {
-    /* Switch: '<S8>/Switch8' incorporates:
-     *  Constant: '<S8>/Constant9'
      *  Switch: '<S8>/Switch4'
      *  Switch: '<S8>/Switch5'
      *  Switch: '<S8>/Switch6'
-     *  Switch: '<S8>/Switch7'
      */
-    Code_Gen_Model_B.State_Request_Arm = 4.0;
+    Code_Gen_Model_B.State_Request_Arm = 3.0;
   }
 
   /* End of Switch: '<S8>/Switch4' */
