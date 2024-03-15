@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.149
+ * Model version                  : 2.150
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Fri Mar 15 09:17:26 2024
+ * C/C++ source code generated on : Fri Mar 15 10:32:07 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -54,12 +54,6 @@ const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP = {
    */
   { 250.0, 350.0 },
 
-  /* Expression: Speaker_MotorSpeed_out
-   * Referenced by: '<S10>/1-D Lookup Table1'
-   */
-  { 2500.0, 3000.0, 4000.0, 4000.0, 4000.0, 4000.0, 4000.0, 4350.0, 4500.0,
-    4500.0 },
-
   /* Pooled Parameter (Expression: Speaker_Distance_in)
    * Referenced by:
    *   '<S10>/1-D Lookup Table1'
@@ -77,7 +71,7 @@ const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP = {
   /* Expression: Speaker_Angle_out
    * Referenced by: '<S16>/1-D Lookup Table1'
    */
-  { 45.0, 44.0, 42.0, 37.0, 34.5, 33.0, 32.5, 30.5, 29.0, 23.0 },
+  { 55.0, 50.0, 42.0, 37.0, 34.5, 33.0, 32.5, 30.5, 29.0, 23.0 },
 
   /* Expression: Speaker_Gap_out
    * Referenced by: '<S16>/1-D Lookup Table3'

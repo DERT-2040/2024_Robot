@@ -415,7 +415,7 @@ Tol_Gap = 0.5*25.4;
 
 % Set the speaker parameters based on distance from the April Tag
 Speaker_Distance_in =   [1.44   1.71	2.3	    2.7	    3	    3.3	    3.5	    4	    4.2	    4.7];
-Speaker_Angle_out =     [45	    44 	    42	    37	    34.5	33	    32.5	30.5	29	    23];
+Speaker_Angle_out =     [55	    50 	    42	    37	    34.5	33	    32.5	30.5	29	    23];
 Speaker_Height_out =    [575    600	    612	    607	    603	    600	    599	    597	    597	    597];
 Speaker_Gap_out =       [293	293	    293	    293	    293	    293	    293	    293	    293	    293];
 Speaker_MotorSpeed_out= [2500	3000	4000	4000	4000	4000	4000	4350	4500	4500];
@@ -474,7 +474,7 @@ BS_TC_LL = -0.3;
 % Climber_TC_UL = 1.0;
 % Climber_TC_LL = -1.0;
 
-Climber_DutyCycle_Pos = 0.2;
+Climber_DutyCycle_Pos = 0.4;
 Climber_DutyCycle_Neg = -1;
 
 

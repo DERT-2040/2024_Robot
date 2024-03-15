@@ -243,7 +243,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Climber_DutyCycle_Pos__Entry = NTtable_Tune->GetEntry("Climber_DutyCycle_Pos");
     NTinst.AddListener(__Climber_DutyCycle_Pos__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Climber_DutyCycle_Pos = event.GetValueEventData()->value.GetDouble();});
-    __Climber_DutyCycle_Pos__Entry.SetDouble(0.2);
+    __Climber_DutyCycle_Pos__Entry.SetDouble(0.4);
  
     __Dist_AA_Cal_Tol__Entry = NTtable_Tune->GetEntry("Dist_AA_Cal_Tol");
     NTinst.AddListener(__Dist_AA_Cal_Tol__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Dist_AA_Cal_Tol = event.GetValueEventData()->value.GetDouble();});
