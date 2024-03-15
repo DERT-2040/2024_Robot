@@ -423,8 +423,10 @@ Speaker_MotorSpeed_out= [2500	3000	4000	4000	4000	4000	4000	4350	4500	4500];
 
 %% Arm Control Gains
 % Argos Arms Desired Position Rate Limits
-AA_Position_Back_Inc_RL = 2.5; % mm/loop
-AA_Position_Back_Dec_RL = -2.5; % mm/loop
+% AA_Position_Back_Inc_RL = 2.5; % mm/loop
+% AA_Position_Back_Dec_RL = -2.5; % mm/loop
+AA_Position_Back_Inc_RL = 3; % mm/loop
+AA_Position_Back_Dec_RL = -2; % mm/loop
 
 AA_Position_Front_Inc_RL = 6; % mm/loop
 AA_Position_Front_Dec_RL = -6; % mm/loop

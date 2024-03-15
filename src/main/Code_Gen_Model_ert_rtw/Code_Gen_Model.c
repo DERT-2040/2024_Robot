@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.150
+ * Model version                  : 2.151
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Fri Mar 15 14:18:10 2024
+ * C/C++ source code generated on : Fri Mar 15 15:30:20 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -114,12 +114,12 @@ real_T AA_Integral_UL = 0.5;           /* Variable: AA_Integral_UL
                                         *   '<S161>/Saturation1'
                                         *   '<S162>/Saturation1'
                                         */
-real_T AA_Position_Back_Dec_RL = -2.5; /* Variable: AA_Position_Back_Dec_RL
+real_T AA_Position_Back_Dec_RL = -2.0; /* Variable: AA_Position_Back_Dec_RL
                                         * Referenced by:
                                         *   '<S163>/Constant1'
                                         *   '<S164>/Constant1'
                                         */
-real_T AA_Position_Back_Inc_RL = 2.5;  /* Variable: AA_Position_Back_Inc_RL
+real_T AA_Position_Back_Inc_RL = 3.0;  /* Variable: AA_Position_Back_Inc_RL
                                         * Referenced by:
                                         *   '<S163>/Constant3'
                                         *   '<S164>/Constant3'
@@ -3105,20 +3105,20 @@ void Code_Gen_Model_step(void)
       /* Product: '<S403>/Product' incorporates:
        *  Switch: '<S397>/Switch2'
        */
-      Rot_Mat_idx_0 = rtb_Climber_Cmd_Direction * rtb_Init;
+      rtb_thetay_f = rtb_Climber_Cmd_Direction * rtb_Init;
 
       /* Saturate: '<S403>/Saturation' incorporates:
        *  Switch: '<S397>/Switch2'
        */
-      if (Rot_Mat_idx_0 > Boost_Trigger_High_Speed) {
+      if (rtb_thetay_f > Boost_Trigger_High_Speed) {
         /* Merge: '<S13>/Merge4' */
         Code_Gen_Model_B.Translation_Speed = Boost_Trigger_High_Speed;
-      } else if (Rot_Mat_idx_0 < (-Boost_Trigger_High_Speed)) {
+      } else if (rtb_thetay_f < (-Boost_Trigger_High_Speed)) {
         /* Merge: '<S13>/Merge4' */
         Code_Gen_Model_B.Translation_Speed = -Boost_Trigger_High_Speed;
       } else {
         /* Merge: '<S13>/Merge4' */
-        Code_Gen_Model_B.Translation_Speed = Rot_Mat_idx_0;
+        Code_Gen_Model_B.Translation_Speed = rtb_thetay_f;
       }
 
       /* End of Saturate: '<S403>/Saturation' */
@@ -4770,20 +4770,20 @@ void Code_Gen_Model_step(void)
    *
    *  Store in Global RAM
    */
-  Rot_Mat_idx_0 = rtb_Switch1_nj - Code_Gen_Model_DW.UD_DSTATE;
+  rtb_thetay_f = rtb_Switch1_nj - Code_Gen_Model_DW.UD_DSTATE;
 
   /* Saturate: '<S363>/Saturation' */
-  if (Rot_Mat_idx_0 > Steering_Heading_Control_D_UL) {
-    Rot_Mat_idx_0 = Steering_Heading_Control_D_UL;
-  } else if (Rot_Mat_idx_0 < Steering_Heading_Control_D_LL) {
-    Rot_Mat_idx_0 = Steering_Heading_Control_D_LL;
+  if (rtb_thetay_f > Steering_Heading_Control_D_UL) {
+    rtb_thetay_f = Steering_Heading_Control_D_UL;
+  } else if (rtb_thetay_f < Steering_Heading_Control_D_LL) {
+    rtb_thetay_f = Steering_Heading_Control_D_LL;
   }
 
   /* Sum: '<S363>/Add' incorporates:
    *  Gain: '<S363>/Gain1'
    *  Saturate: '<S363>/Saturation'
    */
-  rtb_Switch2 = (Steering_Heading_Control_P * rtb_thetay) + Rot_Mat_idx_0;
+  rtb_Switch2 = (Steering_Heading_Control_P * rtb_thetay) + rtb_thetay_f;
 
   /* Sum: '<S363>/Subtract' incorporates:
    *  Constant: '<S363>/Constant'
@@ -4832,18 +4832,18 @@ void Code_Gen_Model_step(void)
   /* End of Saturate: '<S363>/Saturation1' */
 
   /* Sum: '<S363>/Add1' */
-  Rot_Mat_idx_0 = rtb_Switch2 + rtb_Switch4_g;
+  rtb_thetay_f = rtb_Switch2 + rtb_Switch4_g;
 
   /* Saturate: '<S363>/Saturation2' */
-  if (Rot_Mat_idx_0 > Steering_Heading_Control_Total_UL) {
+  if (rtb_thetay_f > Steering_Heading_Control_Total_UL) {
     /* Saturate: '<S363>/Saturation2' */
     Code_Gen_Model_B.Steering_Localized_PID = Steering_Heading_Control_Total_UL;
-  } else if (Rot_Mat_idx_0 < Steering_Heading_Control_Total_LL) {
+  } else if (rtb_thetay_f < Steering_Heading_Control_Total_LL) {
     /* Saturate: '<S363>/Saturation2' */
     Code_Gen_Model_B.Steering_Localized_PID = Steering_Heading_Control_Total_LL;
   } else {
     /* Saturate: '<S363>/Saturation2' */
-    Code_Gen_Model_B.Steering_Localized_PID = Rot_Mat_idx_0;
+    Code_Gen_Model_B.Steering_Localized_PID = rtb_thetay_f;
   }
 
   /* End of Saturate: '<S363>/Saturation2' */
@@ -5482,13 +5482,13 @@ void Code_Gen_Model_step(void)
    *
    *  Store in Global RAM
    */
-  Rot_Mat_idx_0 = rtb_Init - Code_Gen_Model_DW.UD_DSTATE_o;
+  rtb_thetay_f = rtb_Init - Code_Gen_Model_DW.UD_DSTATE_o;
 
   /* Saturate: '<S258>/Saturation' */
-  if (Rot_Mat_idx_0 > Drive_Motor_Control_D_UL) {
-    Rot_Mat_idx_0 = Drive_Motor_Control_D_UL;
-  } else if (Rot_Mat_idx_0 < Drive_Motor_Control_D_LL) {
-    Rot_Mat_idx_0 = Drive_Motor_Control_D_LL;
+  if (rtb_thetay_f > Drive_Motor_Control_D_UL) {
+    rtb_thetay_f = Drive_Motor_Control_D_UL;
+  } else if (rtb_thetay_f < Drive_Motor_Control_D_LL) {
+    rtb_thetay_f = Drive_Motor_Control_D_LL;
   }
 
   /* Sum: '<S258>/Add' incorporates:
@@ -5496,7 +5496,7 @@ void Code_Gen_Model_step(void)
    *  Saturate: '<S258>/Saturation'
    */
   rtb_Add_oh = ((Drive_Motor_Control_P * rtb_thetay_g) +
-                rtb_Gyro_Angle_Adjustment) + Rot_Mat_idx_0;
+                rtb_Gyro_Angle_Adjustment) + rtb_thetay_f;
 
   /* Sum: '<S258>/Subtract' incorporates:
    *  Constant: '<S258>/Constant'
@@ -5544,18 +5544,18 @@ void Code_Gen_Model_step(void)
   /* End of Saturate: '<S258>/Saturation1' */
 
   /* Sum: '<S258>/Add1' */
-  Rot_Mat_idx_0 = rtb_Add_oh + rtb_Gyro_Angle_Adjustment;
+  rtb_thetay_f = rtb_Add_oh + rtb_Gyro_Angle_Adjustment;
 
   /* Saturate: '<S258>/Saturation2' */
-  if (Rot_Mat_idx_0 > 1.0) {
+  if (rtb_thetay_f > 1.0) {
     /* Outport: '<Root>/FrontLeft_Drive_DutyCycle' */
     Code_Gen_Model_Y.FrontLeft_Drive_DutyCycle = 1.0;
-  } else if (Rot_Mat_idx_0 < -1.0) {
+  } else if (rtb_thetay_f < -1.0) {
     /* Outport: '<Root>/FrontLeft_Drive_DutyCycle' */
     Code_Gen_Model_Y.FrontLeft_Drive_DutyCycle = -1.0;
   } else {
     /* Outport: '<Root>/FrontLeft_Drive_DutyCycle' */
-    Code_Gen_Model_Y.FrontLeft_Drive_DutyCycle = Rot_Mat_idx_0;
+    Code_Gen_Model_Y.FrontLeft_Drive_DutyCycle = rtb_thetay_f;
   }
 
   /* End of Saturate: '<S258>/Saturation2' */
@@ -5595,20 +5595,20 @@ void Code_Gen_Model_step(void)
    *
    *  Store in Global RAM
    */
-  Rot_Mat_idx_0 = rtb_Subtract1_of - Code_Gen_Model_DW.UD_DSTATE_b;
+  rtb_thetay_f = rtb_Subtract1_of - Code_Gen_Model_DW.UD_DSTATE_b;
 
   /* Saturate: '<S261>/Saturation' */
-  if (Rot_Mat_idx_0 > Steering_Motor_Control_D_UL) {
-    Rot_Mat_idx_0 = Steering_Motor_Control_D_UL;
-  } else if (Rot_Mat_idx_0 < Steering_Motor_Control_D_LL) {
-    Rot_Mat_idx_0 = Steering_Motor_Control_D_LL;
+  if (rtb_thetay_f > Steering_Motor_Control_D_UL) {
+    rtb_thetay_f = Steering_Motor_Control_D_UL;
+  } else if (rtb_thetay_f < Steering_Motor_Control_D_LL) {
+    rtb_thetay_f = Steering_Motor_Control_D_LL;
   }
 
   /* Sum: '<S261>/Add' incorporates:
    *  Gain: '<S261>/Gain1'
    *  Saturate: '<S261>/Saturation'
    */
-  rtb_Add_fn = (Steering_Motor_Control_P * rtb_thetay_g) + Rot_Mat_idx_0;
+  rtb_Add_fn = (Steering_Motor_Control_P * rtb_thetay_g) + rtb_thetay_f;
 
   /* Sum: '<S261>/Subtract' incorporates:
    *  Constant: '<S261>/Constant'
@@ -5656,18 +5656,18 @@ void Code_Gen_Model_step(void)
   /* End of Saturate: '<S261>/Saturation1' */
 
   /* Sum: '<S261>/Add1' */
-  Rot_Mat_idx_0 = rtb_Add_fn + rtb_Sum2_e;
+  rtb_thetay_f = rtb_Add_fn + rtb_Sum2_e;
 
   /* Saturate: '<S261>/Saturation2' */
-  if (Rot_Mat_idx_0 > 1.0) {
+  if (rtb_thetay_f > 1.0) {
     /* Outport: '<Root>/FrontLeft_Steer_DutyCycle' */
     Code_Gen_Model_Y.FrontLeft_Steer_DutyCycle = 1.0;
-  } else if (Rot_Mat_idx_0 < -1.0) {
+  } else if (rtb_thetay_f < -1.0) {
     /* Outport: '<Root>/FrontLeft_Steer_DutyCycle' */
     Code_Gen_Model_Y.FrontLeft_Steer_DutyCycle = -1.0;
   } else {
     /* Outport: '<Root>/FrontLeft_Steer_DutyCycle' */
-    Code_Gen_Model_Y.FrontLeft_Steer_DutyCycle = Rot_Mat_idx_0;
+    Code_Gen_Model_Y.FrontLeft_Steer_DutyCycle = rtb_thetay_f;
   }
 
   /* End of Saturate: '<S261>/Saturation2' */
@@ -5908,13 +5908,13 @@ void Code_Gen_Model_step(void)
    *
    *  Store in Global RAM
    */
-  Rot_Mat_idx_0 = rtb_Subtract1_jk - Code_Gen_Model_DW.UD_DSTATE_e;
+  rtb_thetay_f = rtb_Subtract1_jk - Code_Gen_Model_DW.UD_DSTATE_e;
 
   /* Saturate: '<S279>/Saturation' */
-  if (Rot_Mat_idx_0 > Drive_Motor_Control_D_UL) {
-    Rot_Mat_idx_0 = Drive_Motor_Control_D_UL;
-  } else if (Rot_Mat_idx_0 < Drive_Motor_Control_D_LL) {
-    Rot_Mat_idx_0 = Drive_Motor_Control_D_LL;
+  if (rtb_thetay_f > Drive_Motor_Control_D_UL) {
+    rtb_thetay_f = Drive_Motor_Control_D_UL;
+  } else if (rtb_thetay_f < Drive_Motor_Control_D_LL) {
+    rtb_thetay_f = Drive_Motor_Control_D_LL;
   }
 
   /* Sum: '<S279>/Add' incorporates:
@@ -5922,7 +5922,7 @@ void Code_Gen_Model_step(void)
    *  Saturate: '<S279>/Saturation'
    */
   rtb_Add_pd = ((Drive_Motor_Control_P * rtb_thetay_g) + rtb_Hypot_bl) +
-    Rot_Mat_idx_0;
+    rtb_thetay_f;
 
   /* Sum: '<S279>/Subtract' incorporates:
    *  Constant: '<S279>/Constant'
@@ -5970,18 +5970,18 @@ void Code_Gen_Model_step(void)
   /* End of Saturate: '<S279>/Saturation1' */
 
   /* Sum: '<S279>/Add1' */
-  Rot_Mat_idx_0 = rtb_Add_pd + rtb_Hypot_bl;
+  rtb_thetay_f = rtb_Add_pd + rtb_Hypot_bl;
 
   /* Saturate: '<S279>/Saturation2' */
-  if (Rot_Mat_idx_0 > 1.0) {
+  if (rtb_thetay_f > 1.0) {
     /* Outport: '<Root>/FrontRight_Drive_DutyCycle' */
     Code_Gen_Model_Y.FrontRight_Drive_DutyCycle = 1.0;
-  } else if (Rot_Mat_idx_0 < -1.0) {
+  } else if (rtb_thetay_f < -1.0) {
     /* Outport: '<Root>/FrontRight_Drive_DutyCycle' */
     Code_Gen_Model_Y.FrontRight_Drive_DutyCycle = -1.0;
   } else {
     /* Outport: '<Root>/FrontRight_Drive_DutyCycle' */
-    Code_Gen_Model_Y.FrontRight_Drive_DutyCycle = Rot_Mat_idx_0;
+    Code_Gen_Model_Y.FrontRight_Drive_DutyCycle = rtb_thetay_f;
   }
 
   /* End of Saturate: '<S279>/Saturation2' */
@@ -6021,13 +6021,13 @@ void Code_Gen_Model_step(void)
    *
    *  Store in Global RAM
    */
-  Rot_Mat_idx_0 = rtb_Subtract1_n - Code_Gen_Model_DW.UD_DSTATE_i;
+  rtb_thetay_f = rtb_Subtract1_n - Code_Gen_Model_DW.UD_DSTATE_i;
 
   /* Saturate: '<S282>/Saturation' */
-  if (Rot_Mat_idx_0 > Steering_Motor_Control_D_UL) {
-    Rot_Mat_idx_0 = Steering_Motor_Control_D_UL;
-  } else if (Rot_Mat_idx_0 < Steering_Motor_Control_D_LL) {
-    Rot_Mat_idx_0 = Steering_Motor_Control_D_LL;
+  if (rtb_thetay_f > Steering_Motor_Control_D_UL) {
+    rtb_thetay_f = Steering_Motor_Control_D_UL;
+  } else if (rtb_thetay_f < Steering_Motor_Control_D_LL) {
+    rtb_thetay_f = Steering_Motor_Control_D_LL;
   }
 
   /* Sum: '<S282>/Add' incorporates:
@@ -6035,7 +6035,7 @@ void Code_Gen_Model_step(void)
    *  Saturate: '<S282>/Saturation'
    */
   rtb_MatrixConcatenate_b_idx_1 = (Steering_Motor_Control_P * rtb_thetay_g) +
-    Rot_Mat_idx_0;
+    rtb_thetay_f;
 
   /* Sum: '<S282>/Subtract' incorporates:
    *  Constant: '<S282>/Constant'
@@ -6083,18 +6083,18 @@ void Code_Gen_Model_step(void)
   /* End of Saturate: '<S282>/Saturation1' */
 
   /* Sum: '<S282>/Add1' */
-  Rot_Mat_idx_0 = rtb_MatrixConcatenate_b_idx_1 + rtb_Sum2_oc;
+  rtb_thetay_f = rtb_MatrixConcatenate_b_idx_1 + rtb_Sum2_oc;
 
   /* Saturate: '<S282>/Saturation2' */
-  if (Rot_Mat_idx_0 > 1.0) {
+  if (rtb_thetay_f > 1.0) {
     /* Outport: '<Root>/FrontRight_Steer_DutyCycle' */
     Code_Gen_Model_Y.FrontRight_Steer_DutyCycle = 1.0;
-  } else if (Rot_Mat_idx_0 < -1.0) {
+  } else if (rtb_thetay_f < -1.0) {
     /* Outport: '<Root>/FrontRight_Steer_DutyCycle' */
     Code_Gen_Model_Y.FrontRight_Steer_DutyCycle = -1.0;
   } else {
     /* Outport: '<Root>/FrontRight_Steer_DutyCycle' */
-    Code_Gen_Model_Y.FrontRight_Steer_DutyCycle = Rot_Mat_idx_0;
+    Code_Gen_Model_Y.FrontRight_Steer_DutyCycle = rtb_thetay_f;
   }
 
   /* End of Saturate: '<S282>/Saturation2' */
@@ -6337,13 +6337,13 @@ void Code_Gen_Model_step(void)
    *
    *  Store in Global RAM
    */
-  Rot_Mat_idx_0 = rtb_Subtract1_ie - Code_Gen_Model_DW.UD_DSTATE_l;
+  rtb_thetay_f = rtb_Subtract1_ie - Code_Gen_Model_DW.UD_DSTATE_l;
 
   /* Saturate: '<S300>/Saturation' */
-  if (Rot_Mat_idx_0 > Drive_Motor_Control_D_UL) {
-    Rot_Mat_idx_0 = Drive_Motor_Control_D_UL;
-  } else if (Rot_Mat_idx_0 < Drive_Motor_Control_D_LL) {
-    Rot_Mat_idx_0 = Drive_Motor_Control_D_LL;
+  if (rtb_thetay_f > Drive_Motor_Control_D_UL) {
+    rtb_thetay_f = Drive_Motor_Control_D_UL;
+  } else if (rtb_thetay_f < Drive_Motor_Control_D_LL) {
+    rtb_thetay_f = Drive_Motor_Control_D_LL;
   }
 
   /* Sum: '<S300>/Add' incorporates:
@@ -6351,7 +6351,7 @@ void Code_Gen_Model_step(void)
    *  Saturate: '<S300>/Saturation'
    */
   rtb_Add_kv = ((Drive_Motor_Control_P * rtb_thetay_g) + rtb_Subtract_n) +
-    Rot_Mat_idx_0;
+    rtb_thetay_f;
 
   /* Sum: '<S300>/Subtract' incorporates:
    *  Constant: '<S300>/Constant'
@@ -6399,18 +6399,18 @@ void Code_Gen_Model_step(void)
   /* End of Saturate: '<S300>/Saturation1' */
 
   /* Sum: '<S300>/Add1' */
-  Rot_Mat_idx_0 = rtb_Add_kv + rtb_Subtract_n;
+  rtb_thetay_f = rtb_Add_kv + rtb_Subtract_n;
 
   /* Saturate: '<S300>/Saturation2' */
-  if (Rot_Mat_idx_0 > 1.0) {
+  if (rtb_thetay_f > 1.0) {
     /* Outport: '<Root>/BackLeft_Drive_DutyCycle' */
     Code_Gen_Model_Y.BackLeft_Drive_DutyCycle = 1.0;
-  } else if (Rot_Mat_idx_0 < -1.0) {
+  } else if (rtb_thetay_f < -1.0) {
     /* Outport: '<Root>/BackLeft_Drive_DutyCycle' */
     Code_Gen_Model_Y.BackLeft_Drive_DutyCycle = -1.0;
   } else {
     /* Outport: '<Root>/BackLeft_Drive_DutyCycle' */
-    Code_Gen_Model_Y.BackLeft_Drive_DutyCycle = Rot_Mat_idx_0;
+    Code_Gen_Model_Y.BackLeft_Drive_DutyCycle = rtb_thetay_f;
   }
 
   /* End of Saturate: '<S300>/Saturation2' */
@@ -6450,20 +6450,20 @@ void Code_Gen_Model_step(void)
    *
    *  Store in Global RAM
    */
-  Rot_Mat_idx_0 = rtb_Add_kv - Code_Gen_Model_DW.UD_DSTATE_k;
+  rtb_thetay_f = rtb_Add_kv - Code_Gen_Model_DW.UD_DSTATE_k;
 
   /* Saturate: '<S303>/Saturation' */
-  if (Rot_Mat_idx_0 > Steering_Motor_Control_D_UL) {
-    Rot_Mat_idx_0 = Steering_Motor_Control_D_UL;
-  } else if (Rot_Mat_idx_0 < Steering_Motor_Control_D_LL) {
-    Rot_Mat_idx_0 = Steering_Motor_Control_D_LL;
+  if (rtb_thetay_f > Steering_Motor_Control_D_UL) {
+    rtb_thetay_f = Steering_Motor_Control_D_UL;
+  } else if (rtb_thetay_f < Steering_Motor_Control_D_LL) {
+    rtb_thetay_f = Steering_Motor_Control_D_LL;
   }
 
   /* Sum: '<S303>/Add' incorporates:
    *  Gain: '<S303>/Gain1'
    *  Saturate: '<S303>/Saturation'
    */
-  rtb_Add_f1 = (Steering_Motor_Control_P * rtb_thetay_g) + Rot_Mat_idx_0;
+  rtb_Add_f1 = (Steering_Motor_Control_P * rtb_thetay_g) + rtb_thetay_f;
 
   /* Sum: '<S303>/Subtract' incorporates:
    *  Constant: '<S303>/Constant'
@@ -6511,18 +6511,18 @@ void Code_Gen_Model_step(void)
   /* End of Saturate: '<S303>/Saturation1' */
 
   /* Sum: '<S303>/Add1' */
-  Rot_Mat_idx_0 = rtb_Add_f1 + rtb_Subtract1_h2;
+  rtb_thetay_f = rtb_Add_f1 + rtb_Subtract1_h2;
 
   /* Saturate: '<S303>/Saturation2' */
-  if (Rot_Mat_idx_0 > 1.0) {
+  if (rtb_thetay_f > 1.0) {
     /* Outport: '<Root>/BackLeft_Steer_DutyCycle' */
     Code_Gen_Model_Y.BackLeft_Steer_DutyCycle = 1.0;
-  } else if (Rot_Mat_idx_0 < -1.0) {
+  } else if (rtb_thetay_f < -1.0) {
     /* Outport: '<Root>/BackLeft_Steer_DutyCycle' */
     Code_Gen_Model_Y.BackLeft_Steer_DutyCycle = -1.0;
   } else {
     /* Outport: '<Root>/BackLeft_Steer_DutyCycle' */
-    Code_Gen_Model_Y.BackLeft_Steer_DutyCycle = Rot_Mat_idx_0;
+    Code_Gen_Model_Y.BackLeft_Steer_DutyCycle = rtb_thetay_f;
   }
 
   /* End of Saturate: '<S303>/Saturation2' */
@@ -6764,13 +6764,13 @@ void Code_Gen_Model_step(void)
    *
    *  Store in Global RAM
    */
-  Rot_Mat_idx_0 = rtb_Minus_k_idx_0 - Code_Gen_Model_DW.UD_DSTATE_c;
+  rtb_thetay_f = rtb_Minus_k_idx_0 - Code_Gen_Model_DW.UD_DSTATE_c;
 
   /* Saturate: '<S321>/Saturation' */
-  if (Rot_Mat_idx_0 > Drive_Motor_Control_D_UL) {
-    Rot_Mat_idx_0 = Drive_Motor_Control_D_UL;
-  } else if (Rot_Mat_idx_0 < Drive_Motor_Control_D_LL) {
-    Rot_Mat_idx_0 = Drive_Motor_Control_D_LL;
+  if (rtb_thetay_f > Drive_Motor_Control_D_UL) {
+    rtb_thetay_f = Drive_Motor_Control_D_UL;
+  } else if (rtb_thetay_f < Drive_Motor_Control_D_LL) {
+    rtb_thetay_f = Drive_Motor_Control_D_LL;
   }
 
   /* Sum: '<S321>/Add' incorporates:
@@ -6778,7 +6778,7 @@ void Code_Gen_Model_step(void)
    *  Saturate: '<S321>/Saturation'
    */
   rtb_Subtract_i = ((Drive_Motor_Control_P * rtb_thetay_g) + rtb_Minus_k_idx_1)
-    + Rot_Mat_idx_0;
+    + rtb_thetay_f;
 
   /* Sum: '<S321>/Subtract' incorporates:
    *  Constant: '<S321>/Constant'
@@ -6826,18 +6826,18 @@ void Code_Gen_Model_step(void)
   /* End of Saturate: '<S321>/Saturation1' */
 
   /* Sum: '<S321>/Add1' */
-  Rot_Mat_idx_0 = rtb_Subtract_i + rtb_Minus_k_idx_1;
+  rtb_thetay_f = rtb_Subtract_i + rtb_Minus_k_idx_1;
 
   /* Saturate: '<S321>/Saturation2' */
-  if (Rot_Mat_idx_0 > 1.0) {
+  if (rtb_thetay_f > 1.0) {
     /* Outport: '<Root>/BackRight_Drive_DutyCycle' */
     Code_Gen_Model_Y.BackRight_Drive_DutyCycle = 1.0;
-  } else if (Rot_Mat_idx_0 < -1.0) {
+  } else if (rtb_thetay_f < -1.0) {
     /* Outport: '<Root>/BackRight_Drive_DutyCycle' */
     Code_Gen_Model_Y.BackRight_Drive_DutyCycle = -1.0;
   } else {
     /* Outport: '<Root>/BackRight_Drive_DutyCycle' */
-    Code_Gen_Model_Y.BackRight_Drive_DutyCycle = Rot_Mat_idx_0;
+    Code_Gen_Model_Y.BackRight_Drive_DutyCycle = rtb_thetay_f;
   }
 
   /* End of Saturate: '<S321>/Saturation2' */
@@ -6877,20 +6877,20 @@ void Code_Gen_Model_step(void)
    *
    *  Store in Global RAM
    */
-  Rot_Mat_idx_0 = rtb_Hypot_o - Code_Gen_Model_DW.UD_DSTATE_ll;
+  rtb_thetay_f = rtb_Hypot_o - Code_Gen_Model_DW.UD_DSTATE_ll;
 
   /* Saturate: '<S324>/Saturation' */
-  if (Rot_Mat_idx_0 > Steering_Motor_Control_D_UL) {
-    Rot_Mat_idx_0 = Steering_Motor_Control_D_UL;
-  } else if (Rot_Mat_idx_0 < Steering_Motor_Control_D_LL) {
-    Rot_Mat_idx_0 = Steering_Motor_Control_D_LL;
+  if (rtb_thetay_f > Steering_Motor_Control_D_UL) {
+    rtb_thetay_f = Steering_Motor_Control_D_UL;
+  } else if (rtb_thetay_f < Steering_Motor_Control_D_LL) {
+    rtb_thetay_f = Steering_Motor_Control_D_LL;
   }
 
   /* Sum: '<S324>/Add' incorporates:
    *  Gain: '<S324>/Gain1'
    *  Saturate: '<S324>/Saturation'
    */
-  rtb_Add_lw = (Steering_Motor_Control_P * rtb_thetay_g) + Rot_Mat_idx_0;
+  rtb_Add_lw = (Steering_Motor_Control_P * rtb_thetay_g) + rtb_thetay_f;
 
   /* Sum: '<S324>/Subtract' incorporates:
    *  Constant: '<S324>/Constant'
@@ -6941,18 +6941,18 @@ void Code_Gen_Model_step(void)
   /* End of Saturate: '<S324>/Saturation1' */
 
   /* Sum: '<S324>/Add1' */
-  Rot_Mat_idx_0 = rtb_Add_lw + rtb_Sum2_cg;
+  rtb_thetay_f = rtb_Add_lw + rtb_Sum2_cg;
 
   /* Saturate: '<S324>/Saturation2' */
-  if (Rot_Mat_idx_0 > 1.0) {
+  if (rtb_thetay_f > 1.0) {
     /* Outport: '<Root>/BackRight_Steer_DutyCycle' */
     Code_Gen_Model_Y.BackRight_Steer_DutyCycle = 1.0;
-  } else if (Rot_Mat_idx_0 < -1.0) {
+  } else if (rtb_thetay_f < -1.0) {
     /* Outport: '<Root>/BackRight_Steer_DutyCycle' */
     Code_Gen_Model_Y.BackRight_Steer_DutyCycle = -1.0;
   } else {
     /* Outport: '<Root>/BackRight_Steer_DutyCycle' */
-    Code_Gen_Model_Y.BackRight_Steer_DutyCycle = Rot_Mat_idx_0;
+    Code_Gen_Model_Y.BackRight_Steer_DutyCycle = rtb_thetay_f;
   }
 
   /* End of Saturate: '<S324>/Saturation2' */
@@ -7386,20 +7386,20 @@ void Code_Gen_Model_step(void)
     /* Sum: '<S81>/Add1' incorporates:
      *  Switch: '<S10>/Switch'
      */
-    Rot_Mat_idx_0 = rtb_Add_l + rtb_Add_lw;
+    rtb_thetay_f = rtb_Add_l + rtb_Add_lw;
 
     /* Saturate: '<S81>/Saturation2' incorporates:
      *  Switch: '<S10>/Switch'
      */
-    if (Rot_Mat_idx_0 > 1.0) {
+    if (rtb_thetay_f > 1.0) {
       /* Outport: '<Root>/Shooter_Left_Motor_DutyCycle' */
       Code_Gen_Model_Y.Shooter_Left_Motor_DutyCycle = 1.0;
-    } else if (Rot_Mat_idx_0 < -1.0) {
+    } else if (rtb_thetay_f < -1.0) {
       /* Outport: '<Root>/Shooter_Left_Motor_DutyCycle' */
       Code_Gen_Model_Y.Shooter_Left_Motor_DutyCycle = -1.0;
     } else {
       /* Outport: '<Root>/Shooter_Left_Motor_DutyCycle' */
-      Code_Gen_Model_Y.Shooter_Left_Motor_DutyCycle = Rot_Mat_idx_0;
+      Code_Gen_Model_Y.Shooter_Left_Motor_DutyCycle = rtb_thetay_f;
     }
 
     /* End of Saturate: '<S81>/Saturation2' */
@@ -7502,20 +7502,20 @@ void Code_Gen_Model_step(void)
       /* Sum: '<S82>/Add1' incorporates:
        *  Switch: '<S10>/Switch1'
        */
-      Rot_Mat_idx_0 = rtb_thetay_g + rtb_Add_l;
+      rtb_thetay_f = rtb_thetay_g + rtb_Add_l;
 
       /* Saturate: '<S82>/Saturation2' incorporates:
        *  Switch: '<S10>/Switch1'
        */
-      if (Rot_Mat_idx_0 > 1.0) {
+      if (rtb_thetay_f > 1.0) {
         /* Outport: '<Root>/Shooter_Right_Motor_DutyCycle' */
         Code_Gen_Model_Y.Shooter_Right_Motor_DutyCycle = 1.0;
-      } else if (Rot_Mat_idx_0 < -1.0) {
+      } else if (rtb_thetay_f < -1.0) {
         /* Outport: '<Root>/Shooter_Right_Motor_DutyCycle' */
         Code_Gen_Model_Y.Shooter_Right_Motor_DutyCycle = -1.0;
       } else {
         /* Outport: '<Root>/Shooter_Right_Motor_DutyCycle' */
-        Code_Gen_Model_Y.Shooter_Right_Motor_DutyCycle = Rot_Mat_idx_0;
+        Code_Gen_Model_Y.Shooter_Right_Motor_DutyCycle = rtb_thetay_f;
       }
 
       /* End of Saturate: '<S82>/Saturation2' */
@@ -7929,24 +7929,13 @@ void Code_Gen_Model_step(void)
    *  Constant: '<S16>/Constant23'
    *  Constant: '<S16>/Constant24'
    *  Constant: '<S16>/Constant28'
-   *  Constant: '<S16>/Constant29'
    *  Constant: '<S16>/Constant30'
    *  Constant: '<S16>/Constant31'
    */
-  rtb_MatrixConcatenate_b_idx_0 = sqrt((Code_Gen_Model_B.Desired_Back_AA_Length *
-    Code_Gen_Model_B.Desired_Back_AA_Length) - 645.16) - 421.79999999999995;
-  if (rtb_MatrixConcatenate_b_idx_0 <= 98.425) {
-    rtb_thetay_f = 79.375;
-    rtb_MatrixConcatenate_b_idx_0 = 19.049999999999997;
-  } else if (rtb_MatrixConcatenate_b_idx_0 <= 188.425) {
-    rtb_thetay_f = rtb_MatrixConcatenate_b_idx_0 - 19.049999999999997;
-    rtb_MatrixConcatenate_b_idx_0 = 19.049999999999997;
-  } else {
-    rtb_thetay_f = fmin(fmax(((((rtb_MatrixConcatenate_b_idx_0 - 90.0) -
-      19.049999999999997) - 79.375) * 0.32) + 169.375, 79.375), 317.0);
-    rtb_MatrixConcatenate_b_idx_0 = fmin(fmax(rtb_MatrixConcatenate_b_idx_0 -
-      rtb_thetay_f, 19.049999999999997), 334.0);
-  }
+  rtb_MatrixConcatenate_b_idx_0 = fmin(fmax((sqrt
+    ((Code_Gen_Model_B.Desired_Back_AA_Length *
+      Code_Gen_Model_B.Desired_Back_AA_Length) - 645.16) - 421.79999999999995) -
+    79.375, 19.049999999999997), 334.0);
 
   /* Switch: '<S180>/Init' incorporates:
    *  UnitDelay: '<S180>/FixPt Unit Delay1'
@@ -8022,22 +8011,22 @@ void Code_Gen_Model_step(void)
       /* Sum: '<S160>/Subtract' incorporates:
        *  Constant: '<S160>/Constant'
        */
-      rtb_Switch6 = AA_TC_UL - rtb_MatrixConcatenate_b_idx_0;
+      rtb_thetay_f = AA_TC_UL - rtb_MatrixConcatenate_b_idx_0;
 
       /* Switch: '<S170>/Switch2' incorporates:
        *  RelationalOperator: '<S170>/LowerRelop1'
        */
-      if (!(rtb_thetay_g > rtb_Switch6)) {
+      if (!(rtb_thetay_g > rtb_thetay_f)) {
         /* Sum: '<S160>/Subtract1' incorporates:
          *  Constant: '<S160>/Constant1'
          */
-        rtb_Switch6 = AA_TC_LL - rtb_MatrixConcatenate_b_idx_0;
+        rtb_thetay_f = AA_TC_LL - rtb_MatrixConcatenate_b_idx_0;
 
         /* Switch: '<S170>/Switch' incorporates:
          *  RelationalOperator: '<S170>/UpperRelop'
          */
-        if (!(rtb_thetay_g < rtb_Switch6)) {
-          rtb_Switch6 = rtb_thetay_g;
+        if (!(rtb_thetay_g < rtb_thetay_f)) {
+          rtb_thetay_f = rtb_thetay_g;
         }
 
         /* End of Switch: '<S170>/Switch' */
@@ -8046,10 +8035,12 @@ void Code_Gen_Model_step(void)
       /* End of Switch: '<S170>/Switch2' */
 
       /* Saturate: '<S160>/Saturation1' */
-      if (rtb_Switch6 > AA_Integral_UL) {
+      if (rtb_thetay_f > AA_Integral_UL) {
         rtb_Switch6 = AA_Integral_UL;
-      } else if (rtb_Switch6 < AA_Integral_LL) {
+      } else if (rtb_thetay_f < AA_Integral_LL) {
         rtb_Switch6 = AA_Integral_LL;
+      } else {
+        rtb_Switch6 = rtb_thetay_f;
       }
 
       /* End of Saturate: '<S160>/Saturation1' */
@@ -8072,18 +8063,18 @@ void Code_Gen_Model_step(void)
       Code_Gen_Model_U.Gamepad_Stick_Left_Y;
   } else {
     /* Sum: '<S160>/Add1' */
-    Rot_Mat_idx_0 = rtb_MatrixConcatenate_b_idx_0 + rtb_Switch6;
+    rtb_thetay_f = rtb_MatrixConcatenate_b_idx_0 + rtb_Switch6;
 
     /* Saturate: '<S160>/Saturation2' */
-    if (Rot_Mat_idx_0 > AA_TC_UL) {
+    if (rtb_thetay_f > AA_TC_UL) {
       /* Outport: '<Root>/Back_Upper_Arm_DutyCycle' */
       Code_Gen_Model_Y.Back_Upper_Arm_DutyCycle = AA_TC_UL;
-    } else if (Rot_Mat_idx_0 < AA_TC_LL) {
+    } else if (rtb_thetay_f < AA_TC_LL) {
       /* Outport: '<Root>/Back_Upper_Arm_DutyCycle' */
       Code_Gen_Model_Y.Back_Upper_Arm_DutyCycle = AA_TC_LL;
     } else {
       /* Outport: '<Root>/Back_Upper_Arm_DutyCycle' */
-      Code_Gen_Model_Y.Back_Upper_Arm_DutyCycle = Rot_Mat_idx_0;
+      Code_Gen_Model_Y.Back_Upper_Arm_DutyCycle = rtb_thetay_f;
     }
 
     /* End of Saturate: '<S160>/Saturation2' */
@@ -8099,7 +8090,7 @@ void Code_Gen_Model_step(void)
    *  RelationalOperator: '<S163>/Relational Operator'
    *  UnitDelay: '<S163>/Unit Delay'
    */
-  if (Code_Gen_Model_B.Desired_Back_Lower_Dist < 169.375) {
+  if (Code_Gen_Model_B.Desired_Back_Lower_Dist < 79.375) {
     Top_Front_Pivot_y = 2.0;
   } else {
     Top_Front_Pivot_y = 1.0;
@@ -8113,27 +8104,26 @@ void Code_Gen_Model_step(void)
   rtb_thetay_g = AA_Position_Back_Inc_RL * Top_Front_Pivot_y;
 
   /* Switch: '<S177>/Init' incorporates:
+   *  Constant: '<S16>/Constant28'
    *  MATLAB Function: '<S16>/Back_AA_To_Extentions'
    *  UnitDelay: '<S177>/FixPt Unit Delay1'
    *  UnitDelay: '<S177>/FixPt Unit Delay2'
    */
   if (Code_Gen_Model_DW.FixPtUnitDelay2_DSTATE_l5 != 0) {
-    rtb_MatrixConcatenate_b_idx_0 = rtb_thetay_f;
+    rtb_MatrixConcatenate_b_idx_0 = 79.375;
   } else {
     rtb_MatrixConcatenate_b_idx_0 = Code_Gen_Model_B.Desired_Back_Lower_Dist;
   }
 
   /* End of Switch: '<S177>/Init' */
 
-  /* Sum: '<S175>/Sum1' incorporates:
-   *  MATLAB Function: '<S16>/Back_AA_To_Extentions'
-   */
-  rtb_thetay_f -= rtb_MatrixConcatenate_b_idx_0;
-
   /* Switch: '<S176>/Switch2' incorporates:
+   *  Constant: '<S16>/Constant28'
+   *  MATLAB Function: '<S16>/Back_AA_To_Extentions'
    *  RelationalOperator: '<S176>/LowerRelop1'
+   *  Sum: '<S175>/Sum1'
    */
-  if (!(rtb_thetay_f > rtb_thetay_g)) {
+  if (!((79.375 - rtb_MatrixConcatenate_b_idx_0) > rtb_thetay_g)) {
     /* Product: '<S163>/Product1' incorporates:
      *  Constant: '<S163>/Constant1'
      */
@@ -8142,8 +8132,8 @@ void Code_Gen_Model_step(void)
     /* Switch: '<S176>/Switch' incorporates:
      *  RelationalOperator: '<S176>/UpperRelop'
      */
-    if (!(rtb_thetay_f < rtb_thetay_g)) {
-      rtb_thetay_g = rtb_thetay_f;
+    if (!((79.375 - rtb_MatrixConcatenate_b_idx_0) < rtb_thetay_g)) {
+      rtb_thetay_g = 79.375 - rtb_MatrixConcatenate_b_idx_0;
     }
 
     /* End of Switch: '<S176>/Switch' */
@@ -8239,18 +8229,18 @@ void Code_Gen_Model_step(void)
       Code_Gen_Model_U.Gamepad_Stick_Left_X;
   } else {
     /* Sum: '<S161>/Add1' */
-    Rot_Mat_idx_0 = rtb_MatrixConcatenate_b_idx_0 + Top_Front_Pivot_y;
+    rtb_thetay_f = rtb_MatrixConcatenate_b_idx_0 + Top_Front_Pivot_y;
 
     /* Saturate: '<S161>/Saturation2' */
-    if (Rot_Mat_idx_0 > AA_TC_UL) {
+    if (rtb_thetay_f > AA_TC_UL) {
       /* Outport: '<Root>/Back_Lower_Arm_DutyCycle' */
       Code_Gen_Model_Y.Back_Lower_Arm_DutyCycle = AA_TC_UL;
-    } else if (Rot_Mat_idx_0 < AA_TC_LL) {
+    } else if (rtb_thetay_f < AA_TC_LL) {
       /* Outport: '<Root>/Back_Lower_Arm_DutyCycle' */
       Code_Gen_Model_Y.Back_Lower_Arm_DutyCycle = AA_TC_LL;
     } else {
       /* Outport: '<Root>/Back_Lower_Arm_DutyCycle' */
-      Code_Gen_Model_Y.Back_Lower_Arm_DutyCycle = Rot_Mat_idx_0;
+      Code_Gen_Model_Y.Back_Lower_Arm_DutyCycle = rtb_thetay_f;
     }
 
     /* End of Saturate: '<S161>/Saturation2' */
@@ -8399,18 +8389,18 @@ void Code_Gen_Model_step(void)
       Code_Gen_Model_U.Gamepad_Stick_Right_Y;
   } else {
     /* Sum: '<S162>/Add1' */
-    Rot_Mat_idx_0 = rtb_MatrixConcatenate_b_idx_0 + d;
+    rtb_thetay_f = rtb_MatrixConcatenate_b_idx_0 + d;
 
     /* Saturate: '<S162>/Saturation2' */
-    if (Rot_Mat_idx_0 > AA_TC_UL) {
+    if (rtb_thetay_f > AA_TC_UL) {
       /* Outport: '<Root>/Front_Arm_DutyCycle' */
       Code_Gen_Model_Y.Front_Arm_DutyCycle = AA_TC_UL;
-    } else if (Rot_Mat_idx_0 < AA_TC_LL) {
+    } else if (rtb_thetay_f < AA_TC_LL) {
       /* Outport: '<Root>/Front_Arm_DutyCycle' */
       Code_Gen_Model_Y.Front_Arm_DutyCycle = AA_TC_LL;
     } else {
       /* Outport: '<Root>/Front_Arm_DutyCycle' */
-      Code_Gen_Model_Y.Front_Arm_DutyCycle = Rot_Mat_idx_0;
+      Code_Gen_Model_Y.Front_Arm_DutyCycle = rtb_thetay_f;
     }
 
     /* End of Saturate: '<S162>/Saturation2' */
@@ -8494,31 +8484,31 @@ void Code_Gen_Model_step(void)
      *
      *  Store in Global RAM
      */
-    Rot_Mat_idx_0 = cos_alpha - Code_Gen_Model_DW.UD_DSTATE_ii;
+    rtb_thetay_f = cos_alpha - Code_Gen_Model_DW.UD_DSTATE_ii;
 
     /* Saturate: '<S159>/Saturation' */
-    if (Rot_Mat_idx_0 > BS_Deriv_UL) {
-      Rot_Mat_idx_0 = BS_Deriv_UL;
-    } else if (Rot_Mat_idx_0 < BS_Deriv_LL) {
-      Rot_Mat_idx_0 = BS_Deriv_LL;
+    if (rtb_thetay_f > BS_Deriv_UL) {
+      rtb_thetay_f = BS_Deriv_UL;
+    } else if (rtb_thetay_f < BS_Deriv_LL) {
+      rtb_thetay_f = BS_Deriv_LL;
     }
 
     /* Sum: '<S159>/Add' incorporates:
      *  Gain: '<S159>/Gain1'
      *  Saturate: '<S159>/Saturation'
      */
-    Rot_Mat_idx_0 += BS_Prop_Gain * rtb_MatrixConcatenate_b_idx_0;
+    rtb_thetay_f += BS_Prop_Gain * rtb_MatrixConcatenate_b_idx_0;
 
     /* Saturate: '<S159>/Saturation2' */
-    if (Rot_Mat_idx_0 > BS_TC_UL) {
+    if (rtb_thetay_f > BS_TC_UL) {
       /* Outport: '<Root>/Ball_Screw_Arm_DutyCycle' */
       Code_Gen_Model_Y.Ball_Screw_Arm_DutyCycle = BS_TC_UL;
-    } else if (Rot_Mat_idx_0 < BS_TC_LL) {
+    } else if (rtb_thetay_f < BS_TC_LL) {
       /* Outport: '<Root>/Ball_Screw_Arm_DutyCycle' */
       Code_Gen_Model_Y.Ball_Screw_Arm_DutyCycle = BS_TC_LL;
     } else {
       /* Outport: '<Root>/Ball_Screw_Arm_DutyCycle' */
-      Code_Gen_Model_Y.Ball_Screw_Arm_DutyCycle = Rot_Mat_idx_0;
+      Code_Gen_Model_Y.Ball_Screw_Arm_DutyCycle = rtb_thetay_f;
     }
 
     /* End of Saturate: '<S159>/Saturation2' */
