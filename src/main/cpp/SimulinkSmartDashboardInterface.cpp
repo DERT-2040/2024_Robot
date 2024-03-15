@@ -223,7 +223,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Boost_Trigger_Decreasing_Limit__Entry = NTtable_Tune->GetEntry("Boost_Trigger_Decreasing_Limit");
     NTinst.AddListener(__Boost_Trigger_Decreasing_Limit__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Boost_Trigger_Decreasing_Limit = event.GetValueEventData()->value.GetDouble();});
-    __Boost_Trigger_Decreasing_Limit__Entry.SetDouble(-0.044444);
+    __Boost_Trigger_Decreasing_Limit__Entry.SetDouble(-0.1);
  
     __Boost_Trigger_High_Speed__Entry = NTtable_Tune->GetEntry("Boost_Trigger_High_Speed");
     NTinst.AddListener(__Boost_Trigger_High_Speed__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Boost_Trigger_High_Speed = event.GetValueEventData()->value.GetDouble();});
@@ -231,7 +231,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Boost_Trigger_Increasing_Limit__Entry = NTtable_Tune->GetEntry("Boost_Trigger_Increasing_Limit");
     NTinst.AddListener(__Boost_Trigger_Increasing_Limit__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Boost_Trigger_Increasing_Limit = event.GetValueEventData()->value.GetDouble();});
-    __Boost_Trigger_Increasing_Limit__Entry.SetDouble(0.04);
+    __Boost_Trigger_Increasing_Limit__Entry.SetDouble(0.1);
  
     __Boost_Trigger_Low_Speed__Entry = NTtable_Tune->GetEntry("Boost_Trigger_Low_Speed");
     NTinst.AddListener(__Boost_Trigger_Low_Speed__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Boost_Trigger_Low_Speed = event.GetValueEventData()->value.GetDouble();});
@@ -493,10 +493,6 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     NTinst.AddListener(__Stage_Height__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Stage_Height = event.GetValueEventData()->value.GetDouble();});
     __Stage_Height__Entry.SetDouble(533.4);
  
-    __Steering_Abs_Deadband_Range__Entry = NTtable_Tune->GetEntry("Steering_Abs_Deadband_Range");
-    NTinst.AddListener(__Steering_Abs_Deadband_Range__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Abs_Deadband_Range = event.GetValueEventData()->value.GetDouble();});
-    __Steering_Abs_Deadband_Range__Entry.SetDouble(0.7);
- 
     __Steering_Heading_Control_D__Entry = NTtable_Tune->GetEntry("Steering_Heading_Control_D");
     NTinst.AddListener(__Steering_Heading_Control_D__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Heading_Control_D = event.GetValueEventData()->value.GetDouble();});
     __Steering_Heading_Control_D__Entry.SetDouble(0);
@@ -559,11 +555,11 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Steering_Localized_Cmd_Rate_Limit_Dec__Entry = NTtable_Tune->GetEntry("Steering_Localized_Cmd_Rate_Limit_Dec");
     NTinst.AddListener(__Steering_Localized_Cmd_Rate_Limit_Dec__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Localized_Cmd_Rate_Limit_Dec = event.GetValueEventData()->value.GetDouble();});
-    __Steering_Localized_Cmd_Rate_Limit_Dec__Entry.SetDouble(-1);
+    __Steering_Localized_Cmd_Rate_Limit_Dec__Entry.SetDouble(-1.5);
  
     __Steering_Localized_Cmd_Rate_Limit_Inc__Entry = NTtable_Tune->GetEntry("Steering_Localized_Cmd_Rate_Limit_Inc");
     NTinst.AddListener(__Steering_Localized_Cmd_Rate_Limit_Inc__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Localized_Cmd_Rate_Limit_Inc = event.GetValueEventData()->value.GetDouble();});
-    __Steering_Localized_Cmd_Rate_Limit_Inc__Entry.SetDouble(1);
+    __Steering_Localized_Cmd_Rate_Limit_Inc__Entry.SetDouble(1.5);
  
     __Steering_Motor_Control_D__Entry = NTtable_Tune->GetEntry("Steering_Motor_Control_D");
     NTinst.AddListener(__Steering_Motor_Control_D__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Motor_Control_D = event.GetValueEventData()->value.GetDouble();});
@@ -774,6 +770,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Is_Absolute_Translation__Entry = NTtable_Inport->GetEntry("Is_Absolute_Translation");
     __Joystick_Left_B1__Entry = NTtable_Inport->GetEntry("Joystick_Left_B1");
     __Joystick_Left_B10__Entry = NTtable_Inport->GetEntry("Joystick_Left_B10");
+    __Joystick_Left_B14__Entry = NTtable_Inport->GetEntry("Joystick_Left_B14");
     __Joystick_Left_B2__Entry = NTtable_Inport->GetEntry("Joystick_Left_B2");
     __Joystick_Left_B3__Entry = NTtable_Inport->GetEntry("Joystick_Left_B3");
     __Joystick_Left_B4__Entry = NTtable_Inport->GetEntry("Joystick_Left_B4");
@@ -785,7 +782,6 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Joystick_Left_Z__Entry = NTtable_Inport->GetEntry("Joystick_Left_Z");
     __Joystick_Right_B1__Entry = NTtable_Inport->GetEntry("Joystick_Right_B1");
     __Joystick_Right_B10__Entry = NTtable_Inport->GetEntry("Joystick_Right_B10");
-    __Joystick_Right_B14__Entry = NTtable_Inport->GetEntry("Joystick_Right_B14");
     __Joystick_Right_B2__Entry = NTtable_Inport->GetEntry("Joystick_Right_B2");
     __Joystick_Right_B3__Entry = NTtable_Inport->GetEntry("Joystick_Right_B3");
     __Joystick_Right_B4__Entry = NTtable_Inport->GetEntry("Joystick_Right_B4");
@@ -831,6 +827,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Align_Speaker__Entry = NTtable_TPoint->GetEntry("Align_Speaker");
     __Align_Trap__Entry = NTtable_TPoint->GetEntry("Align_Trap");
     __ArmStateRequest__Entry = NTtable_TPoint->GetEntry("ArmStateRequest");
+    __AutoState__Entry = NTtable_TPoint->GetEntry("AutoState");
     __BL_Desired_Module_Angle__Entry = NTtable_TPoint->GetEntry("BL_Desired_Module_Angle");
     __BL_Desired_Wheel_Speed__Entry = NTtable_TPoint->GetEntry("BL_Desired_Wheel_Speed");
     __BL_Desired_Wheel_Speed_in__Entry = NTtable_TPoint->GetEntry("BL_Desired_Wheel_Speed_in");
@@ -997,6 +994,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Is_Absolute_Translation__Entry.SetDouble(Code_Gen_Model_U.Is_Absolute_Translation);
     __Joystick_Left_B1__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_B1);
     __Joystick_Left_B10__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_B10);
+    __Joystick_Left_B14__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_B14);
     __Joystick_Left_B2__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_B2);
     __Joystick_Left_B3__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_B3);
     __Joystick_Left_B4__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_B4);
@@ -1008,7 +1006,6 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Joystick_Left_Z__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_Z);
     __Joystick_Right_B1__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_B1);
     __Joystick_Right_B10__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_B10);
-    __Joystick_Right_B14__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_B14);
     __Joystick_Right_B2__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_B2);
     __Joystick_Right_B3__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_B3);
     __Joystick_Right_B4__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_B4);
@@ -1052,6 +1049,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Align_Speaker__Entry.SetDouble(Code_Gen_Model_B.Align_Speaker);
     __Align_Trap__Entry.SetDouble(Code_Gen_Model_B.Align_Trap);
     __ArmStateRequest__Entry.SetDouble(Code_Gen_Model_B.ArmStateRequest);
+    __AutoState__Entry.SetDouble(Code_Gen_Model_B.AutoState);
     __BL_Desired_Module_Angle__Entry.SetDouble(Code_Gen_Model_B.BL_Desired_Module_Angle);
     __BL_Desired_Wheel_Speed__Entry.SetDouble(Code_Gen_Model_B.BL_Desired_Wheel_Speed);
     __BL_Desired_Wheel_Speed_in__Entry.SetDouble(Code_Gen_Model_B.BL_Desired_Wheel_Speed_in);

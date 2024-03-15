@@ -133,7 +133,6 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Stage_Angle__Entry;
         nt::NetworkTableEntry __Stage_Gap__Entry;
         nt::NetworkTableEntry __Stage_Height__Entry;
-        nt::NetworkTableEntry __Steering_Abs_Deadband_Range__Entry;
         nt::NetworkTableEntry __Steering_Heading_Control_D__Entry;
         nt::NetworkTableEntry __Steering_Heading_Control_D_FilterCoeff__Entry;
         nt::NetworkTableEntry __Steering_Heading_Control_D_LL__Entry;
@@ -250,6 +249,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Is_Absolute_Translation__Entry;
         nt::NetworkTableEntry __Joystick_Left_B1__Entry;
         nt::NetworkTableEntry __Joystick_Left_B10__Entry;
+        nt::NetworkTableEntry __Joystick_Left_B14__Entry;
         nt::NetworkTableEntry __Joystick_Left_B2__Entry;
         nt::NetworkTableEntry __Joystick_Left_B3__Entry;
         nt::NetworkTableEntry __Joystick_Left_B4__Entry;
@@ -261,7 +261,6 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Joystick_Left_Z__Entry;
         nt::NetworkTableEntry __Joystick_Right_B1__Entry;
         nt::NetworkTableEntry __Joystick_Right_B10__Entry;
-        nt::NetworkTableEntry __Joystick_Right_B14__Entry;
         nt::NetworkTableEntry __Joystick_Right_B2__Entry;
         nt::NetworkTableEntry __Joystick_Right_B3__Entry;
         nt::NetworkTableEntry __Joystick_Right_B4__Entry;
@@ -306,6 +305,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Align_Speaker__Entry;
         nt::NetworkTableEntry __Align_Trap__Entry;
         nt::NetworkTableEntry __ArmStateRequest__Entry;
+        nt::NetworkTableEntry __AutoState__Entry;
         nt::NetworkTableEntry __BL_Desired_Module_Angle__Entry;
         nt::NetworkTableEntry __BL_Desired_Wheel_Speed__Entry;
         nt::NetworkTableEntry __BL_Desired_Wheel_Speed_in__Entry;

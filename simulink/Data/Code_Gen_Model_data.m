@@ -53,7 +53,7 @@ Gamepad_Stick_Neg_Threshold = -0.5;
 Gamepad_Stick_Pos_Threshold = 0.5;
 
 % Absolute Steering Circular Deadband
-Steering_Abs_Deadband_Range = 0.7;
+% Steering_Abs_Deadband_Range = 0.7;
 
 % modulation curve 
 temp_x = [0.3 0.35  0.4 0.45 0.5  0.6  0.7  0.8 0.9  1.0];
@@ -81,8 +81,8 @@ Steering_Relative_Gain = 1.3;
 Boost_Trigger_High_Speed = 4.0; % 3.658; % m/s
 Boost_Trigger_Low_Speed = 1.5; % m/s
 
-Boost_Trigger_Increasing_Limit = 2/1*0.02;
-Boost_Trigger_Decreasing_Limit = -2/0.9*0.02;
+Boost_Trigger_Increasing_Limit = (Boost_Trigger_High_Speed-Boost_Trigger_Low_Speed)/0.5*t_sample;
+Boost_Trigger_Decreasing_Limit = -(Boost_Trigger_High_Speed-Boost_Trigger_Low_Speed)/0.5*t_sample;
 
 % Joystick Twist Axis Gains
 Steering_Twist_Gain = -0.015;
@@ -241,8 +241,8 @@ Translation_Speed_NonZero_Final_Scale_Factor = 0.05;
 
 
 %% Steering Localized Cmd Rate Limit
-Steering_Localized_Cmd_Rate_Limit_Inc = 1*t_sample/0.02;
-Steering_Localized_Cmd_Rate_Limit_Dec = -1*t_sample/0.02;
+Steering_Localized_Cmd_Rate_Limit_Inc = 1.5;
+Steering_Localized_Cmd_Rate_Limit_Dec = -1.5;
 Steering_Localized_Cmd_Approach_Zero_Error_Thresh = 0.2;
 Steering_Localized_Cmd_Approach_Zero_Final_Thresh = 0.01;
 Steering_Localized_Cmd_NonZero_Error_Thresh = 0.2;
