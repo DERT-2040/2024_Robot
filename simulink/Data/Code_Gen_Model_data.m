@@ -454,26 +454,28 @@ BS_TC_LL = -0.3;
 
 %% Climber Control
 % Distance gain
-Dist_Per_Rev_Climber = 13.625/73 * 25.4; % 5:1 gear box, 4:1 gear box, 2:1 gear box, 1.75 inch diameter sprocket, 25.4 mm per inch
+% Dist_Per_Rev_Climber = 13.625/73 * 25.4; % 5:1 gear box, 4:1 gear box, 2:1 gear box, 1.75 inch diameter sprocket, 25.4 mm per inch
 % Dist_Climber_Cal_Tol = 5; % mm, Argos Arms
+% 
+% % Desired Position Limits
+% Climber_Distance_LL = 0.5*25.4;  % mm, command hooks up a little bit at the start to avoid commanding to the lower stop
+% Climber_Distance_UL = 13.5*25.4;  % mm, upper limit to avoid commanding at the upper stop
+% 
+% % Rate limit
+% Climber_Position_Inc_RL = 5*25.4*t_sample; % mm/loop
+% Climber_Position_Dec_RL = -5*25.4*t_sample; % mm/loop
+% 
+% % P+I
+% Climber_Prop_Gain = 0.01;
+% Climber_Integral_Gain = 0.0002*0;
+% Climber_Integral_IC = 0;
+% Climber_Integral_UL = 0.5;
+% Climber_Integral_LL = -0.5;
+% Climber_TC_UL = 1.0;
+% Climber_TC_LL = -1.0;
 
-% Desired Position Limits
-Climber_Distance_LL = 0.5*25.4;  % mm, command hooks up a little bit at the start to avoid commanding to the lower stop
-Climber_Distance_UL = 13.5*25.4;  % mm, upper limit to avoid commanding at the upper stop
-
-% Rate limit
-Climber_Position_Inc_RL = 5*25.4*t_sample; % mm/loop
-Climber_Position_Dec_RL = -5*25.4*t_sample; % mm/loop
-
-% P+I
-Climber_Prop_Gain = 0.01;
-Climber_Integral_Gain = 0.0002*0;
-Climber_Integral_IC = 0;
-Climber_Integral_UL = 0.5;
-Climber_Integral_LL = -0.5;
-Climber_TC_UL = 1.0;
-Climber_TC_LL = -1.0;
-
+Climber_DutyCycle_Pos = 0.2;
+Climber_DutyCycle_Neg = -1;
 
 
 %% Intake and Shooter Parameters

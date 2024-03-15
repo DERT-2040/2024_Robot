@@ -27,19 +27,19 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __AA_Position_Back_Dec_RL__Entry = NTtable_Tune->GetEntry("AA_Position_Back_Dec_RL");
     NTinst.AddListener(__AA_Position_Back_Dec_RL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AA_Position_Back_Dec_RL = event.GetValueEventData()->value.GetDouble();});
-    __AA_Position_Back_Dec_RL__Entry.SetDouble(-4);
+    __AA_Position_Back_Dec_RL__Entry.SetDouble(-2.5);
  
     __AA_Position_Back_Inc_RL__Entry = NTtable_Tune->GetEntry("AA_Position_Back_Inc_RL");
     NTinst.AddListener(__AA_Position_Back_Inc_RL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AA_Position_Back_Inc_RL = event.GetValueEventData()->value.GetDouble();});
-    __AA_Position_Back_Inc_RL__Entry.SetDouble(4);
+    __AA_Position_Back_Inc_RL__Entry.SetDouble(2.5);
  
     __AA_Position_Front_Dec_RL__Entry = NTtable_Tune->GetEntry("AA_Position_Front_Dec_RL");
     NTinst.AddListener(__AA_Position_Front_Dec_RL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AA_Position_Front_Dec_RL = event.GetValueEventData()->value.GetDouble();});
-    __AA_Position_Front_Dec_RL__Entry.SetDouble(-8);
+    __AA_Position_Front_Dec_RL__Entry.SetDouble(-6);
  
     __AA_Position_Front_Inc_RL__Entry = NTtable_Tune->GetEntry("AA_Position_Front_Inc_RL");
     NTinst.AddListener(__AA_Position_Front_Inc_RL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AA_Position_Front_Inc_RL = event.GetValueEventData()->value.GetDouble();});
-    __AA_Position_Front_Inc_RL__Entry.SetDouble(8);
+    __AA_Position_Front_Inc_RL__Entry.SetDouble(6);
  
     __AA_Prop_Gain__Entry = NTtable_Tune->GetEntry("AA_Prop_Gain");
     NTinst.AddListener(__AA_Prop_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AA_Prop_Gain = event.GetValueEventData()->value.GetDouble();});
@@ -175,15 +175,15 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Amp_Angle__Entry = NTtable_Tune->GetEntry("Amp_Angle");
     NTinst.AddListener(__Amp_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Amp_Angle = event.GetValueEventData()->value.GetDouble();});
-    __Amp_Angle__Entry.SetDouble(-40);
+    __Amp_Angle__Entry.SetDouble(-35);
  
     __Amp_Gap__Entry = NTtable_Tune->GetEntry("Amp_Gap");
     NTinst.AddListener(__Amp_Gap__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Amp_Gap = event.GetValueEventData()->value.GetDouble();});
-    __Amp_Gap__Entry.SetDouble(571.5);
+    __Amp_Gap__Entry.SetDouble(650);
  
     __Amp_Height__Entry = NTtable_Tune->GetEntry("Amp_Height");
     NTinst.AddListener(__Amp_Height__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Amp_Height = event.GetValueEventData()->value.GetDouble();});
-    __Amp_Height__Entry.SetDouble(919.48);
+    __Amp_Height__Entry.SetDouble(1000);
  
     __BS_Deriv_FC__Entry = NTtable_Tune->GetEntry("BS_Deriv_FC");
     NTinst.AddListener(__BS_Deriv_FC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {BS_Deriv_FC = event.GetValueEventData()->value.GetDouble();});
@@ -237,49 +237,13 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     NTinst.AddListener(__Boost_Trigger_Low_Speed__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Boost_Trigger_Low_Speed = event.GetValueEventData()->value.GetDouble();});
     __Boost_Trigger_Low_Speed__Entry.SetDouble(1.5);
  
-    __Climber_Distance_LL__Entry = NTtable_Tune->GetEntry("Climber_Distance_LL");
-    NTinst.AddListener(__Climber_Distance_LL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Climber_Distance_LL = event.GetValueEventData()->value.GetDouble();});
-    __Climber_Distance_LL__Entry.SetDouble(12.7);
+    __Climber_DutyCycle_Neg__Entry = NTtable_Tune->GetEntry("Climber_DutyCycle_Neg");
+    NTinst.AddListener(__Climber_DutyCycle_Neg__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Climber_DutyCycle_Neg = event.GetValueEventData()->value.GetDouble();});
+    __Climber_DutyCycle_Neg__Entry.SetDouble(-1);
  
-    __Climber_Distance_UL__Entry = NTtable_Tune->GetEntry("Climber_Distance_UL");
-    NTinst.AddListener(__Climber_Distance_UL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Climber_Distance_UL = event.GetValueEventData()->value.GetDouble();});
-    __Climber_Distance_UL__Entry.SetDouble(342.9);
- 
-    __Climber_Integral_Gain__Entry = NTtable_Tune->GetEntry("Climber_Integral_Gain");
-    NTinst.AddListener(__Climber_Integral_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Climber_Integral_Gain = event.GetValueEventData()->value.GetDouble();});
-    __Climber_Integral_Gain__Entry.SetDouble(0.0002);
- 
-    __Climber_Integral_IC__Entry = NTtable_Tune->GetEntry("Climber_Integral_IC");
-    NTinst.AddListener(__Climber_Integral_IC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Climber_Integral_IC = event.GetValueEventData()->value.GetDouble();});
-    __Climber_Integral_IC__Entry.SetDouble(0);
- 
-    __Climber_Integral_LL__Entry = NTtable_Tune->GetEntry("Climber_Integral_LL");
-    NTinst.AddListener(__Climber_Integral_LL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Climber_Integral_LL = event.GetValueEventData()->value.GetDouble();});
-    __Climber_Integral_LL__Entry.SetDouble(-0.5);
- 
-    __Climber_Integral_UL__Entry = NTtable_Tune->GetEntry("Climber_Integral_UL");
-    NTinst.AddListener(__Climber_Integral_UL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Climber_Integral_UL = event.GetValueEventData()->value.GetDouble();});
-    __Climber_Integral_UL__Entry.SetDouble(0.5);
- 
-    __Climber_Position_Dec_RL__Entry = NTtable_Tune->GetEntry("Climber_Position_Dec_RL");
-    NTinst.AddListener(__Climber_Position_Dec_RL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Climber_Position_Dec_RL = event.GetValueEventData()->value.GetDouble();});
-    __Climber_Position_Dec_RL__Entry.SetDouble(-5.08);
- 
-    __Climber_Position_Inc_RL__Entry = NTtable_Tune->GetEntry("Climber_Position_Inc_RL");
-    NTinst.AddListener(__Climber_Position_Inc_RL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Climber_Position_Inc_RL = event.GetValueEventData()->value.GetDouble();});
-    __Climber_Position_Inc_RL__Entry.SetDouble(5.08);
- 
-    __Climber_Prop_Gain__Entry = NTtable_Tune->GetEntry("Climber_Prop_Gain");
-    NTinst.AddListener(__Climber_Prop_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Climber_Prop_Gain = event.GetValueEventData()->value.GetDouble();});
-    __Climber_Prop_Gain__Entry.SetDouble(0.01);
- 
-    __Climber_TC_LL__Entry = NTtable_Tune->GetEntry("Climber_TC_LL");
-    NTinst.AddListener(__Climber_TC_LL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Climber_TC_LL = event.GetValueEventData()->value.GetDouble();});
-    __Climber_TC_LL__Entry.SetDouble(-1);
- 
-    __Climber_TC_UL__Entry = NTtable_Tune->GetEntry("Climber_TC_UL");
-    NTinst.AddListener(__Climber_TC_UL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Climber_TC_UL = event.GetValueEventData()->value.GetDouble();});
-    __Climber_TC_UL__Entry.SetDouble(1);
+    __Climber_DutyCycle_Pos__Entry = NTtable_Tune->GetEntry("Climber_DutyCycle_Pos");
+    NTinst.AddListener(__Climber_DutyCycle_Pos__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Climber_DutyCycle_Pos = event.GetValueEventData()->value.GetDouble();});
+    __Climber_DutyCycle_Pos__Entry.SetDouble(0.2);
  
     __Dist_AA_Cal_Tol__Entry = NTtable_Tune->GetEntry("Dist_AA_Cal_Tol");
     NTinst.AddListener(__Dist_AA_Cal_Tol__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Dist_AA_Cal_Tol = event.GetValueEventData()->value.GetDouble();});
@@ -300,10 +264,6 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Dist_Per_Rev_Ball_Screw__Entry = NTtable_Tune->GetEntry("Dist_Per_Rev_Ball_Screw");
     NTinst.AddListener(__Dist_Per_Rev_Ball_Screw__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Dist_Per_Rev_Ball_Screw = event.GetValueEventData()->value.GetDouble();});
     __Dist_Per_Rev_Ball_Screw__Entry.SetDouble(0.35278);
- 
-    __Dist_Per_Rev_Climber__Entry = NTtable_Tune->GetEntry("Dist_Per_Rev_Climber");
-    NTinst.AddListener(__Dist_Per_Rev_Climber__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Dist_Per_Rev_Climber = event.GetValueEventData()->value.GetDouble();});
-    __Dist_Per_Rev_Climber__Entry.SetDouble(4.7408);
  
     __Dist_Per_Rev_Front__Entry = NTtable_Tune->GetEntry("Dist_Per_Rev_Front");
     NTinst.AddListener(__Dist_Per_Rev_Front__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Dist_Per_Rev_Front = event.GetValueEventData()->value.GetDouble();});
@@ -415,7 +375,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Note_Detect_Dist_Intake__Entry = NTtable_Tune->GetEntry("Note_Detect_Dist_Intake");
     NTinst.AddListener(__Note_Detect_Dist_Intake__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Note_Detect_Dist_Intake = event.GetValueEventData()->value.GetDouble();});
-    __Note_Detect_Dist_Intake__Entry.SetDouble(100);
+    __Note_Detect_Dist_Intake__Entry.SetDouble(200);
  
     __Note_Detect_Dist_Shooter__Entry = NTtable_Tune->GetEntry("Note_Detect_Dist_Shooter");
     NTinst.AddListener(__Note_Detect_Dist_Shooter__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Note_Detect_Dist_Shooter = event.GetValueEventData()->value.GetDouble();});
@@ -431,7 +391,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Note_Time_Transfer__Entry = NTtable_Tune->GetEntry("Note_Time_Transfer");
     NTinst.AddListener(__Note_Time_Transfer__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Note_Time_Transfer = event.GetValueEventData()->value.GetDouble();});
-    __Note_Time_Transfer__Entry.SetDouble(0.1);
+    __Note_Time_Transfer__Entry.SetDouble(0);
  
     __Note_Time_Transfer_Spin_Up__Entry = NTtable_Tune->GetEntry("Note_Time_Transfer_Spin_Up");
     NTinst.AddListener(__Note_Time_Transfer_Spin_Up__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Note_Time_Transfer_Spin_Up = event.GetValueEventData()->value.GetDouble();});
@@ -495,7 +455,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Shooter_Motor_DesSpd_Store__Entry = NTtable_Tune->GetEntry("Shooter_Motor_DesSpd_Store");
     NTinst.AddListener(__Shooter_Motor_DesSpd_Store__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Shooter_Motor_DesSpd_Store = event.GetValueEventData()->value.GetDouble();});
-    __Shooter_Motor_DesSpd_Store__Entry.SetDouble(300);
+    __Shooter_Motor_DesSpd_Store__Entry.SetDouble(500);
  
     __Shooter_Motor_Speed_Transition__Entry = NTtable_Tune->GetEntry("Shooter_Motor_Speed_Transition");
     NTinst.AddListener(__Shooter_Motor_Speed_Transition__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Shooter_Motor_Speed_Transition = event.GetValueEventData()->value.GetDouble();});
@@ -575,11 +535,11 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Steering_Heading_Control_Total_LL__Entry = NTtable_Tune->GetEntry("Steering_Heading_Control_Total_LL");
     NTinst.AddListener(__Steering_Heading_Control_Total_LL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Heading_Control_Total_LL = event.GetValueEventData()->value.GetDouble();});
-    __Steering_Heading_Control_Total_LL__Entry.SetDouble(-1.3);
+    __Steering_Heading_Control_Total_LL__Entry.SetDouble(-3);
  
     __Steering_Heading_Control_Total_UL__Entry = NTtable_Tune->GetEntry("Steering_Heading_Control_Total_UL");
     NTinst.AddListener(__Steering_Heading_Control_Total_UL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Heading_Control_Total_UL = event.GetValueEventData()->value.GetDouble();});
-    __Steering_Heading_Control_Total_UL__Entry.SetDouble(1.3);
+    __Steering_Heading_Control_Total_UL__Entry.SetDouble(3);
  
     __Steering_Localized_Cmd_Approach_Zero_Error_Thresh__Entry = NTtable_Tune->GetEntry("Steering_Localized_Cmd_Approach_Zero_Error_Thresh");
     NTinst.AddListener(__Steering_Localized_Cmd_Approach_Zero_Error_Thresh__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Localized_Cmd_Approach_Zero_Error_Thresh = event.GetValueEventData()->value.GetDouble();});
@@ -657,6 +617,10 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     NTinst.AddListener(__TEST_Speaker_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Speaker_Angle = event.GetValueEventData()->value.GetDouble();});
     __TEST_Speaker_Angle__Entry.SetDouble(0);
  
+    __TEST_Speaker_Distance__Entry = NTtable_Tune->GetEntry("TEST_Speaker_Distance");
+    NTinst.AddListener(__TEST_Speaker_Distance__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Speaker_Distance = event.GetValueEventData()->value.GetDouble();});
+    __TEST_Speaker_Distance__Entry.SetDouble(0);
+ 
     __TEST_Speaker_Gap__Entry = NTtable_Tune->GetEntry("TEST_Speaker_Gap");
     NTinst.AddListener(__TEST_Speaker_Gap__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Speaker_Gap = event.GetValueEventData()->value.GetDouble();});
     __TEST_Speaker_Gap__Entry.SetDouble(0);
@@ -727,11 +691,11 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Translation_Speed_Rate_Limit_Dec__Entry = NTtable_Tune->GetEntry("Translation_Speed_Rate_Limit_Dec");
     NTinst.AddListener(__Translation_Speed_Rate_Limit_Dec__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Translation_Speed_Rate_Limit_Dec = event.GetValueEventData()->value.GetDouble();});
-    __Translation_Speed_Rate_Limit_Dec__Entry.SetDouble(-0.2);
+    __Translation_Speed_Rate_Limit_Dec__Entry.SetDouble(-1);
  
     __Translation_Speed_Rate_Limit_Inc__Entry = NTtable_Tune->GetEntry("Translation_Speed_Rate_Limit_Inc");
     NTinst.AddListener(__Translation_Speed_Rate_Limit_Inc__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Translation_Speed_Rate_Limit_Inc = event.GetValueEventData()->value.GetDouble();});
-    __Translation_Speed_Rate_Limit_Inc__Entry.SetDouble(0.085714);
+    __Translation_Speed_Rate_Limit_Inc__Entry.SetDouble(1);
  
     __Translation_Twist_Gain__Entry = NTtable_Tune->GetEntry("Translation_Twist_Gain");
     NTinst.AddListener(__Translation_Twist_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Translation_Twist_Gain = event.GetValueEventData()->value.GetDouble();});
@@ -879,8 +843,6 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Back_Upper_Arm_Length__Entry = NTtable_TPoint->GetEntry("Back_Upper_Arm_Length");
     __Ball_Screw_Arm_Length__Entry = NTtable_TPoint->GetEntry("Ball_Screw_Arm_Length");
     __Climber_Cmd_Direction__Entry = NTtable_TPoint->GetEntry("Climber_Cmd_Direction");
-    __Climber_Desired_Position__Entry = NTtable_TPoint->GetEntry("Climber_Desired_Position");
-    __Climber_Length__Entry = NTtable_TPoint->GetEntry("Climber_Length");
     __CurrentPriorityIndex__Entry = NTtable_TPoint->GetEntry("CurrentPriorityIndex");
     __Desired_Angle__Entry = NTtable_TPoint->GetEntry("Desired_Angle");
     __Desired_BS_Length__Entry = NTtable_TPoint->GetEntry("Desired_BS_Length");
@@ -1102,8 +1064,6 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Back_Upper_Arm_Length__Entry.SetDouble(Code_Gen_Model_B.Back_Upper_Arm_Length);
     __Ball_Screw_Arm_Length__Entry.SetDouble(Code_Gen_Model_B.Ball_Screw_Arm_Length);
     __Climber_Cmd_Direction__Entry.SetDouble(Code_Gen_Model_B.Climber_Cmd_Direction);
-    __Climber_Desired_Position__Entry.SetDouble(Code_Gen_Model_B.Climber_Desired_Position);
-    __Climber_Length__Entry.SetDouble(Code_Gen_Model_B.Climber_Length);
     __CurrentPriorityIndex__Entry.SetDouble(Code_Gen_Model_B.CurrentPriorityIndex);
     __Desired_Angle__Entry.SetDouble(Code_Gen_Model_B.Desired_Angle);
     __Desired_BS_Length__Entry.SetDouble(Code_Gen_Model_B.Desired_BS_Length);
