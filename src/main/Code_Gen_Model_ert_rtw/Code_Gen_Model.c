@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.150
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Fri Mar 15 12:11:59 2024
+ * C/C++ source code generated on : Fri Mar 15 14:18:10 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -410,7 +410,7 @@ real_T Drive_Motor_Control_P = 5.0E-6; /* Variable: Drive_Motor_Control_P
                                         *   '<S300>/Gain1'
                                         *   '<S321>/Gain1'
                                         */
-real_T Drive_Motor_Control_Sign_Change_Deadband = 1500.0;
+real_T Drive_Motor_Control_Sign_Change_Deadband = 7000.0;
                            /* Variable: Drive_Motor_Control_Sign_Change_Deadband
                             * Referenced by:
                             *   '<S263>/Constant'
@@ -623,11 +623,11 @@ real_T Steering_Localized_Cmd_NonZero_Final_Scale_Factor = 1.0;
                   /* Variable: Steering_Localized_Cmd_NonZero_Final_Scale_Factor
                    * Referenced by: '<S353>/Constant10'
                    */
-real_T Steering_Localized_Cmd_Rate_Limit_Dec = -5.0;
+real_T Steering_Localized_Cmd_Rate_Limit_Dec = -10.0;
                               /* Variable: Steering_Localized_Cmd_Rate_Limit_Dec
                                * Referenced by: '<S353>/Constant1'
                                */
-real_T Steering_Localized_Cmd_Rate_Limit_Inc = 5.0;
+real_T Steering_Localized_Cmd_Rate_Limit_Inc = 10.0;
                               /* Variable: Steering_Localized_Cmd_Rate_Limit_Inc
                                * Referenced by: '<S353>/Constant3'
                                */
@@ -762,11 +762,11 @@ real_T Translation_Speed_NonZero_Final_Scale_Factor = 0.05;
                        /* Variable: Translation_Speed_NonZero_Final_Scale_Factor
                         * Referenced by: '<S341>/Constant10'
                         */
-real_T Translation_Speed_Rate_Limit_Dec = -1.0;
+real_T Translation_Speed_Rate_Limit_Dec = -2.0;
                                    /* Variable: Translation_Speed_Rate_Limit_Dec
                                     * Referenced by: '<S341>/Constant1'
                                     */
-real_T Translation_Speed_Rate_Limit_Inc = 1.0;
+real_T Translation_Speed_Rate_Limit_Inc = 2.0;
                                    /* Variable: Translation_Speed_Rate_Limit_Inc
                                     * Referenced by: '<S341>/Constant3'
                                     */

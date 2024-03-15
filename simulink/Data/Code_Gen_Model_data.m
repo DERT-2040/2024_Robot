@@ -187,10 +187,10 @@ Drive_Motor_Control_D_FilterCoeff = 1-exp(-2*pi*Derivative_low_pass_filter_freq*
 Drive_Motor_Control_D_UL = 0.2;
 Drive_Motor_Control_D_LL = -Drive_Motor_Control_D_UL;
 
-Drive_Motor_Control_Sign_Change_Deadband = 1500;
+Drive_Motor_Control_Sign_Change_Deadband = 7000;  %1500;
 
 Drive_Motor_Control_Module_Angle_Error = [0 45]*pi/180;
-Drive_Motor_Control_Scale_Factor = [1 0.05];
+Drive_Motor_Control_Scale_Factor = [1 1]; %[1 0.05];
 
 clear Drive_Motor_Max_Speed Derivative_low_pass_filter_freq
 
@@ -232,8 +232,8 @@ clear Derivative_low_pass_filter_freq
 
 
 %% Translation Speed Rate Limit
-Translation_Speed_Rate_Limit_Inc =  1; %3/0.7*t_sample;
-Translation_Speed_Rate_Limit_Dec = -1; %-2/0.2*t_sample;
+Translation_Speed_Rate_Limit_Inc =  2;  %1; %3/0.7*t_sample;
+Translation_Speed_Rate_Limit_Dec = -2; %-2/0.2*t_sample;
 Translation_Speed_Approach_Zero_Error_Thresh = 0.2;
 Translation_Speed_Approach_Zero_Final_Thresh = 0.01;
 Translation_Speed_NonZero_Error_Thresh = 0.15;
@@ -241,8 +241,8 @@ Translation_Speed_NonZero_Final_Scale_Factor = 0.05;
 
 
 %% Steering Localized Cmd Rate Limit
-Steering_Localized_Cmd_Rate_Limit_Inc = 5;
-Steering_Localized_Cmd_Rate_Limit_Dec = -5;
+Steering_Localized_Cmd_Rate_Limit_Inc = 10;
+Steering_Localized_Cmd_Rate_Limit_Dec = -10;
 Steering_Localized_Cmd_Approach_Zero_Error_Thresh = 0.2;
 Steering_Localized_Cmd_Approach_Zero_Final_Thresh = 0.01;
 Steering_Localized_Cmd_NonZero_Error_Thresh = 0.2;

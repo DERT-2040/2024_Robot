@@ -327,7 +327,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Drive_Motor_Control_Sign_Change_Deadband__Entry = NTtable_Tune->GetEntry("Drive_Motor_Control_Sign_Change_Deadband");
     NTinst.AddListener(__Drive_Motor_Control_Sign_Change_Deadband__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Drive_Motor_Control_Sign_Change_Deadband = event.GetValueEventData()->value.GetDouble();});
-    __Drive_Motor_Control_Sign_Change_Deadband__Entry.SetDouble(1500);
+    __Drive_Motor_Control_Sign_Change_Deadband__Entry.SetDouble(7000);
  
     __FloorDistance__Entry = NTtable_Tune->GetEntry("FloorDistance");
     NTinst.AddListener(__FloorDistance__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {FloorDistance = event.GetValueEventData()->value.GetDouble();});
@@ -555,11 +555,11 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Steering_Localized_Cmd_Rate_Limit_Dec__Entry = NTtable_Tune->GetEntry("Steering_Localized_Cmd_Rate_Limit_Dec");
     NTinst.AddListener(__Steering_Localized_Cmd_Rate_Limit_Dec__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Localized_Cmd_Rate_Limit_Dec = event.GetValueEventData()->value.GetDouble();});
-    __Steering_Localized_Cmd_Rate_Limit_Dec__Entry.SetDouble(-5);
+    __Steering_Localized_Cmd_Rate_Limit_Dec__Entry.SetDouble(-10);
  
     __Steering_Localized_Cmd_Rate_Limit_Inc__Entry = NTtable_Tune->GetEntry("Steering_Localized_Cmd_Rate_Limit_Inc");
     NTinst.AddListener(__Steering_Localized_Cmd_Rate_Limit_Inc__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Localized_Cmd_Rate_Limit_Inc = event.GetValueEventData()->value.GetDouble();});
-    __Steering_Localized_Cmd_Rate_Limit_Inc__Entry.SetDouble(5);
+    __Steering_Localized_Cmd_Rate_Limit_Inc__Entry.SetDouble(10);
  
     __Steering_Motor_Control_D__Entry = NTtable_Tune->GetEntry("Steering_Motor_Control_D");
     NTinst.AddListener(__Steering_Motor_Control_D__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Motor_Control_D = event.GetValueEventData()->value.GetDouble();});
@@ -687,11 +687,11 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Translation_Speed_Rate_Limit_Dec__Entry = NTtable_Tune->GetEntry("Translation_Speed_Rate_Limit_Dec");
     NTinst.AddListener(__Translation_Speed_Rate_Limit_Dec__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Translation_Speed_Rate_Limit_Dec = event.GetValueEventData()->value.GetDouble();});
-    __Translation_Speed_Rate_Limit_Dec__Entry.SetDouble(-1);
+    __Translation_Speed_Rate_Limit_Dec__Entry.SetDouble(-2);
  
     __Translation_Speed_Rate_Limit_Inc__Entry = NTtable_Tune->GetEntry("Translation_Speed_Rate_Limit_Inc");
     NTinst.AddListener(__Translation_Speed_Rate_Limit_Inc__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Translation_Speed_Rate_Limit_Inc = event.GetValueEventData()->value.GetDouble();});
-    __Translation_Speed_Rate_Limit_Inc__Entry.SetDouble(1);
+    __Translation_Speed_Rate_Limit_Inc__Entry.SetDouble(2);
  
     __Translation_Twist_Gain__Entry = NTtable_Tune->GetEntry("Translation_Twist_Gain");
     NTinst.AddListener(__Translation_Twist_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Translation_Twist_Gain = event.GetValueEventData()->value.GetDouble();});

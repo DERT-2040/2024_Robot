@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.150
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Fri Mar 15 12:11:59 2024
+ * C/C++ source code generated on : Fri Mar 15 14:18:10 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -226,7 +226,7 @@ const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP = {
    *   '<S302>/1-D Lookup Table'
    *   '<S323>/1-D Lookup Table'
    */
-  { 1.0, 0.05 },
+  { 1.0, 1.0 },
 
   /* Pooled Parameter (Expression: Drive_Motor_Control_Module_Angle_Error)
    * Referenced by:
