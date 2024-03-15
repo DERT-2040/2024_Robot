@@ -223,15 +223,15 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Boost_Trigger_Decreasing_Limit__Entry = NTtable_Tune->GetEntry("Boost_Trigger_Decreasing_Limit");
     NTinst.AddListener(__Boost_Trigger_Decreasing_Limit__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Boost_Trigger_Decreasing_Limit = event.GetValueEventData()->value.GetDouble();});
-    __Boost_Trigger_Decreasing_Limit__Entry.SetDouble(-0.1);
+    __Boost_Trigger_Decreasing_Limit__Entry.SetDouble(-0.28);
  
     __Boost_Trigger_High_Speed__Entry = NTtable_Tune->GetEntry("Boost_Trigger_High_Speed");
     NTinst.AddListener(__Boost_Trigger_High_Speed__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Boost_Trigger_High_Speed = event.GetValueEventData()->value.GetDouble();});
-    __Boost_Trigger_High_Speed__Entry.SetDouble(4);
+    __Boost_Trigger_High_Speed__Entry.SetDouble(5);
  
     __Boost_Trigger_Increasing_Limit__Entry = NTtable_Tune->GetEntry("Boost_Trigger_Increasing_Limit");
     NTinst.AddListener(__Boost_Trigger_Increasing_Limit__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Boost_Trigger_Increasing_Limit = event.GetValueEventData()->value.GetDouble();});
-    __Boost_Trigger_Increasing_Limit__Entry.SetDouble(0.1);
+    __Boost_Trigger_Increasing_Limit__Entry.SetDouble(0.28);
  
     __Boost_Trigger_Low_Speed__Entry = NTtable_Tune->GetEntry("Boost_Trigger_Low_Speed");
     NTinst.AddListener(__Boost_Trigger_Low_Speed__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Boost_Trigger_Low_Speed = event.GetValueEventData()->value.GetDouble();});
@@ -551,15 +551,15 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Steering_Localized_Cmd_NonZero_Final_Scale_Factor__Entry = NTtable_Tune->GetEntry("Steering_Localized_Cmd_NonZero_Final_Scale_Factor");
     NTinst.AddListener(__Steering_Localized_Cmd_NonZero_Final_Scale_Factor__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Localized_Cmd_NonZero_Final_Scale_Factor = event.GetValueEventData()->value.GetDouble();});
-    __Steering_Localized_Cmd_NonZero_Final_Scale_Factor__Entry.SetDouble(0.1);
+    __Steering_Localized_Cmd_NonZero_Final_Scale_Factor__Entry.SetDouble(1);
  
     __Steering_Localized_Cmd_Rate_Limit_Dec__Entry = NTtable_Tune->GetEntry("Steering_Localized_Cmd_Rate_Limit_Dec");
     NTinst.AddListener(__Steering_Localized_Cmd_Rate_Limit_Dec__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Localized_Cmd_Rate_Limit_Dec = event.GetValueEventData()->value.GetDouble();});
-    __Steering_Localized_Cmd_Rate_Limit_Dec__Entry.SetDouble(-1.5);
+    __Steering_Localized_Cmd_Rate_Limit_Dec__Entry.SetDouble(-5);
  
     __Steering_Localized_Cmd_Rate_Limit_Inc__Entry = NTtable_Tune->GetEntry("Steering_Localized_Cmd_Rate_Limit_Inc");
     NTinst.AddListener(__Steering_Localized_Cmd_Rate_Limit_Inc__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Localized_Cmd_Rate_Limit_Inc = event.GetValueEventData()->value.GetDouble();});
-    __Steering_Localized_Cmd_Rate_Limit_Inc__Entry.SetDouble(1.5);
+    __Steering_Localized_Cmd_Rate_Limit_Inc__Entry.SetDouble(5);
  
     __Steering_Motor_Control_D__Entry = NTtable_Tune->GetEntry("Steering_Motor_Control_D");
     NTinst.AddListener(__Steering_Motor_Control_D__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Motor_Control_D = event.GetValueEventData()->value.GetDouble();});
@@ -595,7 +595,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Steering_Relative_Gain__Entry = NTtable_Tune->GetEntry("Steering_Relative_Gain");
     NTinst.AddListener(__Steering_Relative_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Relative_Gain = event.GetValueEventData()->value.GetDouble();});
-    __Steering_Relative_Gain__Entry.SetDouble(1.3);
+    __Steering_Relative_Gain__Entry.SetDouble(5);
  
     __Steering_Twist_Gain__Entry = NTtable_Tune->GetEntry("Steering_Twist_Gain");
     NTinst.AddListener(__Steering_Twist_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Twist_Gain = event.GetValueEventData()->value.GetDouble();});

@@ -75,14 +75,14 @@ Steering_Mod_Str_Rel_out = [-fliplr(temp_y) 0 temp_y];
 clear temp_x temp_y
 
 % Steering Relative Gain
-Steering_Relative_Gain = 1.3;
+Steering_Relative_Gain = 5;
 
 % Boost Trigger
-Boost_Trigger_High_Speed = 4.0; % 3.658; % m/s
+Boost_Trigger_High_Speed = 5.0; % 3.658; % m/s
 Boost_Trigger_Low_Speed = 1.5; % m/s
 
-Boost_Trigger_Increasing_Limit = (Boost_Trigger_High_Speed-Boost_Trigger_Low_Speed)/0.5*t_sample;
-Boost_Trigger_Decreasing_Limit = -(Boost_Trigger_High_Speed-Boost_Trigger_Low_Speed)/0.5*t_sample;
+Boost_Trigger_Increasing_Limit = (Boost_Trigger_High_Speed-Boost_Trigger_Low_Speed)/0.25*t_sample;
+Boost_Trigger_Decreasing_Limit = -(Boost_Trigger_High_Speed-Boost_Trigger_Low_Speed)/0.25*t_sample;
 
 % Joystick Twist Axis Gains
 Steering_Twist_Gain = -0.015;
@@ -241,12 +241,12 @@ Translation_Speed_NonZero_Final_Scale_Factor = 0.05;
 
 
 %% Steering Localized Cmd Rate Limit
-Steering_Localized_Cmd_Rate_Limit_Inc = 1.5;
-Steering_Localized_Cmd_Rate_Limit_Dec = -1.5;
+Steering_Localized_Cmd_Rate_Limit_Inc = 5;
+Steering_Localized_Cmd_Rate_Limit_Dec = -5;
 Steering_Localized_Cmd_Approach_Zero_Error_Thresh = 0.2;
 Steering_Localized_Cmd_Approach_Zero_Final_Thresh = 0.01;
 Steering_Localized_Cmd_NonZero_Error_Thresh = 0.2;
-Steering_Localized_Cmd_NonZero_Final_Scale_Factor = 0.1;
+Steering_Localized_Cmd_NonZero_Final_Scale_Factor = 1.0;
 
 
 %% Spline Path Following

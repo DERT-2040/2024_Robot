@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.150
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Fri Mar 15 10:32:07 2024
+ * C/C++ source code generated on : Fri Mar 15 12:11:59 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -280,16 +280,16 @@ real_T BS_TC_LL = -0.3;                /* Variable: BS_TC_LL
 real_T BS_TC_UL = 0.3;                 /* Variable: BS_TC_UL
                                         * Referenced by: '<S159>/Saturation2'
                                         */
-real_T Boost_Trigger_Decreasing_Limit = -0.1;
+real_T Boost_Trigger_Decreasing_Limit = -0.28;
                                      /* Variable: Boost_Trigger_Decreasing_Limit
                                       * Referenced by: '<S407>/Constant1'
                                       */
-real_T Boost_Trigger_High_Speed = 4.0; /* Variable: Boost_Trigger_High_Speed
+real_T Boost_Trigger_High_Speed = 5.0; /* Variable: Boost_Trigger_High_Speed
                                         * Referenced by:
                                         *   '<S403>/Constant'
                                         *   '<S403>/Saturation'
                                         */
-real_T Boost_Trigger_Increasing_Limit = 0.1;
+real_T Boost_Trigger_Increasing_Limit = 0.28;
                                      /* Variable: Boost_Trigger_Increasing_Limit
                                       * Referenced by: '<S407>/Constant3'
                                       */
@@ -619,15 +619,15 @@ real_T Steering_Localized_Cmd_NonZero_Error_Thresh = 0.2;
                         /* Variable: Steering_Localized_Cmd_NonZero_Error_Thresh
                          * Referenced by: '<S353>/Constant9'
                          */
-real_T Steering_Localized_Cmd_NonZero_Final_Scale_Factor = 0.1;
+real_T Steering_Localized_Cmd_NonZero_Final_Scale_Factor = 1.0;
                   /* Variable: Steering_Localized_Cmd_NonZero_Final_Scale_Factor
                    * Referenced by: '<S353>/Constant10'
                    */
-real_T Steering_Localized_Cmd_Rate_Limit_Dec = -1.5;
+real_T Steering_Localized_Cmd_Rate_Limit_Dec = -5.0;
                               /* Variable: Steering_Localized_Cmd_Rate_Limit_Dec
                                * Referenced by: '<S353>/Constant1'
                                */
-real_T Steering_Localized_Cmd_Rate_Limit_Inc = 1.5;
+real_T Steering_Localized_Cmd_Rate_Limit_Inc = 5.0;
                               /* Variable: Steering_Localized_Cmd_Rate_Limit_Inc
                                * Referenced by: '<S353>/Constant3'
                                */
@@ -688,7 +688,7 @@ real_T Steering_Motor_Control_P = 0.15;/* Variable: Steering_Motor_Control_P
                                         *   '<S303>/Gain1'
                                         *   '<S324>/Gain1'
                                         */
-real_T Steering_Relative_Gain = 1.3;   /* Variable: Steering_Relative_Gain
+real_T Steering_Relative_Gain = 5.0;   /* Variable: Steering_Relative_Gain
                                         * Referenced by: '<S396>/Constant'
                                         */
 real_T Steering_Twist_Gain = -0.015;   /* Variable: Steering_Twist_Gain
