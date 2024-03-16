@@ -25,22 +25,6 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     NTinst.AddListener(__AA_Integral_UL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AA_Integral_UL = event.GetValueEventData()->value.GetDouble();});
     __AA_Integral_UL__Entry.SetDouble(0.5);
  
-    __AA_Position_Back_Dec_RL__Entry = NTtable_Tune->GetEntry("AA_Position_Back_Dec_RL");
-    NTinst.AddListener(__AA_Position_Back_Dec_RL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AA_Position_Back_Dec_RL = event.GetValueEventData()->value.GetDouble();});
-    __AA_Position_Back_Dec_RL__Entry.SetDouble(-2.5);
- 
-    __AA_Position_Back_Inc_RL__Entry = NTtable_Tune->GetEntry("AA_Position_Back_Inc_RL");
-    NTinst.AddListener(__AA_Position_Back_Inc_RL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AA_Position_Back_Inc_RL = event.GetValueEventData()->value.GetDouble();});
-    __AA_Position_Back_Inc_RL__Entry.SetDouble(2.5);
- 
-    __AA_Position_Front_Dec_RL__Entry = NTtable_Tune->GetEntry("AA_Position_Front_Dec_RL");
-    NTinst.AddListener(__AA_Position_Front_Dec_RL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AA_Position_Front_Dec_RL = event.GetValueEventData()->value.GetDouble();});
-    __AA_Position_Front_Dec_RL__Entry.SetDouble(-6);
- 
-    __AA_Position_Front_Inc_RL__Entry = NTtable_Tune->GetEntry("AA_Position_Front_Inc_RL");
-    NTinst.AddListener(__AA_Position_Front_Inc_RL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AA_Position_Front_Inc_RL = event.GetValueEventData()->value.GetDouble();});
-    __AA_Position_Front_Inc_RL__Entry.SetDouble(6);
- 
     __AA_Prop_Gain__Entry = NTtable_Tune->GetEntry("AA_Prop_Gain");
     NTinst.AddListener(__AA_Prop_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AA_Prop_Gain = event.GetValueEventData()->value.GetDouble();});
     __AA_Prop_Gain__Entry.SetDouble(0.01);
@@ -363,15 +347,15 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __LoadShooter_Angle__Entry = NTtable_Tune->GetEntry("LoadShooter_Angle");
     NTinst.AddListener(__LoadShooter_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {LoadShooter_Angle = event.GetValueEventData()->value.GetDouble();});
-    __LoadShooter_Angle__Entry.SetDouble(47);
+    __LoadShooter_Angle__Entry.SetDouble(45);
  
     __LoadShooter_Gap__Entry = NTtable_Tune->GetEntry("LoadShooter_Gap");
     NTinst.AddListener(__LoadShooter_Gap__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {LoadShooter_Gap = event.GetValueEventData()->value.GetDouble();});
-    __LoadShooter_Gap__Entry.SetDouble(270);
+    __LoadShooter_Gap__Entry.SetDouble(280);
  
     __LoadShooter_Height__Entry = NTtable_Tune->GetEntry("LoadShooter_Height");
     NTinst.AddListener(__LoadShooter_Height__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {LoadShooter_Height = event.GetValueEventData()->value.GetDouble();});
-    __LoadShooter_Height__Entry.SetDouble(510);
+    __LoadShooter_Height__Entry.SetDouble(600);
  
     __Note_Detect_Dist_Intake__Entry = NTtable_Tune->GetEntry("Note_Detect_Dist_Intake");
     NTinst.AddListener(__Note_Detect_Dist_Intake__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Note_Detect_Dist_Intake = event.GetValueEventData()->value.GetDouble();});
@@ -412,6 +396,74 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Odometry_X_Y_TEAR__Entry = NTtable_Tune->GetEntry("Odometry_X_Y_TEAR");
     NTinst.AddListener(__Odometry_X_Y_TEAR__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Odometry_X_Y_TEAR = event.GetValueEventData()->value.GetDouble();});
     __Odometry_X_Y_TEAR__Entry.SetDouble(0);
+ 
+    __RL_Back_Amp_to_Stage__Entry = NTtable_Tune->GetEntry("RL_Back_Amp_to_Stage");
+    NTinst.AddListener(__RL_Back_Amp_to_Stage__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {RL_Back_Amp_to_Stage = event.GetValueEventData()->value.GetDouble();});
+    __RL_Back_Amp_to_Stage__Entry.SetDouble(1);
+ 
+    __RL_Back_Load_to_Amp__Entry = NTtable_Tune->GetEntry("RL_Back_Load_to_Amp");
+    NTinst.AddListener(__RL_Back_Load_to_Amp__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {RL_Back_Load_to_Amp = event.GetValueEventData()->value.GetDouble();});
+    __RL_Back_Load_to_Amp__Entry.SetDouble(1);
+ 
+    __RL_Back_Load_to_Stage__Entry = NTtable_Tune->GetEntry("RL_Back_Load_to_Stage");
+    NTinst.AddListener(__RL_Back_Load_to_Stage__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {RL_Back_Load_to_Stage = event.GetValueEventData()->value.GetDouble();});
+    __RL_Back_Load_to_Stage__Entry.SetDouble(1);
+ 
+    __RL_Back_Speaker_Final_to_Speaker_Partial__Entry = NTtable_Tune->GetEntry("RL_Back_Speaker_Final_to_Speaker_Partial");
+    NTinst.AddListener(__RL_Back_Speaker_Final_to_Speaker_Partial__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {RL_Back_Speaker_Final_to_Speaker_Partial = event.GetValueEventData()->value.GetDouble();});
+    __RL_Back_Speaker_Final_to_Speaker_Partial__Entry.SetDouble(1);
+ 
+    __RL_Back_Speaker_Partial_to_Speaker_Final__Entry = NTtable_Tune->GetEntry("RL_Back_Speaker_Partial_to_Speaker_Final");
+    NTinst.AddListener(__RL_Back_Speaker_Partial_to_Speaker_Final__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {RL_Back_Speaker_Partial_to_Speaker_Final = event.GetValueEventData()->value.GetDouble();});
+    __RL_Back_Speaker_Partial_to_Speaker_Final__Entry.SetDouble(1);
+ 
+    __RL_Back_Speaker_Partial_to_Stage__Entry = NTtable_Tune->GetEntry("RL_Back_Speaker_Partial_to_Stage");
+    NTinst.AddListener(__RL_Back_Speaker_Partial_to_Stage__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {RL_Back_Speaker_Partial_to_Stage = event.GetValueEventData()->value.GetDouble();});
+    __RL_Back_Speaker_Partial_to_Stage__Entry.SetDouble(1);
+ 
+    __RL_Back_Stage_to_Amp__Entry = NTtable_Tune->GetEntry("RL_Back_Stage_to_Amp");
+    NTinst.AddListener(__RL_Back_Stage_to_Amp__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {RL_Back_Stage_to_Amp = event.GetValueEventData()->value.GetDouble();});
+    __RL_Back_Stage_to_Amp__Entry.SetDouble(1);
+ 
+    __RL_Back_Stage_to_Load__Entry = NTtable_Tune->GetEntry("RL_Back_Stage_to_Load");
+    NTinst.AddListener(__RL_Back_Stage_to_Load__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {RL_Back_Stage_to_Load = event.GetValueEventData()->value.GetDouble();});
+    __RL_Back_Stage_to_Load__Entry.SetDouble(1);
+ 
+    __RL_Back_Stage_to_Speaker_Partial__Entry = NTtable_Tune->GetEntry("RL_Back_Stage_to_Speaker_Partial");
+    NTinst.AddListener(__RL_Back_Stage_to_Speaker_Partial__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {RL_Back_Stage_to_Speaker_Partial = event.GetValueEventData()->value.GetDouble();});
+    __RL_Back_Stage_to_Speaker_Partial__Entry.SetDouble(1);
+ 
+    __RL_Back_Stage_to_Trap__Entry = NTtable_Tune->GetEntry("RL_Back_Stage_to_Trap");
+    NTinst.AddListener(__RL_Back_Stage_to_Trap__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {RL_Back_Stage_to_Trap = event.GetValueEventData()->value.GetDouble();});
+    __RL_Back_Stage_to_Trap__Entry.SetDouble(1);
+ 
+    __RL_Back_Trap_to_Stage__Entry = NTtable_Tune->GetEntry("RL_Back_Trap_to_Stage");
+    NTinst.AddListener(__RL_Back_Trap_to_Stage__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {RL_Back_Trap_to_Stage = event.GetValueEventData()->value.GetDouble();});
+    __RL_Back_Trap_to_Stage__Entry.SetDouble(1);
+ 
+    __RL_FB_Ratio_Load_Amp__Entry = NTtable_Tune->GetEntry("RL_FB_Ratio_Load_Amp");
+    NTinst.AddListener(__RL_FB_Ratio_Load_Amp__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {RL_FB_Ratio_Load_Amp = event.GetValueEventData()->value.GetDouble();});
+    __RL_FB_Ratio_Load_Amp__Entry.SetDouble(0.42);
+ 
+    __RL_FB_Ratio_Speaker_Final__Entry = NTtable_Tune->GetEntry("RL_FB_Ratio_Speaker_Final");
+    NTinst.AddListener(__RL_FB_Ratio_Speaker_Final__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {RL_FB_Ratio_Speaker_Final = event.GetValueEventData()->value.GetDouble();});
+    __RL_FB_Ratio_Speaker_Final__Entry.SetDouble(1.8);
+ 
+    __RL_FB_Ratio_Speaker_Partial__Entry = NTtable_Tune->GetEntry("RL_FB_Ratio_Speaker_Partial");
+    NTinst.AddListener(__RL_FB_Ratio_Speaker_Partial__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {RL_FB_Ratio_Speaker_Partial = event.GetValueEventData()->value.GetDouble();});
+    __RL_FB_Ratio_Speaker_Partial__Entry.SetDouble(1.33);
+ 
+    __RL_FB_Ratio_Stage_Amp__Entry = NTtable_Tune->GetEntry("RL_FB_Ratio_Stage_Amp");
+    NTinst.AddListener(__RL_FB_Ratio_Stage_Amp__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {RL_FB_Ratio_Stage_Amp = event.GetValueEventData()->value.GetDouble();});
+    __RL_FB_Ratio_Stage_Amp__Entry.SetDouble(0.72);
+ 
+    __RL_FB_Ratio_Stage_Load__Entry = NTtable_Tune->GetEntry("RL_FB_Ratio_Stage_Load");
+    NTinst.AddListener(__RL_FB_Ratio_Stage_Load__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {RL_FB_Ratio_Stage_Load = event.GetValueEventData()->value.GetDouble();});
+    __RL_FB_Ratio_Stage_Load__Entry.SetDouble(1.61);
+ 
+    __RL_FB_Ratio_Stage_Trap__Entry = NTtable_Tune->GetEntry("RL_FB_Ratio_Stage_Trap");
+    NTinst.AddListener(__RL_FB_Ratio_Stage_Trap__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {RL_FB_Ratio_Stage_Trap = event.GetValueEventData()->value.GetDouble();});
+    __RL_FB_Ratio_Stage_Trap__Entry.SetDouble(1.15);
  
     __Servo_Store_Gain__Entry = NTtable_Tune->GetEntry("Servo_Store_Gain");
     NTinst.AddListener(__Servo_Store_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Servo_Store_Gain = event.GetValueEventData()->value.GetDouble();});
@@ -699,7 +751,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Trap_Angle__Entry = NTtable_Tune->GetEntry("Trap_Angle");
     NTinst.AddListener(__Trap_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Trap_Angle = event.GetValueEventData()->value.GetDouble();});
-    __Trap_Angle__Entry.SetDouble(50);
+    __Trap_Angle__Entry.SetDouble(30);
  
     __Trap_Gap__Entry = NTtable_Tune->GetEntry("Trap_Gap");
     NTinst.AddListener(__Trap_Gap__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Trap_Gap = event.GetValueEventData()->value.GetDouble();});
@@ -896,6 +948,8 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Odometry_Y_global_TEAR_ft__Entry = NTtable_TPoint->GetEntry("Odometry_Y_global_TEAR_ft");
     __Odometry_Y_global_est_ft__Entry = NTtable_TPoint->GetEntry("Odometry_Y_global_est_ft");
     __Prev_GameState__Entry = NTtable_TPoint->GetEntry("Prev_GameState");
+    __RL_Back__Entry = NTtable_TPoint->GetEntry("RL_Back");
+    __RL_FB_Ratio__Entry = NTtable_TPoint->GetEntry("RL_FB_Ratio");
     __RelativeMoveForward__Entry = NTtable_TPoint->GetEntry("RelativeMoveForward");
     __Robot_Reached_Destination__Entry = NTtable_TPoint->GetEntry("Robot_Reached_Destination");
     __Shooter_Brake_Enable_out__Entry = NTtable_TPoint->GetEntry("Shooter_Brake_Enable_out");
@@ -1122,6 +1176,8 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Odometry_Y_global_TEAR_ft__Entry.SetDouble(Code_Gen_Model_B.Odometry_Y_global_TEAR_ft);
     __Odometry_Y_global_est_ft__Entry.SetDouble(Code_Gen_Model_B.Odometry_Y_global_est_ft);
     __Prev_GameState__Entry.SetDouble(Code_Gen_Model_B.Prev_GameState);
+    __RL_Back__Entry.SetDouble(Code_Gen_Model_B.RL_Back);
+    __RL_FB_Ratio__Entry.SetDouble(Code_Gen_Model_B.RL_FB_Ratio);
     __RelativeMoveForward__Entry.SetDouble(Code_Gen_Model_B.RelativeMoveForward);
     __Robot_Reached_Destination__Entry.SetDouble(Code_Gen_Model_B.Robot_Reached_Destination);
     __Shooter_Brake_Enable_out__Entry.SetDouble(Code_Gen_Model_B.Shooter_Brake_Enable_out);

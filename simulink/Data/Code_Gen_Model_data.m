@@ -394,9 +394,9 @@ Stage_Height = 21*25.4; % mm
 Stage_Gap = 9.5*25.4;     % mm
 
 % Position arms for transfering a note into the shooter for scoring in the amp or trap
-LoadShooter_Angle = 47;
-LoadShooter_Height = 510;
-LoadShooter_Gap = 270;
+LoadShooter_Angle = 45;
+LoadShooter_Height = 600;
+LoadShooter_Gap = 280;
 
 % Position the arms for scoring in the amp
 Amp_Angle = -35;
@@ -404,7 +404,7 @@ Amp_Height = 1000;
 Amp_Gap = 650;
 
 % Position the arms for scoring in the trap
-Trap_Angle = 50;
+Trap_Angle = 30;
 Trap_Height = 845;
 Trap_Gap = 460;
 
@@ -420,18 +420,42 @@ Speaker_Height_out =    [575    600	    612	    607	    603	    600	    599	    
 Speaker_Gap_out =       [293	293	    293	    293	    293	    293	    293	    293	    293	    293];
 Speaker_MotorSpeed_out= [2500	3000	4000	4000	4000	4000	4000	4350	4500	4500];
 
+% % Argos Arms Desired Position Rate Limits
+% AA_Position_Back_Inc_RL = 2.5; % mm/loop
+% AA_Position_Back_Dec_RL = -2.5; % mm/loop
+% 
+% AA_Position_Front_Inc_RL = 6; % mm/loop
+% AA_Position_Front_Dec_RL = -6; % mm/loop
 
-%% Arm Control Gains
-% Argos Arms Desired Position Rate Limits
-AA_Position_Back_Inc_RL = 2.5; % mm/loop
-AA_Position_Back_Dec_RL = -2.5; % mm/loop
+RL_Back_Stage_to_Speaker_Partial = 1;
+RL_Back_Speaker_Partial_to_Speaker_Final = 1;
+RL_Back_Speaker_Final_to_Speaker_Partial = 1;
+RL_Back_Speaker_Partial_to_Stage = 1;
+RL_FB_Ratio_Speaker_Partial = 1.33;
+RL_FB_Ratio_Speaker_Final = 1.80;
 
-AA_Position_Front_Inc_RL = 6; % mm/loop
-AA_Position_Front_Dec_RL = -6; % mm/loop
+RL_Back_Stage_to_Load = 1;
+RL_Back_Load_to_Stage = 1;
+RL_FB_Ratio_Stage_Load = 1.61;
 
-% Ball Screw Desired Position Rate Limits
+RL_Back_Stage_to_Amp = 1;
+RL_Back_Amp_to_Stage = 1;
+RL_FB_Ratio_Stage_Amp = 0.72;
+
+RL_Back_Load_to_Amp = 1;
+RL_FB_Ratio_Load_Amp = 0.42;
+
+RL_Back_Stage_to_Trap = 1;
+RL_Back_Trap_to_Stage = 1;
+RL_FB_Ratio_Stage_Trap = 1.15;
+
+% % Ball Screw Desired Position Rate Limits
 BS_Position_Inc_RL = 4; % mm/loop
 BS_Position_Dec_RL = -4; % mm/loop
+
+
+%% Arm Control Gains
+
 
 % Argos Arms P+I Control
 AA_Prop_Gain = 0.01;
