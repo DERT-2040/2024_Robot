@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.153
+ * Model version                  : 2.154
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Fri Mar 15 16:38:47 2024
+ * C/C++ source code generated on : Sat Mar 16 10:36:29 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -66,12 +66,12 @@ const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP = {
   /* Expression: Speaker_Height_out
    * Referenced by: '<S16>/1-D Lookup Table2'
    */
-  { 575.0, 600.0, 612.0, 607.0, 603.0, 600.0, 599.0, 597.0, 597.0, 597.0 },
+  { 590.0, 590.0, 590.0, 607.0, 590.0, 590.0, 590.0, 590.0, 590.0, 590.0 },
 
   /* Expression: Speaker_Angle_out
    * Referenced by: '<S16>/1-D Lookup Table1'
    */
-  { 55.0, 50.0, 42.0, 37.0, 34.5, 33.0, 32.5, 30.5, 29.0, 23.0 },
+  { 55.0, 50.0, 35.0, 30.0, 30.0, 30.0, 30.0, 30.0, 29.0, 23.0 },
 
   /* Expression: Speaker_Gap_out
    * Referenced by: '<S16>/1-D Lookup Table3'
