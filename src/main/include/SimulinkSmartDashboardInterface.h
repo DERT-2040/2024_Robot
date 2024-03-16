@@ -179,7 +179,6 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __TEST_Speaker_Distance__Entry;
         nt::NetworkTableEntry __TEST_Speaker_Gap__Entry;
         nt::NetworkTableEntry __TEST_Speaker_Height__Entry;
-        nt::NetworkTableEntry __TEST_Speaker_Speed__Entry;
         nt::NetworkTableEntry __TEST_Swerve_Mode_Override_Flag__Entry;
         nt::NetworkTableEntry __Test_DC_Gain_BackLower__Entry;
         nt::NetworkTableEntry __Test_DC_Gain_BackUpper__Entry;

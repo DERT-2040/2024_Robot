@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.162
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Mar 16 13:17:21 2024
+ * C/C++ source code generated on : Sat Mar 16 14:49:27 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -232,7 +232,7 @@ real_T AT_XY_Control_Gain = 1.0;       /* Variable: AT_XY_Control_Gain
 real_T AT_Yaw_Control_Gain = -0.0006;  /* Variable: AT_Yaw_Control_Gain
                                         * Referenced by: '<S396>/Constant17'
                                         */
-real_T Amp_Angle = -35.0;              /* Variable: Amp_Angle
+real_T Amp_Angle = -50.0;              /* Variable: Amp_Angle
                                         * Referenced by: '<S16>/Chart_Shooter_Position'
                                         */
 real_T Amp_Gap = 650.0;                /* Variable: Amp_Gap
@@ -253,10 +253,10 @@ real_T BS_Deriv_LL = -0.5;             /* Variable: BS_Deriv_LL
 real_T BS_Deriv_UL = 0.5;              /* Variable: BS_Deriv_UL
                                         * Referenced by: '<S162>/Saturation'
                                         */
-real_T BS_Position_Dec_RL = -4.0;      /* Variable: BS_Position_Dec_RL
+real_T BS_Position_Dec_RL = -30.0;     /* Variable: BS_Position_Dec_RL
                                         * Referenced by: '<S166>/Constant1'
                                         */
-real_T BS_Position_Inc_RL = 4.0;       /* Variable: BS_Position_Inc_RL
+real_T BS_Position_Inc_RL = 30.0;      /* Variable: BS_Position_Inc_RL
                                         * Referenced by: '<S166>/Constant3'
                                         */
 real_T BS_Prop_Gain = 0.1;             /* Variable: BS_Prop_Gain
@@ -475,34 +475,34 @@ real_T Odometry_Reset_IC = 0.0;        /* Variable: Odometry_Reset_IC
 real_T Odometry_X_Y_TEAR = 0.0;        /* Variable: Odometry_X_Y_TEAR
                                         * Referenced by: '<S150>/Constant'
                                         */
-real_T RL_Back_Amp_to_Stage = 1.0;     /* Variable: RL_Back_Amp_to_Stage
+real_T RL_Back_Amp_to_Stage = 10.0;    /* Variable: RL_Back_Amp_to_Stage
                                         * Referenced by: '<S16>/Chart_Shooter_Position'
                                         */
-real_T RL_Back_Load_to_Amp = 1.0;      /* Variable: RL_Back_Load_to_Amp
+real_T RL_Back_Load_to_Amp = 10.0;     /* Variable: RL_Back_Load_to_Amp
                                         * Referenced by: '<S16>/Chart_Shooter_Position'
                                         */
-real_T RL_Back_Load_to_Stage = 1.0;    /* Variable: RL_Back_Load_to_Stage
+real_T RL_Back_Load_to_Stage = 4.0;    /* Variable: RL_Back_Load_to_Stage
                                         * Referenced by: '<S16>/Chart_Shooter_Position'
                                         */
-real_T RL_Back_Speaker_Final_to_Speaker_Partial = 1.0;
+real_T RL_Back_Speaker_Final_to_Speaker_Partial = 5.0;
                            /* Variable: RL_Back_Speaker_Final_to_Speaker_Partial
                             * Referenced by: '<S16>/Chart_Shooter_Position'
                             */
-real_T RL_Back_Speaker_Partial_to_Speaker_Final = 1.0;
+real_T RL_Back_Speaker_Partial_to_Speaker_Final = 3.0;
                            /* Variable: RL_Back_Speaker_Partial_to_Speaker_Final
                             * Referenced by: '<S16>/Chart_Shooter_Position'
                             */
-real_T RL_Back_Speaker_Partial_to_Stage = 1.0;
+real_T RL_Back_Speaker_Partial_to_Stage = 10.0;
                                    /* Variable: RL_Back_Speaker_Partial_to_Stage
                                     * Referenced by: '<S16>/Chart_Shooter_Position'
                                     */
-real_T RL_Back_Stage_to_Amp = 1.0;     /* Variable: RL_Back_Stage_to_Amp
+real_T RL_Back_Stage_to_Amp = 6.0;     /* Variable: RL_Back_Stage_to_Amp
                                         * Referenced by: '<S16>/Chart_Shooter_Position'
                                         */
-real_T RL_Back_Stage_to_Load = 1.0;    /* Variable: RL_Back_Stage_to_Load
+real_T RL_Back_Stage_to_Load = 7.0;    /* Variable: RL_Back_Stage_to_Load
                                         * Referenced by: '<S16>/Chart_Shooter_Position'
                                         */
-real_T RL_Back_Stage_to_Speaker_Partial = 1.0;
+real_T RL_Back_Stage_to_Speaker_Partial = 6.0;
                                    /* Variable: RL_Back_Stage_to_Speaker_Partial
                                     * Referenced by: '<S16>/Chart_Shooter_Position'
                                     */

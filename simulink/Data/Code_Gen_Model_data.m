@@ -44,7 +44,7 @@ TEST_Servo_Override_Value = 0;
 TEST_Speaker_Angle = 0;   % degrees
 TEST_Speaker_Height = 0;  % mm
 TEST_Speaker_Gap = 0;     % mm
-TEST_Speaker_Speed = 0;   % rpm
+% TEST_Speaker_Speed = 0;   % rpm
 TEST_Speaker_Distance = 0; % m
 
 %% Joystick Command Profiling
@@ -399,7 +399,7 @@ LoadShooter_Height = 600;
 LoadShooter_Gap = 280;
 
 % Position the arms for scoring in the amp
-Amp_Angle = -35;
+Amp_Angle = -50;
 Amp_Height = 1000;
 Amp_Gap = 650;
 
@@ -427,22 +427,22 @@ Speaker_MotorSpeed_out= [2500	3000	4000	4000	4000	4000	4000	4350	4500	4500];
 % AA_Position_Front_Inc_RL = 6; % mm/loop
 % AA_Position_Front_Dec_RL = -6; % mm/loop
 
-RL_Back_Stage_to_Speaker_Partial = 1;
-RL_Back_Speaker_Partial_to_Speaker_Final = 1;
-RL_Back_Speaker_Final_to_Speaker_Partial = 1;
-RL_Back_Speaker_Partial_to_Stage = 1;
+RL_Back_Stage_to_Speaker_Partial = 6;
+RL_Back_Speaker_Partial_to_Speaker_Final = 3;
+RL_Back_Speaker_Final_to_Speaker_Partial = 5;
+RL_Back_Speaker_Partial_to_Stage = 10;
 RL_FB_Ratio_Speaker_Partial = 1.33;
 RL_FB_Ratio_Speaker_Final = 1.80;
 
-RL_Back_Stage_to_Load = 1;
-RL_Back_Load_to_Stage = 1;
+RL_Back_Stage_to_Load = 7;
+RL_Back_Load_to_Stage = 4;
 RL_FB_Ratio_Stage_Load = 1.61;
 
-RL_Back_Stage_to_Amp = 1;
-RL_Back_Amp_to_Stage = 1;
+RL_Back_Stage_to_Amp = 6;
+RL_Back_Amp_to_Stage = 10;
 RL_FB_Ratio_Stage_Amp = 0.72;
 
-RL_Back_Load_to_Amp = 1;
+RL_Back_Load_to_Amp = 10;
 RL_FB_Ratio_Load_Amp = 0.42;
 
 RL_Back_Stage_to_Trap = 1;
@@ -450,8 +450,8 @@ RL_Back_Trap_to_Stage = 1;
 RL_FB_Ratio_Stage_Trap = 1.15;
 
 % % Ball Screw Desired Position Rate Limits
-BS_Position_Inc_RL = 4; % mm/loop
-BS_Position_Dec_RL = -4; % mm/loop
+BS_Position_Inc_RL = 30; % mm/loop
+BS_Position_Dec_RL = -30; % mm/loop
 
 
 %% Arm Control Gains
