@@ -27,11 +27,11 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __AA_Position_Back_Dec_RL__Entry = NTtable_Tune->GetEntry("AA_Position_Back_Dec_RL");
     NTinst.AddListener(__AA_Position_Back_Dec_RL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AA_Position_Back_Dec_RL = event.GetValueEventData()->value.GetDouble();});
-    __AA_Position_Back_Dec_RL__Entry.SetDouble(-2);
+    __AA_Position_Back_Dec_RL__Entry.SetDouble(-2.5);
  
     __AA_Position_Back_Inc_RL__Entry = NTtable_Tune->GetEntry("AA_Position_Back_Inc_RL");
     NTinst.AddListener(__AA_Position_Back_Inc_RL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AA_Position_Back_Inc_RL = event.GetValueEventData()->value.GetDouble();});
-    __AA_Position_Back_Inc_RL__Entry.SetDouble(3);
+    __AA_Position_Back_Inc_RL__Entry.SetDouble(2.5);
  
     __AA_Position_Front_Dec_RL__Entry = NTtable_Tune->GetEntry("AA_Position_Front_Dec_RL");
     NTinst.AddListener(__AA_Position_Front_Dec_RL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AA_Position_Front_Dec_RL = event.GetValueEventData()->value.GetDouble();});
@@ -231,7 +231,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Boost_Trigger_Increasing_Limit__Entry = NTtable_Tune->GetEntry("Boost_Trigger_Increasing_Limit");
     NTinst.AddListener(__Boost_Trigger_Increasing_Limit__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Boost_Trigger_Increasing_Limit = event.GetValueEventData()->value.GetDouble();});
-    __Boost_Trigger_Increasing_Limit__Entry.SetDouble(0.28);
+    __Boost_Trigger_Increasing_Limit__Entry.SetDouble(3.5);
  
     __Boost_Trigger_Low_Speed__Entry = NTtable_Tune->GetEntry("Boost_Trigger_Low_Speed");
     NTinst.AddListener(__Boost_Trigger_Low_Speed__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Boost_Trigger_Low_Speed = event.GetValueEventData()->value.GetDouble();});
@@ -687,11 +687,11 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Translation_Speed_Rate_Limit_Dec__Entry = NTtable_Tune->GetEntry("Translation_Speed_Rate_Limit_Dec");
     NTinst.AddListener(__Translation_Speed_Rate_Limit_Dec__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Translation_Speed_Rate_Limit_Dec = event.GetValueEventData()->value.GetDouble();});
-    __Translation_Speed_Rate_Limit_Dec__Entry.SetDouble(-2);
+    __Translation_Speed_Rate_Limit_Dec__Entry.SetDouble(-4);
  
     __Translation_Speed_Rate_Limit_Inc__Entry = NTtable_Tune->GetEntry("Translation_Speed_Rate_Limit_Inc");
     NTinst.AddListener(__Translation_Speed_Rate_Limit_Inc__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Translation_Speed_Rate_Limit_Inc = event.GetValueEventData()->value.GetDouble();});
-    __Translation_Speed_Rate_Limit_Inc__Entry.SetDouble(2);
+    __Translation_Speed_Rate_Limit_Inc__Entry.SetDouble(4);
  
     __Translation_Twist_Gain__Entry = NTtable_Tune->GetEntry("Translation_Twist_Gain");
     NTinst.AddListener(__Translation_Twist_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Translation_Twist_Gain = event.GetValueEventData()->value.GetDouble();});
@@ -784,6 +784,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Joystick_Left_Z__Entry = NTtable_Inport->GetEntry("Joystick_Left_Z");
     __Joystick_Right_B1__Entry = NTtable_Inport->GetEntry("Joystick_Right_B1");
     __Joystick_Right_B10__Entry = NTtable_Inport->GetEntry("Joystick_Right_B10");
+    __Joystick_Right_B14__Entry = NTtable_Inport->GetEntry("Joystick_Right_B14");
     __Joystick_Right_B2__Entry = NTtable_Inport->GetEntry("Joystick_Right_B2");
     __Joystick_Right_B3__Entry = NTtable_Inport->GetEntry("Joystick_Right_B3");
     __Joystick_Right_B4__Entry = NTtable_Inport->GetEntry("Joystick_Right_B4");
@@ -1011,6 +1012,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Joystick_Left_Z__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_Z);
     __Joystick_Right_B1__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_B1);
     __Joystick_Right_B10__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_B10);
+    __Joystick_Right_B14__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_B14);
     __Joystick_Right_B2__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_B2);
     __Joystick_Right_B3__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_B3);
     __Joystick_Right_B4__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_B4);

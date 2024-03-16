@@ -81,7 +81,7 @@ Steering_Relative_Gain = 5;
 Boost_Trigger_High_Speed = 5.0; % 3.658; % m/s
 Boost_Trigger_Low_Speed = 1.5; % m/s
 
-Boost_Trigger_Increasing_Limit = (Boost_Trigger_High_Speed-Boost_Trigger_Low_Speed)/0.25*t_sample;
+Boost_Trigger_Increasing_Limit = (Boost_Trigger_High_Speed-Boost_Trigger_Low_Speed)/0.02*t_sample;
 Boost_Trigger_Decreasing_Limit = -(Boost_Trigger_High_Speed-Boost_Trigger_Low_Speed)/0.25*t_sample;
 
 % Joystick Twist Axis Gains
@@ -100,7 +100,7 @@ Drive_Wheel_Max_Speed = Drive_Motor_Max_Speed/Wheel_Speed_to_Motor_Speed; % m/se
 %   physical measurement = 177.33 feet
 %   odometry estimate    = 186.44 feet
 adjustment_factor = 0.951;  % 177.33/186.44
-% set the above factor to 1.0 for simulation (don't for get to change it back!)
+% set the above factor to 1.0 for simulation (don't forget to change it back!)
 % adjustment_factor = 1.0;
 
 Motor_Rev_to_Wheel_Distance = wheel_diameter*pi/gear_ratio*adjustment_factor; % m/rev
@@ -232,8 +232,8 @@ clear Derivative_low_pass_filter_freq
 
 
 %% Translation Speed Rate Limit
-Translation_Speed_Rate_Limit_Inc =  2;  %1; %3/0.7*t_sample;
-Translation_Speed_Rate_Limit_Dec = -2; %-2/0.2*t_sample;
+Translation_Speed_Rate_Limit_Inc =  4;  %1; %3/0.7*t_sample;
+Translation_Speed_Rate_Limit_Dec = -4; %-2/0.2*t_sample;
 Translation_Speed_Approach_Zero_Error_Thresh = 0.2;
 Translation_Speed_Approach_Zero_Final_Thresh = 0.01;
 Translation_Speed_NonZero_Error_Thresh = 0.15;
@@ -423,10 +423,8 @@ Speaker_MotorSpeed_out= [2500	3000	4000	4000	4000	4000	4000	4350	4500	4500];
 
 %% Arm Control Gains
 % Argos Arms Desired Position Rate Limits
-% AA_Position_Back_Inc_RL = 2.5; % mm/loop
-% AA_Position_Back_Dec_RL = -2.5; % mm/loop
-AA_Position_Back_Inc_RL = 3; % mm/loop
-AA_Position_Back_Dec_RL = -2; % mm/loop
+AA_Position_Back_Inc_RL = 2.5; % mm/loop
+AA_Position_Back_Dec_RL = -2.5; % mm/loop
 
 AA_Position_Front_Inc_RL = 6; % mm/loop
 AA_Position_Front_Dec_RL = -6; % mm/loop
