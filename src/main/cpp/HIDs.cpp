@@ -39,6 +39,8 @@ void HIDs::PreStep() {
     Code_Gen_Model_U.Gamepad_B4_Y = m_Gamepad.GetRawButton(4);    
     Code_Gen_Model_U.Gamepad_LB = m_Gamepad.GetRawButton(5);
     Code_Gen_Model_U.Gamepad_RB = m_Gamepad.GetRawButton(6);
+    Code_Gen_Model_U.Gamepad_Back = m_Gamepad.GetRawButton(7);
+    Code_Gen_Model_U.Gamepad_Start = m_Gamepad.GetRawButton(8);
     Code_Gen_Model_U.Gamepad_LT = m_Gamepad.GetRawAxis(2);
     Code_Gen_Model_U.Gamepad_RT = m_Gamepad.GetRawAxis(3);
 

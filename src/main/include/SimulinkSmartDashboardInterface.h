@@ -234,10 +234,12 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __GameState__Entry;
         nt::NetworkTableEntry __Gamepad_B1_A__Entry;
         nt::NetworkTableEntry __Gamepad_B4_Y__Entry;
+        nt::NetworkTableEntry __Gamepad_Back__Entry;
         nt::NetworkTableEntry __Gamepad_LB__Entry;
         nt::NetworkTableEntry __Gamepad_LT__Entry;
         nt::NetworkTableEntry __Gamepad_RB__Entry;
         nt::NetworkTableEntry __Gamepad_RT__Entry;
+        nt::NetworkTableEntry __Gamepad_Start__Entry;
         nt::NetworkTableEntry __Gamepad_Stick_Left_X__Entry;
         nt::NetworkTableEntry __Gamepad_Stick_Left_Y__Entry;
         nt::NetworkTableEntry __Gamepad_Stick_Right_X__Entry;
@@ -371,6 +373,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Odometry_Y_global_TEAR_ft__Entry;
         nt::NetworkTableEntry __Odometry_Y_global_est_ft__Entry;
         nt::NetworkTableEntry __Prev_GameState__Entry;
+        nt::NetworkTableEntry __RelativeMoveForward__Entry;
         nt::NetworkTableEntry __Robot_Reached_Destination__Entry;
         nt::NetworkTableEntry __Shooter_Brake_Enable_out__Entry;
         nt::NetworkTableEntry __Shooter_Motor_DC_Left__Entry;

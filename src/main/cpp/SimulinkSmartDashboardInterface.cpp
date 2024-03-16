@@ -755,10 +755,12 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __GameState__Entry = NTtable_Inport->GetEntry("GameState");
     __Gamepad_B1_A__Entry = NTtable_Inport->GetEntry("Gamepad_B1_A");
     __Gamepad_B4_Y__Entry = NTtable_Inport->GetEntry("Gamepad_B4_Y");
+    __Gamepad_Back__Entry = NTtable_Inport->GetEntry("Gamepad_Back");
     __Gamepad_LB__Entry = NTtable_Inport->GetEntry("Gamepad_LB");
     __Gamepad_LT__Entry = NTtable_Inport->GetEntry("Gamepad_LT");
     __Gamepad_RB__Entry = NTtable_Inport->GetEntry("Gamepad_RB");
     __Gamepad_RT__Entry = NTtable_Inport->GetEntry("Gamepad_RT");
+    __Gamepad_Start__Entry = NTtable_Inport->GetEntry("Gamepad_Start");
     __Gamepad_Stick_Left_X__Entry = NTtable_Inport->GetEntry("Gamepad_Stick_Left_X");
     __Gamepad_Stick_Left_Y__Entry = NTtable_Inport->GetEntry("Gamepad_Stick_Left_Y");
     __Gamepad_Stick_Right_X__Entry = NTtable_Inport->GetEntry("Gamepad_Stick_Right_X");
@@ -893,6 +895,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Odometry_Y_global_TEAR_ft__Entry = NTtable_TPoint->GetEntry("Odometry_Y_global_TEAR_ft");
     __Odometry_Y_global_est_ft__Entry = NTtable_TPoint->GetEntry("Odometry_Y_global_est_ft");
     __Prev_GameState__Entry = NTtable_TPoint->GetEntry("Prev_GameState");
+    __RelativeMoveForward__Entry = NTtable_TPoint->GetEntry("RelativeMoveForward");
     __Robot_Reached_Destination__Entry = NTtable_TPoint->GetEntry("Robot_Reached_Destination");
     __Shooter_Brake_Enable_out__Entry = NTtable_TPoint->GetEntry("Shooter_Brake_Enable_out");
     __Shooter_Motor_DC_Left__Entry = NTtable_TPoint->GetEntry("Shooter_Motor_DC_Left");
@@ -979,10 +982,12 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __GameState__Entry.SetDouble(Code_Gen_Model_U.GameState);
     __Gamepad_B1_A__Entry.SetDouble(Code_Gen_Model_U.Gamepad_B1_A);
     __Gamepad_B4_Y__Entry.SetDouble(Code_Gen_Model_U.Gamepad_B4_Y);
+    __Gamepad_Back__Entry.SetDouble(Code_Gen_Model_U.Gamepad_Back);
     __Gamepad_LB__Entry.SetDouble(Code_Gen_Model_U.Gamepad_LB);
     __Gamepad_LT__Entry.SetDouble(Code_Gen_Model_U.Gamepad_LT);
     __Gamepad_RB__Entry.SetDouble(Code_Gen_Model_U.Gamepad_RB);
     __Gamepad_RT__Entry.SetDouble(Code_Gen_Model_U.Gamepad_RT);
+    __Gamepad_Start__Entry.SetDouble(Code_Gen_Model_U.Gamepad_Start);
     __Gamepad_Stick_Left_X__Entry.SetDouble(Code_Gen_Model_U.Gamepad_Stick_Left_X);
     __Gamepad_Stick_Left_Y__Entry.SetDouble(Code_Gen_Model_U.Gamepad_Stick_Left_Y);
     __Gamepad_Stick_Right_X__Entry.SetDouble(Code_Gen_Model_U.Gamepad_Stick_Right_X);
@@ -1115,6 +1120,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Odometry_Y_global_TEAR_ft__Entry.SetDouble(Code_Gen_Model_B.Odometry_Y_global_TEAR_ft);
     __Odometry_Y_global_est_ft__Entry.SetDouble(Code_Gen_Model_B.Odometry_Y_global_est_ft);
     __Prev_GameState__Entry.SetDouble(Code_Gen_Model_B.Prev_GameState);
+    __RelativeMoveForward__Entry.SetDouble(Code_Gen_Model_B.RelativeMoveForward);
     __Robot_Reached_Destination__Entry.SetDouble(Code_Gen_Model_B.Robot_Reached_Destination);
     __Shooter_Brake_Enable_out__Entry.SetDouble(Code_Gen_Model_B.Shooter_Brake_Enable_out);
     __Shooter_Motor_DC_Left__Entry.SetDouble(Code_Gen_Model_B.Shooter_Motor_DC_Left);
