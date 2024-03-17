@@ -90,6 +90,7 @@ void Robot::PreStep()
   m_TelescopingArm.PreStep();
   m_LineSensor.PreStep();
   m_Climber.PreStep();
+  m_FMSInfo.PreStep();
 }
 
 void Robot::PostStep() 
@@ -105,11 +106,13 @@ void Robot::PostStep()
   m_TelescopingArm.PostStep();
   m_LineSensor.PostStep();
   m_Climber.PostStep();
+  m_FMSInfo.PostStep();
 }
 
 void Robot::GameInitValues() 
 {
   m_SwerveDrive.GameInitValues();
+  m_FMSInfo.WhenGameStateChanges();
 }
 
 void Robot::BindSDCallbacks() 
@@ -128,6 +131,7 @@ void Robot::Initalize()
   m_SwerveDrive.Initalize();
   m_TelescopingArm.Initalize();
   m_Climber.Initalize();
+  m_FMSInfo.Initalize();
 }
 
 #ifndef RUNNING_FRC_TESTS

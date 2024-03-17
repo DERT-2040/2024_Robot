@@ -11,6 +11,7 @@
 #include "include/SwerveDrive.h"
 #include "include/SmartDashboard.h"
 #include "include/SimulinkSmartDashboardInterface.h"
+#include "include/FMSInfo.h"
 #include "include/PhotonVisionInterface.h"
 #include "include/TelescopingArm.h"
 #include "include/Intake.h"
@@ -154,6 +155,10 @@ private:
    */
   SimulinkSmartDashboardInterface m_SimulinkSmartDashboardInterface;  
   
+  /**
+   * Component that reads the field management system info from smart dashboard and puts it into simulink
+   */
+  FMSInfo m_FMSInfo;
   /**
    * Component that runs all motors and sensors for the Intake of the 2024 Robot
   */
