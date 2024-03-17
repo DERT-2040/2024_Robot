@@ -20,6 +20,7 @@ void HIDs::PreStep() {
     Code_Gen_Model_U.Joystick_Left_B7 = m_Left_Joystick.GetRawButton(7); 
     Code_Gen_Model_U.Joystick_Left_B8 = m_Left_Joystick.GetRawButton(8);       
     Code_Gen_Model_U.Joystick_Left_B10 = m_Left_Joystick.GetRawButton(10);
+    Code_Gen_Model_U.Joystick_Left_B13 = m_Left_Joystick.GetRawButton(13);  
     Code_Gen_Model_U.Joystick_Left_B14 = m_Left_Joystick.GetRawButton(14);     
     Code_Gen_Model_U.Joystick_Left_POV = m_Left_Joystick.GetPOV();    
 
@@ -30,6 +31,7 @@ void HIDs::PreStep() {
     Code_Gen_Model_U.Joystick_Right_B7 = m_Right_Joystick.GetRawButton(7);
     Code_Gen_Model_U.Joystick_Right_B8 = m_Right_Joystick.GetRawButton(8);    
     Code_Gen_Model_U.Joystick_Right_B10 = m_Right_Joystick.GetRawButton(10);
+    Code_Gen_Model_U.Joystick_Right_B13 = m_Right_Joystick.GetRawButton(13);
     Code_Gen_Model_U.Joystick_Right_B14 = m_Right_Joystick.GetRawButton(14);     
     Code_Gen_Model_U.Joystick_Right_POV = m_Right_Joystick.GetPOV();
 
