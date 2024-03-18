@@ -43,16 +43,16 @@ void Robot::RobotPeriodic()
     // m_Tracer.PrintEpochs();
 }
 
-void Robot::AutonomousInit() { Code_Gen_Model_U.GameState = 1; WhenGameStateChanges();}
+void Robot::AutonomousInit() { Code_Gen_Model_U.GameState = 1; GameInitValues();}
 void Robot::AutonomousPeriodic() {}
 
-void Robot::TeleopInit() {Code_Gen_Model_U.GameState = 2; WhenGameStateChanges();}
+void Robot::TeleopInit() {Code_Gen_Model_U.GameState = 2; GameInitValues();}
 void Robot::TeleopPeriodic() {}
 
-void Robot::DisabledInit() {Code_Gen_Model_U.GameState = 0; WhenGameStateChanges();}
+void Robot::DisabledInit() {Code_Gen_Model_U.GameState = 0; GameInitValues();}
 void Robot::DisabledPeriodic() {}
 
-void Robot::TestInit() {Code_Gen_Model_U.GameState = 3; WhenGameStateChanges();}
+void Robot::TestInit() {Code_Gen_Model_U.GameState = 3; GameInitValues();}
 void Robot::TestPeriodic() 
 {
   if(Robot::m_HIDs.Get_Left_Joystick().GetRawButtonPressed(Constants::k_TestMode_Wheel_On))
@@ -80,50 +80,58 @@ void Robot::SimulationPeriodic() {}
 
 void Robot::PreStep() 
 {
-  for (std::function<void()> Callback : PreStepCallbacks) {
-    Callback();
-  }
+  m_PhotonVisionInterface.PreStep();
+  m_HIDs.PreStep();
+  m_IMU.PreStep();
+  m_SwerveDrive.PreStep();
+  m_Intake.PreStep();
+  m_Shooter.PreStep();
+  m_BallScrew.PreStep();
+  m_TelescopingArm.PreStep();
+  m_LineSensor.PreStep();
+  m_Climber.PreStep();
+  m_FMSInfo.PreStep();
 }
 
 void Robot::PostStep() 
 {
-  for (std::function<void()> Callback : PostStepCallbacks) {
-    Callback();
-  }
+  m_PhotonVisionInterface.PostStep();
+  m_HIDs.PostStep();
+  m_IMU.PostStep();
+  m_SwerveDrive.PostStep();
+  m_Intake.PostStep();
+  m_Shooter.PostStep();
+  m_SmartDashboard.UpdateSDValues();
+  m_BallScrew.PostStep();
+  m_TelescopingArm.PostStep();
+  m_LineSensor.PostStep();
+  m_Climber.PostStep();
+  m_FMSInfo.PostStep();
 }
 
-void Robot::WhenGameStateChanges() 
+void Robot::GameInitValues() 
 {
-  for (std::function<void()> Callback : ChangeGameStateCallbacks) {
-    Callback();
-  }
+  m_SwerveDrive.GameInitValues();
+  m_FMSInfo.WhenGameStateChanges();
 }
 
-void Robot::UpdateSmartDashboardValues(){
-  for (std::function<void()> Callback : SmartDashboardCallbacks) {
-    Callback();
-  }
-  frc::SmartDashboard::UpdateValues();
-}
-
-void Robot::BindSmartDashboardCallback(std::function<void()> callback) 
+void Robot::BindSDCallbacks() 
 {
-  PreStepCallbacks.push_back(callback);
+  // m_SmartDashboard.BindSmartDashboardCallback(std::bind(&PhotonVisionInterface::SmartDashboardCallback, &m_PhotonVisionInterface));
+  m_SmartDashboard.BindSmartDashboardCallback(std::bind(&SimulinkSmartDashboardInterface::SmartDashboardCallback, &m_SimulinkSmartDashboardInterface));
+  // m_SmartDashboard.BindSmartDashboardCallback(std::bind(&SwerveDrive::SmartDashboardCallback, &m_SwerveDrive));
+  // m_SmartDashboard.BindSmartDashboardCallback(std::bind(&TelescopingArm::SmartDashboardCallback, &Test_Arm));
 }
 
-void Robot::BindPreStepCallbacks(std::function<void()> callback)
+void Robot::Initalize()
 {
-  PreStepCallbacks.push_back(callback);
-}
-
-void Robot::BindPostStepCallbacks(std::function<void()> callback)
-{
-  PostStepCallbacks.push_back(callback);
-}
-
-void Robot::BindChangeGameStatesCallback(std::function<void()> callback)
-{
-  ChangeGameStateCallbacks.push_back(callback);
+  m_BallScrew.Initalize();
+  m_Intake.Initalize();
+  m_Shooter.Initalize();
+  m_SwerveDrive.Initalize();
+  m_TelescopingArm.Initalize();
+  m_Climber.Initalize();
+  m_FMSInfo.Initalize();
 }
 
 #ifndef RUNNING_FRC_TESTS

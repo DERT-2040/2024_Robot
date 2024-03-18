@@ -1,12 +1,7 @@
 //local
 #include "include/SwerveDrive.h"
 
-SwerveDrive::SwerveDrive(Robot* m_Robot)
-{
-  m_Robot->BindSmartDashboardCallback(std::bind(&SwerveDrive::SmartDashboardCallback, &SwerveDrive));
-}
-
-void SwerveDrive::PreStepCallback() 
+void SwerveDrive::PreStep() 
 {
   //Drive Motor Speed
   Code_Gen_Model_U.FrontLeft_Drive_Motor_Speed = m_FrontLeft_Drive_Encoder.GetVelocity();
@@ -24,7 +19,7 @@ void SwerveDrive::PreStepCallback()
   Code_Gen_Model_U.BackLeft_Steer_Rev = m_BackLeft_Steer_Encoder.GetPosition().GetValue().value();
   Code_Gen_Model_U.BackRight_Steer_Rev = m_BackRight_Steer_Encoder.GetPosition().GetValue().value();
 }
-void SwerveDrive::PostStepCallback() 
+void SwerveDrive::PostStep() 
 {
   if(AreMotorsDisabled) //escape if motor output is disabled
     return; 
@@ -46,12 +41,6 @@ void SwerveDrive::SmartDashboardCallback()
   frc::SmartDashboard::PutNumber("FR_Encoder", static_cast<double>(m_FrontRight_Steer_Encoder.GetPosition().GetValue()));
   frc::SmartDashboard::PutNumber("BL_Encoder", static_cast<double>(m_BackLeft_Steer_Encoder.GetPosition().GetValue()));
   frc::SmartDashboard::PutNumber("BR_Encoder", static_cast<double>(m_BackRight_Steer_Encoder.GetPosition().GetValue()));
-}
-
-void SwerveDrive::ChangeGameStatesCallback()
-{
-  if(AreMotorsDisabled)
-    WheelsOn();
 }
 
 void SwerveDrive::Initalize() 
@@ -131,12 +120,6 @@ void SwerveDrive::Initalize()
     m_BackLeft_Drive.SetPeriodicFramePeriod(rev::CANSparkLowLevel::PeriodicFrame::kStatus2, Constants::CAN_Adjustment_Values::kStatus2_ms);
     m_BackRight_Drive.SetPeriodicFramePeriod(rev::CANSparkLowLevel::PeriodicFrame::kStatus2, Constants::CAN_Adjustment_Values::kStatus2_ms);
 }
-
-/*
- * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
- * X X X X                 Class Specific Methods                  X X X X
- * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
- */
 
 void SwerveDrive::BrakeMode() 
 {
@@ -227,4 +210,10 @@ void SwerveDrive::WheelsOff()
   m_BackRight_Steer.StopMotor();
   CoastMode();  
   std::cout<< "WheelsOff";
+}
+
+void SwerveDrive::GameInitValues()
+{
+  if(AreMotorsDisabled)
+    WheelsOn();
 }
