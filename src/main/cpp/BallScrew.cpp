@@ -27,11 +27,10 @@ void BallScrew::Initalize()
     //Set secondary current limit (not sure what this does)
     m_BallScrew_Motor.SetSecondaryCurrentLimit(Constants::BallScrew_Constants::k_Ball_Screw_Secondary_Current_Limit);
 
-    //kStatus0
-    m_BallScrew_Motor.SetPeriodicFramePeriod(rev::CANSparkLowLevel::PeriodicFrame::kStatus0, Constants::CAN_Adjustment_Values::kStatus1_ms);
-    
     //kStatus1
-    m_BallScrew_Motor.SetPeriodicFramePeriod(rev::CANSparkLowLevel::PeriodicFrame::kStatus1, Constants::CAN_Adjustment_Values::kStatus2_ms);
+    m_BallScrew_Motor.SetPeriodicFramePeriod(rev::CANSparkLowLevel::PeriodicFrame::kStatus1, Constants::CAN_Adjustment_Values::kStatus1_ms);    
+    //kStatus2
+    m_BallScrew_Motor.SetPeriodicFramePeriod(rev::CANSparkLowLevel::PeriodicFrame::kStatus2, Constants::CAN_Adjustment_Values::kStatus2_ms);
 
     if(!frc::Preferences::ContainsKey(Constants::BallScrew_Constants::k_Ball_Screw_Off_Position_Key))
         frc::Preferences::SetDouble(Constants::BallScrew_Constants::k_Ball_Screw_Off_Position_Key, 0.0);

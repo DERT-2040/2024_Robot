@@ -7,12 +7,12 @@ void Shooter::Initalize()
     Left_Motor.SetIdleMode(rev::CANSparkBase::IdleMode::kBrake);
     Right_Motor.SetIdleMode(rev::CANSparkBase::IdleMode::kBrake);
 
-    //kStatus0
-    Left_Motor.SetPeriodicFramePeriod(rev::CANSparkLowLevel::PeriodicFrame::kStatus0, Constants::CAN_Adjustment_Values::kStatus1_ms);
-    Right_Motor.SetPeriodicFramePeriod(rev::CANSparkLowLevel::PeriodicFrame::kStatus0, Constants::CAN_Adjustment_Values::kStatus1_ms);
     //kStatus1
-    Left_Motor.SetPeriodicFramePeriod(rev::CANSparkLowLevel::PeriodicFrame::kStatus1, Constants::CAN_Adjustment_Values::kStatus2_ms);
-    Right_Motor.SetPeriodicFramePeriod(rev::CANSparkLowLevel::PeriodicFrame::kStatus1, Constants::CAN_Adjustment_Values::kStatus2_ms);
+    Left_Motor.SetPeriodicFramePeriod(rev::CANSparkLowLevel::PeriodicFrame::kStatus1, Constants::CAN_Adjustment_Values::kStatus1_ms);
+    Right_Motor.SetPeriodicFramePeriod(rev::CANSparkLowLevel::PeriodicFrame::kStatus1, Constants::CAN_Adjustment_Values::kStatus1_ms);
+    //kStatus2
+    Left_Motor.SetPeriodicFramePeriod(rev::CANSparkLowLevel::PeriodicFrame::kStatus2, Constants::CAN_Adjustment_Values::kStatus2_ms);
+    Right_Motor.SetPeriodicFramePeriod(rev::CANSparkLowLevel::PeriodicFrame::kStatus2, Constants::CAN_Adjustment_Values::kStatus2_ms);
 }
 
 void Shooter::PreStep()

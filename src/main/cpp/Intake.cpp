@@ -15,9 +15,9 @@ void Intake::Initalize()
     Intake_Motor.RestoreFactoryDefaults();
     Intake_Motor.SetIdleMode(rev::CANSparkBase::IdleMode::kBrake);
     
-    //kStatus0
-    Intake_Motor.SetPeriodicFramePeriod(rev::CANSparkLowLevel::PeriodicFrame::kStatus0, Constants::CAN_Adjustment_Values::kStatus1_ms);
     //kStatus1
-    Intake_Motor.SetPeriodicFramePeriod(rev::CANSparkLowLevel::PeriodicFrame::kStatus1, Constants::CAN_Adjustment_Values::kStatus2_ms);
+    Intake_Motor.SetPeriodicFramePeriod(rev::CANSparkLowLevel::PeriodicFrame::kStatus1, Constants::CAN_Adjustment_Values::kStatus1_ms);
+    //kStatus2
+    Intake_Motor.SetPeriodicFramePeriod(rev::CANSparkLowLevel::PeriodicFrame::kStatus2, Constants::CAN_Adjustment_Values::kStatus2_ms);
 
 }
