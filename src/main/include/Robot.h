@@ -24,6 +24,7 @@
 #include <frc/TimedRobot.h>
 //std
 #include <iostream>
+#include <functional>
 
 
 class Robot : public frc::TimedRobot {
@@ -82,7 +83,6 @@ class Robot : public frc::TimedRobot {
    */
   void TestPeriodic() override;
 
-
   /**
    * Runs once when robot changes into Simulation mode
    */
@@ -92,6 +92,26 @@ class Robot : public frc::TimedRobot {
    * runs every 20ms when the robot is in Simulation mode
    */
   void SimulationPeriodic() override;
+
+  /**
+   * Binds SmartDashboard Callbacks for all created components
+   */
+  void BindSmartDashboardCallback(std::function<void()> callback);
+
+  /**
+   * Binds Pre Step Callbacks for all created components
+   */
+  void BindPreStepCallbacks(std::function<void()> callback);
+
+  /**
+   * Binds Post Step Callbacks for all created components
+   */
+  void BindPostStepCallbacks(std::function<void()> callback);
+
+  /**
+   * Binds Change of Game State Callbacks for all created components
+   */
+  void BindChangeGameStatesCallback(std::function<void()> callback);
 
 private:
   /**
@@ -107,23 +127,40 @@ private:
   /**
    * Resets variables when the game state changes (teleop, auto, test, etc.)
    */
-  void GameInitValues();
-
-   /**
-   * Binds SmartDashboard Callbacks for all components
-   */
-  void BindSDCallbacks();
+  void WhenGameStateChanges();
 
   /**
-   * Initalizes all classes at robot start up in case there is an issue with initalizing them at object creation
+   * Updates all individal components SmartDashboard values and pushes those updates
    */
-  void Initalize();
+  void UpdateSmartDashboardValues();
+
+  /**
+   * Contains all Smart Dashboard Callbacks for calling in UpdateSD()
+   */
+  std::vector<std::function<void()>> SmartDashboardCallbacks;
+
+  /**
+   * Contains all Pre Step Callbacks for calling in PreStep()
+   */
+  std::vector<std::function<void()>> PreStepCallbacks;
+
+  /**
+   * Contains all Post Step Callbacks for calling in PostStep()
+   */
+  std::vector<std::function<void()>> PostStepCallbacks;
+  /**
+   * Contains all Change of Game State Callbacks for calling in ChangeGameState()
+   */
+  std::vector<std::function<void()>> ChangeGameStateCallbacks;
+
+
   /*
    * Below are the instances of the subsystems used by the robot
    * Everything here should be direct hardware control, only
    * functions that manipulate global variables declared by Simulink
    * are exceptions to this rule.
    */
+
 
   /**
    * Component Object for Human Input Devices
@@ -138,7 +175,7 @@ private:
   /**
    * Component Object for all Swerve Drive objects such as sensors and motors
    */
-  SwerveDrive m_SwerveDrive;
+  SwerveDrive m_SwerveDrive{this};
   
   /**
    * Component for all Smart Dashboard objects

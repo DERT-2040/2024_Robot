@@ -4,45 +4,66 @@
 
 //local
 #include "include/Constants.h"
+#include "include/Robot.h"
 #include "Code_Gen_Model_ert_rtw/Code_Gen_Model.h"
 //frc
 #include <frc/DutyCycleEncoder.h>
 #include <frc/Preferences.h>
+#include <frc/smartdashboard/SmartDashboard.h>
 //rev
 #include <rev/CANSparkMax.h>
 #include <rev/SparkRelativeEncoder.h>
 //ctr
 #include <ctre/phoenix6/CANcoder.hpp>
-//etc
-#include <frc/smartdashboard/SmartDashboard.h>
 
 class SwerveDrive {
-public:
+private:
     /**
-     * See GameInitValues documentation in Robot.h
+     * Constructs the component and binds all methods to Robot as well as initilizing class
      */
-    void GameInitValues();
+    SwerveDrive(Robot* m_Robot);
 
     /**
-     * See PreStep documentation in Robot.h
+     * Runs before the step function is called in the main loop
      */
-    void PreStep();
+    void PreStepCallback();
 
     /**
-     * See PostStep documentation in Robot.h
+     * Runs after the step function is called in the main loop
      */
-    void PostStep();
+    void PostStepCallback();
+    
+    /**
+     * Puts values to the SmartDashboard via the SD Callbacks function
+     */
+    void SmartDashboardCallback();
+    
+    /**
+     * Callback that triggers when the game state of the robot changes
+     */
+    void ChangeGameStatesCallback();
+    
+    /**
+     * Initalizes the class, specific to the class, run in constructor
+     */
+    void Initalize();
+
+    /*
+     * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
+     * X X X X                 Class Specific Methods                  X X X X
+     * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
+     */
 
     /**
      * Sets all motors in swerve drive to Brake mode
      * @warning do not use frequently, takes a lot of time and can overrun loop
-    */
+     */
     void BrakeMode();
 
     /**
      * Sets all motors in swerve drive to coast mode
      * @warning do not use frequently, takes a lot of time and can overrun loop
-    */
+     */
     void CoastMode();
 
     /**
@@ -79,13 +100,7 @@ public:
      * Disables commands from being able to go to the wheel motors
      */
     void WheelsOff();
-
-    /**
-     * Puts values to the SmartDashboard via the SD Callbacks function
-    */
-    void SmartDashboardCallback();
-    void Initalize();
-private:
+    
   //Drive Motors
     rev::CANSparkMax m_FrontLeft_Drive{Constants::k_FrontLeft_Drive_CANID, rev::CANSparkMax::MotorType::kBrushless};
     rev::CANSparkMax m_FrontRight_Drive{Constants::k_FrontRight_Drive_CANID, rev::CANSparkMax::MotorType::kBrushless};
