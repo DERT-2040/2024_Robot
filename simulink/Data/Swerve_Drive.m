@@ -35,6 +35,10 @@ Boost_Trigger_Decreasing_Limit = -(Boost_Trigger_High_Speed-Boost_Trigger_Low_Sp
 Steering_Twist_Gain = -0.015;
 Translation_Twist_Gain = 0.5;
 
+% Duration without a driver steering command before turning on steering
+% drift correction
+Steering_Cmd_Timeout = 0.5;  % seconds
+
 
 %% Wheel Gear Ratio
 gear_ratio = 8.14;

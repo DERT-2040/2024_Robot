@@ -545,6 +545,10 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     NTinst.AddListener(__Stage_Height__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Stage_Height = event.GetValueEventData()->value.GetDouble();});
     __Stage_Height__Entry.SetDouble(533.4);
  
+    __Steering_Cmd_Timeout__Entry = NTtable_Tune->GetEntry("Steering_Cmd_Timeout");
+    NTinst.AddListener(__Steering_Cmd_Timeout__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Cmd_Timeout = event.GetValueEventData()->value.GetDouble();});
+    __Steering_Cmd_Timeout__Entry.SetDouble(0.5);
+ 
     __Steering_Heading_Control_D__Entry = NTtable_Tune->GetEntry("Steering_Heading_Control_D");
     NTinst.AddListener(__Steering_Heading_Control_D__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Heading_Control_D = event.GetValueEventData()->value.GetDouble();});
     __Steering_Heading_Control_D__Entry.SetDouble(0);
@@ -790,7 +794,6 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Encoder_Revs_Back_Lower__Entry = NTtable_Inport->GetEntry("Encoder_Revs_Back_Lower");
     __Encoder_Revs_Back_Upper__Entry = NTtable_Inport->GetEntry("Encoder_Revs_Back_Upper");
     __Encoder_Revs_Ball_Screw__Entry = NTtable_Inport->GetEntry("Encoder_Revs_Ball_Screw");
-    __Encoder_Revs_Climber__Entry = NTtable_Inport->GetEntry("Encoder_Revs_Climber");
     __Encoder_Revs_Front__Entry = NTtable_Inport->GetEntry("Encoder_Revs_Front");
     __FrontLeft_Drive_Motor_Rev__Entry = NTtable_Inport->GetEntry("FrontLeft_Drive_Motor_Rev");
     __FrontLeft_Drive_Motor_Speed__Entry = NTtable_Inport->GetEntry("FrontLeft_Drive_Motor_Speed");
@@ -1022,7 +1025,6 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Encoder_Revs_Back_Lower__Entry.SetDouble(Code_Gen_Model_U.Encoder_Revs_Back_Lower);
     __Encoder_Revs_Back_Upper__Entry.SetDouble(Code_Gen_Model_U.Encoder_Revs_Back_Upper);
     __Encoder_Revs_Ball_Screw__Entry.SetDouble(Code_Gen_Model_U.Encoder_Revs_Ball_Screw);
-    __Encoder_Revs_Climber__Entry.SetDouble(Code_Gen_Model_U.Encoder_Revs_Climber);
     __Encoder_Revs_Front__Entry.SetDouble(Code_Gen_Model_U.Encoder_Revs_Front);
     __FrontLeft_Drive_Motor_Rev__Entry.SetDouble(Code_Gen_Model_U.FrontLeft_Drive_Motor_Rev);
     __FrontLeft_Drive_Motor_Speed__Entry.SetDouble(Code_Gen_Model_U.FrontLeft_Drive_Motor_Speed);

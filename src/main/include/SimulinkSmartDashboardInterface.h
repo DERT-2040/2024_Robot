@@ -146,6 +146,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Stage_Angle__Entry;
         nt::NetworkTableEntry __Stage_Gap__Entry;
         nt::NetworkTableEntry __Stage_Height__Entry;
+        nt::NetworkTableEntry __Steering_Cmd_Timeout__Entry;
         nt::NetworkTableEntry __Steering_Heading_Control_D__Entry;
         nt::NetworkTableEntry __Steering_Heading_Control_D_FilterCoeff__Entry;
         nt::NetworkTableEntry __Steering_Heading_Control_D_LL__Entry;
@@ -233,7 +234,6 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Encoder_Revs_Back_Lower__Entry;
         nt::NetworkTableEntry __Encoder_Revs_Back_Upper__Entry;
         nt::NetworkTableEntry __Encoder_Revs_Ball_Screw__Entry;
-        nt::NetworkTableEntry __Encoder_Revs_Climber__Entry;
         nt::NetworkTableEntry __Encoder_Revs_Front__Entry;
         nt::NetworkTableEntry __FrontLeft_Drive_Motor_Rev__Entry;
         nt::NetworkTableEntry __FrontLeft_Drive_Motor_Speed__Entry;
