@@ -7,21 +7,18 @@
 
 void Robot::RobotInit()
 {
-  Initalize();
   Code_Gen_Model_U.GameState = -1;
   Code_Gen_Model_initialize(); //code gen model init
-  BindSDCallbacks();
   m_SwerveDrive.BrakeMode(); //set all motors to coast mode
   m_IMU.Reset();
   m_SimulinkSmartDashboardInterface.InitSmartDashboardInterface();
-  BindSDCallbacks();
 }
 
 void Robot::RobotPeriodic()
 {  
-    m_Tracer.ClearEpochs();
-    m_Tracer.AddEpoch("After ClearEpochs");
-    
+  m_Tracer.ClearEpochs();
+  m_Tracer.AddEpoch("After ClearEpochs");
+   
   if(Robot::m_HIDs.Get_Left_Joystick().GetRawButtonPressed(Constants::k_Toggle_Absolute_Translation_Button)){
     m_SwerveDrive.Toggle_Absolute_Translation();
     std::cout << "Translation Method Toggled" << std::endl;
@@ -33,14 +30,14 @@ void Robot::RobotPeriodic()
   }
     
   PreStep(); //Robot wide PreStep
-    m_Tracer.AddEpoch("After PreStep");
+  m_Tracer.AddEpoch("After PreStep");
   
   Code_Gen_Model_step(); //Step the model
-    m_Tracer.AddEpoch("After Simulink");
+  m_Tracer.AddEpoch("After Simulink");
 
   PostStep(); //Robot wide PostStep
-    m_Tracer.AddEpoch("After PostStep");
-    // m_Tracer.PrintEpochs();
+  m_Tracer.AddEpoch("After PostStep");
+  // m_Tracer.PrintEpochs();
 }
 
 void Robot::AutonomousInit() { Code_Gen_Model_U.GameState = 1; WhenGameStateChanges();}
@@ -80,50 +77,30 @@ void Robot::SimulationPeriodic() {}
 
 void Robot::PreStep() 
 {
-  for (std::function<void()> Callback : PreStepCallbacks) {
-    Callback();
+  for (int i = 0; i < Component::AllCreatedComponents.size(); i++) {
+    (Component::AllCreatedComponents.at(i).*Component::PreStepCallbacks.at(i))();
   }
 }
 
 void Robot::PostStep() 
 {
-  for (std::function<void()> Callback : PostStepCallbacks) {
-    Callback();
+  for (int i = 0; i < Component::AllCreatedComponents.size(); i++) {
+    (Component::AllCreatedComponents.at(i).*Component::PostStepCallbacks.at(i))();
   }
 }
 
 void Robot::WhenGameStateChanges() 
 {
-  for (std::function<void()> Callback : ChangeGameStateCallbacks) {
-    Callback();
+  for (int i = 0; i < Component::AllCreatedComponents.size(); i++) {
+    (Component::AllCreatedComponents.at(i).*Component::GameStateChangeCallbacks.at(i))();
   }
 }
 
 void Robot::UpdateSmartDashboardValues(){
-  for (std::function<void()> Callback : SmartDashboardCallbacks) {
-    Callback();
+  for (int i = 0; i < Component::AllCreatedComponents.size(); i++) {
+    (Component::AllCreatedComponents.at(i).*Component::SmartDashboardCallbacks.at(i))();
   }
   frc::SmartDashboard::UpdateValues();
-}
-
-void Robot::BindSmartDashboardCallback(std::function<void()> callback) 
-{
-  PreStepCallbacks.push_back(callback);
-}
-
-void Robot::BindPreStepCallbacks(std::function<void()> callback)
-{
-  PreStepCallbacks.push_back(callback);
-}
-
-void Robot::BindPostStepCallbacks(std::function<void()> callback)
-{
-  PostStepCallbacks.push_back(callback);
-}
-
-void Robot::BindChangeGameStatesCallback(std::function<void()> callback)
-{
-  ChangeGameStateCallbacks.push_back(callback);
 }
 
 #ifndef RUNNING_FRC_TESTS

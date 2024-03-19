@@ -1,28 +1,24 @@
 #pragma once
 
-#include <iostream>
-
 //local
 #include "include/Constants.h"
-#include "include/Robot.h"
+#include "lib/include/Component.h"
 #include "Code_Gen_Model_ert_rtw/Code_Gen_Model.h"
 //frc
 #include <frc/DutyCycleEncoder.h>
 #include <frc/Preferences.h>
 #include <frc/smartdashboard/SmartDashboard.h>
+#include<wpi/function_ref.h>
 //rev
 #include <rev/CANSparkMax.h>
 #include <rev/SparkRelativeEncoder.h>
 //ctr
 #include <ctre/phoenix6/CANcoder.hpp>
 
-class SwerveDrive {
+class SwerveDrive : public Component
+{
 private:
-    /**
-     * Constructs the component and binds all methods to Robot as well as initilizing class
-     */
-    SwerveDrive(Robot* m_Robot);
-
+    SwerveDrive();
     /**
      * Runs before the step function is called in the main loop
      */
@@ -41,13 +37,8 @@ private:
     /**
      * Callback that triggers when the game state of the robot changes
      */
-    void ChangeGameStatesCallback();
+    void GameStateChangeCallback();
     
-    /**
-     * Initalizes the class, specific to the class, run in constructor
-     */
-    void Initalize();
-
     /*
      * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
      * X X X X                 Class Specific Methods                  X X X X

@@ -6,6 +6,7 @@
 
 //local
 #include "Code_Gen_Model_ert_rtw\Code_Gen_Model.h"
+#include "lib/include/Component.h"
 #include "include/HIDs.h"
 #include "include/IMU.h"
 #include "include/SwerveDrive.h"
@@ -26,7 +27,6 @@
 #include <iostream>
 #include <functional>
 
-
 class Robot : public frc::TimedRobot {
  public:
   /**
@@ -39,7 +39,6 @@ class Robot : public frc::TimedRobot {
    */
   void RobotPeriodic() override;
 
-
   /**
    * Runs once when robot changes into Autonomous mode
    */
@@ -49,7 +48,6 @@ class Robot : public frc::TimedRobot {
    * runs every 20ms when the robot is in Autonomous mode
    */
   void AutonomousPeriodic() override;
-
 
   /**
    * Runs once when robot changes into Teleop mode
@@ -61,7 +59,6 @@ class Robot : public frc::TimedRobot {
    */
   void TeleopPeriodic() override;
 
-
   /**
    * Runs once when robot changes into Disabled mode
    */
@@ -71,7 +68,6 @@ class Robot : public frc::TimedRobot {
    * runs every 20ms when the robot is in Disabled mode
    */
   void DisabledPeriodic() override;
-
 
   /**
    * Runs once when robot changes into Test mode
@@ -92,26 +88,6 @@ class Robot : public frc::TimedRobot {
    * runs every 20ms when the robot is in Simulation mode
    */
   void SimulationPeriodic() override;
-
-  /**
-   * Binds SmartDashboard Callbacks for all created components
-   */
-  void BindSmartDashboardCallback(std::function<void()> callback);
-
-  /**
-   * Binds Pre Step Callbacks for all created components
-   */
-  void BindPreStepCallbacks(std::function<void()> callback);
-
-  /**
-   * Binds Post Step Callbacks for all created components
-   */
-  void BindPostStepCallbacks(std::function<void()> callback);
-
-  /**
-   * Binds Change of Game State Callbacks for all created components
-   */
-  void BindChangeGameStatesCallback(std::function<void()> callback);
 
 private:
   /**
@@ -134,26 +110,6 @@ private:
    */
   void UpdateSmartDashboardValues();
 
-  /**
-   * Contains all Smart Dashboard Callbacks for calling in UpdateSD()
-   */
-  std::vector<std::function<void()>> SmartDashboardCallbacks;
-
-  /**
-   * Contains all Pre Step Callbacks for calling in PreStep()
-   */
-  std::vector<std::function<void()>> PreStepCallbacks;
-
-  /**
-   * Contains all Post Step Callbacks for calling in PostStep()
-   */
-  std::vector<std::function<void()>> PostStepCallbacks;
-  /**
-   * Contains all Change of Game State Callbacks for calling in ChangeGameState()
-   */
-  std::vector<std::function<void()>> ChangeGameStateCallbacks;
-
-
   /*
    * Below are the instances of the subsystems used by the robot
    * Everything here should be direct hardware control, only
@@ -175,7 +131,7 @@ private:
   /**
    * Component Object for all Swerve Drive objects such as sensors and motors
    */
-  SwerveDrive m_SwerveDrive{this};
+  SwerveDrive m_SwerveDrive;
   
   /**
    * Component for all Smart Dashboard objects

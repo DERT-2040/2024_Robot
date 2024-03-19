@@ -1,60 +1,6 @@
 //local
 #include "include/SwerveDrive.h"
-
-SwerveDrive::SwerveDrive(Robot* m_Robot)
-{
-  m_Robot->BindSmartDashboardCallback(std::bind(&SwerveDrive::SmartDashboardCallback, &SwerveDrive));
-}
-
-void SwerveDrive::PreStepCallback() 
-{
-  //Drive Motor Speed
-  Code_Gen_Model_U.FrontLeft_Drive_Motor_Speed = m_FrontLeft_Drive_Encoder.GetVelocity();
-  Code_Gen_Model_U.FrontRight_Drive_Motor_Speed = m_FrontRight_Drive_Encoder.GetVelocity();
-  Code_Gen_Model_U.BackLeft_Drive_Motor_Speed = m_BackLeft_Drive_Encoder.GetVelocity();
-  Code_Gen_Model_U.BackRight_Drive_Motor_Speed = m_BackRight_Drive_Encoder.GetVelocity();
-  //Drive Motor Revolutions
-  Code_Gen_Model_U.FrontLeft_Drive_Motor_Rev = m_FrontLeft_Drive_Encoder.GetPosition();
-  Code_Gen_Model_U.FrontRight_Drive_Motor_Rev = m_FrontRight_Drive_Encoder.GetPosition();
-  Code_Gen_Model_U.BackLeft_Drive_Motor_Rev = m_BackLeft_Drive_Encoder.GetPosition();
-  Code_Gen_Model_U.BackRight_Drive_Motor_Rev = m_BackRight_Drive_Encoder.GetPosition();
-  //Steer Module Revolutions
-  Code_Gen_Model_U.FrontLeft_Steer_Rev = m_FrontLeft_Steer_Encoder.GetPosition().GetValue().value();
-  Code_Gen_Model_U.FrontRight_Steer_Rev = m_FrontRight_Steer_Encoder.GetPosition().GetValue().value();
-  Code_Gen_Model_U.BackLeft_Steer_Rev = m_BackLeft_Steer_Encoder.GetPosition().GetValue().value();
-  Code_Gen_Model_U.BackRight_Steer_Rev = m_BackRight_Steer_Encoder.GetPosition().GetValue().value();
-}
-void SwerveDrive::PostStepCallback() 
-{
-  if(AreMotorsDisabled) //escape if motor output is disabled
-    return; 
-  //Drive Motors
-    m_FrontLeft_Drive.Set(Code_Gen_Model_Y.FrontLeft_Drive_DutyCycle);
-    m_FrontRight_Drive.Set(Code_Gen_Model_Y.FrontRight_Drive_DutyCycle);
-    m_BackLeft_Drive.Set(Code_Gen_Model_Y.BackLeft_Drive_DutyCycle);
-    m_BackRight_Drive.Set(Code_Gen_Model_Y.BackRight_Drive_DutyCycle);
-  //Steer Motors
-    m_FrontLeft_Steer.Set(Code_Gen_Model_Y.FrontLeft_Steer_DutyCycle);
-    m_FrontRight_Steer.Set(Code_Gen_Model_Y.FrontRight_Steer_DutyCycle);
-    m_BackLeft_Steer.Set(Code_Gen_Model_Y.BackLeft_Steer_DutyCycle);
-    m_BackRight_Steer.Set(Code_Gen_Model_Y.BackRight_Steer_DutyCycle);
-}
-
-void SwerveDrive::SmartDashboardCallback() 
-{
-  frc::SmartDashboard::PutNumber("FL_Encoder", m_FrontLeft_Steer_Encoder.GetPosition().GetValue().value());
-  frc::SmartDashboard::PutNumber("FR_Encoder", static_cast<double>(m_FrontRight_Steer_Encoder.GetPosition().GetValue()));
-  frc::SmartDashboard::PutNumber("BL_Encoder", static_cast<double>(m_BackLeft_Steer_Encoder.GetPosition().GetValue()));
-  frc::SmartDashboard::PutNumber("BR_Encoder", static_cast<double>(m_BackRight_Steer_Encoder.GetPosition().GetValue()));
-}
-
-void SwerveDrive::ChangeGameStatesCallback()
-{
-  if(AreMotorsDisabled)
-    WheelsOn();
-}
-
-void SwerveDrive::Initalize() 
+SwerveDrive::SwerveDrive()
 {
   //Drive Motors
     //Front Left
@@ -110,7 +56,7 @@ void SwerveDrive::Initalize()
     Code_Gen_Model_U.Is_Absolute_Steering = Constants::Is_Absolute_Steering_Default;
     Code_Gen_Model_U.Is_Absolute_Translation = Constants::Is_Absolute_Translation_Default;
   //Wheel Offset
-    SwerveDrive::Initalize_Wheel_Offset();
+    Initalize_Wheel_Offset();
   //CAN Networking
     //kStatus1
     m_FrontLeft_Drive.SetPeriodicFramePeriod(rev::CANSparkLowLevel::PeriodicFrame::kStatus1, Constants::CAN_Adjustment_Values::kStatus1_ms);
@@ -130,6 +76,55 @@ void SwerveDrive::Initalize()
     m_FrontRight_Drive.SetPeriodicFramePeriod(rev::CANSparkLowLevel::PeriodicFrame::kStatus2, Constants::CAN_Adjustment_Values::kStatus2_ms);
     m_BackLeft_Drive.SetPeriodicFramePeriod(rev::CANSparkLowLevel::PeriodicFrame::kStatus2, Constants::CAN_Adjustment_Values::kStatus2_ms);
     m_BackRight_Drive.SetPeriodicFramePeriod(rev::CANSparkLowLevel::PeriodicFrame::kStatus2, Constants::CAN_Adjustment_Values::kStatus2_ms);
+    BrakeMode();
+}
+
+void SwerveDrive::PreStepCallback() 
+{
+  //Drive Motor Speed
+  Code_Gen_Model_U.FrontLeft_Drive_Motor_Speed = m_FrontLeft_Drive_Encoder.GetVelocity();
+  Code_Gen_Model_U.FrontRight_Drive_Motor_Speed = m_FrontRight_Drive_Encoder.GetVelocity();
+  Code_Gen_Model_U.BackLeft_Drive_Motor_Speed = m_BackLeft_Drive_Encoder.GetVelocity();
+  Code_Gen_Model_U.BackRight_Drive_Motor_Speed = m_BackRight_Drive_Encoder.GetVelocity();
+  //Drive Motor Revolutions
+  Code_Gen_Model_U.FrontLeft_Drive_Motor_Rev = m_FrontLeft_Drive_Encoder.GetPosition();
+  Code_Gen_Model_U.FrontRight_Drive_Motor_Rev = m_FrontRight_Drive_Encoder.GetPosition();
+  Code_Gen_Model_U.BackLeft_Drive_Motor_Rev = m_BackLeft_Drive_Encoder.GetPosition();
+  Code_Gen_Model_U.BackRight_Drive_Motor_Rev = m_BackRight_Drive_Encoder.GetPosition();
+  //Steer Module Revolutions
+  Code_Gen_Model_U.FrontLeft_Steer_Rev = m_FrontLeft_Steer_Encoder.GetPosition().GetValue().value();
+  Code_Gen_Model_U.FrontRight_Steer_Rev = m_FrontRight_Steer_Encoder.GetPosition().GetValue().value();
+  Code_Gen_Model_U.BackLeft_Steer_Rev = m_BackLeft_Steer_Encoder.GetPosition().GetValue().value();
+  Code_Gen_Model_U.BackRight_Steer_Rev = m_BackRight_Steer_Encoder.GetPosition().GetValue().value();
+}
+void SwerveDrive::PostStepCallback() 
+{
+  if(AreMotorsDisabled) //escape if motor output is disabled
+    return; 
+  //Drive Motors
+    m_FrontLeft_Drive.Set(Code_Gen_Model_Y.FrontLeft_Drive_DutyCycle);
+    m_FrontRight_Drive.Set(Code_Gen_Model_Y.FrontRight_Drive_DutyCycle);
+    m_BackLeft_Drive.Set(Code_Gen_Model_Y.BackLeft_Drive_DutyCycle);
+    m_BackRight_Drive.Set(Code_Gen_Model_Y.BackRight_Drive_DutyCycle);
+  //Steer Motors
+    m_FrontLeft_Steer.Set(Code_Gen_Model_Y.FrontLeft_Steer_DutyCycle);
+    m_FrontRight_Steer.Set(Code_Gen_Model_Y.FrontRight_Steer_DutyCycle);
+    m_BackLeft_Steer.Set(Code_Gen_Model_Y.BackLeft_Steer_DutyCycle);
+    m_BackRight_Steer.Set(Code_Gen_Model_Y.BackRight_Steer_DutyCycle);
+}
+
+void SwerveDrive::SmartDashboardCallback() 
+{
+  frc::SmartDashboard::PutNumber("FL_Encoder", m_FrontLeft_Steer_Encoder.GetPosition().GetValue().value());
+  frc::SmartDashboard::PutNumber("FR_Encoder", static_cast<double>(m_FrontRight_Steer_Encoder.GetPosition().GetValue()));
+  frc::SmartDashboard::PutNumber("BL_Encoder", static_cast<double>(m_BackLeft_Steer_Encoder.GetPosition().GetValue()));
+  frc::SmartDashboard::PutNumber("BR_Encoder", static_cast<double>(m_BackRight_Steer_Encoder.GetPosition().GetValue()));
+}
+
+void SwerveDrive::GameStateChangeCallback()
+{
+  if(AreMotorsDisabled)
+    WheelsOn();
 }
 
 /*
@@ -210,7 +205,6 @@ void SwerveDrive::WheelsOn()
 {
   AreMotorsDisabled = false;
   BrakeMode();
-  std::cout<< "WheelsOn";
 }
 
 void SwerveDrive::WheelsOff()
@@ -226,5 +220,4 @@ void SwerveDrive::WheelsOff()
   m_BackLeft_Steer.StopMotor();
   m_BackRight_Steer.StopMotor();
   CoastMode();  
-  std::cout<< "WheelsOff";
 }
