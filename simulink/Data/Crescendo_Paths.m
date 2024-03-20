@@ -335,3 +335,6 @@ All_Num_Poses = [
   2,... %21
   2,... %22
 ];
+All_Paths = All_Paths - [16.54106/2 7.131177/2 0 0];
+All_Paths = All_Paths .* [-1 -1 1 1];
+All_Paths = All_Paths + [16.54106/2 7.131177/2 0 0];

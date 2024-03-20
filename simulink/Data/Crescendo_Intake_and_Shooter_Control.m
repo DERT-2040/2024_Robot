@@ -30,12 +30,12 @@ Servo_Time_Deploy = 0.4; % seconds
 
 % Maximum servo store position vs. calculated shooter angle
 % Servo = Angle(deg) * Gain + Offset
-Servo_Store_Offset = 0.5;  % setting this smaller will make it stick out more all the time
+Servo_Store_Offset = 0.65;  % setting this smaller will make it stick out more all the time
 Servo_Store_Gain = 0.0071429;  % this is tuned to keep a constant angle as the shooter rotates
 
 % Add more based on front arm height
 Servo_Front_Arm_Length_in = [250 350];
-Servo_Addition_out = [0 0];
+Servo_Addition_out = [0 0.3];
 
 % Shooter speed control PID for transfer
 Shooter_Motor_Control_FF= 0.00025;  % 1 DC / Max Speed RPM;

@@ -32,12 +32,9 @@ Boost_Trigger_Increasing_Limit = (Boost_Trigger_High_Speed-Boost_Trigger_Low_Spe
 Boost_Trigger_Decreasing_Limit = -(Boost_Trigger_High_Speed-Boost_Trigger_Low_Speed)/0.25*t_sample;
 
 % Joystick Twist Axis Gains
-Steering_Twist_Gain = -0.015;
+Steering_Twist_Gain = -0.5;
 Translation_Twist_Gain = 0.5;
 
-% Duration without a driver steering command before turning on steering
-% drift correction
-Steering_Cmd_Timeout = 0.5;  % seconds
 
 
 %% Wheel Gear Ratio
