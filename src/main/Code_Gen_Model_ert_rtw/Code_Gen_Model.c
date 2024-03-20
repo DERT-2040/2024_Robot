@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.171
+ * Model version                  : 2.172
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Tue Mar 19 23:12:02 2024
+ * C/C++ source code generated on : Wed Mar 20 08:24:50 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -3298,13 +3298,13 @@ void Code_Gen_Model_step(void)
       /* Switch: '<S402>/Switch6' incorporates:
        *  Constant: '<S402>/Constant'
        *  Constant: '<S402>/Constant1'
-       *  Inport: '<Root>/IsRedAlliance'
+       *  Inport: '<Root>/IsBlueAlliance'
        *  Switch: '<S402>/Switch4'
        */
-      if (Code_Gen_Model_U.IsRedAlliance != 0.0) {
-        rtb_thetay = 3.1415926535897931;
-      } else {
+      if (Code_Gen_Model_U.IsBlueAlliance != 0.0) {
         rtb_thetay = 0.0;
+      } else {
+        rtb_thetay = 3.1415926535897931;
       }
 
       /* Merge: '<S13>/Merge3' incorporates:
@@ -3507,6 +3507,23 @@ void Code_Gen_Model_step(void)
   }
 
   /* End of SwitchCase: '<S1>/Switch Case' */
+
+  /* Switch: '<S8>/Switch' incorporates:
+   *  Constant: '<S8>/Constant'
+   *  Constant: '<S8>/Constant1'
+   *  Inport: '<Root>/IsBlueAlliance'
+   */
+  if (Code_Gen_Model_U.IsBlueAlliance != 0.0) {
+    rtb_thetay = 0.0;
+  } else {
+    rtb_thetay = 3.1415926535897931;
+  }
+
+  /* Sum: '<S8>/Add' incorporates:
+   *  Switch: '<S8>/Switch'
+   */
+  Code_Gen_Model_B.Gyro_Angle_Field_rad = Code_Gen_Model_B.Gyro_Angle_rad +
+    rtb_thetay;
 
   /* If: '<S17>/If' incorporates:
    *  Constant: '<S245>/Constant'
@@ -4642,6 +4659,11 @@ void Code_Gen_Model_step(void)
      */
     Code_Gen_Model_B.Gyro_Angle_Adjustment_SPF = 0.0;
 
+    /* Merge: '<S17>/Merge8' incorporates:
+     *  SignalConversion generated from: '<S193>/Gyro_Angle_Field_rad'
+     */
+    Code_Gen_Model_B.Gyro_Angle_SPF = Code_Gen_Model_B.Gyro_Angle_Field_rad;
+
     /* Update for UnitDelay: '<S194>/Unit Delay' */
     Code_Gen_Model_DW.UnitDelay_DSTATE_gh = Code_Gen_Model_B.Spline_Index;
 
@@ -4705,6 +4727,11 @@ void Code_Gen_Model_step(void)
      *  SignalConversion generated from: '<S192>/Gyro_Angle_Adjustment_In'
      */
     Code_Gen_Model_B.Gyro_Angle_Adjustment_SPF = 0.0;
+
+    /* Merge: '<S17>/Merge8' incorporates:
+     *  SignalConversion generated from: '<S192>/Gyro_Angle_rad'
+     */
+    Code_Gen_Model_B.Gyro_Angle_SPF = Code_Gen_Model_B.Gyro_Angle_rad;
 
     /* End of Outputs for SubSystem: '<S17>/Pass Through' */
   }
@@ -4929,7 +4956,7 @@ void Code_Gen_Model_step(void)
      *  Sum: '<S373>/Add2'
      */
     Code_Gen_Model_B.Translation_Steering_Cmd = rt_modd_snf
-      ((Code_Gen_Model_B.Translation_Angle_SPF - Code_Gen_Model_B.Gyro_Angle_rad)
+      ((Code_Gen_Model_B.Translation_Angle_SPF - Code_Gen_Model_B.Gyro_Angle_SPF)
        + 3.1415926535897931, 6.2831853071795862) - 3.1415926535897931;
   } else {
     /* Switch: '<S349>/Switch' */
@@ -4948,7 +4975,7 @@ void Code_Gen_Model_step(void)
    *  Sum: '<S369>/Add2'
    */
   rtb_thetay = rt_modd_snf((Code_Gen_Model_B.Steering_Abs_Cmd_SPF -
-    Code_Gen_Model_B.Gyro_Angle_rad) + 3.1415926535897931, 6.2831853071795862) -
+    Code_Gen_Model_B.Gyro_Angle_SPF) + 3.1415926535897931, 6.2831853071795862) -
     3.1415926535897931;
 
   /* Sum: '<S371>/Sum1' incorporates:
@@ -8848,23 +8875,6 @@ void Code_Gen_Model_step(void)
     (Code_Gen_Model_B.Front_Arm_Length - Dist_Reset_Value_Front) <=
     Dist_AA_Cal_Tol)) && (fabs(Code_Gen_Model_B.Ball_Screw_Arm_Length -
     Dist_Reset_Value_Ball_Screw) <= Dist_BS_Cal_Tol));
-
-  /* Switch: '<S8>/Switch' incorporates:
-   *  Constant: '<S8>/Constant'
-   *  Constant: '<S8>/Constant1'
-   *  Inport: '<Root>/IsRedAlliance'
-   */
-  if (Code_Gen_Model_U.IsRedAlliance != 0.0) {
-    rtb_thetay = 3.1415926535897931;
-  } else {
-    rtb_thetay = 0.0;
-  }
-
-  /* Sum: '<S8>/Add' incorporates:
-   *  Switch: '<S8>/Switch'
-   */
-  Code_Gen_Model_B.Gyro_Angle_Field_rad = Code_Gen_Model_B.Gyro_Angle_rad +
-    rtb_thetay;
 
   /* SignalConversion: '<S9>/Signal Copy4' incorporates:
    *  Inport: '<Root>/Joystick_Right_X'

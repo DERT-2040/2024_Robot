@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.171
+ * Model version                  : 2.172
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Tue Mar 19 23:12:02 2024
+ * C/C++ source code generated on : Wed Mar 20 08:24:50 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -55,6 +55,7 @@ typedef struct {
   real_T Distance_Speaker;             /* '<S7>/Switch2' */
   real_T Gyro_Angle_Calibrated_deg;    /* '<S8>/Subtract1' */
   real_T Gyro_Angle_rad;               /* '<S38>/Gain1' */
+  real_T Gyro_Angle_Field_rad;         /* '<S8>/Add' */
   real_T Spline_Num_Poses;             /* '<S13>/Merge9' */
   real_T Steering_Abs_Cmd;             /* '<S13>/Merge1' */
   real_T Steering_Rel_Cmd;             /* '<S13>/Merge2' */
@@ -63,6 +64,7 @@ typedef struct {
   real_T Translation_Speed_SPF;        /* '<S17>/Merge2' */
   real_T Translation_Speed_RL;         /* '<S355>/Sum' */
   real_T Translation_Angle_SPF;        /* '<S17>/Merge3' */
+  real_T Gyro_Angle_SPF;               /* '<S17>/Merge8' */
   real_T Translation_Steering_Cmd;     /* '<S349>/Switch' */
   real_T Steering_Abs_Cmd_SPF;         /* '<S17>/Merge' */
   real_T Gyro_Angle_Adjustment_SPF;    /* '<S17>/Merge6' */
@@ -98,7 +100,6 @@ typedef struct {
   real_T Desired_Back_Lower_Dist;      /* '<S173>/Sum' */
   real_T Desired_Front_Dist;           /* '<S172>/Sum' */
   real_T Desired_Ball_Screw_Dist;      /* '<S189>/Sum' */
-  real_T Gyro_Angle_Field_rad;         /* '<S8>/Add' */
   real_T Steer_Joystick_X;             /* '<S9>/Signal Copy4' */
   real_T Product6[2];                  /* '<S14>/Product6' */
   real_T Odometry_X_global_est_ft;     /* '<S155>/meters to feet' */
@@ -440,7 +441,7 @@ typedef struct {
 /* External inputs (root inport signals with default storage) */
 typedef struct {
   real_T GameState;                    /* '<Root>/GameState' */
-  real_T IsRedAlliance;                /* '<Root>/IsRedAlliance' */
+  real_T IsBlueAlliance;               /* '<Root>/IsBlueAlliance' */
   real_T Joystick_Left_X;              /* '<Root>/Joystick_Left_X' */
   real_T Joystick_Left_Y;              /* '<Root>/Joystick_Left_Y' */
   real_T Joystick_Left_Z;              /* '<Root>/Joystick_Left_Z' */

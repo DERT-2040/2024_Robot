@@ -257,7 +257,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Gamepad_Stick_Right_Y__Entry;
         nt::NetworkTableEntry __Gyro_Angle__Entry;
         nt::NetworkTableEntry __Intake_TOF_Dist__Entry;
-        nt::NetworkTableEntry __IsRedAlliance__Entry;
+        nt::NetworkTableEntry __IsBlueAlliance__Entry;
         nt::NetworkTableEntry __Is_Absolute_Steering__Entry;
         nt::NetworkTableEntry __Is_Absolute_Translation__Entry;
         nt::NetworkTableEntry __Joystick_Left_B1__Entry;
@@ -366,6 +366,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Gyro_Angle_Adjustment_SPF__Entry;
         nt::NetworkTableEntry __Gyro_Angle_Calibrated_deg__Entry;
         nt::NetworkTableEntry __Gyro_Angle_Field_rad__Entry;
+        nt::NetworkTableEntry __Gyro_Angle_SPF__Entry;
         nt::NetworkTableEntry __Gyro_Angle_rad__Entry;
         nt::NetworkTableEntry __Intake_Motor_DC__Entry;
         nt::NetworkTableEntry __Intake_Shooter_State_Request__Entry;

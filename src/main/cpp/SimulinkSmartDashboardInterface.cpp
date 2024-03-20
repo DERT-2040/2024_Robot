@@ -817,7 +817,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Gamepad_Stick_Right_Y__Entry = NTtable_Inport->GetEntry("Gamepad_Stick_Right_Y");
     __Gyro_Angle__Entry = NTtable_Inport->GetEntry("Gyro_Angle");
     __Intake_TOF_Dist__Entry = NTtable_Inport->GetEntry("Intake_TOF_Dist");
-    __IsRedAlliance__Entry = NTtable_Inport->GetEntry("IsRedAlliance");
+    __IsBlueAlliance__Entry = NTtable_Inport->GetEntry("IsBlueAlliance");
     __Is_Absolute_Steering__Entry = NTtable_Inport->GetEntry("Is_Absolute_Steering");
     __Is_Absolute_Translation__Entry = NTtable_Inport->GetEntry("Is_Absolute_Translation");
     __Joystick_Left_B1__Entry = NTtable_Inport->GetEntry("Joystick_Left_B1");
@@ -927,6 +927,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Gyro_Angle_Adjustment_SPF__Entry = NTtable_TPoint->GetEntry("Gyro_Angle_Adjustment_SPF");
     __Gyro_Angle_Calibrated_deg__Entry = NTtable_TPoint->GetEntry("Gyro_Angle_Calibrated_deg");
     __Gyro_Angle_Field_rad__Entry = NTtable_TPoint->GetEntry("Gyro_Angle_Field_rad");
+    __Gyro_Angle_SPF__Entry = NTtable_TPoint->GetEntry("Gyro_Angle_SPF");
     __Gyro_Angle_rad__Entry = NTtable_TPoint->GetEntry("Gyro_Angle_rad");
     __Intake_Motor_DC__Entry = NTtable_TPoint->GetEntry("Intake_Motor_DC");
     __Intake_Shooter_State_Request__Entry = NTtable_TPoint->GetEntry("Intake_Shooter_State_Request");
@@ -1055,7 +1056,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Gamepad_Stick_Right_Y__Entry.SetDouble(Code_Gen_Model_U.Gamepad_Stick_Right_Y);
     __Gyro_Angle__Entry.SetDouble(Code_Gen_Model_U.Gyro_Angle);
     __Intake_TOF_Dist__Entry.SetDouble(Code_Gen_Model_U.Intake_TOF_Dist);
-    __IsRedAlliance__Entry.SetDouble(Code_Gen_Model_U.IsRedAlliance);
+    __IsBlueAlliance__Entry.SetDouble(Code_Gen_Model_U.IsBlueAlliance);
     __Is_Absolute_Steering__Entry.SetDouble(Code_Gen_Model_U.Is_Absolute_Steering);
     __Is_Absolute_Translation__Entry.SetDouble(Code_Gen_Model_U.Is_Absolute_Translation);
     __Joystick_Left_B1__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_B1);
@@ -1163,6 +1164,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Gyro_Angle_Adjustment_SPF__Entry.SetDouble(Code_Gen_Model_B.Gyro_Angle_Adjustment_SPF);
     __Gyro_Angle_Calibrated_deg__Entry.SetDouble(Code_Gen_Model_B.Gyro_Angle_Calibrated_deg);
     __Gyro_Angle_Field_rad__Entry.SetDouble(Code_Gen_Model_B.Gyro_Angle_Field_rad);
+    __Gyro_Angle_SPF__Entry.SetDouble(Code_Gen_Model_B.Gyro_Angle_SPF);
     __Gyro_Angle_rad__Entry.SetDouble(Code_Gen_Model_B.Gyro_Angle_rad);
     __Intake_Motor_DC__Entry.SetDouble(Code_Gen_Model_B.Intake_Motor_DC);
     __Intake_Shooter_State_Request__Entry.SetDouble(Code_Gen_Model_B.Intake_Shooter_State_Request);
