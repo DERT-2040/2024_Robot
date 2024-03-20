@@ -1,17 +1,27 @@
 #include "include/BallScrew.h"
 
-void BallScrew::PreStep()
+void BallScrew::PreStepCallback()
 {
     Code_Gen_Model_U.Encoder_Revs_Ball_Screw = m_BallScrew_Encoder.GetPosition();
 }
 
-void BallScrew::PostStep()
+void BallScrew::PostStepCallback()
 {
     m_BallScrew_Motor.Set(Code_Gen_Model_Y.Ball_Screw_Arm_DutyCycle);
     
 }
 
-void BallScrew::Initalize()
+void BallScrew::SmartDashboardCallback()
+{
+
+}
+
+void BallScrew::GameStateChangeCallback()
+{
+
+}
+
+BallScrew::BallScrew()
 {   //Restore factoroy defaults
     m_BallScrew_Motor.RestoreFactoryDefaults();
 

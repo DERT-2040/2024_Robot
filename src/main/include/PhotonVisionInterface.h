@@ -10,6 +10,7 @@
 #include <frc/smartdashboard/SmartDashboard.h>
 #include <math.h>
 
+#include "lib/include/Component.h"
 #include "Code_Gen_Model_ert_rtw/Code_Gen_Model.h"
 
 #include <memory>
@@ -18,16 +19,39 @@
 #include <frc/apriltag/AprilTagFieldLayout.h>
 #include <frc/apriltag/AprilTagFields.h>
 
-class PhotonVisionInterface {
+class PhotonVisionInterface : public Component
+{
   public:
-    void PreStep();
-    void PostStep();
-    void SmartDashboardCallback();
     PhotonVisionInterface();
     frc::Pose2d GetEstimatedGlobalPose();
     double GetGlobalPoseAmbiguity();
 
   private:
+  /**
+     * Runs before the step function is called in the main loop
+     */
+    void PreStepCallback();
+
+    /**
+     * Runs after the step function is called in the main loop
+     */
+    void PostStepCallback();
+    
+    /**
+     * Puts values to the SmartDashboard via the SD Callbacks function
+     */
+    void SmartDashboardCallback();
+    
+    /**
+     * Callback that triggers when the game state of the robot changes
+     */
+    void GameStateChangeCallback();
+    
+    /*
+     * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
+     * X X X X                 Class Specific Methods                  X X X X
+     * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
+     */
   /*
     // Makes a apriltag feild layout for our shop 
     frc::AprilTag tag1 = frc::AprilTag(1, frc::Pose3d(frc::Translation3d(0.041275_m, 0.3937_m, 0.51435_m), frc::Rotation3d(0_rad, 0_rad, 0_rad)));

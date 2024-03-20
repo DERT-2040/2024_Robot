@@ -17,8 +17,10 @@
 
 class SwerveDrive : public Component
 {
+public:
+  SwerveDrive();
 private:
-    SwerveDrive();
+    
     /**
      * Runs before the step function is called in the main loop
      */

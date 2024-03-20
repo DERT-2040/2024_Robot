@@ -1,16 +1,16 @@
 #include "include/Climber.h"
 
-void Climber::PreStep()
+void Climber::PreStepCallback()
 {
     // Code_Gen_Model_U.Encoder_Revs_Climber = m_Climber_Encoder.GetPosition();
 }
 
-void Climber::PostStep()
+void Climber::PostStepCallback()
 {
     m_Climber_Motor.Set(Code_Gen_Model_Y.Climber_DutyCycle);
 }
 
-void Climber::Initalize()
+Climber::Climber()
 {   //Restore factoroy defaults
     m_Climber_Motor.RestoreFactoryDefaults();
 
@@ -25,4 +25,14 @@ void Climber::Initalize()
     // //kStatus2
     // m_Climber_Motor.SetPeriodicFramePeriod(rev::CANSparkLowLevel::PeriodicFrame::kStatus2, Constants::CAN_Adjustment_Values::kStatus2_ms);
 
+}
+
+void Climber::SmartDashboardCallback()
+{
+
+}
+
+void Climber::GameStateChangeCallback()
+{
+    
 }

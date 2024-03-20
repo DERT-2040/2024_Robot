@@ -3,24 +3,16 @@
 //local
 #include "include/Constants.h"
 #include "Code_Gen_Model_ert_rtw\Code_Gen_Model.h"
+#include "lib/include/Component.h"
 //frc
 #include <frc/Joystick.h>
 #include <frc/GenericHID.h>
 // #include <frc/XboxController.h>
 
 
-class HIDs {
+class HIDs : public Component
+{
 public:
-    /**
-     * See PreStep documentation in Robot.h
-     */
-    void PreStep();
-
-    /**
-     * See PostStep documentation in Robot.h
-     */
-    void PostStep();
-
     /**
      * returns a reference to the m_Gamepad Object
     */
@@ -41,6 +33,31 @@ public:
     */
     frc::GenericHID& Get_Steer_Joystick() { return m_Right_Joystick; }
 private:
+/**
+     * Runs before the step function is called in the main loop
+     */
+    void PreStepCallback();
+
+    /**
+     * Runs after the step function is called in the main loop
+     */
+    void PostStepCallback();
+    
+    /**
+     * Puts values to the SmartDashboard via the SD Callbacks function
+     */
+    void SmartDashboardCallback();
+    
+    /**
+     * Callback that triggers when the game state of the robot changes
+     */
+    void GameStateChangeCallback();
+    
+    /*
+     * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
+     * X X X X                 Class Specific Methods                  X X X X
+     * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
+     */
     /**
      * The gamepad used for robot implements.
      * Axis:

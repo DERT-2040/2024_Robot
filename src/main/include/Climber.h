@@ -2,15 +2,39 @@
 
 #include <rev/CANSparkMax.h>
 #include "include/Constants.h"
+#include "lib/include/Component.h"
 #include "Code_Gen_Model_ert_rtw/Code_Gen_Model.h"
 
-class Climber
+class Climber : public Component
 {
 public:
-    void PreStep();
-    void PostStep();
-    void Initalize();
+    Climber();
 private:
+    /**
+     * Runs before the step function is called in the main loop
+     */
+    void PreStepCallback();
+
+    /**
+     * Runs after the step function is called in the main loop
+     */
+    void PostStepCallback();
+    
+    /**
+     * Puts values to the SmartDashboard via the SD Callbacks function
+     */
+    void SmartDashboardCallback();
+    
+    /**
+     * Callback that triggers when the game state of the robot changes
+     */
+    void GameStateChangeCallback();
+    
+    /*
+     * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
+     * X X X X                 Class Specific Methods                  X X X X
+     * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
+     */
     rev::CANSparkMax m_Climber_Motor{Constants::Climber_Constants::Climber_Motor_Device_ID, rev::CANSparkMax::MotorType::kBrushless};
     rev::SparkRelativeEncoder m_Climber_Encoder{m_Climber_Motor.GetEncoder(rev::SparkRelativeEncoder::Type::kHallSensor, 42)};
 };

@@ -10,7 +10,6 @@
 #include "include/HIDs.h"
 #include "include/IMU.h"
 #include "include/SwerveDrive.h"
-#include "include/SmartDashboard.h"
 #include "include/SimulinkSmartDashboardInterface.h"
 #include "include/FMSInfo.h"
 #include "include/PhotonVisionInterface.h"
@@ -133,10 +132,6 @@ private:
    */
   SwerveDrive m_SwerveDrive;
   
-  /**
-   * Component for all Smart Dashboard objects
-   */
-  SmartDashboard m_SmartDashboard;
   PhotonVisionInterface m_PhotonVisionInterface;
   /**
    * Monitor code execution time
