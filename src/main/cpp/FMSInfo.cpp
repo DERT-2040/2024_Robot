@@ -1,21 +1,21 @@
 #include "Include/FMSInfo.h"
 
-void FMSInfo::Initalize()
+void FMSInfo::PreStepCallback()
 {
 
 }
 
-void FMSInfo::PreStep()
+void FMSInfo::PostStepCallback()
 {
 
 }
 
-void FMSInfo::PostStep()
+void FMSInfo::SmartDashboardCallback()
 {
 
 }
 
-void FMSInfo::WhenGameStateChanges()
+void FMSInfo::GameStateChangeCallback()
 {
     std::optional<frc::DriverStation::Alliance> CurrentAlliance = frc::DriverStation::GetAlliance();
     if(!CurrentAlliance.has_value())

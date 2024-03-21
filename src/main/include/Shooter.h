@@ -10,6 +10,7 @@
 class Shooter : public Component
 {
 public:
+    Shooter();
 private:
     /**
      * Runs before the step function is called in the main loop

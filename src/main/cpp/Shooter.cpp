@@ -1,6 +1,6 @@
 #include "include/Shooter.h"
 
-void Shooter::Initalize()
+Shooter::Shooter()
 {
     Left_Motor.RestoreFactoryDefaults();
     Right_Motor.RestoreFactoryDefaults();
@@ -15,7 +15,7 @@ void Shooter::Initalize()
     Right_Motor.SetPeriodicFramePeriod(rev::CANSparkLowLevel::PeriodicFrame::kStatus2, Constants::CAN_Adjustment_Values::kStatus2_ms);
 }
 
-void Shooter::PreStep()
+void Shooter::PreStepCallback()
 {
     Code_Gen_Model_U.Shooter_TOF_Dist = TOF_Sensor.GetRange();
     
@@ -23,7 +23,7 @@ void Shooter::PreStep()
     Code_Gen_Model_U.Shooter_Right_Motor_RPM = Right_Relative_Encoder.GetVelocity();
 }
 
-void Shooter::PostStep()
+void Shooter::PostStepCallback()
 {
     if(!Code_Gen_Model_Y.Shooter_Brake_Enable)
     {
@@ -37,4 +37,14 @@ void Shooter::PostStep()
     }
 
     Unicorn_Horn_Servo.Set(Code_Gen_Model_Y.Shooter_Servo_Position);
+}
+
+void Shooter::SmartDashboardCallback()
+{
+
+}
+
+void Shooter::GameStateChangeCallback()
+{
+
 }

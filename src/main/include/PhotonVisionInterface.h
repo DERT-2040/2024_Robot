@@ -27,7 +27,8 @@ class PhotonVisionInterface : public Component
     double GetGlobalPoseAmbiguity();
 
   private:
-  /**
+    /**
+     * @Override
      * Runs before the step function is called in the main loop
      */
     void PreStepCallback();

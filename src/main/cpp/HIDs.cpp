@@ -2,7 +2,7 @@
 #include "include\HIDs.h"
 
 
-void HIDs::PreStep() {
+void HIDs::PreStepCallback() {
     // Steer and Drive Joysticks
     Code_Gen_Model_U.Joystick_Left_X = -m_Left_Joystick.GetY();
     Code_Gen_Model_U.Joystick_Left_Y = -m_Left_Joystick.GetX();
@@ -53,4 +53,18 @@ void HIDs::PreStep() {
     Code_Gen_Model_U.Gamepad_RT = m_Gamepad.GetRawAxis(3);
 
 }
-void HIDs::PostStep() {}
+
+void HIDs::PostStepCallback()
+{
+
+}
+
+void HIDs::SmartDashboardCallback()
+{
+
+}
+
+void HIDs::GameStateChangeCallback()
+{
+
+}

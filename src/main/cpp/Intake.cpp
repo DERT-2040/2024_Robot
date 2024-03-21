@@ -1,16 +1,26 @@
 #include "include/Intake.h"
 
-void Intake::PreStep()
+void Intake::PreStepCallback()
 {
     Code_Gen_Model_U.Intake_TOF_Dist = TOF_Sensor.GetRange();
 }
 
-void Intake::PostStep()
+void Intake::PostStepCallback()
 {
     Intake_Motor.Set(Code_Gen_Model_Y.Intake_Motor_DutyCycle);
 }
 
-void Intake::Initalize()
+void Intake::SmartDashboardCallback()
+{
+
+}
+
+void Intake::GameStateChangeCallback()
+{
+
+}
+
+Intake::Intake()
 {
     Intake_Motor.RestoreFactoryDefaults();
     Intake_Motor.SetIdleMode(rev::CANSparkBase::IdleMode::kBrake);

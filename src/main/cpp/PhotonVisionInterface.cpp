@@ -1,6 +1,6 @@
 #include "include/PhotonVisionInterface.h"
 
-void PhotonVisionInterface::PreStep() {
+void PhotonVisionInterface::PreStepCallback() {
     // Getting data from the PoseEstimator
     auto globalPose = photonEstimator.Update();
     if (globalPose.has_value()) {
@@ -89,7 +89,7 @@ void PhotonVisionInterface::PreStep() {
     Code_Gen_Model_U.Photon_Est_Pose_Ambiguity = averageRobotPoseAmbiguity;
 }
 
-void PhotonVisionInterface::PostStep() {
+void PhotonVisionInterface::PostStepCallback() {
 
 }
 
@@ -102,6 +102,11 @@ void PhotonVisionInterface::SmartDashboardCallback() {
     frc::SmartDashboard::PutNumber("AT_Tag_5_Yaw", AT_Tag_5_Yaw);
     frc::SmartDashboard::PutNumber("AT_Tag_6_Yaw", AT_Tag_6_Yaw);
     frc::SmartDashboard::PutNumber("AT_Tag_7_Yaw", AT_Tag_7_Yaw);
+}
+
+void PhotonVisionInterface::GameStateChangeCallback()
+{
+    
 }
 
 frc::Pose2d PhotonVisionInterface::GetEstimatedGlobalPose() {
