@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.172
+ * Model version                  : 2.174
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Wed Mar 20 08:24:50 2024
+ * C/C++ source code generated on : Wed Mar 20 21:34:09 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -436,9 +436,9 @@ real_T KF_Enable = 1.0;                /* Variable: KF_Enable
                                         *   '<S12>/Constant1'
                                         *   '<S12>/Constant2'
                                         */
-real_T KF_Vision_Ambiguity_Thresh = 0.25;/* Variable: KF_Vision_Ambiguity_Thresh
-                                          * Referenced by: '<S12>/Constant'
-                                          */
+real_T KF_Vision_Ambiguity_Thresh = 0.1;/* Variable: KF_Vision_Ambiguity_Thresh
+                                         * Referenced by: '<S12>/Constant'
+                                         */
 real_T LoadShooter_Angle = 45.0;       /* Variable: LoadShooter_Angle
                                         * Referenced by: '<S16>/Chart_Shooter_Position'
                                         */
@@ -1069,6 +1069,7 @@ static void Code_Gen_Model_Note8_trans(const boolean_T *UnitDelay, const
 static void Code_Gen_Model_PathPicker(void)
 {
   Code_Gen_Model_DW.is_c10_Code_Gen_Model = Code_Gen_Model_IN_MoveArms;
+  Code_Gen_Model_B.AutoState = 0.9;
   Code_Gen_Model_B.ArmStateRequest = 1.0;
   Code_Gen_Model_DW.Timer = Code_Gen_Model_t_sample;
 }
@@ -2127,8 +2128,9 @@ void Code_Gen_Model_step(void)
         break;
 
        case Code_Gen_Model_IN_MoveArms:
+        Code_Gen_Model_B.AutoState = 0.9;
         Code_Gen_Model_B.ArmStateRequest = 1.0;
-        if (Code_Gen_Model_DW.Timer > 0.6) {
+        if (Code_Gen_Model_DW.Timer > 1.5) {
           Code_Gen_Model_DW.is_c10_Code_Gen_Model =
             Code_Gen_Model_IN_ShootWODetec;
           Code_Gen_Model_B.AutoState = 1.0;
@@ -2290,7 +2292,7 @@ void Code_Gen_Model_step(void)
         Code_Gen_Model_B.AutoState = 1.2;
         if ((Code_Gen_Model_DW.UnitDelay_DSTATE_oz) || (Code_Gen_Model_DW.Timer >=
              4.0)) {
-          Code_Gen_Model_B.Intake_Shooter_State_Request = 0.0;
+          Code_Gen_Model_B.Intake_Shooter_State_Request = 6.0;
           Code_Gen_Model_B.RelativeMoveForward = 0.0;
           Code_Gen_Model_DW.is_c10_Code_Gen_Model =
             Code_Gen__IN_PathToShootWODetec;
@@ -2336,11 +2338,11 @@ void Code_Gen_Model_step(void)
         } else if ((Code_Gen_Model_DW.UnitDelay_DSTATE_oz) ||
                    (Code_Gen_Model_DW.Timer > 3.0)) {
           Code_Gen_Model_B.CurrentPriorityIndex++;
-          Code_Gen_Model_B.Intake_Shooter_State_Request = 0.0;
           Code_Gen_Model_DW.is_c10_Code_Gen_Model =
             Code_Gen_IN_PathToPickUpWODetec;
           Code_Gen_Model_B.AutoState = 1.1;
           Code_Gen_Model_B.SplineEnable = 1.0;
+          Code_Gen_Model_B.Intake_Shooter_State_Request = 1.0;
         } else {
           Code_Gen_Model_DW.Timer += Code_Gen_Model_t_sample;
         }
@@ -2372,7 +2374,7 @@ void Code_Gen_Model_step(void)
        *  Selector: '<S34>/Selector'
        *  Selector: '<S34>/Selector1'
        */
-      Code_Gen_Model_B.Spline_ID = Code_Gen_Model_ConstInitP.Constant9_Value
+      Code_Gen_Model_B.Spline_ID = Code_Gen_Model_ConstP.Constant9_Value
         [((((((int32_T)rtb_Climber_Cmd_Direction) - 1) * 10) + ((int32_T)
             Code_Gen_Model_B.CurrentPriorityIndex)) + ((((int32_T)Auto_ID) - 1) *
            30)) - 1];
@@ -2394,7 +2396,7 @@ void Code_Gen_Model_step(void)
        *  Selector: '<S34>/Selector'
        *  Selector: '<S34>/Selector1'
        */
-      Code_Gen_Model_B.Spline_ID = Code_Gen_Model_ConstInitP.Constant9_Value
+      Code_Gen_Model_B.Spline_ID = Code_Gen_Model_ConstP.Constant9_Value
         [((((((int32_T)rtb_Climber_Cmd_Direction) - 1) * 10) + ((int32_T)
             Code_Gen_Model_B.CurrentPriorityIndex)) + ((((int32_T)Auto_ID) - 1) *
            30)) - 1];
@@ -4691,7 +4693,7 @@ void Code_Gen_Model_step(void)
      *  Constant: '<S192>/Constant'
      *  SignalConversion generated from: '<S192>/Robot_Reached_Destination'
      */
-    Code_Gen_Model_B.Robot_Reached_Destination = false;
+    Code_Gen_Model_B.Robot_Reached_Destination = true;
 
     /* Merge: '<S17>/Merge' incorporates:
      *  SignalConversion generated from: '<S192>/Steering_Abs_Cmd_In'
@@ -9564,11 +9566,6 @@ void Code_Gen_Model_initialize(void)
 
   /* initialize non-finites */
   rt_InitInfAndNaN(sizeof(real_T));
-
-  /* non-finite (run-time) assignments */
-  Code_Gen_Model_ConstInitP.Constant9_Value[40] = rtNaN;
-  Code_Gen_Model_ConstInitP.Constant9_Value[70] = rtNaN;
-  Code_Gen_Model_ConstInitP.Constant9_Value[100] = rtNaN;
 
   {
     real_T Constant;

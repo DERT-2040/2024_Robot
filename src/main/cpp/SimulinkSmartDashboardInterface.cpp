@@ -347,7 +347,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __KF_Vision_Ambiguity_Thresh__Entry = NTtable_Tune->GetEntry("KF_Vision_Ambiguity_Thresh");
     NTinst.AddListener(__KF_Vision_Ambiguity_Thresh__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {KF_Vision_Ambiguity_Thresh = event.GetValueEventData()->value.GetDouble();});
-    __KF_Vision_Ambiguity_Thresh__Entry.SetDouble(0.25);
+    __KF_Vision_Ambiguity_Thresh__Entry.SetDouble(0.1);
  
     __LoadShooter_Angle__Entry = NTtable_Tune->GetEntry("LoadShooter_Angle");
     NTinst.AddListener(__LoadShooter_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {LoadShooter_Angle = event.GetValueEventData()->value.GetDouble();});

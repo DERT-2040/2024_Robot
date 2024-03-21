@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.172
+ * Model version                  : 2.174
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Wed Mar 20 08:24:50 2024
+ * C/C++ source code generated on : Wed Mar 20 21:34:09 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -361,15 +361,20 @@ typedef struct {
    */
   real_T LookaheadDistance_tableData[4];
 
+  /* Expression: All_Autos
+   * Referenced by: '<S34>/Constant9'
+   */
+  real_T Constant9_Value[60];
+
   /* Expression: All_Paths
    * Referenced by: '<S3>/Constant20'
    */
-  real_T Constant20_Value[880];
+  real_T Constant20_Value[160];
 
   /* Expression: All_Num_Poses
    * Referenced by: '<S3>/Constant6'
    */
-  real_T Constant6_Value[22];
+  real_T Constant6_Value[4];
 
   /* Expression: Yaw_angle_correction_yaw
    * Referenced by: '<S399>/1-D Lookup Table'
@@ -429,14 +434,6 @@ typedef struct {
    */
   real_T pooled41[2];
 } ConstP_Code_Gen_Model_T;
-
-/* Constant parameters with dynamic initialization (default storage) */
-typedef struct {
-  /* Expression: All_Autos
-   * Referenced by: '<S34>/Constant9'
-   */
-  real_T Constant9_Value[120];
-} ConstInitP_Code_Gen_Model_T;
 
 /* External inputs (root inport signals with default storage) */
 typedef struct {
@@ -578,9 +575,6 @@ extern const ConstB_Code_Gen_Model_T Code_Gen_Model_ConstB;/* constant block i/o
 
 /* Constant parameters (default storage) */
 extern const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP;
-
-/* Constant parameters with dynamic initialization (default storage) */
-extern ConstInitP_Code_Gen_Model_T Code_Gen_Model_ConstInitP;/* constant parameters */
 
 /*
  * Exported Global Parameters
