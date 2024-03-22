@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.179
+ * Model version                  : 2.181
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Thu Mar 21 21:23:09 2024
+ * C/C++ source code generated on : Fri Mar 22 08:16:07 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -113,13 +113,13 @@ typedef struct {
   real_T Steering_Abs_Gyro;            /* '<S401>/Switch10' */
   real_T AT_Error_X;                   /* '<S399>/Switch15' */
   real_T AT_Error_Y;                   /* '<S399>/Switch23' */
-  real_T Spline_ID;                    /* '<S29>/Merge' */
-  real_T Intake_Shooter_State_Request; /* '<S29>/Chart' */
-  real_T SplineEnable;                 /* '<S29>/Chart' */
-  real_T CurrentPriorityIndex;         /* '<S29>/Chart' */
-  real_T AutoState;                    /* '<S29>/Chart' */
-  real_T ArmStateRequest;              /* '<S29>/Chart' */
-  real_T RelativeMoveForward;          /* '<S29>/Chart' */
+  real_T Spline_ID;                    /* '<S27>/Merge' */
+  real_T Intake_Shooter_State_Request; /* '<S27>/Chart' */
+  real_T SplineEnable;                 /* '<S27>/Chart' */
+  real_T CurrentPriorityIndex;         /* '<S27>/Chart' */
+  real_T AutoState;                    /* '<S27>/Chart' */
+  real_T ArmStateRequest;              /* '<S27>/Chart' */
+  real_T RelativeMoveForward;          /* '<S27>/Chart' */
   real_T Spline_Index;                 /* '<S198>/Merge4' */
   real_T Spline_Target_Y;              /* '<S195>/Selector6' */
   real_T Spline_Target_X;              /* '<S195>/Selector2' */
@@ -162,7 +162,7 @@ typedef struct {
   boolean_T Robot_Reached_Destination; /* '<S17>/Merge7' */
   boolean_T Steering_Abs_Ortho_Trigger;/* '<S401>/AND1' */
   boolean_T Steering_Abs_Gyro_Trigger; /* '<S408>/FixPt Relational Operator' */
-  boolean_T Line_Sensor_Boolean;       /* '<S28>/Compare' */
+  boolean_T Line_Sensor_Boolean;       /* '<S26>/Compare' */
   boolean_T Spline_Out_Of_Bounds;      /* '<S198>/Merge1' */
   boolean_T Shooter_Motor_Speed_Control_Ena;/* '<S10>/Chart_Intake_and_Shooter' */
   boolean_T Shooter_Brake_Enable_out;  /* '<S10>/Chart_Intake_and_Shooter' */
@@ -233,13 +233,13 @@ typedef struct {
   real_T UnitDelay_DSTATE_g4;          /* '<S246>/Unit Delay' */
   real_T UnitDelay_DSTATE_le;          /* '<S196>/Unit Delay' */
   real_T UnitDelay1_DSTATE_kc;         /* '<S196>/Unit Delay1' */
-  real_T Timer;                        /* '<S29>/Chart' */
-  real_T CloseNoteCounter;             /* '<S29>/Chart' */
+  real_T Timer;                        /* '<S27>/Chart' */
+  real_T CloseNoteCounter;             /* '<S27>/Chart' */
   real_T timer;                        /* '<S10>/Chart_Intake_and_Shooter' */
   int32_T Selector4_DIMS1[2];          /* '<S215>/Selector4' */
-  uint32_T exitPortIndex;              /* '<S29>/Chart' */
-  uint32_T exitPortIndex_n;            /* '<S29>/Chart' */
-  uint32_T exitPortIndex_h;            /* '<S29>/Chart' */
+  uint32_T exitPortIndex;              /* '<S27>/Chart' */
+  uint32_T exitPortIndex_n;            /* '<S27>/Chart' */
+  uint32_T exitPortIndex_h;            /* '<S27>/Chart' */
   uint8_T FixPtUnitDelay2_DSTATE;      /* '<S357>/FixPt Unit Delay2' */
   uint8_T FixPtUnitDelay2_DSTATE_c;    /* '<S366>/FixPt Unit Delay2' */
   uint8_T FixPtUnitDelay2_DSTATE_k;    /* '<S180>/FixPt Unit Delay2' */
@@ -273,11 +273,11 @@ typedef struct {
   int8_T If_ActiveSubsystem_h;         /* '<S198>/If' */
   int8_T If_ActiveSubsystem_o;         /* '<S201>/If' */
   int8_T If_ActiveSubsystem_d;         /* '<S203>/If' */
-  uint8_T is_active_c10_Code_Gen_Model;/* '<S29>/Chart' */
-  uint8_T is_c10_Code_Gen_Model;       /* '<S29>/Chart' */
-  uint8_T is_Note6;                    /* '<S29>/Chart' */
-  uint8_T is_Note7;                    /* '<S29>/Chart' */
-  uint8_T is_Note8;                    /* '<S29>/Chart' */
+  uint8_T is_active_c10_Code_Gen_Model;/* '<S27>/Chart' */
+  uint8_T is_c10_Code_Gen_Model;       /* '<S27>/Chart' */
+  uint8_T is_Note6;                    /* '<S27>/Chart' */
+  uint8_T is_Note7;                    /* '<S27>/Chart' */
+  uint8_T is_Note8;                    /* '<S27>/Chart' */
   uint8_T is_active_c5_Code_Gen_Model; /* '<S16>/Chart_Shooter_Position' */
   uint8_T is_c5_Code_Gen_Model;        /* '<S16>/Chart_Shooter_Position' */
   uint8_T is_active_c9_Code_Gen_Model; /* '<S15>/Chart' */
@@ -371,6 +371,11 @@ typedef struct {
    * Referenced by: '<S3>/Constant20'
    */
   real_T Constant20_Value[160];
+
+  /* Expression: All_Num_Poses
+   * Referenced by: '<S3>/Constant6'
+   */
+  real_T Constant6_Value[4];
 
   /* Expression: Yaw_angle_correction_yaw
    * Referenced by: '<S399>/1-D Lookup Table'
@@ -896,7 +901,7 @@ extern real_T Drive_Motor_Control_Sign_Change_Deadband;
                             *   '<S331>/Constant'
                             */
 extern real_T FloorDistance;           /* Variable: FloorDistance
-                                        * Referenced by: '<S28>/Constant'
+                                        * Referenced by: '<S26>/Constant'
                                         */
 extern real_T Front_AA_Max_Ext;        /* Variable: Front_AA_Max_Ext
                                         * Referenced by: '<S163>/Saturation'
@@ -1426,6 +1431,7 @@ extern RT_MODEL_Code_Gen_Model_T *const Code_Gen_Model_M;
  * Block '<S415>/Data Type Duplicate' : Unused code path elimination
  * Block '<S415>/Data Type Propagation' : Unused code path elimination
  * Block '<S416>/FixPt Data Type Duplicate1' : Unused code path elimination
+ * Block '<S27>/Signal Copy' : Eliminate redundant signal conversion block
  * Block '<S135>/Conversion' : Eliminate redundant data type conversion
  * Block '<S136>/Conversion' : Eliminate redundant data type conversion
  * Block '<S138>/Conversion' : Eliminate redundant data type conversion
@@ -1494,14 +1500,14 @@ extern RT_MODEL_Code_Gen_Model_T *const Code_Gen_Model_M;
  * '<S23>'  : 'Code_Gen_Model/RoboRio Controls/Arm_Length_Calculation/Arm_Length_Calculator_Back_Upper'
  * '<S24>'  : 'Code_Gen_Model/RoboRio Controls/Arm_Length_Calculation/Arm_Length_Calculator_Ball_Screw'
  * '<S25>'  : 'Code_Gen_Model/RoboRio Controls/Arm_Length_Calculation/Arm_Length_Calculator_Front'
- * '<S26>'  : 'Code_Gen_Model/RoboRio Controls/Autonomous/Compare To Zero'
- * '<S27>'  : 'Code_Gen_Model/RoboRio Controls/Autonomous/Compare To Zero1'
- * '<S28>'  : 'Code_Gen_Model/RoboRio Controls/Autonomous/CompareToFloor'
- * '<S29>'  : 'Code_Gen_Model/RoboRio Controls/Autonomous/Subsystem Reference'
- * '<S30>'  : 'Code_Gen_Model/RoboRio Controls/Autonomous/Subsystem Reference/Chart'
- * '<S31>'  : 'Code_Gen_Model/RoboRio Controls/Autonomous/Subsystem Reference/Compare To Constant'
- * '<S32>'  : 'Code_Gen_Model/RoboRio Controls/Autonomous/Subsystem Reference/Compare To Constant1'
- * '<S33>'  : 'Code_Gen_Model/RoboRio Controls/Autonomous/Subsystem Reference/Compare To Constant2'
+ * '<S26>'  : 'Code_Gen_Model/RoboRio Controls/Autonomous/CompareToFloor'
+ * '<S27>'  : 'Code_Gen_Model/RoboRio Controls/Autonomous/Subsystem Reference'
+ * '<S28>'  : 'Code_Gen_Model/RoboRio Controls/Autonomous/Subsystem Reference/Chart'
+ * '<S29>'  : 'Code_Gen_Model/RoboRio Controls/Autonomous/Subsystem Reference/Compare To Constant'
+ * '<S30>'  : 'Code_Gen_Model/RoboRio Controls/Autonomous/Subsystem Reference/Compare To Constant1'
+ * '<S31>'  : 'Code_Gen_Model/RoboRio Controls/Autonomous/Subsystem Reference/Compare To Constant2'
+ * '<S32>'  : 'Code_Gen_Model/RoboRio Controls/Autonomous/Subsystem Reference/Compare To Zero'
+ * '<S33>'  : 'Code_Gen_Model/RoboRio Controls/Autonomous/Subsystem Reference/Compare to Constant'
  * '<S34>'  : 'Code_Gen_Model/RoboRio Controls/Autonomous/Subsystem Reference/If Action Subsystem'
  * '<S35>'  : 'Code_Gen_Model/RoboRio Controls/Autonomous/Subsystem Reference/If Action Subsystem1'
  * '<S36>'  : 'Code_Gen_Model/RoboRio Controls/Climber_Control/Compare To Zero'
