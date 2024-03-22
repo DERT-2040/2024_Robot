@@ -966,8 +966,8 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Speaker_Distance__Entry = NTtable_TPoint->GetEntry("Speaker_Distance");
     __SplineEnable__Entry = NTtable_TPoint->GetEntry("SplineEnable");
     __Spline_Enable__Entry = NTtable_TPoint->GetEntry("Spline_Enable");
+    __Spline_Follow_Index__Entry = NTtable_TPoint->GetEntry("Spline_Follow_Index");
     __Spline_ID__Entry = NTtable_TPoint->GetEntry("Spline_ID");
-    __Spline_Index__Entry = NTtable_TPoint->GetEntry("Spline_Index");
     __Spline_Num_Poses__Entry = NTtable_TPoint->GetEntry("Spline_Num_Poses");
     __Spline_Out_Of_Bounds__Entry = NTtable_TPoint->GetEntry("Spline_Out_Of_Bounds");
     __Spline_Target_X__Entry = NTtable_TPoint->GetEntry("Spline_Target_X");
@@ -1204,8 +1204,8 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Speaker_Distance__Entry.SetDouble(Code_Gen_Model_B.Speaker_Distance);
     __SplineEnable__Entry.SetDouble(Code_Gen_Model_B.SplineEnable);
     __Spline_Enable__Entry.SetDouble(Code_Gen_Model_B.Spline_Enable);
+    __Spline_Follow_Index__Entry.SetDouble(Code_Gen_Model_B.Spline_Follow_Index);
     __Spline_ID__Entry.SetDouble(Code_Gen_Model_B.Spline_ID);
-    __Spline_Index__Entry.SetDouble(Code_Gen_Model_B.Spline_Index);
     __Spline_Num_Poses__Entry.SetDouble(Code_Gen_Model_B.Spline_Num_Poses);
     __Spline_Out_Of_Bounds__Entry.SetDouble(Code_Gen_Model_B.Spline_Out_Of_Bounds);
     __Spline_Target_X__Entry.SetDouble(Code_Gen_Model_B.Spline_Target_X);

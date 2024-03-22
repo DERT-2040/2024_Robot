@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.181
+ * Model version                  : 2.186
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Fri Mar 22 08:28:01 2024
+ * C/C++ source code generated on : Fri Mar 22 16:40:42 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -120,7 +120,7 @@ typedef struct {
   real_T AutoState;                    /* '<S27>/Chart' */
   real_T ArmStateRequest;              /* '<S27>/Chart' */
   real_T RelativeMoveForward;          /* '<S27>/Chart' */
-  real_T Spline_Index;                 /* '<S198>/Merge4' */
+  real_T Spline_Follow_Index;          /* '<S198>/Merge4' */
   real_T Spline_Target_Y;              /* '<S195>/Selector6' */
   real_T Spline_Target_X;              /* '<S195>/Selector2' */
   real_T Assignment[450];              /* '<S220>/Assignment' */
@@ -325,7 +325,7 @@ typedef struct {
   /* Expression: Speaker_Height_out
    * Referenced by: '<S16>/1-D Lookup Table2'
    */
-  real_T uDLookupTable2_tableData[11];
+  real_T uDLookupTable2_tableData[9];
 
   /* Pooled Parameter (Expression: Speaker_Distance_in)
    * Referenced by:
@@ -333,17 +333,17 @@ typedef struct {
    *   '<S16>/1-D Lookup Table2'
    *   '<S16>/1-D Lookup Table3'
    */
-  real_T pooled1[11];
+  real_T pooled2[9];
 
   /* Expression: Speaker_Angle_out
    * Referenced by: '<S16>/1-D Lookup Table1'
    */
-  real_T uDLookupTable1_tableData[11];
+  real_T uDLookupTable1_tableData[9];
 
   /* Expression: Speaker_Gap_out
    * Referenced by: '<S16>/1-D Lookup Table3'
    */
-  real_T uDLookupTable3_tableData[11];
+  real_T uDLookupTable3_tableData[9];
 
   /* Expression: Spline_Capture_Radius
    * Referenced by: '<S193>/Capture Radius'
@@ -355,12 +355,17 @@ typedef struct {
    *   '<S193>/Capture Radius'
    *   '<S193>/Lookahead Distance'
    */
-  real_T pooled6[4];
+  real_T pooled7[4];
 
   /* Expression: Spline_Lookahead_Dist
    * Referenced by: '<S193>/Lookahead Distance'
    */
   real_T LookaheadDistance_tableData[4];
+
+  /* Expression: All_Autos_Sizes
+   * Referenced by: '<S27>/Chart'
+   */
+  real_T Chart_All_Autos_Sizes[2];
 
   /* Expression: All_Autos
    * Referenced by: '<S34>/Constant9'
@@ -733,7 +738,9 @@ extern real_T Amp_Height;              /* Variable: Amp_Height
                                         * Referenced by: '<S16>/Chart_Shooter_Position'
                                         */
 extern real_T Auto_ID;                 /* Variable: Auto_ID
-                                        * Referenced by: '<Root>/Constant1'
+                                        * Referenced by:
+                                        *   '<Root>/Constant1'
+                                        *   '<S27>/Chart'
                                         */
 extern real_T BS_Deriv_FC;             /* Variable: BS_Deriv_FC
                                         * Referenced by: '<S167>/Constant2'
@@ -1506,7 +1513,7 @@ extern RT_MODEL_Code_Gen_Model_T *const Code_Gen_Model_M;
  * '<S29>'  : 'Code_Gen_Model/RoboRio Controls/Autonomous/Subsystem Reference/Compare To Constant'
  * '<S30>'  : 'Code_Gen_Model/RoboRio Controls/Autonomous/Subsystem Reference/Compare To Constant1'
  * '<S31>'  : 'Code_Gen_Model/RoboRio Controls/Autonomous/Subsystem Reference/Compare To Constant2'
- * '<S32>'  : 'Code_Gen_Model/RoboRio Controls/Autonomous/Subsystem Reference/Compare To Zero'
+ * '<S32>'  : 'Code_Gen_Model/RoboRio Controls/Autonomous/Subsystem Reference/Compare To Constant3'
  * '<S33>'  : 'Code_Gen_Model/RoboRio Controls/Autonomous/Subsystem Reference/Compare to Constant'
  * '<S34>'  : 'Code_Gen_Model/RoboRio Controls/Autonomous/Subsystem Reference/If Action Subsystem'
  * '<S35>'  : 'Code_Gen_Model/RoboRio Controls/Autonomous/Subsystem Reference/If Action Subsystem1'

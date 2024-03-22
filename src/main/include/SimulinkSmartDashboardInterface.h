@@ -405,8 +405,8 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Speaker_Distance__Entry;
         nt::NetworkTableEntry __SplineEnable__Entry;
         nt::NetworkTableEntry __Spline_Enable__Entry;
+        nt::NetworkTableEntry __Spline_Follow_Index__Entry;
         nt::NetworkTableEntry __Spline_ID__Entry;
-        nt::NetworkTableEntry __Spline_Index__Entry;
         nt::NetworkTableEntry __Spline_Num_Poses__Entry;
         nt::NetworkTableEntry __Spline_Out_Of_Bounds__Entry;
         nt::NetworkTableEntry __Spline_Target_X__Entry;

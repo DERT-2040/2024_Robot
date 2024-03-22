@@ -1,8 +1,8 @@
 % [x, y, robot velocity, angle]
 
-x_offset = 0;
+x_offset = -6*25/1000;
 y_offset = -0.2;
-max_speed = 1.0;
+max_speed = 1.25;
 D2R = pi/180;
 
 Path1 = [...

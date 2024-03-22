@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.181
+ * Model version                  : 2.186
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Fri Mar 22 08:28:01 2024
+ * C/C++ source code generated on : Fri Mar 22 16:40:42 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -65,33 +65,34 @@
 
 /* Named constants for Chart: '<S27>/Chart' */
 #define Code_Gen_IN_CheckForRobotOrNote ((uint8_T)2U)
-#define Code_Gen_IN_PathToPickUpWODetec ((uint8_T)17U)
+#define Code_Gen_IN_PathToPickUpWODetec ((uint8_T)16U)
 #define Code_Gen_Model_IN_AngleArms    ((uint8_T)1U)
 #define Code_Gen_Model_IN_DriveBack    ((uint8_T)3U)
 #define Code_Gen_Model_IN_DriveOut     ((uint8_T)4U)
 #define Code_Gen_Model_IN_End          ((uint8_T)5U)
 #define Code_Gen_Model_IN_MoveArms     ((uint8_T)6U)
-#define Code_Gen_Model_IN_MoveForward  ((uint8_T)7U)
-#define Code_Gen_Model_IN_Move_To_Shoot ((uint8_T)8U)
-#define Code_Gen_Model_IN_Note6        ((uint8_T)9U)
-#define Code_Gen_Model_IN_Note6_trans  ((uint8_T)10U)
-#define Code_Gen_Model_IN_Note7        ((uint8_T)11U)
-#define Code_Gen_Model_IN_Note7_trans  ((uint8_T)12U)
-#define Code_Gen_Model_IN_Note8        ((uint8_T)13U)
-#define Code_Gen_Model_IN_Note8_trans  ((uint8_T)14U)
-#define Code_Gen_Model_IN_PathPicker   ((uint8_T)15U)
-#define Code_Gen_Model_IN_PathToPickUp ((uint8_T)16U)
-#define Code_Gen_Model_IN_PathToShoot  ((uint8_T)18U)
+#define Code_Gen_Model_IN_Move_To_Shoot ((uint8_T)7U)
+#define Code_Gen_Model_IN_Note6        ((uint8_T)8U)
+#define Code_Gen_Model_IN_Note6_trans  ((uint8_T)9U)
+#define Code_Gen_Model_IN_Note7        ((uint8_T)10U)
+#define Code_Gen_Model_IN_Note7_trans  ((uint8_T)11U)
+#define Code_Gen_Model_IN_Note8        ((uint8_T)12U)
+#define Code_Gen_Model_IN_Note8_trans  ((uint8_T)13U)
+#define Code_Gen_Model_IN_PathPicker   ((uint8_T)14U)
+#define Code_Gen_Model_IN_PathToPickUp ((uint8_T)15U)
+#define Code_Gen_Model_IN_PathToShoot  ((uint8_T)17U)
 #define Code_Gen_Model_IN_PathToShoot1 ((uint8_T)1U)
+#define Code_Gen_Model_IN_Reset_SPF    ((uint8_T)19U)
 #define Code_Gen_Model_IN_RunIntake    ((uint8_T)20U)
-#define Code_Gen_Model_IN_Shoot        ((uint8_T)21U)
+#define Code_Gen_Model_IN_RunIntake1   ((uint8_T)21U)
+#define Code_Gen_Model_IN_Shoot        ((uint8_T)22U)
 #define Code_Gen_Model_IN_Shoot1       ((uint8_T)2U)
-#define Code_Gen_Model_IN_ShootAgain   ((uint8_T)22U)
-#define Code_Gen_Model_IN_ShootNote    ((uint8_T)23U)
-#define Code_Gen_Model_IN_ShootWODetec ((uint8_T)24U)
-#define Code_Gen_Model_IN_Stop         ((uint8_T)25U)
+#define Code_Gen_Model_IN_ShootAgain   ((uint8_T)23U)
+#define Code_Gen_Model_IN_ShootNote    ((uint8_T)24U)
+#define Code_Gen_Model_IN_ShootWODetec ((uint8_T)25U)
+#define Code_Gen_Model_IN_Stop         ((uint8_T)26U)
 #define Code_Gen_Model_t_sample        (0.02)
-#define Code_Gen__IN_PathToShootWODetec ((uint8_T)19U)
+#define Code_Gen__IN_PathToShootWODetec ((uint8_T)18U)
 
 /* Exported block parameters */
 real_T AA_Integral_Gain = 0.0005;      /* Variable: AA_Integral_Gain
@@ -242,7 +243,9 @@ real_T Amp_Height = 1000.0;            /* Variable: Amp_Height
                                         * Referenced by: '<S16>/Chart_Shooter_Position'
                                         */
 real_T Auto_ID = 1.0;                  /* Variable: Auto_ID
-                                        * Referenced by: '<Root>/Constant1'
+                                        * Referenced by:
+                                        *   '<Root>/Constant1'
+                                        *   '<S27>/Chart'
                                         */
 real_T BS_Deriv_FC = 0.2;              /* Variable: BS_Deriv_FC
                                         * Referenced by: '<S167>/Constant2'
@@ -1189,9 +1192,16 @@ static void Code_Gen_Model_Shoot(void)
 /* Function for Chart: '<S27>/Chart' */
 static void Code_Gen_Model_ShootWODetec(const boolean_T *UnitDelay)
 {
+  boolean_T out;
   Code_Gen_Model_B.AutoState = 1.0;
-  if (((*UnitDelay) || (Code_Gen_Model_DW.Timer > 4.0)) &&
-      (Code_Gen_Model_B.CurrentPriorityIndex > 1.0)) {
+  if ((*UnitDelay) || (Code_Gen_Model_DW.Timer > 4.0)) {
+    out = (Code_Gen_Model_ConstP.Chart_All_Autos_Sizes[((int32_T)Auto_ID) - 1] ==
+           Code_Gen_Model_B.CurrentPriorityIndex);
+  } else {
+    out = false;
+  }
+
+  if (out) {
     Code_Gen_Model_B.Intake_Shooter_State_Request = 0.0;
     Code_Gen_Model_DW.is_c10_Code_Gen_Model = Code_Gen_Model_IN_End;
   } else if ((*UnitDelay) || (Code_Gen_Model_DW.Timer > 3.0)) {
@@ -2174,21 +2184,6 @@ void Code_Gen_Model_step(void)
         }
         break;
 
-       case Code_Gen_Model_IN_MoveForward:
-        Code_Gen_Model_B.AutoState = 1.2;
-        if ((Code_Gen_Model_DW.UnitDelay_DSTATE_oz) || (Code_Gen_Model_DW.Timer >=
-             4.0)) {
-          Code_Gen_Model_B.Intake_Shooter_State_Request = 6.0;
-          Code_Gen_Model_B.RelativeMoveForward = 0.0;
-          Code_Gen_Model_DW.is_c10_Code_Gen_Model =
-            Code_Gen__IN_PathToShootWODetec;
-          Code_Gen_Model_B.AutoState = 1.3;
-          Code_Gen_Model_B.SplineEnable = 1.0;
-        } else {
-          Code_Gen_Model_DW.Timer += Code_Gen_Model_t_sample;
-        }
-        break;
-
        case Code_Gen_Model_IN_Move_To_Shoot:
         if (Code_Gen_Model_DW.Timer > 1.5) {
           Code_Gen_Model_B.RelativeMoveForward = 0.0;
@@ -2307,13 +2302,10 @@ void Code_Gen_Model_step(void)
        case Code_Gen_IN_PathToPickUpWODetec:
         Code_Gen_Model_B.AutoState = 1.1;
         if (Code_Gen_Model_DW.UnitDelay_DSTATE_oz) {
-          Code_Gen_Model_DW.is_c10_Code_Gen_Model =
-            Code_Gen__IN_PathToShootWODetec;
-          Code_Gen_Model_B.AutoState = 1.3;
-          Code_Gen_Model_B.SplineEnable = 1.0;
+          Code_Gen_Model_DW.is_c10_Code_Gen_Model = Code_Gen_Model_IN_Reset_SPF;
+          Code_Gen_Model_B.SplineEnable = 0.0;
         } else if (Code_Gen_Model_DW.UnitDelay_DSTATE_ll) {
-          Code_Gen_Model_DW.is_c10_Code_Gen_Model =
-            Code_Gen_Model_IN_MoveForward;
+          Code_Gen_Model_DW.is_c10_Code_Gen_Model = Code_Gen_Model_IN_RunIntake1;
           Code_Gen_Model_B.AutoState = 1.2;
           Code_Gen_Model_B.SplineEnable = 0.0;
           Code_Gen_Model_B.RelativeMoveForward = 0.3;
@@ -2326,19 +2318,37 @@ void Code_Gen_Model_step(void)
         break;
 
        case Code_Gen__IN_PathToShootWODetec:
+        Code_Gen_Model_DW.is_c10_Code_Gen_Model = Code_Gen_Model_IN_ShootWODetec;
+        Code_Gen_Model_B.AutoState = 1.0;
+        Code_Gen_Model_B.SplineEnable = 0.0;
+        Code_Gen_Model_B.Intake_Shooter_State_Request = 5.0;
+        Code_Gen_Model_DW.Timer = Code_Gen_Model_t_sample;
+        break;
+
+       case Code_Gen_Model_IN_Reset_SPF:
+        Code_Gen_Model_DW.is_c10_Code_Gen_Model =
+          Code_Gen__IN_PathToShootWODetec;
         Code_Gen_Model_B.AutoState = 1.3;
-        if (Code_Gen_Model_DW.UnitDelay_DSTATE_ll) {
-          Code_Gen_Model_DW.is_c10_Code_Gen_Model =
-            Code_Gen_Model_IN_ShootWODetec;
-          Code_Gen_Model_B.AutoState = 1.0;
-          Code_Gen_Model_B.SplineEnable = 0.0;
-          Code_Gen_Model_B.Intake_Shooter_State_Request = 5.0;
-          Code_Gen_Model_DW.Timer = Code_Gen_Model_t_sample;
-        }
+        Code_Gen_Model_B.SplineEnable = 1.0;
         break;
 
        case Code_Gen_Model_IN_RunIntake:
         Code_Gen_Model_RunIntake();
+        break;
+
+       case Code_Gen_Model_IN_RunIntake1:
+        Code_Gen_Model_B.AutoState = 1.2;
+        if ((Code_Gen_Model_DW.UnitDelay_DSTATE_oz) || (Code_Gen_Model_DW.Timer >=
+             4.0)) {
+          Code_Gen_Model_B.Intake_Shooter_State_Request = 6.0;
+          Code_Gen_Model_B.RelativeMoveForward = 0.0;
+          Code_Gen_Model_DW.is_c10_Code_Gen_Model =
+            Code_Gen__IN_PathToShootWODetec;
+          Code_Gen_Model_B.AutoState = 1.3;
+          Code_Gen_Model_B.SplineEnable = 1.0;
+        } else {
+          Code_Gen_Model_DW.Timer += Code_Gen_Model_t_sample;
+        }
         break;
 
        case Code_Gen_Model_IN_Shoot:
@@ -2381,65 +2391,40 @@ void Code_Gen_Model_step(void)
 
     /* Switch: '<S27>/Switch' incorporates:
      *  Constant: '<S27>/Constant'
+     *  Constant: '<S27>/Constant2'
      *  Constant: '<S29>/Constant'
+     *  Constant: '<S30>/Constant'
      *  RelationalOperator: '<S29>/Compare'
+     *  RelationalOperator: '<S30>/Compare'
+     *  Switch: '<S27>/Switch1'
      */
     if (Code_Gen_Model_B.AutoState == 1.1) {
-      rtb_Subtract = 2.0;
-
-      /* Outputs for IfAction SubSystem: '<S27>/If Action Subsystem' incorporates:
-       *  ActionPort: '<S34>/Action Port'
-       */
-      /* If: '<S27>/If' incorporates:
-       *  Constant: '<Root>/Constant1'
-       *  Constant: '<S34>/Constant9'
-       *  Merge: '<S27>/Merge'
-       *  Selector: '<S34>/Selector'
-       *  Selector: '<S34>/Selector1'
-       */
-      Code_Gen_Model_B.Spline_ID = Code_Gen_Model_ConstP.Constant9_Value
-        [((((((int32_T)rtb_Subtract) - 1) * 10) + ((int32_T)
-            Code_Gen_Model_B.CurrentPriorityIndex)) + ((((int32_T)Auto_ID) - 1) *
-           30)) - 1];
-
-      /* End of Outputs for SubSystem: '<S27>/If Action Subsystem' */
+      i = 2;
     } else if (Code_Gen_Model_B.AutoState == 1.3) {
       /* Switch: '<S27>/Switch1' incorporates:
        *  Constant: '<S27>/Constant1'
        */
-      rtb_Subtract = 3.0;
-
-      /* Outputs for IfAction SubSystem: '<S27>/If Action Subsystem' incorporates:
-       *  ActionPort: '<S34>/Action Port'
-       */
-      /* If: '<S27>/If' incorporates:
-       *  Constant: '<Root>/Constant1'
-       *  Constant: '<S34>/Constant9'
-       *  Merge: '<S27>/Merge'
-       *  Selector: '<S34>/Selector'
-       *  Selector: '<S34>/Selector1'
-       */
-      Code_Gen_Model_B.Spline_ID = Code_Gen_Model_ConstP.Constant9_Value
-        [((((((int32_T)rtb_Subtract) - 1) * 10) + ((int32_T)
-            Code_Gen_Model_B.CurrentPriorityIndex)) + ((((int32_T)Auto_ID) - 1) *
-           30)) - 1];
-
-      /* End of Outputs for SubSystem: '<S27>/If Action Subsystem' */
+      i = 3;
     } else {
-      /* Outputs for IfAction SubSystem: '<S27>/If Action Subsystem1' incorporates:
-       *  ActionPort: '<S35>/Action Port'
-       */
-      /* If: '<S27>/If' incorporates:
-       *  Constant: '<S35>/Constant'
-       *  Merge: '<S27>/Merge'
-       *  SignalConversion generated from: '<S35>/Out1'
-       */
-      Code_Gen_Model_B.Spline_ID = 1.0;
-
-      /* End of Outputs for SubSystem: '<S27>/If Action Subsystem1' */
+      i = 1;
     }
 
-    /* End of Switch: '<S27>/Switch' */
+    /* Outputs for IfAction SubSystem: '<S27>/If Action Subsystem' incorporates:
+     *  ActionPort: '<S34>/Action Port'
+     */
+    /* If: '<S27>/If' incorporates:
+     *  Constant: '<Root>/Constant1'
+     *  Constant: '<S34>/Constant9'
+     *  Merge: '<S27>/Merge'
+     *  Selector: '<S34>/Selector'
+     *  Selector: '<S34>/Selector1'
+     *  Switch: '<S27>/Switch'
+     */
+    Code_Gen_Model_B.Spline_ID = Code_Gen_Model_ConstP.Constant9_Value[((((i - 1)
+      * 10) + ((int32_T)Code_Gen_Model_B.CurrentPriorityIndex)) + ((((int32_T)
+      Auto_ID) - 1) * 30)) - 1];
+
+    /* End of Outputs for SubSystem: '<S27>/If Action Subsystem' */
 
     /* Selector: '<S3>/Selector' incorporates:
      *  Constant: '<S3>/Constant20'
@@ -3613,7 +3598,7 @@ void Code_Gen_Model_step(void)
      *  UnitDelay: '<S193>/Unit Delay'
      */
     rtb_Subtract1 = look1_binlcpw(Code_Gen_Model_DW.UnitDelay_DSTATE_hn,
-      Code_Gen_Model_ConstP.pooled6,
+      Code_Gen_Model_ConstP.pooled7,
       Code_Gen_Model_ConstP.CaptureRadius_tableData, 3U);
 
     /* SignalConversion generated from: '<S194>/Matrix Concatenate2' */
@@ -3802,7 +3787,8 @@ void Code_Gen_Model_step(void)
           /* Merge: '<S198>/Merge4' incorporates:
            *  SignalConversion: '<S206>/Signal Copy'
            */
-          Code_Gen_Model_B.Spline_Index = Code_Gen_Model_DW.UnitDelay_DSTATE_gh;
+          Code_Gen_Model_B.Spline_Follow_Index =
+            Code_Gen_Model_DW.UnitDelay_DSTATE_gh;
 
           /* Update for UnitDelay: '<S206>/Unit Delay' */
           Code_Gen_Model_DW.UnitDelay_DSTATE_n = rtb_Compare_at;
@@ -3828,8 +3814,8 @@ void Code_Gen_Model_step(void)
            *  SignalConversion: '<S205>/Signal Copy'
            *  Sum: '<S207>/FixPt Sum1'
            */
-          Code_Gen_Model_B.Spline_Index = Code_Gen_Model_DW.UnitDelay_DSTATE_gh
-            + 1.0;
+          Code_Gen_Model_B.Spline_Follow_Index =
+            Code_Gen_Model_DW.UnitDelay_DSTATE_gh + 1.0;
 
           /* End of Outputs for SubSystem: '<S203>/Increment_Search' */
         }
@@ -4011,7 +3997,7 @@ void Code_Gen_Model_step(void)
          *  Sum: '<S204>/Add'
          *  Sum: '<S212>/Minus4'
          */
-        Code_Gen_Model_B.Spline_Index = ((real_T)(((UnitDelay_e &&
+        Code_Gen_Model_B.Spline_Follow_Index = ((real_T)(((UnitDelay_e &&
           rtb_Compare_jp) && (rtb_UnitDelay_kzl >= 0.0)) && (rtb_UnitDelay_kzl <=
           ((rtb_Gyro_Angle_Adjustment * rtb_Gyro_Angle_Adjustment) + rtb_Sum2_e))))
           + Code_Gen_Model_DW.UnitDelay_DSTATE_gh;
@@ -4048,7 +4034,8 @@ void Code_Gen_Model_step(void)
         /* Merge: '<S198>/Merge4' incorporates:
          *  SignalConversion generated from: '<S202>/Current_Index'
          */
-        Code_Gen_Model_B.Spline_Index = Code_Gen_Model_DW.UnitDelay_DSTATE_gh;
+        Code_Gen_Model_B.Spline_Follow_Index =
+          Code_Gen_Model_DW.UnitDelay_DSTATE_gh;
 
         /* End of Outputs for SubSystem: '<S201>/Catch-all if not the last point and not in the circle' */
         break;
@@ -4088,7 +4075,8 @@ void Code_Gen_Model_step(void)
       /* Merge: '<S198>/Merge4' incorporates:
        *  SignalConversion generated from: '<S200>/Current_Index'
        */
-      Code_Gen_Model_B.Spline_Index = Code_Gen_Model_DW.UnitDelay_DSTATE_gh;
+      Code_Gen_Model_B.Spline_Follow_Index =
+        Code_Gen_Model_DW.UnitDelay_DSTATE_gh;
 
       /* End of Outputs for SubSystem: '<S198>/Escape_Auto_Driving' */
     }
@@ -4105,14 +4093,14 @@ void Code_Gen_Model_step(void)
        *  Sum: '<S215>/Subtract'
        */
       rtb_Subtract3 = ((Code_Gen_Model_B.Spline_Num_Poses -
-                        Code_Gen_Model_B.Spline_Index) + 3.0) + 1.0;
+                        Code_Gen_Model_B.Spline_Follow_Index) + 3.0) + 1.0;
 
       /* SignalConversion generated from: '<S215>/Selector4' incorporates:
        *  Bias: '<S215>/Bias1'
        *  Constant: '<S217>/FixPt Constant'
        *  Sum: '<S217>/FixPt Sum1'
        */
-      rtb_Akxhatkk1[0] = Code_Gen_Model_B.Spline_Index - 1.0;
+      rtb_Akxhatkk1[0] = Code_Gen_Model_B.Spline_Follow_Index - 1.0;
       rtb_Akxhatkk1[1] = Code_Gen_Model_B.Spline_Num_Poses + 2.0;
 
       /* Selector: '<S215>/Selector4' */
@@ -4437,7 +4425,7 @@ void Code_Gen_Model_step(void)
       /* Sum: '<S251>/FixPt Sum1' incorporates:
        *  Constant: '<S251>/FixPt Constant'
        */
-      rtb_Subtract3 = Code_Gen_Model_B.Spline_Index - 1.0;
+      rtb_Subtract3 = Code_Gen_Model_B.Spline_Follow_Index - 1.0;
 
       /* SignalConversion generated from: '<S249>/Lookup Table Dynamic' incorporates:
        *  Merge: '<S13>/Merge8'
@@ -4446,7 +4434,7 @@ void Code_Gen_Model_step(void)
        */
       rtb_Minus_n[0] = rtb_Spline_Ref_Poses[((int32_T)rtb_Subtract3) + 19];
       rtb_Minus_n[1] = rtb_Spline_Ref_Poses[((int32_T)
-        Code_Gen_Model_B.Spline_Index) + 19];
+        Code_Gen_Model_B.Spline_Follow_Index) + 19];
 
       /* SignalConversion generated from: '<S249>/Lookup Table Dynamic1' incorporates:
        *  Merge: '<S13>/Merge8'
@@ -4455,7 +4443,7 @@ void Code_Gen_Model_step(void)
        */
       rtb_Add2_f[0] = rtb_Spline_Ref_Poses[((int32_T)rtb_Subtract3) + 29];
       rtb_Add2_f[1] = rtb_Spline_Ref_Poses[((int32_T)
-        Code_Gen_Model_B.Spline_Index) + 29];
+        Code_Gen_Model_B.Spline_Follow_Index) + 29];
 
       /* S-Function (sfix_look1_dyn): '<S249>/Lookup Table Dynamic' */
       /* Dynamic Look-Up Table Block: '<S249>/Lookup Table Dynamic'
@@ -4509,7 +4497,7 @@ void Code_Gen_Model_step(void)
      */
     rtb_Subtract1 = fmin(rtb_Subtract1, look1_binlcpw
                          (Code_Gen_Model_DW.UnitDelay_DSTATE_hn,
-                          Code_Gen_Model_ConstP.pooled6,
+                          Code_Gen_Model_ConstP.pooled7,
                           Code_Gen_Model_ConstP.LookaheadDistance_tableData, 3U));
 
     /* Outputs for Iterator SubSystem: '<S195>/Find first index that meets distance target' incorporates:
@@ -4564,7 +4552,8 @@ void Code_Gen_Model_step(void)
      *  Sum: '<S248>/Subtract'
      *  Sum: '<S248>/Subtract1'
      */
-    if (Code_Gen_Model_B.Spline_Index >= (Code_Gen_Model_B.Spline_Num_Poses -
+    if (Code_Gen_Model_B.Spline_Follow_Index >=
+        (Code_Gen_Model_B.Spline_Num_Poses -
          Spline_Pose_Num_Before_End_Reduce_Speed)) {
       rtb_Subtract1 = fmin(rt_hypotd_snf(rtb_Spline_Ref_Poses[9] -
         Code_Gen_Model_B.KF_Position_X, rtb_Spline_Ref_Poses[19] -
@@ -4681,7 +4670,7 @@ void Code_Gen_Model_step(void)
     Code_Gen_Model_B.Gyro_Angle_SPF = Code_Gen_Model_B.Gyro_Angle_Field_rad;
 
     /* Update for UnitDelay: '<S194>/Unit Delay' */
-    Code_Gen_Model_DW.UnitDelay_DSTATE_gh = Code_Gen_Model_B.Spline_Index;
+    Code_Gen_Model_DW.UnitDelay_DSTATE_gh = Code_Gen_Model_B.Spline_Follow_Index;
 
     /* Update for UnitDelay: '<S193>/Unit Delay' */
     Code_Gen_Model_DW.UnitDelay_DSTATE_hn = rtb_Subtract1;
@@ -7838,8 +7827,8 @@ void Code_Gen_Model_step(void)
     rtb_thetay_a = TEST_Speaker_Angle;
   } else {
     rtb_thetay_a = look1_binlcpw(Code_Gen_Model_B.Speaker_Distance,
-      Code_Gen_Model_ConstP.pooled1,
-      Code_Gen_Model_ConstP.uDLookupTable1_tableData, 10U);
+      Code_Gen_Model_ConstP.pooled2,
+      Code_Gen_Model_ConstP.uDLookupTable1_tableData, 8U);
   }
 
   /* End of Switch: '<S16>/Switch5' */
@@ -7853,8 +7842,8 @@ void Code_Gen_Model_step(void)
     rtb_thetay_o = TEST_Speaker_Height;
   } else {
     rtb_thetay_o = look1_binlcpw(Code_Gen_Model_B.Speaker_Distance,
-      Code_Gen_Model_ConstP.pooled1,
-      Code_Gen_Model_ConstP.uDLookupTable2_tableData, 10U);
+      Code_Gen_Model_ConstP.pooled2,
+      Code_Gen_Model_ConstP.uDLookupTable2_tableData, 8U);
   }
 
   /* End of Switch: '<S16>/Switch4' */
@@ -7868,8 +7857,8 @@ void Code_Gen_Model_step(void)
     rtb_Switch6 = TEST_Speaker_Gap;
   } else {
     rtb_Switch6 = look1_binlcpw(Code_Gen_Model_B.Speaker_Distance,
-      Code_Gen_Model_ConstP.pooled1,
-      Code_Gen_Model_ConstP.uDLookupTable3_tableData, 10U);
+      Code_Gen_Model_ConstP.pooled2,
+      Code_Gen_Model_ConstP.uDLookupTable3_tableData, 8U);
   }
 
   /* End of Switch: '<S16>/Switch6' */
