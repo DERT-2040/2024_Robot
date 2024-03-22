@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.181
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Fri Mar 22 08:16:07 2024
+ * C/C++ source code generated on : Fri Mar 22 08:28:01 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -80,7 +80,7 @@ const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP = {
   /* Expression: Spline_Capture_Radius
    * Referenced by: '<S193>/Capture Radius'
    */
-  { 0.5, 0.5, 0.5, 0.5 },
+  { 0.2, 0.3, 0.4, 0.5 },
 
   /* Pooled Parameter (Expression: Spline_Velocity_Axis)
    * Referenced by:

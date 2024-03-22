@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.181
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Fri Mar 22 08:16:07 2024
+ * C/C++ source code generated on : Fri Mar 22 08:28:01 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -457,7 +457,7 @@ real_T Note_Detect_Dist_Shooter = 60.0;/* Variable: Note_Detect_Dist_Shooter
 real_T Note_Time_Eject = 1.0;          /* Variable: Note_Time_Eject
                                         * Referenced by: '<S10>/Chart_Intake_and_Shooter'
                                         */
-real_T Note_Time_Speaker_Spin_Up = 1.0;/* Variable: Note_Time_Speaker_Spin_Up
+real_T Note_Time_Speaker_Spin_Up = 0.5;/* Variable: Note_Time_Speaker_Spin_Up
                                         * Referenced by: '<S10>/Chart_Intake_and_Shooter'
                                         */
 real_T Note_Time_Transfer = 0.0;       /* Variable: Note_Time_Transfer
@@ -592,7 +592,7 @@ real_T Spline_Pose_Num_Before_End_Reduce_Speed = 1.0;
                             /* Variable: Spline_Pose_Num_Before_End_Reduce_Speed
                              * Referenced by: '<S195>/Constant'
                              */
-real_T Spline_Stop_Radius = 0.5;       /* Variable: Spline_Stop_Radius
+real_T Spline_Stop_Radius = 0.1;       /* Variable: Spline_Stop_Radius
                                         * Referenced by: '<S208>/Constant'
                                         */
 real_T Spline_Velocity_Multiplier_TEST = 1.0;

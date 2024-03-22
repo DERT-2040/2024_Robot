@@ -22,7 +22,7 @@ Note_Time_Eject = 1.0; % seconds
 
 % Speaker shooting parameters
 Shooter_Motor_Speed_Transition = 2000;
-Note_Time_Speaker_Spin_Up = 1.0;
+Note_Time_Speaker_Spin_Up = 0.5;
 
 % Shooter Servo (note stopper)
 Servo_Time_Store = 0.2; % seconds
