@@ -531,7 +531,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Spline_Stop_Radius__Entry = NTtable_Tune->GetEntry("Spline_Stop_Radius");
     NTinst.AddListener(__Spline_Stop_Radius__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Spline_Stop_Radius = event.GetValueEventData()->value.GetDouble();});
-    __Spline_Stop_Radius__Entry.SetDouble(0.1);
+    __Spline_Stop_Radius__Entry.SetDouble(0.5);
  
     __Spline_Velocity_Multiplier_TEST__Entry = NTtable_Tune->GetEntry("Spline_Velocity_Multiplier_TEST");
     NTinst.AddListener(__Spline_Velocity_Multiplier_TEST__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Spline_Velocity_Multiplier_TEST = event.GetValueEventData()->value.GetDouble();});
@@ -906,7 +906,6 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Desired_Front_Dist__Entry = NTtable_TPoint->GetEntry("Desired_Front_Dist");
     __Desired_Gap__Entry = NTtable_TPoint->GetEntry("Desired_Gap");
     __Desired_Height__Entry = NTtable_TPoint->GetEntry("Desired_Height");
-    __Distance_Speaker__Entry = NTtable_TPoint->GetEntry("Distance_Speaker");
     __Drive_Joystick_X__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_X");
     __Drive_Joystick_Y__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Y");
     __Drive_Joystick_Z__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Z");
@@ -963,6 +962,8 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Shooter_Motor_Speed_Right__Entry = NTtable_TPoint->GetEntry("Shooter_Motor_Speed_Right");
     __Shooter_Pos_State__Entry = NTtable_TPoint->GetEntry("Shooter_Pos_State");
     __Shooter_Servo__Entry = NTtable_TPoint->GetEntry("Shooter_Servo");
+    __Speaker_Angle__Entry = NTtable_TPoint->GetEntry("Speaker_Angle");
+    __Speaker_Distance__Entry = NTtable_TPoint->GetEntry("Speaker_Distance");
     __SplineEnable__Entry = NTtable_TPoint->GetEntry("SplineEnable");
     __Spline_Enable__Entry = NTtable_TPoint->GetEntry("Spline_Enable");
     __Spline_ID__Entry = NTtable_TPoint->GetEntry("Spline_ID");
@@ -1143,7 +1144,6 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Desired_Front_Dist__Entry.SetDouble(Code_Gen_Model_B.Desired_Front_Dist);
     __Desired_Gap__Entry.SetDouble(Code_Gen_Model_B.Desired_Gap);
     __Desired_Height__Entry.SetDouble(Code_Gen_Model_B.Desired_Height);
-    __Distance_Speaker__Entry.SetDouble(Code_Gen_Model_B.Distance_Speaker);
     __Drive_Joystick_X__Entry.SetDouble(Code_Gen_Model_B.Drive_Joystick_X);
     __Drive_Joystick_Y__Entry.SetDouble(Code_Gen_Model_B.Drive_Joystick_Y);
     __Drive_Joystick_Z__Entry.SetDouble(Code_Gen_Model_B.Drive_Joystick_Z);
@@ -1200,6 +1200,8 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Shooter_Motor_Speed_Right__Entry.SetDouble(Code_Gen_Model_B.Shooter_Motor_Speed_Right);
     __Shooter_Pos_State__Entry.SetDouble(Code_Gen_Model_B.Shooter_Pos_State);
     __Shooter_Servo__Entry.SetDouble(Code_Gen_Model_B.Shooter_Servo);
+    __Speaker_Angle__Entry.SetDouble(Code_Gen_Model_B.Speaker_Angle);
+    __Speaker_Distance__Entry.SetDouble(Code_Gen_Model_B.Speaker_Distance);
     __SplineEnable__Entry.SetDouble(Code_Gen_Model_B.SplineEnable);
     __Spline_Enable__Entry.SetDouble(Code_Gen_Model_B.Spline_Enable);
     __Spline_ID__Entry.SetDouble(Code_Gen_Model_B.Spline_ID);

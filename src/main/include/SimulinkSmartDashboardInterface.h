@@ -345,7 +345,6 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Desired_Front_Dist__Entry;
         nt::NetworkTableEntry __Desired_Gap__Entry;
         nt::NetworkTableEntry __Desired_Height__Entry;
-        nt::NetworkTableEntry __Distance_Speaker__Entry;
         nt::NetworkTableEntry __Drive_Joystick_X__Entry;
         nt::NetworkTableEntry __Drive_Joystick_Y__Entry;
         nt::NetworkTableEntry __Drive_Joystick_Z__Entry;
@@ -402,6 +401,8 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Shooter_Motor_Speed_Right__Entry;
         nt::NetworkTableEntry __Shooter_Pos_State__Entry;
         nt::NetworkTableEntry __Shooter_Servo__Entry;
+        nt::NetworkTableEntry __Speaker_Angle__Entry;
+        nt::NetworkTableEntry __Speaker_Distance__Entry;
         nt::NetworkTableEntry __SplineEnable__Entry;
         nt::NetworkTableEntry __Spline_Enable__Entry;
         nt::NetworkTableEntry __Spline_ID__Entry;

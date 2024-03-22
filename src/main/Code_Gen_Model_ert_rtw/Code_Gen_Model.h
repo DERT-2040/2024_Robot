@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.174
+ * Model version                  : 2.179
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Wed Mar 20 21:34:09 2024
+ * C/C++ source code generated on : Thu Mar 21 21:23:09 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -52,9 +52,10 @@ typedef struct {
   real_T KF_Position_X;                /* '<S12>/Switch' */
   real_T Odom_Position_Y;              /* '<S14>/Accumulator' */
   real_T KF_Position_Y;                /* '<S12>/Switch1' */
-  real_T Distance_Speaker;             /* '<S7>/Switch2' */
+  real_T Speaker_Distance;             /* '<S7>/Switch2' */
   real_T Gyro_Angle_Calibrated_deg;    /* '<S8>/Subtract1' */
   real_T Gyro_Angle_rad;               /* '<S38>/Gain1' */
+  real_T Speaker_Angle;                /* '<S7>/Switch1' */
   real_T Gyro_Angle_Field_rad;         /* '<S8>/Add' */
   real_T Spline_Num_Poses;             /* '<S13>/Merge9' */
   real_T Steering_Abs_Cmd;             /* '<S13>/Merge1' */
@@ -324,7 +325,7 @@ typedef struct {
   /* Expression: Speaker_Height_out
    * Referenced by: '<S16>/1-D Lookup Table2'
    */
-  real_T uDLookupTable2_tableData[10];
+  real_T uDLookupTable2_tableData[11];
 
   /* Pooled Parameter (Expression: Speaker_Distance_in)
    * Referenced by:
@@ -332,17 +333,17 @@ typedef struct {
    *   '<S16>/1-D Lookup Table2'
    *   '<S16>/1-D Lookup Table3'
    */
-  real_T pooled1[10];
+  real_T pooled1[11];
 
   /* Expression: Speaker_Angle_out
    * Referenced by: '<S16>/1-D Lookup Table1'
    */
-  real_T uDLookupTable1_tableData[10];
+  real_T uDLookupTable1_tableData[11];
 
   /* Expression: Speaker_Gap_out
    * Referenced by: '<S16>/1-D Lookup Table3'
    */
-  real_T uDLookupTable3_tableData[10];
+  real_T uDLookupTable3_tableData[11];
 
   /* Expression: Spline_Capture_Radius
    * Referenced by: '<S193>/Capture Radius'
@@ -370,11 +371,6 @@ typedef struct {
    * Referenced by: '<S3>/Constant20'
    */
   real_T Constant20_Value[160];
-
-  /* Expression: All_Num_Poses
-   * Referenced by: '<S3>/Constant6'
-   */
-  real_T Constant6_Value[4];
 
   /* Expression: Yaw_angle_correction_yaw
    * Referenced by: '<S399>/1-D Lookup Table'
@@ -518,10 +514,10 @@ typedef struct {
   real_T AT_Tag_14_Yaw;                /* '<Root>/AT_Tag_14_Yaw' */
   real_T AT_Tag_15_Yaw;                /* '<Root>/AT_Tag_15_Yaw' */
   real_T AT_Tag_16_Yaw;                /* '<Root>/AT_Tag_16_Yaw' */
-  real_T AT_Tag_4_Found;               /* '<Root>/AT_Tag_4_Found' */
+  boolean_T AT_Tag_4_Found;            /* '<Root>/AT_Tag_4_Found' */
   boolean_T AT_Tag_5_Found;            /* '<Root>/AT_Tag_5_Found' */
   boolean_T AT_Tag_6_Found;            /* '<Root>/AT_Tag_6_Found' */
-  real_T AT_Tag_7_Found;               /* '<Root>/AT_Tag_7_Found' */
+  boolean_T AT_Tag_7_Found;            /* '<Root>/AT_Tag_7_Found' */
   boolean_T AT_Tag_11_Found;           /* '<Root>/AT_Tag_11_Found' */
   boolean_T AT_Tag_12_Found;           /* '<Root>/AT_Tag_12_Found' */
   boolean_T AT_Tag_13_Found;           /* '<Root>/AT_Tag_13_Found' */
@@ -651,10 +647,10 @@ extern real_T AT_Tag_16_Yaw_Offset;    /* Variable: AT_Tag_16_Yaw_Offset
                                         * Referenced by: '<S399>/Constant6'
                                         */
 extern real_T AT_Tag_4_Coordinate_X;   /* Variable: AT_Tag_4_Coordinate_X
-                                        * Referenced by: '<S7>/Constant9'
+                                        * Referenced by: '<S7>/Constant3'
                                         */
 extern real_T AT_Tag_4_Coordinate_Y;   /* Variable: AT_Tag_4_Coordinate_Y
-                                        * Referenced by: '<S7>/Constant1'
+                                        * Referenced by: '<S7>/Constant2'
                                         */
 extern real_T AT_Tag_5_Yaw_Offset;     /* Variable: AT_Tag_5_Yaw_Offset
                                         * Referenced by: '<S399>/Constant14'
@@ -663,10 +659,10 @@ extern real_T AT_Tag_6_Yaw_Offset;     /* Variable: AT_Tag_6_Yaw_Offset
                                         * Referenced by: '<S399>/Constant13'
                                         */
 extern real_T AT_Tag_7_Coordinate_X;   /* Variable: AT_Tag_7_Coordinate_X
-                                        * Referenced by: '<S7>/Constant3'
+                                        * Referenced by: '<S7>/Constant9'
                                         */
 extern real_T AT_Tag_7_Coordinate_Y;   /* Variable: AT_Tag_7_Coordinate_Y
-                                        * Referenced by: '<S7>/Constant2'
+                                        * Referenced by: '<S7>/Constant1'
                                         */
 extern real_T AT_Target_Tag_11_X;      /* Variable: AT_Target_Tag_11_X
                                         * Referenced by: '<S399>/Constant4'

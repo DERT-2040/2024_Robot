@@ -12,7 +12,7 @@ Spline_Capture_Radius = [0.50 0.50 0.50 0.50]; % m
 Spline_Lookahead_Dist = [0.20 0.20 0.20 0.40]; % m
 
 % % Tunable while running
-Spline_Stop_Radius = 0.1; % m
+Spline_Stop_Radius = 0.5; % m
 Spline_Max_Centripital_Acceleration = 10; % m/sec^2
 Spline_Pose_Num_Before_End_Reduce_Speed = 1;  % index count
 Spline_Last_Pose_Distance_to_Velocity_Gain = 2; % (m/sec) / (m)
