@@ -9,26 +9,8 @@ public:
     /**
      * Contains all Pre Step Callbacks for calling in PreStep()
      */
-    static std::vector<void(Component::*)()> PreStepCallbacks;
-
-    /**
-     * Contains all Post Step Callbacks for calling in PostStep()
-     */
-    static std::vector<void(Component::*)()> PostStepCallbacks;
-
-    /**
-     * Contains all Smart Dashboard Callbacks for calling in UpdateSD()
-     */
-    static std::vector<void(Component::*)()> SmartDashboardCallbacks;
-
-    /**
-     * Contains all Change of Game State Callbacks for calling in ChangeGameState()
-     */
-    static std::vector<void(Component::*)()> GameStateChangeCallbacks;
-
     static std::vector<Component> AllCreatedComponents; 
-
-private:
+    
     /**
      * Component specific callback that runs before the simulink step function
      */

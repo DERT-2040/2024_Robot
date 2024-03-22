@@ -77,28 +77,32 @@ void Robot::SimulationPeriodic() {}
 
 void Robot::PreStep() 
 {
-  for (uint i = 0; i < Component::AllCreatedComponents.size(); i++) {
-    (Component::AllCreatedComponents.at(i).*Component::PreStepCallbacks.at(i))();
+  for (auto m_Component : Component::AllCreatedComponents)
+  {
+    m_Component.PreStepCallback();
   }
 }
 
 void Robot::PostStep() 
 {
-  for (uint i = 0; i < Component::AllCreatedComponents.size(); i++) {
-    (Component::AllCreatedComponents.at(i).*Component::PostStepCallbacks.at(i))();
+  for (auto m_Component : Component::AllCreatedComponents)
+  {
+    m_Component.PostStepCallback();
   }
 }
 
 void Robot::WhenGameStateChanges() 
 {
-  for (uint i = 0; i < Component::AllCreatedComponents.size(); i++) {
-    (Component::AllCreatedComponents.at(i).*Component::GameStateChangeCallbacks.at(i))();
+  for (auto m_Component : Component::AllCreatedComponents)
+  {
+    m_Component.GameStateChangeCallback();
   }
 }
 
 void Robot::UpdateSmartDashboardValues(){
-  for (uint i = 0; i < Component::AllCreatedComponents.size(); i++) {
-    (Component::AllCreatedComponents.at(i).*Component::SmartDashboardCallbacks.at(i))();
+  for (auto m_Component : Component::AllCreatedComponents)
+  {
+    m_Component.SmartDashboardCallback();
   }
   frc::SmartDashboard::UpdateValues();
 }
