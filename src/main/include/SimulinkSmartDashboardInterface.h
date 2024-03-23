@@ -52,7 +52,10 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Amp_Angle__Entry;
         nt::NetworkTableEntry __Amp_Gap__Entry;
         nt::NetworkTableEntry __Amp_Height__Entry;
-        nt::NetworkTableEntry __Auto_ID__Entry;
+        nt::NetworkTableEntry __Auto_Design_Path__Entry;
+        nt::NetworkTableEntry __Auto_Intake_Velocity__Entry;
+        nt::NetworkTableEntry __Auto_Start_Time__Entry;
+        nt::NetworkTableEntry __Auto_Start_Velocity__Entry;
         nt::NetworkTableEntry __BS_Deriv_FC__Entry;
         nt::NetworkTableEntry __BS_Deriv_Gain__Entry;
         nt::NetworkTableEntry __BS_Deriv_LL__Entry;

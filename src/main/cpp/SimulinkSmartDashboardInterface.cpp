@@ -169,9 +169,21 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     NTinst.AddListener(__Amp_Height__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Amp_Height = event.GetValueEventData()->value.GetDouble();});
     __Amp_Height__Entry.SetDouble(1000);
  
-    __Auto_ID__Entry = NTtable_Tune->GetEntry("Auto_ID");
-    NTinst.AddListener(__Auto_ID__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_ID = event.GetValueEventData()->value.GetDouble();});
-    __Auto_ID__Entry.SetDouble(1);
+    __Auto_Design_Path__Entry = NTtable_Tune->GetEntry("Auto_Design_Path");
+    NTinst.AddListener(__Auto_Design_Path__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Design_Path = event.GetValueEventData()->value.GetDouble();});
+    __Auto_Design_Path__Entry.SetDouble(1);
+ 
+    __Auto_Intake_Velocity__Entry = NTtable_Tune->GetEntry("Auto_Intake_Velocity");
+    NTinst.AddListener(__Auto_Intake_Velocity__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Intake_Velocity = event.GetValueEventData()->value.GetDouble();});
+    __Auto_Intake_Velocity__Entry.SetDouble(0);
+ 
+    __Auto_Start_Time__Entry = NTtable_Tune->GetEntry("Auto_Start_Time");
+    NTinst.AddListener(__Auto_Start_Time__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Start_Time = event.GetValueEventData()->value.GetDouble();});
+    __Auto_Start_Time__Entry.SetDouble(1.5);
+ 
+    __Auto_Start_Velocity__Entry = NTtable_Tune->GetEntry("Auto_Start_Velocity");
+    NTinst.AddListener(__Auto_Start_Velocity__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Start_Velocity = event.GetValueEventData()->value.GetDouble();});
+    __Auto_Start_Velocity__Entry.SetDouble(0.2);
  
     __BS_Deriv_FC__Entry = NTtable_Tune->GetEntry("BS_Deriv_FC");
     NTinst.AddListener(__BS_Deriv_FC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {BS_Deriv_FC = event.GetValueEventData()->value.GetDouble();});
@@ -231,7 +243,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Climber_DutyCycle_Pos__Entry = NTtable_Tune->GetEntry("Climber_DutyCycle_Pos");
     NTinst.AddListener(__Climber_DutyCycle_Pos__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Climber_DutyCycle_Pos = event.GetValueEventData()->value.GetDouble();});
-    __Climber_DutyCycle_Pos__Entry.SetDouble(0.4);
+    __Climber_DutyCycle_Pos__Entry.SetDouble(0.5);
  
     __Dist_AA_Cal_Tol__Entry = NTtable_Tune->GetEntry("Dist_AA_Cal_Tol");
     NTinst.AddListener(__Dist_AA_Cal_Tol__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Dist_AA_Cal_Tol = event.GetValueEventData()->value.GetDouble();});
