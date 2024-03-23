@@ -4,8 +4,8 @@ nominal_speed = 1.25;
 D2R = pi/180;
 
 % Blue Autos #1
-x_offset = -6*25/1000;
-y_offset = -8*25/1000;
+x_offset = -6*25/1000*0*0;
+y_offset = -8*25/1000*0*0;
 Path1 = [...
     15.000 + x_offset, 2.660 + y_offset, 1.0 * nominal_speed, 0*D2R;
     13.848 + x_offset, 2.660 + y_offset, 1.0 * nominal_speed, 0*D2R;
@@ -59,8 +59,8 @@ Path4 = [
     ];
 
 % Red Autos #1
-x_offset = 6*25/1000;
-y_offset = 8*25/1000;
+x_offset = 6*25/1000*0*0;
+y_offset = 8*25/1000*0*0;
 
 Path5 = [...
     1.541 + x_offset, 2.660 + y_offset, 1.0 * nominal_speed, 180*D2R;
@@ -115,12 +115,12 @@ Path8 = [
     ];
 
 % Blue Autos #2
-x_offset = -6*25/1000;
-y_offset = -8*25/1000;
+x_offset = -6*25/1000*0;
+y_offset = -8*25/1000*0;
 Path9 = [...
     15.750 + x_offset, 3.940 + y_offset, 1.0 * nominal_speed, -60*D2R;
-    15.200 + x_offset, 4.100 + y_offset, 1.0 * nominal_speed, 0*D2R;    
-    13.900 + x_offset, 4.100 + y_offset, 1.0 * nominal_speed, 0*D2R;
+    15.200 + x_offset, 4.100 + 9*25/1000 + y_offset, 1.0 * nominal_speed, 0*D2R;    
+    13.900 + x_offset, 4.100 + 9*25/1000 + y_offset, 1.0 * nominal_speed, 0*D2R;
     0 0 0 0;
     0 0 0 0;
     0 0 0 0;
@@ -131,7 +131,7 @@ Path9 = [...
 ];
 
 Path10 = [...
-    13.900 + x_offset, 4.100 + y_offset, 1.0 * nominal_speed, 0*D2R;
+    13.900 + x_offset, 4.100 + 9*25/1000 + y_offset, 1.0 * nominal_speed, 0*D2R;
     15.000 + x_offset, 4.300 + y_offset, 1.0 * nominal_speed, -45*D2R;
     0 0 0 0;
     0 0 0 0;
@@ -147,7 +147,7 @@ Path11 = [
     15.000 + x_offset, 4.300 + y_offset, 3.0 * nominal_speed, -45*D2R;
     13.000 + x_offset, 6.000 + y_offset, 3.0 * nominal_speed, -45*D2R;
     11.000 + x_offset, 6.500 + y_offset, 2.0 * nominal_speed, 0*D2R;
-     8.500 + x_offset, 6.028 + y_offset, 1.0 * nominal_speed, 11*D2R;
+    10.000 + x_offset, 6.028 + y_offset, 1.0 * nominal_speed, 11*D2R;
     0 0 0 0;
     0 0 0 0;
     0 0 0 0;
@@ -157,7 +157,7 @@ Path11 = [
 ];
 
 Path12 = [
-     8.500 + x_offset, 6.028 + y_offset, 3.0 * nominal_speed, 11*D2R;
+    10.000 + x_offset, 6.028 + y_offset, 3.0 * nominal_speed, 11*D2R;
     11.000 + x_offset, 6.500 + y_offset, 3.0 * nominal_speed, 0*D2R;
     13.000 + x_offset, 6.000 + y_offset, 2.0 * nominal_speed, -45*D2R;
     15.000 + x_offset, 4.300 + y_offset, 1.0 * nominal_speed, -45*D2R;
@@ -170,8 +170,8 @@ Path12 = [
     ];
 
 % Red Autos #2
-x_offset = 6*25/1000;
-y_offset = 8*25/1000;
+x_offset = 6*25/1000*0;
+y_offset = 8*25/1000*0;
 Path13 = [...
     0.791 + x_offset, 3.940 + y_offset, 1.0 * nominal_speed, (60-180)*D2R;
     1.341 + x_offset, 4.100 + y_offset, 1.0 * nominal_speed, (0-180)*D2R;    
@@ -202,7 +202,7 @@ Path15 = [
     1.541 + x_offset, 4.300 + y_offset, 3.0 * nominal_speed, (45-180)*D2R;
     3.541 + x_offset, 6.000 + y_offset, 3.0 * nominal_speed, (45-180)*D2R;
     5.541 + x_offset, 6.500 + y_offset, 2.0 * nominal_speed, (0-180)*D2R;
-    8.041 + x_offset, 6.028 + y_offset, 1.0 * nominal_speed, (-11-180)*D2R;
+    8.041-1.5 + x_offset, 6.028 + y_offset, 1.0 * nominal_speed, (-11-180)*D2R;
     0 0 0 0;
     0 0 0 0;
     0 0 0 0;
@@ -212,7 +212,7 @@ Path15 = [
 ];
 
 Path16 = [
-    8.041 + x_offset, 6.028 + y_offset, 3.0 * nominal_speed, (-11-180)*D2R;
+    8.041-1.5 + x_offset, 6.028 + y_offset, 3.0 * nominal_speed, (-11-180)*D2R;
     5.541 + x_offset, 6.500 + y_offset, 3.0 * nominal_speed, (0-180)*D2R;
     3.541 + x_offset, 6.000 + y_offset, 2.0 * nominal_speed, (45-180)*D2R;
     1.541 + x_offset, 4.300 + y_offset, 1.0 * nominal_speed, (45-180)*D2R;
