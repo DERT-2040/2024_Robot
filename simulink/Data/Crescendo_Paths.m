@@ -89,9 +89,9 @@ Path6 = [...
 ];
 
 Path7 = [
-    2.650 + x_offset, 2.660 + y_offset, 1.0 * nominal_speed, -90*D2R;
-    2.900 + x_offset, 2.200 + y_offset, 1.0 * nominal_speed, -90*D2R;
-    2.900 + x_offset, 1.300 + y_offset, 1.0 * nominal_speed, -90*D2R;
+    2.650 + x_offset, 2.660 + y_offset, 1.0 * nominal_speed, 90*D2R;
+    2.900 + x_offset, 2.200 + y_offset, 1.0 * nominal_speed, 90*D2R;
+    2.900 + x_offset, 1.300 + y_offset, 1.0 * nominal_speed, 90*D2R;
     0 0 0 0;
     0 0 0 0;
     0 0 0 0;
@@ -102,8 +102,8 @@ Path7 = [
 ];
 
 Path8 = [
-    2.900 + x_offset, 1.300 + y_offset, 1.0 * nominal_speed, -90*D2R;
-    2.900 + x_offset, 1.300 + y_offset, 1.0 * nominal_speed, -90*D2R;
+    2.900 + x_offset, 1.300 + y_offset, 1.0 * nominal_speed, 90*D2R;
+    2.900 + x_offset, 1.300 + y_offset, 1.0 * nominal_speed, 90*D2R;
     0 0 0 0;
     0 0 0 0;
     0 0 0 0;
@@ -173,9 +173,9 @@ Path12 = [
 x_offset = 6*25/1000;
 y_offset = 8*25/1000;
 Path13 = [...
-    0.791 + x_offset, 3.940 + y_offset, 1.0 * nominal_speed, (-60+180)*D2R;
-    1.341 + x_offset, 4.100 + y_offset, 1.0 * nominal_speed, (0+180)*D2R;    
-    2.641 + x_offset, 4.100 + y_offset, 1.0 * nominal_speed, (0+180)*D2R;
+    0.791 + x_offset, 3.940 + y_offset, 1.0 * nominal_speed, (60-180)*D2R;
+    1.341 + x_offset, 4.100 + y_offset, 1.0 * nominal_speed, (0-180)*D2R;    
+    2.641 + x_offset, 4.100 + y_offset, 1.0 * nominal_speed, (0-180)*D2R;
     0 0 0 0;
     0 0 0 0;
     0 0 0 0;
@@ -186,8 +186,8 @@ Path13 = [...
 ];
 
 Path14 = [...
-    2.641 + x_offset, 4.100 + y_offset, 1.0 * nominal_speed, (0+180)*D2R;
-    1.541 + x_offset, 4.300 + y_offset, 1.0 * nominal_speed, (-45+180)*D2R;
+    2.641 + x_offset, 4.100 + y_offset, 1.0 * nominal_speed, (0-180)*D2R;
+    1.541 + x_offset, 4.300 + y_offset, 1.0 * nominal_speed, (45-180)*D2R;
     0 0 0 0;
     0 0 0 0;
     0 0 0 0;
@@ -199,10 +199,10 @@ Path14 = [...
 ];
 
 Path15 = [
-    1.541 + x_offset, 4.300 + y_offset, 3.0 * nominal_speed, (-45+180)*D2R;
-    3.541 + x_offset, 6.000 + y_offset, 3.0 * nominal_speed, (-45+180)*D2R;
-    5.541 + x_offset, 6.500 + y_offset, 2.0 * nominal_speed, (0+180)*D2R;
-    8.041 + x_offset, 6.028 + y_offset, 1.0 * nominal_speed, (11-180)*D2R;
+    1.541 + x_offset, 4.300 + y_offset, 3.0 * nominal_speed, (45-180)*D2R;
+    3.541 + x_offset, 6.000 + y_offset, 3.0 * nominal_speed, (45-180)*D2R;
+    5.541 + x_offset, 6.500 + y_offset, 2.0 * nominal_speed, (0-180)*D2R;
+    8.041 + x_offset, 6.028 + y_offset, 1.0 * nominal_speed, (-11-180)*D2R;
     0 0 0 0;
     0 0 0 0;
     0 0 0 0;
@@ -212,10 +212,10 @@ Path15 = [
 ];
 
 Path16 = [
-    8.041 + x_offset, 6.028 + y_offset, 3.0 * nominal_speed, (11-180)*D2R;
-    5.541 + x_offset, 6.500 + y_offset, 3.0 * nominal_speed, (0+180)*D2R;
-    3.541 + x_offset, 6.000 + y_offset, 2.0 * nominal_speed, (-45+180)*D2R;
-    1.541 + x_offset, 4.300 + y_offset, 1.0 * nominal_speed, (-45+180)*D2R;
+    8.041 + x_offset, 6.028 + y_offset, 3.0 * nominal_speed, (-11-180)*D2R;
+    5.541 + x_offset, 6.500 + y_offset, 3.0 * nominal_speed, (0-180)*D2R;
+    3.541 + x_offset, 6.000 + y_offset, 2.0 * nominal_speed, (45-180)*D2R;
+    1.541 + x_offset, 4.300 + y_offset, 1.0 * nominal_speed, (45-180)*D2R;
     0 0 0 0;
     0 0 0 0;
     0 0 0 0;
