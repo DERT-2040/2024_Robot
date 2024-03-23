@@ -97,7 +97,8 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Front_AA_Min_Ext__Entry;
         nt::NetworkTableEntry __Gamepad_Stick_Neg_Threshold__Entry;
         nt::NetworkTableEntry __Gamepad_Stick_Pos_Threshold__Entry;
-        nt::NetworkTableEntry __Gyro_Calibration_Value__Entry;
+        nt::NetworkTableEntry __Gyro_Calibration_Reset_Degree__Entry;
+        nt::NetworkTableEntry __Gyro_Calibration_Reset_Flag__Entry;
         nt::NetworkTableEntry __KF_Enable__Entry;
         nt::NetworkTableEntry __KF_Vision_Ambiguity_Thresh__Entry;
         nt::NetworkTableEntry __LoadShooter_Angle__Entry;

@@ -349,9 +349,13 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     NTinst.AddListener(__Gamepad_Stick_Pos_Threshold__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Gamepad_Stick_Pos_Threshold = event.GetValueEventData()->value.GetDouble();});
     __Gamepad_Stick_Pos_Threshold__Entry.SetDouble(0.5);
  
-    __Gyro_Calibration_Value__Entry = NTtable_Tune->GetEntry("Gyro_Calibration_Value");
-    NTinst.AddListener(__Gyro_Calibration_Value__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Gyro_Calibration_Value = event.GetValueEventData()->value.GetDouble();});
-    __Gyro_Calibration_Value__Entry.SetDouble(0);
+    __Gyro_Calibration_Reset_Degree__Entry = NTtable_Tune->GetEntry("Gyro_Calibration_Reset_Degree");
+    NTinst.AddListener(__Gyro_Calibration_Reset_Degree__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Gyro_Calibration_Reset_Degree = event.GetValueEventData()->value.GetDouble();});
+    __Gyro_Calibration_Reset_Degree__Entry.SetDouble(0);
+ 
+    __Gyro_Calibration_Reset_Flag__Entry = NTtable_Tune->GetEntry("Gyro_Calibration_Reset_Flag");
+    NTinst.AddListener(__Gyro_Calibration_Reset_Flag__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Gyro_Calibration_Reset_Flag = event.GetValueEventData()->value.GetDouble();});
+    __Gyro_Calibration_Reset_Flag__Entry.SetDouble(0);
  
     __KF_Enable__Entry = NTtable_Tune->GetEntry("KF_Enable");
     NTinst.AddListener(__KF_Enable__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {KF_Enable = event.GetValueEventData()->value.GetDouble();});
