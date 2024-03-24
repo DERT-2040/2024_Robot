@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.197
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sun Mar 24 07:32:14 2024
+ * C/C++ source code generated on : Sun Mar 24 07:55:56 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -2059,23 +2059,23 @@ void Code_Gen_Model_step(void)
    */
   Code_Gen_Model_B.Is_Boosting = (Code_Gen_Model_U.Joystick_Left_B1 != 0.0);
 
-  /* RelationalOperator: '<S55>/Compare' incorporates:
-   *  Constant: '<S55>/Constant'
-   *  Inport: '<Root>/Joystick_Left_B2'
-   */
-  Code_Gen_Model_B.Align_Trap = (Code_Gen_Model_U.Joystick_Left_B2 != 0.0);
-
   /* RelationalOperator: '<S54>/Compare' incorporates:
    *  Constant: '<S54>/Constant'
    *  Inport: '<Root>/Joystick_Left_B3'
    */
-  Code_Gen_Model_B.Align_Amp = (Code_Gen_Model_U.Joystick_Left_B3 != 0.0);
+  Code_Gen_Model_B.Align_Trap = (Code_Gen_Model_U.Joystick_Left_B3 != 0.0);
 
   /* RelationalOperator: '<S53>/Compare' incorporates:
    *  Constant: '<S53>/Constant'
    *  Inport: '<Root>/Joystick_Left_B4'
    */
-  Code_Gen_Model_B.Align_Speaker = (Code_Gen_Model_U.Joystick_Left_B4 != 0.0);
+  Code_Gen_Model_B.Align_Amp = (Code_Gen_Model_U.Joystick_Left_B4 != 0.0);
+
+  /* RelationalOperator: '<S55>/Compare' incorporates:
+   *  Constant: '<S55>/Constant'
+   *  Inport: '<Root>/Joystick_Left_B2'
+   */
+  Code_Gen_Model_B.Align_Speaker = (Code_Gen_Model_U.Joystick_Left_B2 != 0.0);
 
   /* RelationalOperator: '<S52>/Compare' incorporates:
    *  Constant: '<S52>/Constant'
@@ -2227,8 +2227,6 @@ void Code_Gen_Model_step(void)
    *  Constant: '<S41>/Constant'
    *  Constant: '<S42>/Constant'
    *  Constant: '<S43>/Constant'
-   *  Constant: '<S59>/Constant'
-   *  Inport: '<Root>/Gamepad_Start'
    *  Inport: '<Root>/Gamepad_Stick_Left_Y'
    *  Inport: '<Root>/Gamepad_Stick_Right_Y'
    *  Logic: '<S9>/OR'
@@ -2236,12 +2234,10 @@ void Code_Gen_Model_step(void)
    *  RelationalOperator: '<S41>/Compare'
    *  RelationalOperator: '<S42>/Compare'
    *  RelationalOperator: '<S43>/Compare'
-   *  RelationalOperator: '<S59>/Compare'
    *  RelationalOperator: '<S74>/FixPt Relational Operator'
    *  Switch: '<S9>/Switch5'
    *  Switch: '<S9>/Switch6'
    *  Switch: '<S9>/Switch7'
-   *  Switch: '<S9>/Switch8'
    *  UnitDelay: '<S74>/Delay Input1'
    *
    * Block description for '<S74>/Delay Input1':
@@ -2278,15 +2274,6 @@ void Code_Gen_Model_step(void)
      *  Switch: '<S9>/Switch7'
      */
     Code_Gen_Model_B.State_Request_Arm = 3.0;
-  } else if (Code_Gen_Model_U.Gamepad_Start != 0.0) {
-    /* Switch: '<S9>/Switch8' incorporates:
-     *  Constant: '<S9>/Constant9'
-     *  Switch: '<S9>/Switch4'
-     *  Switch: '<S9>/Switch5'
-     *  Switch: '<S9>/Switch6'
-     *  Switch: '<S9>/Switch7'
-     */
-    Code_Gen_Model_B.State_Request_Arm = 4.0;
   }
 
   /* End of Switch: '<S9>/Switch4' */

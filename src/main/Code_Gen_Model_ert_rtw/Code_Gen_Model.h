@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.197
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sun Mar 24 07:32:14 2024
+ * C/C++ source code generated on : Sun Mar 24 07:55:56 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -145,9 +145,9 @@ typedef struct {
   uint8_T Prev_GameState;              /* '<S15>/Chart' */
   boolean_T Drive_Joystick_Z_Mode;     /* '<S47>/Compare' */
   boolean_T Is_Boosting;               /* '<S56>/Compare' */
-  boolean_T Align_Trap;                /* '<S55>/Compare' */
-  boolean_T Align_Amp;                 /* '<S54>/Compare' */
-  boolean_T Align_Speaker;             /* '<S53>/Compare' */
+  boolean_T Align_Trap;                /* '<S54>/Compare' */
+  boolean_T Align_Amp;                 /* '<S53>/Compare' */
+  boolean_T Align_Speaker;             /* '<S55>/Compare' */
   boolean_T Face_Toward_Driver;        /* '<S52>/Compare' */
   boolean_T Face_Right_Driver;         /* '<S50>/Compare' */
   boolean_T Face_Left_Driver;          /* '<S51>/Compare' */
@@ -1345,6 +1345,8 @@ extern RT_MODEL_Code_Gen_Model_T *const Code_Gen_Model_M;
 /*-
  * These blocks were eliminated from the model due to optimizations:
  *
+ * Block '<S59>/Compare' : Unused code path elimination
+ * Block '<S59>/Constant' : Unused code path elimination
  * Block '<S91>/Data Type Duplicate' : Unused code path elimination
  * Block '<S91>/Data Type Propagation' : Unused code path elimination
  * Block '<S89>/Scope' : Unused code path elimination
@@ -1474,6 +1476,8 @@ extern RT_MODEL_Code_Gen_Model_T *const Code_Gen_Model_M;
  * Block '<S24>/Sum' : Unused code path elimination
  * Block '<S25>/Sum' : Unused code path elimination
  * Block '<S1>/Constant2' : Unused code path elimination
+ * Block '<S9>/Constant15' : Unused code path elimination
+ * Block '<S9>/Constant9' : Unused code path elimination
  */
 
 /*-
