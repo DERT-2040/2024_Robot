@@ -135,7 +135,7 @@ Steering_Heading_Control_D_FilterCoeff = 1-exp(-2*pi*Derivative_low_pass_filter_
 Steering_Heading_Control_D_UL = 0;
 Steering_Heading_Control_D_LL = -Steering_Heading_Control_D_UL;
 
-Steering_Heading_Control_Total_UL = 3; %1.3;  % m/sec
+Steering_Heading_Control_Total_UL = 1.3;  % m/sec
 Steering_Heading_Control_Total_LL = -Steering_Heading_Control_Total_UL;
 
 Steering_Heading_Control_Deadzone = 0.1;
@@ -152,10 +152,19 @@ Translation_Speed_NonZero_Error_Thresh = 0.15;
 Translation_Speed_NonZero_Final_Scale_Factor = 0.05;
 
 
-%% Steering Localized Cmd Rate Limit
-Steering_Localized_Cmd_Rate_Limit_Inc = 10;
-Steering_Localized_Cmd_Rate_Limit_Dec = -10;
-Steering_Localized_Cmd_Approach_Zero_Error_Thresh = 0.2;
-Steering_Localized_Cmd_Approach_Zero_Final_Thresh = 0.01;
-Steering_Localized_Cmd_NonZero_Error_Thresh = 0.2;
-Steering_Localized_Cmd_NonZero_Final_Scale_Factor = 1.0;
+%% Steering Relative Cmd Rate Limit
+Steering_Relative_Cmd_Rate_Limit_Inc = 10;
+Steering_Relative_Cmd_Rate_Limit_Dec = -10;
+Steering_Relative_Cmd_Approach_Zero_Error_Thresh = 0.2;
+Steering_Relative_Cmd_Approach_Zero_Final_Thresh = 0.01;
+Steering_Relative_Cmd_NonZero_Error_Thresh = 0.2;
+Steering_Relative_Cmd_NonZero_Final_Scale_Factor = 1.0;
+
+
+%% Steering Absolute Cmd Rate Limit
+Steering_Absolute_Cmd_Rate_Limit_Inc = 1;
+Steering_Absolute_Cmd_Rate_Limit_Dec = -1;
+Steering_Absolute_Cmd_Approach_Zero_Error_Thresh = 0.2;
+Steering_Absolute_Cmd_Approach_Zero_Final_Thresh = 0.01;
+Steering_Absolute_Cmd_NonZero_Error_Thresh = 0.2;
+Steering_Absolute_Cmd_NonZero_Final_Scale_Factor = 0.1;

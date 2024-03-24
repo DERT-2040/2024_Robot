@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.195
+ * Model version                  : 2.196
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Mar 23 20:58:09 2024
+ * C/C++ source code generated on : Sat Mar 23 22:28:38 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -71,22 +71,22 @@ typedef struct {
   real_T Translation_Angle_SPF;        /* '<S17>/Merge3' */
   real_T Gyro_Angle_SPF;               /* '<S17>/Merge8' */
   real_T Translation_Steering_Cmd;     /* '<S350>/Switch' */
-  real_T Steering_Rel_Cmd_SPF;         /* '<S17>/Merge1' */
   real_T Steering_Abs_Cmd_SPF;         /* '<S17>/Merge' */
-  real_T Steering_Localized_PID;       /* '<S369>/Saturation2' */
-  real_T Steering_Localized_Cmd;       /* '<S365>/Sum' */
-  real_T BR_Desired_Wheel_Speed_in;    /* '<S395>/Switch1' */
-  real_T FL_Desired_Wheel_Speed_in;    /* '<S380>/Switch1' */
-  real_T FR_Desired_Wheel_Speed_in;    /* '<S385>/Switch1' */
-  real_T BL_Desired_Wheel_Speed_in;    /* '<S390>/Switch1' */
-  real_T BR_Desired_Wheel_Speed;       /* '<S375>/Product3' */
-  real_T BR_Desired_Module_Angle;      /* '<S395>/Switch' */
-  real_T FL_Desired_Wheel_Speed;       /* '<S375>/Product' */
-  real_T FL_Desired_Module_Angle;      /* '<S380>/Switch' */
-  real_T FR_Desired_Wheel_Speed;       /* '<S375>/Product1' */
-  real_T FR_Desired_Module_Angle;      /* '<S385>/Switch' */
-  real_T BL_Desired_Wheel_Speed;       /* '<S375>/Product2' */
-  real_T BL_Desired_Module_Angle;      /* '<S390>/Switch' */
+  real_T Steering_Localized_PID;       /* '<S377>/Saturation2' */
+  real_T Steering_Rel_Cmd_SPF;         /* '<S17>/Merge1' */
+  real_T Steering_Localized_Cmd;       /* '<S349>/Switch' */
+  real_T BR_Desired_Wheel_Speed_in;    /* '<S403>/Switch1' */
+  real_T FL_Desired_Wheel_Speed_in;    /* '<S388>/Switch1' */
+  real_T FR_Desired_Wheel_Speed_in;    /* '<S393>/Switch1' */
+  real_T BL_Desired_Wheel_Speed_in;    /* '<S398>/Switch1' */
+  real_T BR_Desired_Wheel_Speed;       /* '<S383>/Product3' */
+  real_T BR_Desired_Module_Angle;      /* '<S403>/Switch' */
+  real_T FL_Desired_Wheel_Speed;       /* '<S383>/Product' */
+  real_T FL_Desired_Module_Angle;      /* '<S388>/Switch' */
+  real_T FR_Desired_Wheel_Speed;       /* '<S383>/Product1' */
+  real_T FR_Desired_Module_Angle;      /* '<S393>/Switch' */
+  real_T BL_Desired_Wheel_Speed;       /* '<S383>/Product2' */
+  real_T BL_Desired_Module_Angle;      /* '<S398>/Switch' */
   real_T Speaker_Distance;             /* '<S7>/Switch2' */
   real_T State_Request_Arm_d;          /* '<S13>/Merge12' */
   real_T Back_Lower_Arm_Length;        /* '<S22>/Subtract1' */
@@ -106,11 +106,11 @@ typedef struct {
   real_T Odometry_X_global_est_ft;     /* '<S156>/meters to feet' */
   real_T Odometry_X_global_TEAR_ft;    /* '<S156>/Subtract' */
   real_T Steer_Joystick_X;             /* '<S9>/Signal Copy4' */
-  real_T AT_Error_X;                   /* '<S400>/Switch15' */
-  real_T AT_Error_Y;                   /* '<S400>/Switch23' */
-  real_T Steering_Abs_Gyro;            /* '<S402>/Switch10' */
-  real_T AT_Target_Angle;              /* '<S400>/Switch2' */
-  real_T Steering_Abs_Angle;           /* '<S402>/Switch3' */
+  real_T AT_Error_X;                   /* '<S408>/Switch15' */
+  real_T AT_Error_Y;                   /* '<S408>/Switch23' */
+  real_T Steering_Abs_Gyro;            /* '<S410>/Switch10' */
+  real_T AT_Target_Angle;              /* '<S408>/Switch2' */
+  real_T Steering_Abs_Angle;           /* '<S410>/Switch3' */
   real_T Spline_ID;                    /* '<S27>/Merge' */
   real_T Intake_Shooter_State_Request; /* '<S27>/Chart' */
   real_T SplineEnable;                 /* '<S27>/Chart' */
@@ -179,9 +179,13 @@ typedef struct {
   real_T UD_DSTATE_d;                  /* '<S147>/UD' */
   real_T Accumulator2_DSTATE;          /* '<S14>/Accumulator2' */
   real_T Accumulator_DSTATE;           /* '<S14>/Accumulator' */
-  real_T UnitDelay1_DSTATE_i;          /* '<S372>/Unit Delay1' */
-  real_T UD_DSTATE_a;                  /* '<S371>/UD' */
-  real_T UnitDelay_DSTATE_m;           /* '<S369>/Unit Delay' */
+  real_T UnitDelay1_DSTATE_i;          /* '<S380>/Unit Delay1' */
+  real_T UD_DSTATE_a;                  /* '<S379>/UD' */
+  real_T UnitDelay_DSTATE_m;           /* '<S377>/Unit Delay' */
+  real_T UnitDelay_DSTATE_d;           /* '<S360>/Unit Delay' */
+  real_T FixPtUnitDelay1_DSTATE_e;     /* '<S375>/FixPt Unit Delay1' */
+  real_T UnitDelay_DSTATE_g;           /* '<S359>/Unit Delay' */
+  real_T FixPtUnitDelay1_DSTATE_p;     /* '<S368>/FixPt Unit Delay1' */
   real_T UnitDelay1_DSTATE_k;          /* '<S334>/Unit Delay1' */
   real_T UD_DSTATE_cs;                 /* '<S333>/UD' */
   real_T UnitDelay_DSTATE_a;           /* '<S327>/Unit Delay' */
@@ -219,11 +223,11 @@ typedef struct {
   real_T UnitDelay_DSTATE_j;           /* '<S171>/Unit Delay' */
   real_T UnitDelay1_DSTATE_d;          /* '<S156>/Unit Delay1' */
   real_T UnitDelay_DSTATE_cg;          /* '<S156>/Unit Delay' */
-  real_T UnitDelay1_DSTATE_l;          /* '<S414>/Unit Delay1' */
-  real_T UnitDelay_DSTATE_p;           /* '<S414>/Unit Delay' */
-  real_T UnitDelay3_DSTATE;            /* '<S402>/Unit Delay3' */
-  real_T UnitDelay1_DSTATE_j2;         /* '<S402>/Unit Delay1' */
-  real_T FixPtUnitDelay1_DSTATE_f2;    /* '<S418>/FixPt Unit Delay1' */
+  real_T UnitDelay1_DSTATE_l;          /* '<S422>/Unit Delay1' */
+  real_T UnitDelay_DSTATE_p;           /* '<S422>/Unit Delay' */
+  real_T UnitDelay3_DSTATE;            /* '<S410>/Unit Delay3' */
+  real_T UnitDelay1_DSTATE_j2;         /* '<S410>/Unit Delay1' */
+  real_T FixPtUnitDelay1_DSTATE_f2;    /* '<S426>/FixPt Unit Delay1' */
   real_T UnitDelay_DSTATE_gh;          /* '<S195>/Unit Delay' */
   real_T UnitDelay_DSTATE_hn;          /* '<S194>/Unit Delay' */
   real_T UnitDelay1_DSTATE_f4;         /* '<S247>/Unit Delay1' */
@@ -238,12 +242,13 @@ typedef struct {
   uint32_T exitPortIndex_n;            /* '<S27>/Chart' */
   uint32_T exitPortIndex_h;            /* '<S27>/Chart' */
   uint8_T FixPtUnitDelay2_DSTATE;      /* '<S358>/FixPt Unit Delay2' */
-  uint8_T FixPtUnitDelay2_DSTATE_c;    /* '<S367>/FixPt Unit Delay2' */
+  uint8_T FixPtUnitDelay2_DSTATE_p;    /* '<S375>/FixPt Unit Delay2' */
+  uint8_T FixPtUnitDelay2_DSTATE_c;    /* '<S368>/FixPt Unit Delay2' */
   uint8_T FixPtUnitDelay2_DSTATE_k;    /* '<S181>/FixPt Unit Delay2' */
   uint8_T FixPtUnitDelay2_DSTATE_j;    /* '<S192>/FixPt Unit Delay2' */
   uint8_T FixPtUnitDelay2_DSTATE_e;    /* '<S179>/FixPt Unit Delay2' */
   uint8_T FixPtUnitDelay2_DSTATE_j5;   /* '<S177>/FixPt Unit Delay2' */
-  uint8_T FixPtUnitDelay2_DSTATE_a;    /* '<S418>/FixPt Unit Delay2' */
+  uint8_T FixPtUnitDelay2_DSTATE_a;    /* '<S426>/FixPt Unit Delay2' */
   boolean_T DelayInput1_DSTATE_n;      /* '<S74>/Delay Input1' */
   boolean_T UnitDelay_DSTATE_oz;       /* '<S1>/Unit Delay' */
   boolean_T UnitDelay_DSTATE_ll;       /* '<S11>/Unit Delay' */
@@ -256,14 +261,14 @@ typedef struct {
   boolean_T DelayInput1_DSTATE_i;      /* '<S88>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_p;      /* '<S186>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_o1;     /* '<S188>/Delay Input1' */
-  boolean_T DelayInput1_DSTATE_j;      /* '<S410>/Delay Input1' */
-  boolean_T DelayInput1_DSTATE_m;      /* '<S405>/Delay Input1' */
-  boolean_T DelayInput1_DSTATE_k;      /* '<S406>/Delay Input1' */
-  boolean_T DelayInput1_DSTATE_g;      /* '<S407>/Delay Input1' */
-  boolean_T DelayInput1_DSTATE_g2;     /* '<S408>/Delay Input1' */
-  boolean_T UnitDelay2_DSTATE;         /* '<S402>/Unit Delay2' */
-  boolean_T DelayInput1_DSTATE_ft;     /* '<S409>/Delay Input1' */
-  boolean_T UnitDelay4_DSTATE;         /* '<S402>/Unit Delay4' */
+  boolean_T DelayInput1_DSTATE_j;      /* '<S418>/Delay Input1' */
+  boolean_T DelayInput1_DSTATE_m;      /* '<S413>/Delay Input1' */
+  boolean_T DelayInput1_DSTATE_k;      /* '<S414>/Delay Input1' */
+  boolean_T DelayInput1_DSTATE_g;      /* '<S415>/Delay Input1' */
+  boolean_T DelayInput1_DSTATE_g2;     /* '<S416>/Delay Input1' */
+  boolean_T UnitDelay2_DSTATE;         /* '<S410>/Unit Delay2' */
+  boolean_T DelayInput1_DSTATE_ft;     /* '<S417>/Delay Input1' */
+  boolean_T UnitDelay4_DSTATE;         /* '<S410>/Unit Delay4' */
   boolean_T UnitDelay_DSTATE_e4;       /* '<S202>/Unit Delay' */
   boolean_T UnitDelay_DSTATE_n;        /* '<S207>/Unit Delay' */
   int8_T Accumulator2_PrevResetState;  /* '<S14>/Accumulator2' */
@@ -383,22 +388,22 @@ typedef struct {
   real_T Constant3_Value_m[3];
 
   /* Expression: Steering_Mod_Drv_out
-   * Referenced by: '<S403>/Modulation_Drv'
+   * Referenced by: '<S411>/Modulation_Drv'
    */
   real_T Modulation_Drv_tableData[21];
 
   /* Expression: Steering_Mod_Drv_in
-   * Referenced by: '<S403>/Modulation_Drv'
+   * Referenced by: '<S411>/Modulation_Drv'
    */
   real_T Modulation_Drv_bp01Data[21];
 
   /* Expression: Steering_Mod_Str_Rel_out
-   * Referenced by: '<S402>/Modulation_Str_Y_Rel'
+   * Referenced by: '<S410>/Modulation_Str_Y_Rel'
    */
   real_T Modulation_Str_Y_Rel_tableData[21];
 
   /* Expression: Steering_Mod_Str_Rel_in
-   * Referenced by: '<S402>/Modulation_Str_Y_Rel'
+   * Referenced by: '<S410>/Modulation_Str_Y_Rel'
    */
   real_T Modulation_Str_Y_Rel_bp01Data[21];
 
@@ -622,79 +627,79 @@ extern real_T AT_Tag_7_Coordinate_Y;   /* Variable: AT_Tag_7_Coordinate_Y
                                         * Referenced by: '<S7>/Constant1'
                                         */
 extern real_T AT_Target_Tag_11_Field_Angle;/* Variable: AT_Target_Tag_11_Field_Angle
-                                            * Referenced by: '<S400>/Constant12'
+                                            * Referenced by: '<S408>/Constant12'
                                             */
 extern real_T AT_Target_Tag_11_X;      /* Variable: AT_Target_Tag_11_X
-                                        * Referenced by: '<S400>/Constant4'
+                                        * Referenced by: '<S408>/Constant4'
                                         */
 extern real_T AT_Target_Tag_11_Y;      /* Variable: AT_Target_Tag_11_Y
-                                        * Referenced by: '<S400>/Constant26'
+                                        * Referenced by: '<S408>/Constant26'
                                         */
 extern real_T AT_Target_Tag_12_Field_Angle;/* Variable: AT_Target_Tag_12_Field_Angle
-                                            * Referenced by: '<S400>/Constant11'
+                                            * Referenced by: '<S408>/Constant11'
                                             */
 extern real_T AT_Target_Tag_12_X;      /* Variable: AT_Target_Tag_12_X
-                                        * Referenced by: '<S400>/Constant17'
+                                        * Referenced by: '<S408>/Constant17'
                                         */
 extern real_T AT_Target_Tag_12_Y;      /* Variable: AT_Target_Tag_12_Y
-                                        * Referenced by: '<S400>/Constant3'
+                                        * Referenced by: '<S408>/Constant3'
                                         */
 extern real_T AT_Target_Tag_13_Field_Angle;/* Variable: AT_Target_Tag_13_Field_Angle
-                                            * Referenced by: '<S400>/Constant10'
+                                            * Referenced by: '<S408>/Constant10'
                                             */
 extern real_T AT_Target_Tag_13_X;      /* Variable: AT_Target_Tag_13_X
-                                        * Referenced by: '<S400>/Constant18'
+                                        * Referenced by: '<S408>/Constant18'
                                         */
 extern real_T AT_Target_Tag_13_Y;      /* Variable: AT_Target_Tag_13_Y
-                                        * Referenced by: '<S400>/Constant21'
+                                        * Referenced by: '<S408>/Constant21'
                                         */
 extern real_T AT_Target_Tag_14_Field_Angle;/* Variable: AT_Target_Tag_14_Field_Angle
-                                            * Referenced by: '<S400>/Constant8'
+                                            * Referenced by: '<S408>/Constant8'
                                             */
 extern real_T AT_Target_Tag_14_X;      /* Variable: AT_Target_Tag_14_X
-                                        * Referenced by: '<S400>/Constant19'
+                                        * Referenced by: '<S408>/Constant19'
                                         */
 extern real_T AT_Target_Tag_14_Y;      /* Variable: AT_Target_Tag_14_Y
-                                        * Referenced by: '<S400>/Constant23'
+                                        * Referenced by: '<S408>/Constant23'
                                         */
 extern real_T AT_Target_Tag_15_Field_Angle;/* Variable: AT_Target_Tag_15_Field_Angle
-                                            * Referenced by: '<S400>/Constant7'
+                                            * Referenced by: '<S408>/Constant7'
                                             */
 extern real_T AT_Target_Tag_15_X;      /* Variable: AT_Target_Tag_15_X
-                                        * Referenced by: '<S400>/Constant20'
+                                        * Referenced by: '<S408>/Constant20'
                                         */
 extern real_T AT_Target_Tag_15_Y;      /* Variable: AT_Target_Tag_15_Y
-                                        * Referenced by: '<S400>/Constant24'
+                                        * Referenced by: '<S408>/Constant24'
                                         */
 extern real_T AT_Target_Tag_16_Field_Angle;/* Variable: AT_Target_Tag_16_Field_Angle
-                                            * Referenced by: '<S400>/Constant6'
+                                            * Referenced by: '<S408>/Constant6'
                                             */
 extern real_T AT_Target_Tag_16_X;      /* Variable: AT_Target_Tag_16_X
-                                        * Referenced by: '<S400>/Constant22'
+                                        * Referenced by: '<S408>/Constant22'
                                         */
 extern real_T AT_Target_Tag_16_Y;      /* Variable: AT_Target_Tag_16_Y
-                                        * Referenced by: '<S400>/Constant25'
+                                        * Referenced by: '<S408>/Constant25'
                                         */
 extern real_T AT_Target_Tag_5_Field_Angle;/* Variable: AT_Target_Tag_5_Field_Angle
-                                           * Referenced by: '<S400>/Constant14'
+                                           * Referenced by: '<S408>/Constant14'
                                            */
 extern real_T AT_Target_Tag_5_X;       /* Variable: AT_Target_Tag_5_X
-                                        * Referenced by: '<S400>/Constant9'
+                                        * Referenced by: '<S408>/Constant9'
                                         */
 extern real_T AT_Target_Tag_5_Y;       /* Variable: AT_Target_Tag_5_Y
-                                        * Referenced by: '<S400>/Constant28'
+                                        * Referenced by: '<S408>/Constant28'
                                         */
 extern real_T AT_Target_Tag_6_Field_Angle;/* Variable: AT_Target_Tag_6_Field_Angle
-                                           * Referenced by: '<S400>/Constant13'
+                                           * Referenced by: '<S408>/Constant13'
                                            */
 extern real_T AT_Target_Tag_6_X;       /* Variable: AT_Target_Tag_6_X
-                                        * Referenced by: '<S400>/Constant5'
+                                        * Referenced by: '<S408>/Constant5'
                                         */
 extern real_T AT_Target_Tag_6_Y;       /* Variable: AT_Target_Tag_6_Y
-                                        * Referenced by: '<S400>/Constant27'
+                                        * Referenced by: '<S408>/Constant27'
                                         */
 extern real_T AT_XY_Control_Gain;      /* Variable: AT_XY_Control_Gain
-                                        * Referenced by: '<S403>/Gain2'
+                                        * Referenced by: '<S411>/Gain2'
                                         */
 extern real_T Amp_Angle;               /* Variable: Amp_Angle
                                         * Referenced by: '<S16>/Chart_Shooter_Position'
@@ -746,19 +751,19 @@ extern real_T BS_TC_UL;                /* Variable: BS_TC_UL
                                         */
 extern real_T Boost_Trigger_Decreasing_Limit;
                                      /* Variable: Boost_Trigger_Decreasing_Limit
-                                      * Referenced by: '<S415>/Constant1'
+                                      * Referenced by: '<S423>/Constant1'
                                       */
 extern real_T Boost_Trigger_High_Speed;/* Variable: Boost_Trigger_High_Speed
                                         * Referenced by:
-                                        *   '<S411>/Constant'
-                                        *   '<S411>/Saturation'
+                                        *   '<S419>/Constant'
+                                        *   '<S419>/Saturation'
                                         */
 extern real_T Boost_Trigger_Increasing_Limit;
                                      /* Variable: Boost_Trigger_Increasing_Limit
-                                      * Referenced by: '<S415>/Constant3'
+                                      * Referenced by: '<S423>/Constant3'
                                       */
 extern real_T Boost_Trigger_Low_Speed; /* Variable: Boost_Trigger_Low_Speed
-                                        * Referenced by: '<S411>/Constant1'
+                                        * Referenced by: '<S419>/Constant1'
                                         */
 extern real_T Climber_DutyCycle_Neg;   /* Variable: Climber_DutyCycle_Neg
                                         * Referenced by: '<S4>/Constant3'
@@ -1087,75 +1092,75 @@ extern real_T Stage_Gap;               /* Variable: Stage_Gap
 extern real_T Stage_Height;            /* Variable: Stage_Height
                                         * Referenced by: '<S16>/Chart_Shooter_Position'
                                         */
+extern real_T Steering_Absolute_Cmd_Approach_Zero_Error_Thresh;
+                   /* Variable: Steering_Absolute_Cmd_Approach_Zero_Error_Thresh
+                    * Referenced by: '<S360>/Constant5'
+                    */
+extern real_T Steering_Absolute_Cmd_Approach_Zero_Final_Thresh;
+                   /* Variable: Steering_Absolute_Cmd_Approach_Zero_Final_Thresh
+                    * Referenced by: '<S360>/Constant6'
+                    */
+extern real_T Steering_Absolute_Cmd_NonZero_Error_Thresh;
+                         /* Variable: Steering_Absolute_Cmd_NonZero_Error_Thresh
+                          * Referenced by: '<S360>/Constant9'
+                          */
+extern real_T Steering_Absolute_Cmd_NonZero_Final_Scale_Factor;
+                   /* Variable: Steering_Absolute_Cmd_NonZero_Final_Scale_Factor
+                    * Referenced by: '<S360>/Constant10'
+                    */
+extern real_T Steering_Absolute_Cmd_Rate_Limit_Dec;
+                               /* Variable: Steering_Absolute_Cmd_Rate_Limit_Dec
+                                * Referenced by: '<S360>/Constant1'
+                                */
+extern real_T Steering_Absolute_Cmd_Rate_Limit_Inc;
+                               /* Variable: Steering_Absolute_Cmd_Rate_Limit_Inc
+                                * Referenced by: '<S360>/Constant3'
+                                */
 extern real_T Steering_Heading_Control_D;/* Variable: Steering_Heading_Control_D
-                                          * Referenced by: '<S369>/Constant3'
+                                          * Referenced by: '<S377>/Constant3'
                                           */
 extern real_T Steering_Heading_Control_D_FilterCoeff;
                              /* Variable: Steering_Heading_Control_D_FilterCoeff
-                              * Referenced by: '<S369>/Constant2'
+                              * Referenced by: '<S377>/Constant2'
                               */
 extern real_T Steering_Heading_Control_D_LL;
                                       /* Variable: Steering_Heading_Control_D_LL
-                                       * Referenced by: '<S369>/Saturation'
+                                       * Referenced by: '<S377>/Saturation'
                                        */
 extern real_T Steering_Heading_Control_D_UL;
                                       /* Variable: Steering_Heading_Control_D_UL
-                                       * Referenced by: '<S369>/Saturation'
+                                       * Referenced by: '<S377>/Saturation'
                                        */
 extern real_T Steering_Heading_Control_Deadzone;
                                   /* Variable: Steering_Heading_Control_Deadzone
-                                   * Referenced by: '<S368>/Constant'
+                                   * Referenced by: '<S376>/Constant'
                                    */
 extern real_T Steering_Heading_Control_I;/* Variable: Steering_Heading_Control_I
-                                          * Referenced by: '<S369>/Gain2'
+                                          * Referenced by: '<S377>/Gain2'
                                           */
 extern real_T Steering_Heading_Control_I_LL;
                                       /* Variable: Steering_Heading_Control_I_LL
-                                       * Referenced by: '<S369>/Saturation1'
+                                       * Referenced by: '<S377>/Saturation1'
                                        */
 extern real_T Steering_Heading_Control_I_UL;
                                       /* Variable: Steering_Heading_Control_I_UL
-                                       * Referenced by: '<S369>/Saturation1'
+                                       * Referenced by: '<S377>/Saturation1'
                                        */
 extern real_T Steering_Heading_Control_P;/* Variable: Steering_Heading_Control_P
-                                          * Referenced by: '<S369>/Gain1'
+                                          * Referenced by: '<S377>/Gain1'
                                           */
 extern real_T Steering_Heading_Control_Total_LL;
                                   /* Variable: Steering_Heading_Control_Total_LL
                                    * Referenced by:
-                                   *   '<S369>/Constant1'
-                                   *   '<S369>/Saturation2'
+                                   *   '<S377>/Constant1'
+                                   *   '<S377>/Saturation2'
                                    */
 extern real_T Steering_Heading_Control_Total_UL;
                                   /* Variable: Steering_Heading_Control_Total_UL
                                    * Referenced by:
-                                   *   '<S369>/Constant'
-                                   *   '<S369>/Saturation2'
+                                   *   '<S377>/Constant'
+                                   *   '<S377>/Saturation2'
                                    */
-extern real_T Steering_Localized_Cmd_Approach_Zero_Error_Thresh;
-                  /* Variable: Steering_Localized_Cmd_Approach_Zero_Error_Thresh
-                   * Referenced by: '<S359>/Constant5'
-                   */
-extern real_T Steering_Localized_Cmd_Approach_Zero_Final_Thresh;
-                  /* Variable: Steering_Localized_Cmd_Approach_Zero_Final_Thresh
-                   * Referenced by: '<S359>/Constant6'
-                   */
-extern real_T Steering_Localized_Cmd_NonZero_Error_Thresh;
-                        /* Variable: Steering_Localized_Cmd_NonZero_Error_Thresh
-                         * Referenced by: '<S359>/Constant9'
-                         */
-extern real_T Steering_Localized_Cmd_NonZero_Final_Scale_Factor;
-                  /* Variable: Steering_Localized_Cmd_NonZero_Final_Scale_Factor
-                   * Referenced by: '<S359>/Constant10'
-                   */
-extern real_T Steering_Localized_Cmd_Rate_Limit_Dec;
-                              /* Variable: Steering_Localized_Cmd_Rate_Limit_Dec
-                               * Referenced by: '<S359>/Constant1'
-                               */
-extern real_T Steering_Localized_Cmd_Rate_Limit_Inc;
-                              /* Variable: Steering_Localized_Cmd_Rate_Limit_Inc
-                               * Referenced by: '<S359>/Constant3'
-                               */
 extern real_T Steering_Motor_Control_D;/* Variable: Steering_Motor_Control_D
                                         * Referenced by:
                                         *   '<S267>/Constant3'
@@ -1213,11 +1218,35 @@ extern real_T Steering_Motor_Control_P;/* Variable: Steering_Motor_Control_P
                                         *   '<S309>/Gain1'
                                         *   '<S330>/Gain1'
                                         */
+extern real_T Steering_Relative_Cmd_Approach_Zero_Error_Thresh;
+                   /* Variable: Steering_Relative_Cmd_Approach_Zero_Error_Thresh
+                    * Referenced by: '<S359>/Constant5'
+                    */
+extern real_T Steering_Relative_Cmd_Approach_Zero_Final_Thresh;
+                   /* Variable: Steering_Relative_Cmd_Approach_Zero_Final_Thresh
+                    * Referenced by: '<S359>/Constant6'
+                    */
+extern real_T Steering_Relative_Cmd_NonZero_Error_Thresh;
+                         /* Variable: Steering_Relative_Cmd_NonZero_Error_Thresh
+                          * Referenced by: '<S359>/Constant9'
+                          */
+extern real_T Steering_Relative_Cmd_NonZero_Final_Scale_Factor;
+                   /* Variable: Steering_Relative_Cmd_NonZero_Final_Scale_Factor
+                    * Referenced by: '<S359>/Constant10'
+                    */
+extern real_T Steering_Relative_Cmd_Rate_Limit_Dec;
+                               /* Variable: Steering_Relative_Cmd_Rate_Limit_Dec
+                                * Referenced by: '<S359>/Constant1'
+                                */
+extern real_T Steering_Relative_Cmd_Rate_Limit_Inc;
+                               /* Variable: Steering_Relative_Cmd_Rate_Limit_Inc
+                                * Referenced by: '<S359>/Constant3'
+                                */
 extern real_T Steering_Relative_Gain;  /* Variable: Steering_Relative_Gain
-                                        * Referenced by: '<S402>/Constant'
+                                        * Referenced by: '<S410>/Constant'
                                         */
 extern real_T Steering_Twist_Gain;     /* Variable: Steering_Twist_Gain
-                                        * Referenced by: '<S402>/Constant1'
+                                        * Referenced by: '<S410>/Constant1'
                                         */
 extern real_T TEST_Servo_Override_Flag;/* Variable: TEST_Servo_Override_Flag
                                         * Referenced by: '<S10>/Constant4'
@@ -1293,7 +1322,7 @@ extern real_T Translation_Speed_Rate_Limit_Inc;
                                     * Referenced by: '<S347>/Constant3'
                                     */
 extern real_T Translation_Twist_Gain;  /* Variable: Translation_Twist_Gain
-                                        * Referenced by: '<S403>/Gain'
+                                        * Referenced by: '<S411>/Gain'
                                         */
 extern real_T Trap_Angle;              /* Variable: Trap_Angle
                                         * Referenced by: '<S16>/Chart_Shooter_Position'
@@ -1410,15 +1439,18 @@ extern RT_MODEL_Code_Gen_Model_T *const Code_Gen_Model_M;
  * Block '<S357>/Data Type Duplicate' : Unused code path elimination
  * Block '<S357>/Data Type Propagation' : Unused code path elimination
  * Block '<S358>/FixPt Data Type Duplicate1' : Unused code path elimination
- * Block '<S366>/Data Type Duplicate' : Unused code path elimination
- * Block '<S366>/Data Type Propagation' : Unused code path elimination
- * Block '<S367>/FixPt Data Type Duplicate1' : Unused code path elimination
- * Block '<S373>/Data Type Duplicate' : Unused code path elimination
- * Block '<S373>/Data Type Propagation' : Unused code path elimination
- * Block '<S369>/Scope' : Unused code path elimination
- * Block '<S417>/Data Type Duplicate' : Unused code path elimination
- * Block '<S417>/Data Type Propagation' : Unused code path elimination
- * Block '<S418>/FixPt Data Type Duplicate1' : Unused code path elimination
+ * Block '<S367>/Data Type Duplicate' : Unused code path elimination
+ * Block '<S367>/Data Type Propagation' : Unused code path elimination
+ * Block '<S368>/FixPt Data Type Duplicate1' : Unused code path elimination
+ * Block '<S374>/Data Type Duplicate' : Unused code path elimination
+ * Block '<S374>/Data Type Propagation' : Unused code path elimination
+ * Block '<S375>/FixPt Data Type Duplicate1' : Unused code path elimination
+ * Block '<S381>/Data Type Duplicate' : Unused code path elimination
+ * Block '<S381>/Data Type Propagation' : Unused code path elimination
+ * Block '<S377>/Scope' : Unused code path elimination
+ * Block '<S425>/Data Type Duplicate' : Unused code path elimination
+ * Block '<S425>/Data Type Propagation' : Unused code path elimination
+ * Block '<S426>/FixPt Data Type Duplicate1' : Unused code path elimination
  * Block '<S136>/Conversion' : Eliminate redundant data type conversion
  * Block '<S137>/Conversion' : Eliminate redundant data type conversion
  * Block '<S139>/Conversion' : Eliminate redundant data type conversion
@@ -1818,67 +1850,75 @@ extern RT_MODEL_Code_Gen_Model_T *const Code_Gen_Model_M;
  * '<S357>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Complex Rate Limit/Discrete Rate Limiter/Saturation Dynamic'
  * '<S358>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Complex Rate Limit/Discrete Rate Limiter/Unit Delay External IC'
  * '<S359>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Complex Rate Limit'
- * '<S360>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Steering Heading PID'
- * '<S361>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Complex Rate Limit/Compare To Zero'
- * '<S362>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Complex Rate Limit/Compare To Zero1'
- * '<S363>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Complex Rate Limit/Compare To Zero2'
- * '<S364>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Complex Rate Limit/Compare To Zero3'
- * '<S365>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Complex Rate Limit/Discrete Rate Limiter'
- * '<S366>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Complex Rate Limit/Discrete Rate Limiter/Saturation Dynamic'
- * '<S367>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Complex Rate Limit/Discrete Rate Limiter/Unit Delay External IC'
- * '<S368>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Steering Heading PID/Compare To Constant'
- * '<S369>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Steering Heading PID/PID with Error Wrapping'
- * '<S370>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Steering Heading PID/PID with Error Wrapping/Angle Modulus'
- * '<S371>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Steering Heading PID/PID with Error Wrapping/Difference'
- * '<S372>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Steering Heading PID/PID with Error Wrapping/Low_Pass_Filter'
- * '<S373>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Steering Heading PID/PID with Error Wrapping/Saturation Dynamic'
- * '<S374>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Translation Steering Command/Angle Modulus'
- * '<S375>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Reduce Speeds for Maximum Speed Limit'
- * '<S376>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add'
- * '<S377>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add1'
- * '<S378>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add2'
- * '<S379>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add3'
- * '<S380>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add/Angle_Saver'
- * '<S381>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add/Cartesian to Polar'
- * '<S382>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add/Polar to Cartesian'
- * '<S383>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add/Polar to Cartesian1'
- * '<S384>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add/Angle_Saver/Compare To Zero1'
- * '<S385>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add1/Angle_Saver'
- * '<S386>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add1/Cartesian to Polar'
- * '<S387>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add1/Polar to Cartesian'
- * '<S388>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add1/Polar to Cartesian1'
- * '<S389>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add1/Angle_Saver/Compare To Zero1'
- * '<S390>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add2/Angle_Saver'
- * '<S391>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add2/Cartesian to Polar'
- * '<S392>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add2/Polar to Cartesian'
- * '<S393>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add2/Polar to Cartesian1'
- * '<S394>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add2/Angle_Saver/Compare To Zero1'
- * '<S395>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add3/Angle_Saver'
- * '<S396>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add3/Cartesian to Polar'
- * '<S397>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add3/Polar to Cartesian'
- * '<S398>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add3/Polar to Cartesian1'
- * '<S399>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add3/Angle_Saver/Compare To Zero1'
- * '<S400>' : 'Code_Gen_Model/RoboRio Controls/Teleop/April Tag Errors'
- * '<S401>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive'
- * '<S402>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering'
- * '<S403>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation'
- * '<S404>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Compare To Zero2'
- * '<S405>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase'
- * '<S406>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase1'
- * '<S407>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase2'
- * '<S408>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase3'
- * '<S409>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase4'
- * '<S410>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase5'
- * '<S411>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit'
- * '<S412>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Compare To Zero'
- * '<S413>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Compare To Zero1'
- * '<S414>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero'
- * '<S415>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit'
- * '<S416>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter'
- * '<S417>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter/Saturation Dynamic'
- * '<S418>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter/Unit Delay External IC'
- * '<S419>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero/Compare To Zero'
- * '<S420>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero/Compare To Zero1'
+ * '<S360>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Complex Rate Limit1'
+ * '<S361>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Steering Heading PID'
+ * '<S362>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Complex Rate Limit/Compare To Zero'
+ * '<S363>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Complex Rate Limit/Compare To Zero1'
+ * '<S364>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Complex Rate Limit/Compare To Zero2'
+ * '<S365>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Complex Rate Limit/Compare To Zero3'
+ * '<S366>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Complex Rate Limit/Discrete Rate Limiter'
+ * '<S367>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Complex Rate Limit/Discrete Rate Limiter/Saturation Dynamic'
+ * '<S368>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Complex Rate Limit/Discrete Rate Limiter/Unit Delay External IC'
+ * '<S369>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Complex Rate Limit1/Compare To Zero'
+ * '<S370>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Complex Rate Limit1/Compare To Zero1'
+ * '<S371>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Complex Rate Limit1/Compare To Zero2'
+ * '<S372>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Complex Rate Limit1/Compare To Zero3'
+ * '<S373>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Complex Rate Limit1/Discrete Rate Limiter'
+ * '<S374>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Complex Rate Limit1/Discrete Rate Limiter/Saturation Dynamic'
+ * '<S375>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Complex Rate Limit1/Discrete Rate Limiter/Unit Delay External IC'
+ * '<S376>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Steering Heading PID/Compare To Constant'
+ * '<S377>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Steering Heading PID/PID with Error Wrapping'
+ * '<S378>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Steering Heading PID/PID with Error Wrapping/Angle Modulus'
+ * '<S379>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Steering Heading PID/PID with Error Wrapping/Difference'
+ * '<S380>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Steering Heading PID/PID with Error Wrapping/Low_Pass_Filter'
+ * '<S381>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Steering Localized Command/Steering Heading PID/PID with Error Wrapping/Saturation Dynamic'
+ * '<S382>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Translation Steering Command/Angle Modulus'
+ * '<S383>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Reduce Speeds for Maximum Speed Limit'
+ * '<S384>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add'
+ * '<S385>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add1'
+ * '<S386>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add2'
+ * '<S387>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add3'
+ * '<S388>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add/Angle_Saver'
+ * '<S389>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add/Cartesian to Polar'
+ * '<S390>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add/Polar to Cartesian'
+ * '<S391>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add/Polar to Cartesian1'
+ * '<S392>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add/Angle_Saver/Compare To Zero1'
+ * '<S393>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add1/Angle_Saver'
+ * '<S394>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add1/Cartesian to Polar'
+ * '<S395>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add1/Polar to Cartesian'
+ * '<S396>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add1/Polar to Cartesian1'
+ * '<S397>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add1/Angle_Saver/Compare To Zero1'
+ * '<S398>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add2/Angle_Saver'
+ * '<S399>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add2/Cartesian to Polar'
+ * '<S400>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add2/Polar to Cartesian'
+ * '<S401>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add2/Polar to Cartesian1'
+ * '<S402>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add2/Angle_Saver/Compare To Zero1'
+ * '<S403>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add3/Angle_Saver'
+ * '<S404>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add3/Cartesian to Polar'
+ * '<S405>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add3/Polar to Cartesian'
+ * '<S406>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add3/Polar to Cartesian1'
+ * '<S407>' : 'Code_Gen_Model/RoboRio Controls/Swerve_Drive/Wheel Module Speed and Angle/Wheel_Angle_Calculator/Vector_Add3/Angle_Saver/Compare To Zero1'
+ * '<S408>' : 'Code_Gen_Model/RoboRio Controls/Teleop/April Tag Errors'
+ * '<S409>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive'
+ * '<S410>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering'
+ * '<S411>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation'
+ * '<S412>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Compare To Zero2'
+ * '<S413>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase'
+ * '<S414>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase1'
+ * '<S415>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase2'
+ * '<S416>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase3'
+ * '<S417>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase4'
+ * '<S418>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase5'
+ * '<S419>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit'
+ * '<S420>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Compare To Zero'
+ * '<S421>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Compare To Zero1'
+ * '<S422>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero'
+ * '<S423>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit'
+ * '<S424>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter'
+ * '<S425>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter/Saturation Dynamic'
+ * '<S426>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter/Unit Delay External IC'
+ * '<S427>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero/Compare To Zero'
+ * '<S428>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero/Compare To Zero1'
  */
 #endif                                 /* RTW_HEADER_Code_Gen_Model_h_ */
 

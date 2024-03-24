@@ -150,6 +150,12 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Stage_Angle__Entry;
         nt::NetworkTableEntry __Stage_Gap__Entry;
         nt::NetworkTableEntry __Stage_Height__Entry;
+        nt::NetworkTableEntry __Steering_Absolute_Cmd_Approach_Zero_Error_Thresh__Entry;
+        nt::NetworkTableEntry __Steering_Absolute_Cmd_Approach_Zero_Final_Thresh__Entry;
+        nt::NetworkTableEntry __Steering_Absolute_Cmd_NonZero_Error_Thresh__Entry;
+        nt::NetworkTableEntry __Steering_Absolute_Cmd_NonZero_Final_Scale_Factor__Entry;
+        nt::NetworkTableEntry __Steering_Absolute_Cmd_Rate_Limit_Dec__Entry;
+        nt::NetworkTableEntry __Steering_Absolute_Cmd_Rate_Limit_Inc__Entry;
         nt::NetworkTableEntry __Steering_Heading_Control_D__Entry;
         nt::NetworkTableEntry __Steering_Heading_Control_D_FilterCoeff__Entry;
         nt::NetworkTableEntry __Steering_Heading_Control_D_LL__Entry;
@@ -161,12 +167,6 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Steering_Heading_Control_P__Entry;
         nt::NetworkTableEntry __Steering_Heading_Control_Total_LL__Entry;
         nt::NetworkTableEntry __Steering_Heading_Control_Total_UL__Entry;
-        nt::NetworkTableEntry __Steering_Localized_Cmd_Approach_Zero_Error_Thresh__Entry;
-        nt::NetworkTableEntry __Steering_Localized_Cmd_Approach_Zero_Final_Thresh__Entry;
-        nt::NetworkTableEntry __Steering_Localized_Cmd_NonZero_Error_Thresh__Entry;
-        nt::NetworkTableEntry __Steering_Localized_Cmd_NonZero_Final_Scale_Factor__Entry;
-        nt::NetworkTableEntry __Steering_Localized_Cmd_Rate_Limit_Dec__Entry;
-        nt::NetworkTableEntry __Steering_Localized_Cmd_Rate_Limit_Inc__Entry;
         nt::NetworkTableEntry __Steering_Motor_Control_D__Entry;
         nt::NetworkTableEntry __Steering_Motor_Control_D_FilterCoeff__Entry;
         nt::NetworkTableEntry __Steering_Motor_Control_D_LL__Entry;
@@ -175,6 +175,12 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Steering_Motor_Control_I_LL__Entry;
         nt::NetworkTableEntry __Steering_Motor_Control_I_UL__Entry;
         nt::NetworkTableEntry __Steering_Motor_Control_P__Entry;
+        nt::NetworkTableEntry __Steering_Relative_Cmd_Approach_Zero_Error_Thresh__Entry;
+        nt::NetworkTableEntry __Steering_Relative_Cmd_Approach_Zero_Final_Thresh__Entry;
+        nt::NetworkTableEntry __Steering_Relative_Cmd_NonZero_Error_Thresh__Entry;
+        nt::NetworkTableEntry __Steering_Relative_Cmd_NonZero_Final_Scale_Factor__Entry;
+        nt::NetworkTableEntry __Steering_Relative_Cmd_Rate_Limit_Dec__Entry;
+        nt::NetworkTableEntry __Steering_Relative_Cmd_Rate_Limit_Inc__Entry;
         nt::NetworkTableEntry __Steering_Relative_Gain__Entry;
         nt::NetworkTableEntry __Steering_Twist_Gain__Entry;
         nt::NetworkTableEntry __TEST_Servo_Override_Flag__Entry;
