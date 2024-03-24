@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.196
+ * Model version                  : 2.197
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Mar 23 22:28:38 2024
+ * C/C++ source code generated on : Sun Mar 24 07:32:14 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -262,12 +262,12 @@ typedef struct {
   boolean_T DelayInput1_DSTATE_p;      /* '<S186>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_o1;     /* '<S188>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_j;      /* '<S418>/Delay Input1' */
+  boolean_T DelayInput1_DSTATE_ft;     /* '<S417>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_m;      /* '<S413>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_k;      /* '<S414>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_g;      /* '<S415>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_g2;     /* '<S416>/Delay Input1' */
   boolean_T UnitDelay2_DSTATE;         /* '<S410>/Unit Delay2' */
-  boolean_T DelayInput1_DSTATE_ft;     /* '<S417>/Delay Input1' */
   boolean_T UnitDelay4_DSTATE;         /* '<S410>/Unit Delay4' */
   boolean_T UnitDelay_DSTATE_e4;       /* '<S202>/Unit Delay' */
   boolean_T UnitDelay_DSTATE_n;        /* '<S207>/Unit Delay' */

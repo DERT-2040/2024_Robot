@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.196
+ * Model version                  : 2.197
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Mar 23 22:28:38 2024
+ * C/C++ source code generated on : Sun Mar 24 07:32:14 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -1472,8 +1472,7 @@ void Code_Gen_Model_step(void)
   boolean_T exitg1;
   boolean_T guard1;
   boolean_T rtb_AND1;
-  boolean_T rtb_AND4;
-  boolean_T rtb_AND6;
+  boolean_T rtb_AND2;
   boolean_T rtb_AT_Tag_11_Active;
   boolean_T rtb_AT_Tag_12_Active;
   boolean_T rtb_AT_Tag_13_Active;
@@ -1485,6 +1484,7 @@ void Code_Gen_Model_step(void)
   boolean_T rtb_AT_Target_Enable;
   boolean_T rtb_Compare_oq;
   boolean_T rtb_Compare_pf;
+  boolean_T rtb_FixPtRelationalOperator_m;
   boolean_T rtb_IsRedAlliance;
   boolean_T rtb_OR7;
   boolean_T rtb_Relative_Translation_Flag;
@@ -3373,14 +3373,25 @@ void Code_Gen_Model_step(void)
 
     /* End of Switch: '<S410>/Switch8' */
 
-    /* Logic: '<S410>/AND1' incorporates:
-     *  Logic: '<S410>/AND2'
-     *  Logic: '<S410>/AND3'
+    /* Logic: '<S408>/Logical Operator11' */
+    rtb_AT_Target_Enable = (((Code_Gen_Model_B.Align_Trap) ||
+      (Code_Gen_Model_B.Align_Amp)) || (Code_Gen_Model_B.Align_Speaker));
+
+    /* RelationalOperator: '<S417>/FixPt Relational Operator' incorporates:
+     *  UnitDelay: '<S417>/Delay Input1'
+     *
+     * Block description for '<S417>/Delay Input1':
+     *
+     *  Store in Global RAM
+     */
+    rtb_FixPtRelationalOperator_m = (((int32_T)rtb_AT_Target_Enable) > ((int32_T)
+      Code_Gen_Model_DW.DelayInput1_DSTATE_ft));
+
+    /* Logic: '<S410>/AND2' incorporates:
      *  RelationalOperator: '<S413>/FixPt Relational Operator'
      *  RelationalOperator: '<S414>/FixPt Relational Operator'
      *  RelationalOperator: '<S415>/FixPt Relational Operator'
      *  RelationalOperator: '<S416>/FixPt Relational Operator'
-     *  UnitDelay: '<S410>/Unit Delay2'
      *  UnitDelay: '<S413>/Delay Input1'
      *  UnitDelay: '<S414>/Delay Input1'
      *  UnitDelay: '<S415>/Delay Input1'
@@ -3402,40 +3413,36 @@ void Code_Gen_Model_step(void)
      *
      *  Store in Global RAM
      */
-    rtb_AND1 = (rtb_Compare_oq && (((((((int32_T)
-      Code_Gen_Model_B.Face_Away_Driver) > ((int32_T)
+    rtb_AND2 = ((((((int32_T)Code_Gen_Model_B.Face_Away_Driver) > ((int32_T)
       Code_Gen_Model_DW.DelayInput1_DSTATE_m)) || (((int32_T)
       Code_Gen_Model_B.Face_Left_Driver) > ((int32_T)
       Code_Gen_Model_DW.DelayInput1_DSTATE_k))) || (((int32_T)
       Code_Gen_Model_B.Face_Toward_Driver) > ((int32_T)
       Code_Gen_Model_DW.DelayInput1_DSTATE_g))) || (((int32_T)
       Code_Gen_Model_B.Face_Right_Driver) > ((int32_T)
-      Code_Gen_Model_DW.DelayInput1_DSTATE_g2))) ||
-      (Code_Gen_Model_DW.UnitDelay2_DSTATE)));
+      Code_Gen_Model_DW.DelayInput1_DSTATE_g2)));
 
-    /* Logic: '<S408>/Logical Operator11' */
-    rtb_AT_Target_Enable = (((Code_Gen_Model_B.Align_Trap) ||
-      (Code_Gen_Model_B.Align_Amp)) || (Code_Gen_Model_B.Align_Speaker));
+    /* Logic: '<S410>/AND1' incorporates:
+     *  Logic: '<S410>/AND3'
+     *  Logic: '<S410>/AND7'
+     *  UnitDelay: '<S410>/Unit Delay2'
+     */
+    rtb_AND1 = ((rtb_Compare_oq && (!rtb_FixPtRelationalOperator_m)) &&
+                (rtb_AND2 || (Code_Gen_Model_DW.UnitDelay2_DSTATE)));
 
     /* Logic: '<S410>/AND4' incorporates:
      *  Logic: '<S410>/AND5'
-     *  RelationalOperator: '<S417>/FixPt Relational Operator'
+     *  Logic: '<S410>/AND8'
      *  UnitDelay: '<S410>/Unit Delay4'
-     *  UnitDelay: '<S417>/Delay Input1'
-     *
-     * Block description for '<S417>/Delay Input1':
-     *
-     *  Store in Global RAM
      */
-    rtb_AND4 = (rtb_Compare_oq && ((((int32_T)rtb_AT_Target_Enable) > ((int32_T)
-      Code_Gen_Model_DW.DelayInput1_DSTATE_ft)) ||
-      (Code_Gen_Model_DW.UnitDelay4_DSTATE)));
+    rtb_FixPtRelationalOperator_m = ((rtb_Compare_oq && (!rtb_AND2)) &&
+      (rtb_FixPtRelationalOperator_m || (Code_Gen_Model_DW.UnitDelay4_DSTATE)));
 
     /* Logic: '<S410>/AND6' */
-    rtb_AND6 = (rtb_AND1 || rtb_AND4);
+    rtb_AND2 = (rtb_AND1 || rtb_FixPtRelationalOperator_m);
 
     /* Switch: '<S410>/Switch10' */
-    if (rtb_AND6) {
+    if (rtb_AND2) {
       /* Switch: '<S410>/Switch10' incorporates:
        *  Constant: '<S410>/Constant10'
        */
@@ -3599,7 +3606,7 @@ void Code_Gen_Model_step(void)
        *  Switch: '<S410>/Switch6'
        */
       rtb_Switch2_my = 4.71238898038469;
-    } else if (rtb_AND4) {
+    } else if (rtb_FixPtRelationalOperator_m) {
       /* Switch: '<S410>/Switch1' incorporates:
        *  Switch: '<S410>/Switch5'
        *  Switch: '<S410>/Switch6'
@@ -3618,7 +3625,7 @@ void Code_Gen_Model_step(void)
     /* End of Switch: '<S410>/Switch4' */
 
     /* Switch: '<S410>/Switch3' */
-    if (rtb_AND6) {
+    if (rtb_AND2) {
       /* Switch: '<S410>/Switch3' */
       Code_Gen_Model_B.Steering_Abs_Angle = rtb_Switch2_my;
     } else {
@@ -3780,6 +3787,14 @@ void Code_Gen_Model_step(void)
     /* Update for UnitDelay: '<S410>/Unit Delay3' */
     Code_Gen_Model_DW.UnitDelay3_DSTATE = rtb_Switch8;
 
+    /* Update for UnitDelay: '<S417>/Delay Input1'
+     *
+     * Block description for '<S417>/Delay Input1':
+     *
+     *  Store in Global RAM
+     */
+    Code_Gen_Model_DW.DelayInput1_DSTATE_ft = rtb_AT_Target_Enable;
+
     /* Update for UnitDelay: '<S413>/Delay Input1'
      *
      * Block description for '<S413>/Delay Input1':
@@ -3815,16 +3830,8 @@ void Code_Gen_Model_step(void)
     /* Update for UnitDelay: '<S410>/Unit Delay2' */
     Code_Gen_Model_DW.UnitDelay2_DSTATE = rtb_AND1;
 
-    /* Update for UnitDelay: '<S417>/Delay Input1'
-     *
-     * Block description for '<S417>/Delay Input1':
-     *
-     *  Store in Global RAM
-     */
-    Code_Gen_Model_DW.DelayInput1_DSTATE_ft = rtb_AT_Target_Enable;
-
     /* Update for UnitDelay: '<S410>/Unit Delay4' */
-    Code_Gen_Model_DW.UnitDelay4_DSTATE = rtb_AND4;
+    Code_Gen_Model_DW.UnitDelay4_DSTATE = rtb_FixPtRelationalOperator_m;
 
     /* Update for UnitDelay: '<S410>/Unit Delay1' */
     Code_Gen_Model_DW.UnitDelay1_DSTATE_j2 = rtb_Switch2_my;
