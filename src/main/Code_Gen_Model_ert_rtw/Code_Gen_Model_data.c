@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.194
+ * Model version                  : 2.195
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Mar 23 18:31:17 2024
+ * C/C++ source code generated on : Sat Mar 23 20:58:09 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -198,16 +198,17 @@ const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP = {
    */
   { 0.0, 1.0, 2.0 },
 
-  /* Expression: Yaw_angle_correction_yaw
-   * Referenced by: '<S400>/1-D Lookup Table'
+  /* Expression: Steering_Mod_Drv_out
+   * Referenced by: '<S403>/Modulation_Drv'
    */
-  { -1.25, -1.5, -3.61, -3.96, -4.97, -6.38, -7.25, -7.5, -7.98 },
+  { -1.0, -0.58, -0.31, -0.18, -0.14, -0.09, -0.06, -0.04, -0.01, -0.0, 0.0, 0.0,
+    0.01, 0.04, 0.06, 0.09, 0.14, 0.18, 0.31, 0.58, 1.0 },
 
-  /* Expression: Yaw_angle_correction_distance
-   * Referenced by: '<S400>/1-D Lookup Table'
+  /* Expression: Steering_Mod_Drv_in
+   * Referenced by: '<S403>/Modulation_Drv'
    */
-  { 1.524, 1.6764, 2.02692, 2.1336, 2.4383999999999997, 3.048, 3.47472, 3.81,
-    4.35864 },
+  { -1.0, -0.9, -0.8, -0.7, -0.6, -0.5, -0.45, -0.4, -0.35, -0.3, 0.0, 0.3, 0.35,
+    0.4, 0.45, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0 },
 
   /* Expression: Steering_Mod_Str_Rel_out
    * Referenced by: '<S402>/Modulation_Str_Y_Rel'
@@ -220,18 +221,6 @@ const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP = {
    */
   { -1.0, -0.9, -0.8, -0.7, -0.6, -0.5, -0.4, -0.3, -0.25, -0.2, 0.0, 0.2, 0.25,
     0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0 },
-
-  /* Expression: Steering_Mod_Drv_out
-   * Referenced by: '<S403>/Modulation_Drv'
-   */
-  { -1.0, -0.58, -0.31, -0.18, -0.14, -0.09, -0.06, -0.04, -0.01, -0.0, 0.0, 0.0,
-    0.01, 0.04, 0.06, 0.09, 0.14, 0.18, 0.31, 0.58, 1.0 },
-
-  /* Expression: Steering_Mod_Drv_in
-   * Referenced by: '<S403>/Modulation_Drv'
-   */
-  { -1.0, -0.9, -0.8, -0.7, -0.6, -0.5, -0.45, -0.4, -0.35, -0.3, 0.0, 0.3, 0.35,
-    0.4, 0.45, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0 },
 
   /* Expression: Rotation_Local_Inv
    * Referenced by: '<S14>/Constant4'

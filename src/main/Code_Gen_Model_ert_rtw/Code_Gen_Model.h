@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.194
+ * Model version                  : 2.195
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sat Mar 23 18:31:17 2024
+ * C/C++ source code generated on : Sat Mar 23 20:58:09 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -60,7 +60,6 @@ typedef struct {
   real_T Steer_Joystick_Z;             /* '<S9>/Signal Copy6' */
   real_T State_Request_Intake_Shooter; /* '<S9>/Switch' */
   real_T State_Request_Arm;            /* '<S9>/Switch4' */
-  real_T Speaker_Distance;             /* '<S7>/Switch2' */
   real_T Speaker_Angle;                /* '<S7>/Switch1' */
   real_T Spline_Num_Poses;             /* '<S13>/Merge9' */
   real_T Steering_Abs_Cmd;             /* '<S13>/Merge1' */
@@ -74,7 +73,6 @@ typedef struct {
   real_T Translation_Steering_Cmd;     /* '<S350>/Switch' */
   real_T Steering_Rel_Cmd_SPF;         /* '<S17>/Merge1' */
   real_T Steering_Abs_Cmd_SPF;         /* '<S17>/Merge' */
-  real_T Gyro_Angle_Adjustment_SPF;    /* '<S17>/Merge6' */
   real_T Steering_Localized_PID;       /* '<S369>/Saturation2' */
   real_T Steering_Localized_Cmd;       /* '<S365>/Sum' */
   real_T BR_Desired_Wheel_Speed_in;    /* '<S395>/Switch1' */
@@ -89,6 +87,7 @@ typedef struct {
   real_T FR_Desired_Module_Angle;      /* '<S385>/Switch' */
   real_T BL_Desired_Wheel_Speed;       /* '<S375>/Product2' */
   real_T BL_Desired_Module_Angle;      /* '<S390>/Switch' */
+  real_T Speaker_Distance;             /* '<S7>/Switch2' */
   real_T State_Request_Arm_d;          /* '<S13>/Merge12' */
   real_T Back_Lower_Arm_Length;        /* '<S22>/Subtract1' */
   real_T Back_Upper_Arm_Length;        /* '<S23>/Subtract1' */
@@ -107,12 +106,11 @@ typedef struct {
   real_T Odometry_X_global_est_ft;     /* '<S156>/meters to feet' */
   real_T Odometry_X_global_TEAR_ft;    /* '<S156>/Subtract' */
   real_T Steer_Joystick_X;             /* '<S9>/Signal Copy4' */
-  real_T AT_Error_Yaw;                 /* '<S400>/Switch2' */
-  real_T Steering_Abs_Yaw;             /* '<S402>/Switch1' */
-  real_T Steering_Abs_Ortho;           /* '<S402>/Switch3' */
-  real_T Steering_Abs_Gyro;            /* '<S402>/Switch10' */
   real_T AT_Error_X;                   /* '<S400>/Switch15' */
   real_T AT_Error_Y;                   /* '<S400>/Switch23' */
+  real_T Steering_Abs_Gyro;            /* '<S402>/Switch10' */
+  real_T AT_Target_Angle;              /* '<S400>/Switch2' */
+  real_T Steering_Abs_Angle;           /* '<S402>/Switch3' */
   real_T Spline_ID;                    /* '<S27>/Merge' */
   real_T Intake_Shooter_State_Request; /* '<S27>/Chart' */
   real_T SplineEnable;                 /* '<S27>/Chart' */
@@ -160,8 +158,6 @@ typedef struct {
   boolean_T Test_Mode;                 /* '<S13>/Merge10' */
   boolean_T Is_All_Arms_Cal_Position;  /* '<S2>/Logical Operator' */
   boolean_T Robot_Reached_Destination; /* '<S17>/Merge7' */
-  boolean_T Steering_Abs_Ortho_Trigger;/* '<S402>/AND1' */
-  boolean_T Steering_Abs_Gyro_Trigger; /* '<S409>/FixPt Relational Operator' */
   boolean_T Line_Sensor_Boolean;       /* '<S26>/Compare' */
   boolean_T Spline_Out_Of_Bounds;      /* '<S199>/Merge1' */
   boolean_T Shooter_Motor_Speed_Control_Ena;/* '<S10>/Chart_Intake_and_Shooter' */
@@ -223,11 +219,11 @@ typedef struct {
   real_T UnitDelay_DSTATE_j;           /* '<S171>/Unit Delay' */
   real_T UnitDelay1_DSTATE_d;          /* '<S156>/Unit Delay1' */
   real_T UnitDelay_DSTATE_cg;          /* '<S156>/Unit Delay' */
-  real_T UnitDelay1_DSTATE_j2;         /* '<S402>/Unit Delay1' */
+  real_T UnitDelay1_DSTATE_l;          /* '<S414>/Unit Delay1' */
+  real_T UnitDelay_DSTATE_p;           /* '<S414>/Unit Delay' */
   real_T UnitDelay3_DSTATE;            /* '<S402>/Unit Delay3' */
-  real_T FixPtUnitDelay1_DSTATE_f2;    /* '<S417>/FixPt Unit Delay1' */
-  real_T UnitDelay1_DSTATE_l;          /* '<S413>/Unit Delay1' */
-  real_T UnitDelay_DSTATE_p;           /* '<S413>/Unit Delay' */
+  real_T UnitDelay1_DSTATE_j2;         /* '<S402>/Unit Delay1' */
+  real_T FixPtUnitDelay1_DSTATE_f2;    /* '<S418>/FixPt Unit Delay1' */
   real_T UnitDelay_DSTATE_gh;          /* '<S195>/Unit Delay' */
   real_T UnitDelay_DSTATE_hn;          /* '<S194>/Unit Delay' */
   real_T UnitDelay1_DSTATE_f4;         /* '<S247>/Unit Delay1' */
@@ -247,7 +243,7 @@ typedef struct {
   uint8_T FixPtUnitDelay2_DSTATE_j;    /* '<S192>/FixPt Unit Delay2' */
   uint8_T FixPtUnitDelay2_DSTATE_e;    /* '<S179>/FixPt Unit Delay2' */
   uint8_T FixPtUnitDelay2_DSTATE_j5;   /* '<S177>/FixPt Unit Delay2' */
-  uint8_T FixPtUnitDelay2_DSTATE_a;    /* '<S417>/FixPt Unit Delay2' */
+  uint8_T FixPtUnitDelay2_DSTATE_a;    /* '<S418>/FixPt Unit Delay2' */
   boolean_T DelayInput1_DSTATE_n;      /* '<S74>/Delay Input1' */
   boolean_T UnitDelay_DSTATE_oz;       /* '<S1>/Unit Delay' */
   boolean_T UnitDelay_DSTATE_ll;       /* '<S11>/Unit Delay' */
@@ -260,11 +256,14 @@ typedef struct {
   boolean_T DelayInput1_DSTATE_i;      /* '<S88>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_p;      /* '<S186>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_o1;     /* '<S188>/Delay Input1' */
+  boolean_T DelayInput1_DSTATE_j;      /* '<S410>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_m;      /* '<S405>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_k;      /* '<S406>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_g;      /* '<S407>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_g2;     /* '<S408>/Delay Input1' */
-  boolean_T DelayInput1_DSTATE_j;      /* '<S409>/Delay Input1' */
+  boolean_T UnitDelay2_DSTATE;         /* '<S402>/Unit Delay2' */
+  boolean_T DelayInput1_DSTATE_ft;     /* '<S409>/Delay Input1' */
+  boolean_T UnitDelay4_DSTATE;         /* '<S402>/Unit Delay4' */
   boolean_T UnitDelay_DSTATE_e4;       /* '<S202>/Unit Delay' */
   boolean_T UnitDelay_DSTATE_n;        /* '<S207>/Unit Delay' */
   int8_T Accumulator2_PrevResetState;  /* '<S14>/Accumulator2' */
@@ -383,15 +382,15 @@ typedef struct {
    */
   real_T Constant3_Value_m[3];
 
-  /* Expression: Yaw_angle_correction_yaw
-   * Referenced by: '<S400>/1-D Lookup Table'
+  /* Expression: Steering_Mod_Drv_out
+   * Referenced by: '<S403>/Modulation_Drv'
    */
-  real_T uDLookupTable_tableData_j[9];
+  real_T Modulation_Drv_tableData[21];
 
-  /* Expression: Yaw_angle_correction_distance
-   * Referenced by: '<S400>/1-D Lookup Table'
+  /* Expression: Steering_Mod_Drv_in
+   * Referenced by: '<S403>/Modulation_Drv'
    */
-  real_T uDLookupTable_bp01Data_g[9];
+  real_T Modulation_Drv_bp01Data[21];
 
   /* Expression: Steering_Mod_Str_Rel_out
    * Referenced by: '<S402>/Modulation_Str_Y_Rel'
@@ -402,16 +401,6 @@ typedef struct {
    * Referenced by: '<S402>/Modulation_Str_Y_Rel'
    */
   real_T Modulation_Str_Y_Rel_bp01Data[21];
-
-  /* Expression: Steering_Mod_Drv_out
-   * Referenced by: '<S403>/Modulation_Drv'
-   */
-  real_T Modulation_Drv_tableData[21];
-
-  /* Expression: Steering_Mod_Drv_in
-   * Referenced by: '<S403>/Modulation_Drv'
-   */
-  real_T Modulation_Drv_bp01Data[21];
 
   /* Expression: Rotation_Local_Inv
    * Referenced by: '<S14>/Constant4'
@@ -510,26 +499,12 @@ typedef struct {
   real_T Encoder_Revs_Front;           /* '<Root>/Encoder_Revs_Front' */
   real_T Encoder_Revs_Ball_Screw;      /* '<Root>/Encoder_Revs_Ball_Screw' */
   real_T Gamepad_B4_Y;                 /* '<Root>/Gamepad_B4_Y' */
-  real_T AT_Tag_4_Yaw;                 /* '<Root>/AT_Tag_4_Yaw' */
-  real_T AT_Tag_5_Yaw;                 /* '<Root>/AT_Tag_5_Yaw' */
-  real_T AT_Tag_6_Yaw;                 /* '<Root>/AT_Tag_6_Yaw' */
-  real_T AT_Tag_7_Yaw;                 /* '<Root>/AT_Tag_7_Yaw' */
-  real_T AT_Tag_11_Yaw;                /* '<Root>/AT_Tag_11_Yaw' */
-  real_T AT_Tag_12_Yaw;                /* '<Root>/AT_Tag_12_Yaw' */
-  real_T AT_Tag_13_Yaw;                /* '<Root>/AT_Tag_13_Yaw' */
-  real_T AT_Tag_14_Yaw;                /* '<Root>/AT_Tag_14_Yaw' */
-  real_T AT_Tag_15_Yaw;                /* '<Root>/AT_Tag_15_Yaw' */
-  real_T AT_Tag_16_Yaw;                /* '<Root>/AT_Tag_16_Yaw' */
-  boolean_T AT_Tag_4_Found;            /* '<Root>/AT_Tag_4_Found' */
-  boolean_T AT_Tag_5_Found;            /* '<Root>/AT_Tag_5_Found' */
-  boolean_T AT_Tag_6_Found;            /* '<Root>/AT_Tag_6_Found' */
-  boolean_T AT_Tag_7_Found;            /* '<Root>/AT_Tag_7_Found' */
   boolean_T AT_Tag_11_Found;           /* '<Root>/AT_Tag_11_Found' */
   boolean_T AT_Tag_12_Found;           /* '<Root>/AT_Tag_12_Found' */
   boolean_T AT_Tag_13_Found;           /* '<Root>/AT_Tag_13_Found' */
-  boolean_T AT_Tag_14_Found;           /* '<Root>/AT_Tag_14_Found' */
-  boolean_T AT_Tag_15_Found;           /* '<Root>/AT_Tag_15_Found' */
-  boolean_T AT_Tag_16_Found;           /* '<Root>/AT_Tag_16_Found' */
+  real_T AT_Tag_14_Found;              /* '<Root>/AT_Tag_14_Found' */
+  real_T AT_Tag_15_Found;              /* '<Root>/AT_Tag_15_Found' */
+  real_T AT_Tag_16_Found;              /* '<Root>/AT_Tag_16_Found' */
   real_T Line_Sensor_TOF_Range;        /* '<Root>/Line_Sensor_TOF_Range' */
 } ExtU_Code_Gen_Model_T;
 
@@ -634,35 +609,11 @@ extern real_T AA_TC_UL;                /* Variable: AA_TC_UL
                                         *   '<S171>/Constant'
                                         *   '<S171>/Saturation2'
                                         */
-extern real_T AT_Tag_11_Yaw_Offset;    /* Variable: AT_Tag_11_Yaw_Offset
-                                        * Referenced by: '<S400>/Constant12'
-                                        */
-extern real_T AT_Tag_12_Yaw_Offset;    /* Variable: AT_Tag_12_Yaw_Offset
-                                        * Referenced by: '<S400>/Constant11'
-                                        */
-extern real_T AT_Tag_13_Yaw_Offset;    /* Variable: AT_Tag_13_Yaw_Offset
-                                        * Referenced by: '<S400>/Constant10'
-                                        */
-extern real_T AT_Tag_14_Yaw_Offset;    /* Variable: AT_Tag_14_Yaw_Offset
-                                        * Referenced by: '<S400>/Constant8'
-                                        */
-extern real_T AT_Tag_15_Yaw_Offset;    /* Variable: AT_Tag_15_Yaw_Offset
-                                        * Referenced by: '<S400>/Constant7'
-                                        */
-extern real_T AT_Tag_16_Yaw_Offset;    /* Variable: AT_Tag_16_Yaw_Offset
-                                        * Referenced by: '<S400>/Constant6'
-                                        */
 extern real_T AT_Tag_4_Coordinate_X;   /* Variable: AT_Tag_4_Coordinate_X
                                         * Referenced by: '<S7>/Constant3'
                                         */
 extern real_T AT_Tag_4_Coordinate_Y;   /* Variable: AT_Tag_4_Coordinate_Y
                                         * Referenced by: '<S7>/Constant2'
-                                        */
-extern real_T AT_Tag_5_Yaw_Offset;     /* Variable: AT_Tag_5_Yaw_Offset
-                                        * Referenced by: '<S400>/Constant14'
-                                        */
-extern real_T AT_Tag_6_Yaw_Offset;     /* Variable: AT_Tag_6_Yaw_Offset
-                                        * Referenced by: '<S400>/Constant13'
                                         */
 extern real_T AT_Tag_7_Coordinate_X;   /* Variable: AT_Tag_7_Coordinate_X
                                         * Referenced by: '<S7>/Constant9'
@@ -670,48 +621,72 @@ extern real_T AT_Tag_7_Coordinate_X;   /* Variable: AT_Tag_7_Coordinate_X
 extern real_T AT_Tag_7_Coordinate_Y;   /* Variable: AT_Tag_7_Coordinate_Y
                                         * Referenced by: '<S7>/Constant1'
                                         */
+extern real_T AT_Target_Tag_11_Field_Angle;/* Variable: AT_Target_Tag_11_Field_Angle
+                                            * Referenced by: '<S400>/Constant12'
+                                            */
 extern real_T AT_Target_Tag_11_X;      /* Variable: AT_Target_Tag_11_X
                                         * Referenced by: '<S400>/Constant4'
                                         */
 extern real_T AT_Target_Tag_11_Y;      /* Variable: AT_Target_Tag_11_Y
                                         * Referenced by: '<S400>/Constant26'
                                         */
+extern real_T AT_Target_Tag_12_Field_Angle;/* Variable: AT_Target_Tag_12_Field_Angle
+                                            * Referenced by: '<S400>/Constant11'
+                                            */
 extern real_T AT_Target_Tag_12_X;      /* Variable: AT_Target_Tag_12_X
                                         * Referenced by: '<S400>/Constant17'
                                         */
 extern real_T AT_Target_Tag_12_Y;      /* Variable: AT_Target_Tag_12_Y
                                         * Referenced by: '<S400>/Constant3'
                                         */
+extern real_T AT_Target_Tag_13_Field_Angle;/* Variable: AT_Target_Tag_13_Field_Angle
+                                            * Referenced by: '<S400>/Constant10'
+                                            */
 extern real_T AT_Target_Tag_13_X;      /* Variable: AT_Target_Tag_13_X
                                         * Referenced by: '<S400>/Constant18'
                                         */
 extern real_T AT_Target_Tag_13_Y;      /* Variable: AT_Target_Tag_13_Y
                                         * Referenced by: '<S400>/Constant21'
                                         */
+extern real_T AT_Target_Tag_14_Field_Angle;/* Variable: AT_Target_Tag_14_Field_Angle
+                                            * Referenced by: '<S400>/Constant8'
+                                            */
 extern real_T AT_Target_Tag_14_X;      /* Variable: AT_Target_Tag_14_X
                                         * Referenced by: '<S400>/Constant19'
                                         */
 extern real_T AT_Target_Tag_14_Y;      /* Variable: AT_Target_Tag_14_Y
                                         * Referenced by: '<S400>/Constant23'
                                         */
+extern real_T AT_Target_Tag_15_Field_Angle;/* Variable: AT_Target_Tag_15_Field_Angle
+                                            * Referenced by: '<S400>/Constant7'
+                                            */
 extern real_T AT_Target_Tag_15_X;      /* Variable: AT_Target_Tag_15_X
                                         * Referenced by: '<S400>/Constant20'
                                         */
 extern real_T AT_Target_Tag_15_Y;      /* Variable: AT_Target_Tag_15_Y
                                         * Referenced by: '<S400>/Constant24'
                                         */
+extern real_T AT_Target_Tag_16_Field_Angle;/* Variable: AT_Target_Tag_16_Field_Angle
+                                            * Referenced by: '<S400>/Constant6'
+                                            */
 extern real_T AT_Target_Tag_16_X;      /* Variable: AT_Target_Tag_16_X
                                         * Referenced by: '<S400>/Constant22'
                                         */
 extern real_T AT_Target_Tag_16_Y;      /* Variable: AT_Target_Tag_16_Y
                                         * Referenced by: '<S400>/Constant25'
                                         */
+extern real_T AT_Target_Tag_5_Field_Angle;/* Variable: AT_Target_Tag_5_Field_Angle
+                                           * Referenced by: '<S400>/Constant14'
+                                           */
 extern real_T AT_Target_Tag_5_X;       /* Variable: AT_Target_Tag_5_X
                                         * Referenced by: '<S400>/Constant9'
                                         */
 extern real_T AT_Target_Tag_5_Y;       /* Variable: AT_Target_Tag_5_Y
                                         * Referenced by: '<S400>/Constant28'
                                         */
+extern real_T AT_Target_Tag_6_Field_Angle;/* Variable: AT_Target_Tag_6_Field_Angle
+                                           * Referenced by: '<S400>/Constant13'
+                                           */
 extern real_T AT_Target_Tag_6_X;       /* Variable: AT_Target_Tag_6_X
                                         * Referenced by: '<S400>/Constant5'
                                         */
@@ -720,9 +695,6 @@ extern real_T AT_Target_Tag_6_Y;       /* Variable: AT_Target_Tag_6_Y
                                         */
 extern real_T AT_XY_Control_Gain;      /* Variable: AT_XY_Control_Gain
                                         * Referenced by: '<S403>/Gain2'
-                                        */
-extern real_T AT_Yaw_Control_Gain;     /* Variable: AT_Yaw_Control_Gain
-                                        * Referenced by: '<S402>/Constant17'
                                         */
 extern real_T Amp_Angle;               /* Variable: Amp_Angle
                                         * Referenced by: '<S16>/Chart_Shooter_Position'
@@ -774,19 +746,19 @@ extern real_T BS_TC_UL;                /* Variable: BS_TC_UL
                                         */
 extern real_T Boost_Trigger_Decreasing_Limit;
                                      /* Variable: Boost_Trigger_Decreasing_Limit
-                                      * Referenced by: '<S414>/Constant1'
+                                      * Referenced by: '<S415>/Constant1'
                                       */
 extern real_T Boost_Trigger_High_Speed;/* Variable: Boost_Trigger_High_Speed
                                         * Referenced by:
-                                        *   '<S410>/Constant'
-                                        *   '<S410>/Saturation'
+                                        *   '<S411>/Constant'
+                                        *   '<S411>/Saturation'
                                         */
 extern real_T Boost_Trigger_Increasing_Limit;
                                      /* Variable: Boost_Trigger_Increasing_Limit
-                                      * Referenced by: '<S414>/Constant3'
+                                      * Referenced by: '<S415>/Constant3'
                                       */
 extern real_T Boost_Trigger_Low_Speed; /* Variable: Boost_Trigger_Low_Speed
-                                        * Referenced by: '<S410>/Constant1'
+                                        * Referenced by: '<S411>/Constant1'
                                         */
 extern real_T Climber_DutyCycle_Neg;   /* Variable: Climber_DutyCycle_Neg
                                         * Referenced by: '<S4>/Constant3'
@@ -1444,9 +1416,9 @@ extern RT_MODEL_Code_Gen_Model_T *const Code_Gen_Model_M;
  * Block '<S373>/Data Type Duplicate' : Unused code path elimination
  * Block '<S373>/Data Type Propagation' : Unused code path elimination
  * Block '<S369>/Scope' : Unused code path elimination
- * Block '<S416>/Data Type Duplicate' : Unused code path elimination
- * Block '<S416>/Data Type Propagation' : Unused code path elimination
- * Block '<S417>/FixPt Data Type Duplicate1' : Unused code path elimination
+ * Block '<S417>/Data Type Duplicate' : Unused code path elimination
+ * Block '<S417>/Data Type Propagation' : Unused code path elimination
+ * Block '<S418>/FixPt Data Type Duplicate1' : Unused code path elimination
  * Block '<S136>/Conversion' : Eliminate redundant data type conversion
  * Block '<S137>/Conversion' : Eliminate redundant data type conversion
  * Block '<S139>/Conversion' : Eliminate redundant data type conversion
@@ -1895,17 +1867,18 @@ extern RT_MODEL_Code_Gen_Model_T *const Code_Gen_Model_M;
  * '<S406>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase1'
  * '<S407>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase2'
  * '<S408>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase3'
- * '<S409>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase5'
- * '<S410>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit'
- * '<S411>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Compare To Zero'
- * '<S412>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Compare To Zero1'
- * '<S413>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero'
- * '<S414>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit'
- * '<S415>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter'
- * '<S416>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter/Saturation Dynamic'
- * '<S417>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter/Unit Delay External IC'
- * '<S418>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero/Compare To Zero'
- * '<S419>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero/Compare To Zero1'
+ * '<S409>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase4'
+ * '<S410>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase5'
+ * '<S411>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit'
+ * '<S412>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Compare To Zero'
+ * '<S413>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Compare To Zero1'
+ * '<S414>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero'
+ * '<S415>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit'
+ * '<S416>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter'
+ * '<S417>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter/Saturation Dynamic'
+ * '<S418>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter/Unit Delay External IC'
+ * '<S419>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero/Compare To Zero'
+ * '<S420>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero/Compare To Zero1'
  */
 #endif                                 /* RTW_HEADER_Code_Gen_Model_h_ */
 

@@ -1,17 +1,4 @@
 %% PhotonVision
-% Yaw Offsets (degrees)
-AT_Tag_5_Yaw_Offset = -3;
-AT_Tag_6_Yaw_Offset = -3;
-AT_Tag_11_Yaw_Offset = -3;
-AT_Tag_12_Yaw_Offset = -3;
-AT_Tag_13_Yaw_Offset = -3; 
-AT_Tag_14_Yaw_Offset = -3;
-AT_Tag_15_Yaw_Offset = -3;
-AT_Tag_16_Yaw_Offset = -3;
-
-% Distance vs. yaw angle correction table for use with speaker
-Yaw_angle_correction_distance = [5 5.5 6.65 7 8 10 11.4 12.5 14.3]*12*0.0254;  % meters
-Yaw_angle_correction_yaw = -[1.25 1.5 3.61 3.96 4.97 6.38 7.25 7.5 7.98];  % degrees
 
 % April Tag locations, dimensions in inches
 % https://firstfrc.blob.core.windows.net/frc2024/FieldAssets/2024LayoutMarkingDiagram.pdf
@@ -60,58 +47,66 @@ AT_Data = [...
 %   where R = rotation matrix = [cos(angle), -sin(angle); sin(angle), cos(angle)]
 
 % Amp tags
-d_offset = 60; % inches  (can still 
+d_offset = 48; % inches
 
 tag = 5;
 angle = AT_Data(tag,4)*pi/180;
 temp = AT_Data(tag,1:2)' + [cos(angle), -sin(angle); sin(angle), cos(angle)]*[d_offset; 0];
 AT_Target_Tag_5_X = temp(1)*0.0254; % convert from inches to meters
 AT_Target_Tag_5_Y = temp(2)*0.0254; % convert from inches to meters
+AT_Target_Tag_5_Field_Angle = angle - pi;  % subtract pi radians for Red Alliance
 
 tag = 6;
 angle = AT_Data(tag,4)*pi/180;
 temp = AT_Data(tag,1:2)' + [cos(angle), -sin(angle); sin(angle), cos(angle)]*[d_offset; 0];
 AT_Target_Tag_6_X = temp(1)*0.0254; % convert from inches to meters
 AT_Target_Tag_6_Y = temp(2)*0.0254; % convert from inches to meters
+AT_Target_Tag_6_Field_Angle = angle;
 
 % Trap tags
-d_offset = 60; % inches
+d_offset = 48; % inches
 
 tag = 11;
 angle = AT_Data(tag,4)*pi/180;
 temp = AT_Data(tag,1:2)' + [cos(angle), -sin(angle); sin(angle), cos(angle)]*[d_offset; 0];
 AT_Target_Tag_11_X = temp(1)*0.0254; % convert from inches to meters
 AT_Target_Tag_11_Y = temp(2)*0.0254; % convert from inches to meters
+AT_Target_Tag_11_Field_Angle = angle - pi;  % subtract pi radians for Red Alliance
 
 tag = 12;
 angle = AT_Data(tag,4)*pi/180;
 temp = AT_Data(tag,1:2)' + [cos(angle), -sin(angle); sin(angle), cos(angle)]*[d_offset; 0];
 AT_Target_Tag_12_X = temp(1)*0.0254; % convert from inches to meters
 AT_Target_Tag_12_Y = temp(2)*0.0254; % convert from inches to meters
+AT_Target_Tag_12_Field_Angle = angle - pi;  % subtract pi radians for Red Alliance
 
 tag = 13;
 angle = AT_Data(tag,4)*pi/180;
 temp = AT_Data(tag,1:2)' + [cos(angle), -sin(angle); sin(angle), cos(angle)]*[d_offset; 0];
 AT_Target_Tag_13_X = temp(1)*0.0254; % convert from inches to meters
 AT_Target_Tag_13_Y = temp(2)*0.0254; % convert from inches to meters
+AT_Target_Tag_13_Field_Angle = angle - pi;  % subtract pi radians for Red Alliance
 
 tag = 14;
 angle = AT_Data(tag,4)*pi/180;
 temp = AT_Data(tag,1:2)' + [cos(angle), -sin(angle); sin(angle), cos(angle)]*[d_offset; 0];
 AT_Target_Tag_14_X = temp(1)*0.0254; % convert from inches to meters
 AT_Target_Tag_14_Y = temp(2)*0.0254; % convert from inches to meters
+AT_Target_Tag_14_Field_Angle = angle;
 
 tag = 15;
 angle = AT_Data(tag,4)*pi/180;
 temp = AT_Data(tag,1:2)' + [cos(angle), -sin(angle); sin(angle), cos(angle)]*[d_offset; 0];
 AT_Target_Tag_15_X = temp(1)*0.0254; % convert from inches to meters
 AT_Target_Tag_15_Y = temp(2)*0.0254; % convert from inches to meters
+AT_Target_Tag_15_Field_Angle = angle;
 
 tag = 16;
 angle = AT_Data(tag,4)*pi/180;
 temp = AT_Data(tag,1:2)' + [cos(angle), -sin(angle); sin(angle), cos(angle)]*[d_offset; 0];
 AT_Target_Tag_16_X = temp(1)*0.0254; % convert from inches to meters
 AT_Target_Tag_16_Y = temp(2)*0.0254; % convert from inches to meters
+AT_Target_Tag_16_Field_Angle = angle;
 
 clear d_offset tag angle temp
 
@@ -124,5 +119,4 @@ AT_Tag_7_Coordinate_Y = AT_Data(7,2)*0.0254; % convert from inches to meters
 clear AT_Data
 
 % Control gains
-AT_Yaw_Control_Gain = -0.0006;
 AT_XY_Control_Gain = 1;
