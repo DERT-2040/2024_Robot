@@ -121,7 +121,7 @@ void SwerveDrive::SmartDashboardCallback()
   frc::SmartDashboard::PutNumber("BR_Encoder", static_cast<double>(m_BackRight_Steer_Encoder.GetPosition().GetValue()));
 }
 
-void SwerveDrive::GameStateChangeCallback()
+void SwerveDrive::ChangeGameStatesCallback()
 {
   if(AreMotorsDisabled)
     WheelsOn();
@@ -215,10 +215,4 @@ void SwerveDrive::WheelsOff()
   m_BackRight_Steer.StopMotor();
   CoastMode();  
   std::cout<< "WheelsOff";
-}
-
-void SwerveDrive::GameInitValues()
-{
-  if(AreMotorsDisabled)
-    WheelsOn();
 }

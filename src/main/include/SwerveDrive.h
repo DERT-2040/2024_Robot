@@ -97,7 +97,7 @@ public:
      * Puts values to the SmartDashboard via the SD Callbacks function
     */
     void SmartDashboardCallback();
-    void Initalize();
+    
 private:
   //Drive Motors
     rev::CANSparkMax m_FrontLeft_Drive{Constants::k_FrontLeft_Drive_CANID, rev::CANSparkMax::MotorType::kBrushless};

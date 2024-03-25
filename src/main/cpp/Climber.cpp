@@ -19,15 +19,14 @@ Climber::Climber()
 
     //Set idle mode to brake
     m_Climber_Motor.SetIdleMode(rev::CANSparkBase::IdleMode::kBrake);
+}
 
-    void Climber::SmartDashboardCallback()
-    {
+void Climber::SmartDashboardCallback()
+{
 
-    }
+}
 
-    void Climber::GameStateChangeCallback()
-    {
-        
-    }
-
+void Climber::GameStateChangeCallback()
+{
+    
 }
