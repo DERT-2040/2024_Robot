@@ -36,4 +36,4 @@ Odometry_IC_Y = 0;
 KF_Enable = 1;
 KF_Odom_Covariance = 0.001*eye(2);
 KF_Vision_Covariance = 0.1*eye(2);
-KF_Vision_Ambiguity_Thresh = 0.25;  % below this threshold trust the vision estimate
+KF_Vision_Ambiguity_Thresh = 0.1;  % below this threshold trust the vision estimate

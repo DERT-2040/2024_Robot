@@ -2,7 +2,7 @@
 
 void Climber::PreStepCallback()
 {
-    // Code_Gen_Model_U.Encoder_Revs_Climber = m_Climber_Encoder.GetPosition();
+
 }
 
 void Climber::PostStepCallback()
@@ -20,19 +20,14 @@ Climber::Climber()
     //Set idle mode to brake
     m_Climber_Motor.SetIdleMode(rev::CANSparkBase::IdleMode::kBrake);
 
-    // //kStatus1
-    // m_Climber_Motor.SetPeriodicFramePeriod(rev::CANSparkLowLevel::PeriodicFrame::kStatus1, Constants::CAN_Adjustment_Values::kStatus1_ms);   
-    // //kStatus2
-    // m_Climber_Motor.SetPeriodicFramePeriod(rev::CANSparkLowLevel::PeriodicFrame::kStatus2, Constants::CAN_Adjustment_Values::kStatus2_ms);
+    void Climber::SmartDashboardCallback()
+    {
 
-}
+    }
 
-void Climber::SmartDashboardCallback()
-{
+    void Climber::GameStateChangeCallback()
+    {
+        
+    }
 
-}
-
-void Climber::GameStateChangeCallback()
-{
-    
 }

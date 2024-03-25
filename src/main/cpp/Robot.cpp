@@ -40,16 +40,16 @@ void Robot::RobotPeriodic()
   // m_Tracer.PrintEpochs();
 }
 
-void Robot::AutonomousInit() { Code_Gen_Model_U.GameState = 1; WhenGameStateChanges();}
+void Robot::AutonomousInit() { Code_Gen_Model_U.GameState = 1; GameInitValues();}
 void Robot::AutonomousPeriodic() {}
 
-void Robot::TeleopInit() {Code_Gen_Model_U.GameState = 2; WhenGameStateChanges();}
+void Robot::TeleopInit() {Code_Gen_Model_U.GameState = 2; GameInitValues();}
 void Robot::TeleopPeriodic() {}
 
-void Robot::DisabledInit() {Code_Gen_Model_U.GameState = 0; WhenGameStateChanges();}
+void Robot::DisabledInit() {Code_Gen_Model_U.GameState = 0; GameInitValues();}
 void Robot::DisabledPeriodic() {}
 
-void Robot::TestInit() {Code_Gen_Model_U.GameState = 3; WhenGameStateChanges();}
+void Robot::TestInit() {Code_Gen_Model_U.GameState = 3; GameInitValues();}
 void Robot::TestPeriodic() 
 {
   if(Robot::m_HIDs.Get_Left_Joystick().GetRawButtonPressed(Constants::k_TestMode_Wheel_On));
@@ -91,7 +91,7 @@ void Robot::PostStep()
   }
 }
 
-void Robot::WhenGameStateChanges() 
+void Robot::GameInitValues() 
 {
   for (auto m_Component : Component::AllCreatedComponents)
   {

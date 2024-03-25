@@ -24,7 +24,6 @@
 #include <frc/TimedRobot.h>
 //std
 #include <iostream>
-#include <functional>
 
 class Robot : public frc::TimedRobot {
  public:
@@ -78,6 +77,7 @@ class Robot : public frc::TimedRobot {
    */
   void TestPeriodic() override;
 
+
   /**
    * Runs once when robot changes into Simulation mode
    */
@@ -102,9 +102,9 @@ private:
   /**
    * Resets variables when the game state changes (teleop, auto, test, etc.)
    */
-  void WhenGameStateChanges();
+  void GameInitValues();
 
-  /**
+   /**
    * Updates all individal components SmartDashboard values and pushes those updates
    */
   void UpdateSmartDashboardValues();
@@ -115,7 +115,6 @@ private:
    * functions that manipulate global variables declared by Simulink
    * are exceptions to this rule.
    */
-
 
   /**
    * Component Object for Human Input Devices

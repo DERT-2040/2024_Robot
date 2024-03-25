@@ -169,6 +169,10 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     NTinst.AddListener(__Amp_Height__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Amp_Height = event.GetValueEventData()->value.GetDouble();});
     __Amp_Height__Entry.SetDouble(1000);
  
+    __Auto_ID__Entry = NTtable_Tune->GetEntry("Auto_ID");
+    NTinst.AddListener(__Auto_ID__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_ID = event.GetValueEventData()->value.GetDouble();});
+    __Auto_ID__Entry.SetDouble(1);
+ 
     __BS_Deriv_FC__Entry = NTtable_Tune->GetEntry("BS_Deriv_FC");
     NTinst.AddListener(__BS_Deriv_FC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {BS_Deriv_FC = event.GetValueEventData()->value.GetDouble();});
     __BS_Deriv_FC__Entry.SetDouble(0.2);
@@ -343,7 +347,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __KF_Vision_Ambiguity_Thresh__Entry = NTtable_Tune->GetEntry("KF_Vision_Ambiguity_Thresh");
     NTinst.AddListener(__KF_Vision_Ambiguity_Thresh__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {KF_Vision_Ambiguity_Thresh = event.GetValueEventData()->value.GetDouble();});
-    __KF_Vision_Ambiguity_Thresh__Entry.SetDouble(0.25);
+    __KF_Vision_Ambiguity_Thresh__Entry.SetDouble(0.1);
  
     __LoadShooter_Angle__Entry = NTtable_Tune->GetEntry("LoadShooter_Angle");
     NTinst.AddListener(__LoadShooter_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {LoadShooter_Angle = event.GetValueEventData()->value.GetDouble();});
@@ -371,7 +375,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Note_Time_Speaker_Spin_Up__Entry = NTtable_Tune->GetEntry("Note_Time_Speaker_Spin_Up");
     NTinst.AddListener(__Note_Time_Speaker_Spin_Up__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Note_Time_Speaker_Spin_Up = event.GetValueEventData()->value.GetDouble();});
-    __Note_Time_Speaker_Spin_Up__Entry.SetDouble(1);
+    __Note_Time_Speaker_Spin_Up__Entry.SetDouble(0.5);
  
     __Note_Time_Transfer__Entry = NTtable_Tune->GetEntry("Note_Time_Transfer");
     NTinst.AddListener(__Note_Time_Transfer__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Note_Time_Transfer = event.GetValueEventData()->value.GetDouble();});
@@ -471,7 +475,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Servo_Store_Offset__Entry = NTtable_Tune->GetEntry("Servo_Store_Offset");
     NTinst.AddListener(__Servo_Store_Offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Servo_Store_Offset = event.GetValueEventData()->value.GetDouble();});
-    __Servo_Store_Offset__Entry.SetDouble(0.5);
+    __Servo_Store_Offset__Entry.SetDouble(0.65);
  
     __Servo_Time_Deploy__Entry = NTtable_Tune->GetEntry("Servo_Time_Deploy");
     NTinst.AddListener(__Servo_Time_Deploy__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Servo_Time_Deploy = event.GetValueEventData()->value.GetDouble();});
@@ -651,7 +655,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Steering_Twist_Gain__Entry = NTtable_Tune->GetEntry("Steering_Twist_Gain");
     NTinst.AddListener(__Steering_Twist_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Twist_Gain = event.GetValueEventData()->value.GetDouble();});
-    __Steering_Twist_Gain__Entry.SetDouble(-0.015);
+    __Steering_Twist_Gain__Entry.SetDouble(-0.5);
  
     __TEST_Servo_Override_Flag__Entry = NTtable_Tune->GetEntry("TEST_Servo_Override_Flag");
     NTinst.AddListener(__TEST_Servo_Override_Flag__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Servo_Override_Flag = event.GetValueEventData()->value.GetDouble();});
@@ -778,7 +782,6 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __AT_Tag_6_Yaw__Entry = NTtable_Inport->GetEntry("AT_Tag_6_Yaw");
     __AT_Tag_7_Found__Entry = NTtable_Inport->GetEntry("AT_Tag_7_Found");
     __AT_Tag_7_Yaw__Entry = NTtable_Inport->GetEntry("AT_Tag_7_Yaw");
-    __Auto_ID__Entry = NTtable_Inport->GetEntry("Auto_ID");
     __BackLeft_Drive_Motor_Rev__Entry = NTtable_Inport->GetEntry("BackLeft_Drive_Motor_Rev");
     __BackLeft_Drive_Motor_Speed__Entry = NTtable_Inport->GetEntry("BackLeft_Drive_Motor_Speed");
     __BackLeft_Steer_Rev__Entry = NTtable_Inport->GetEntry("BackLeft_Steer_Rev");
@@ -790,7 +793,6 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Encoder_Revs_Back_Lower__Entry = NTtable_Inport->GetEntry("Encoder_Revs_Back_Lower");
     __Encoder_Revs_Back_Upper__Entry = NTtable_Inport->GetEntry("Encoder_Revs_Back_Upper");
     __Encoder_Revs_Ball_Screw__Entry = NTtable_Inport->GetEntry("Encoder_Revs_Ball_Screw");
-    __Encoder_Revs_Climber__Entry = NTtable_Inport->GetEntry("Encoder_Revs_Climber");
     __Encoder_Revs_Front__Entry = NTtable_Inport->GetEntry("Encoder_Revs_Front");
     __FrontLeft_Drive_Motor_Rev__Entry = NTtable_Inport->GetEntry("FrontLeft_Drive_Motor_Rev");
     __FrontLeft_Drive_Motor_Speed__Entry = NTtable_Inport->GetEntry("FrontLeft_Drive_Motor_Speed");
@@ -815,7 +817,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Gamepad_Stick_Right_Y__Entry = NTtable_Inport->GetEntry("Gamepad_Stick_Right_Y");
     __Gyro_Angle__Entry = NTtable_Inport->GetEntry("Gyro_Angle");
     __Intake_TOF_Dist__Entry = NTtable_Inport->GetEntry("Intake_TOF_Dist");
-    __IsRedAlliance__Entry = NTtable_Inport->GetEntry("IsRedAlliance");
+    __IsBlueAlliance__Entry = NTtable_Inport->GetEntry("IsBlueAlliance");
     __Is_Absolute_Steering__Entry = NTtable_Inport->GetEntry("Is_Absolute_Steering");
     __Is_Absolute_Translation__Entry = NTtable_Inport->GetEntry("Is_Absolute_Translation");
     __Joystick_Left_B1__Entry = NTtable_Inport->GetEntry("Joystick_Left_B1");
@@ -904,7 +906,6 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Desired_Front_Dist__Entry = NTtable_TPoint->GetEntry("Desired_Front_Dist");
     __Desired_Gap__Entry = NTtable_TPoint->GetEntry("Desired_Gap");
     __Desired_Height__Entry = NTtable_TPoint->GetEntry("Desired_Height");
-    __Distance_Speaker__Entry = NTtable_TPoint->GetEntry("Distance_Speaker");
     __Drive_Joystick_X__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_X");
     __Drive_Joystick_Y__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Y");
     __Drive_Joystick_Z__Entry = NTtable_TPoint->GetEntry("Drive_Joystick_Z");
@@ -924,6 +925,9 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Front_Arm_Length__Entry = NTtable_TPoint->GetEntry("Front_Arm_Length");
     __Gyro_Angle_Adjustment_SPF__Entry = NTtable_TPoint->GetEntry("Gyro_Angle_Adjustment_SPF");
     __Gyro_Angle_Calibrated_deg__Entry = NTtable_TPoint->GetEntry("Gyro_Angle_Calibrated_deg");
+    __Gyro_Angle_Field_rad__Entry = NTtable_TPoint->GetEntry("Gyro_Angle_Field_rad");
+    __Gyro_Angle_SPF__Entry = NTtable_TPoint->GetEntry("Gyro_Angle_SPF");
+    __Gyro_Angle_rad__Entry = NTtable_TPoint->GetEntry("Gyro_Angle_rad");
     __Intake_Motor_DC__Entry = NTtable_TPoint->GetEntry("Intake_Motor_DC");
     __Intake_Shooter_State_Request__Entry = NTtable_TPoint->GetEntry("Intake_Shooter_State_Request");
     __Is_Absolute_Steering_SPF__Entry = NTtable_TPoint->GetEntry("Is_Absolute_Steering_SPF");
@@ -958,9 +962,12 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Shooter_Motor_Speed_Right__Entry = NTtable_TPoint->GetEntry("Shooter_Motor_Speed_Right");
     __Shooter_Pos_State__Entry = NTtable_TPoint->GetEntry("Shooter_Pos_State");
     __Shooter_Servo__Entry = NTtable_TPoint->GetEntry("Shooter_Servo");
+    __Speaker_Angle__Entry = NTtable_TPoint->GetEntry("Speaker_Angle");
+    __Speaker_Distance__Entry = NTtable_TPoint->GetEntry("Speaker_Distance");
     __SplineEnable__Entry = NTtable_TPoint->GetEntry("SplineEnable");
     __Spline_Enable__Entry = NTtable_TPoint->GetEntry("Spline_Enable");
-    __Spline_Index__Entry = NTtable_TPoint->GetEntry("Spline_Index");
+    __Spline_Follow_Index__Entry = NTtable_TPoint->GetEntry("Spline_Follow_Index");
+    __Spline_ID__Entry = NTtable_TPoint->GetEntry("Spline_ID");
     __Spline_Num_Poses__Entry = NTtable_TPoint->GetEntry("Spline_Num_Poses");
     __Spline_Out_Of_Bounds__Entry = NTtable_TPoint->GetEntry("Spline_Out_Of_Bounds");
     __Spline_Target_X__Entry = NTtable_TPoint->GetEntry("Spline_Target_X");
@@ -974,6 +981,11 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Steer_Joystick_Z__Entry = NTtable_TPoint->GetEntry("Steer_Joystick_Z");
     __Steering_Abs_Cmd__Entry = NTtable_TPoint->GetEntry("Steering_Abs_Cmd");
     __Steering_Abs_Cmd_SPF__Entry = NTtable_TPoint->GetEntry("Steering_Abs_Cmd_SPF");
+    __Steering_Abs_Gyro__Entry = NTtable_TPoint->GetEntry("Steering_Abs_Gyro");
+    __Steering_Abs_Gyro_Trigger__Entry = NTtable_TPoint->GetEntry("Steering_Abs_Gyro_Trigger");
+    __Steering_Abs_Ortho__Entry = NTtable_TPoint->GetEntry("Steering_Abs_Ortho");
+    __Steering_Abs_Ortho_Trigger__Entry = NTtable_TPoint->GetEntry("Steering_Abs_Ortho_Trigger");
+    __Steering_Abs_Yaw__Entry = NTtable_TPoint->GetEntry("Steering_Abs_Yaw");
     __Steering_Localized_Cmd__Entry = NTtable_TPoint->GetEntry("Steering_Localized_Cmd");
     __Steering_Localized_PID__Entry = NTtable_TPoint->GetEntry("Steering_Localized_PID");
     __Steering_Rel_Cmd__Entry = NTtable_TPoint->GetEntry("Steering_Rel_Cmd");
@@ -1010,7 +1022,6 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __AT_Tag_6_Yaw__Entry.SetDouble(Code_Gen_Model_U.AT_Tag_6_Yaw);
     __AT_Tag_7_Found__Entry.SetDouble(Code_Gen_Model_U.AT_Tag_7_Found);
     __AT_Tag_7_Yaw__Entry.SetDouble(Code_Gen_Model_U.AT_Tag_7_Yaw);
-    __Auto_ID__Entry.SetDouble(Code_Gen_Model_U.Auto_ID);
     __BackLeft_Drive_Motor_Rev__Entry.SetDouble(Code_Gen_Model_U.BackLeft_Drive_Motor_Rev);
     __BackLeft_Drive_Motor_Speed__Entry.SetDouble(Code_Gen_Model_U.BackLeft_Drive_Motor_Speed);
     __BackLeft_Steer_Rev__Entry.SetDouble(Code_Gen_Model_U.BackLeft_Steer_Rev);
@@ -1022,7 +1033,6 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Encoder_Revs_Back_Lower__Entry.SetDouble(Code_Gen_Model_U.Encoder_Revs_Back_Lower);
     __Encoder_Revs_Back_Upper__Entry.SetDouble(Code_Gen_Model_U.Encoder_Revs_Back_Upper);
     __Encoder_Revs_Ball_Screw__Entry.SetDouble(Code_Gen_Model_U.Encoder_Revs_Ball_Screw);
-    __Encoder_Revs_Climber__Entry.SetDouble(Code_Gen_Model_U.Encoder_Revs_Climber);
     __Encoder_Revs_Front__Entry.SetDouble(Code_Gen_Model_U.Encoder_Revs_Front);
     __FrontLeft_Drive_Motor_Rev__Entry.SetDouble(Code_Gen_Model_U.FrontLeft_Drive_Motor_Rev);
     __FrontLeft_Drive_Motor_Speed__Entry.SetDouble(Code_Gen_Model_U.FrontLeft_Drive_Motor_Speed);
@@ -1047,7 +1057,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Gamepad_Stick_Right_Y__Entry.SetDouble(Code_Gen_Model_U.Gamepad_Stick_Right_Y);
     __Gyro_Angle__Entry.SetDouble(Code_Gen_Model_U.Gyro_Angle);
     __Intake_TOF_Dist__Entry.SetDouble(Code_Gen_Model_U.Intake_TOF_Dist);
-    __IsRedAlliance__Entry.SetDouble(Code_Gen_Model_U.IsRedAlliance);
+    __IsBlueAlliance__Entry.SetDouble(Code_Gen_Model_U.IsBlueAlliance);
     __Is_Absolute_Steering__Entry.SetDouble(Code_Gen_Model_U.Is_Absolute_Steering);
     __Is_Absolute_Translation__Entry.SetDouble(Code_Gen_Model_U.Is_Absolute_Translation);
     __Joystick_Left_B1__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_B1);
@@ -1134,7 +1144,6 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Desired_Front_Dist__Entry.SetDouble(Code_Gen_Model_B.Desired_Front_Dist);
     __Desired_Gap__Entry.SetDouble(Code_Gen_Model_B.Desired_Gap);
     __Desired_Height__Entry.SetDouble(Code_Gen_Model_B.Desired_Height);
-    __Distance_Speaker__Entry.SetDouble(Code_Gen_Model_B.Distance_Speaker);
     __Drive_Joystick_X__Entry.SetDouble(Code_Gen_Model_B.Drive_Joystick_X);
     __Drive_Joystick_Y__Entry.SetDouble(Code_Gen_Model_B.Drive_Joystick_Y);
     __Drive_Joystick_Z__Entry.SetDouble(Code_Gen_Model_B.Drive_Joystick_Z);
@@ -1154,6 +1163,9 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Front_Arm_Length__Entry.SetDouble(Code_Gen_Model_B.Front_Arm_Length);
     __Gyro_Angle_Adjustment_SPF__Entry.SetDouble(Code_Gen_Model_B.Gyro_Angle_Adjustment_SPF);
     __Gyro_Angle_Calibrated_deg__Entry.SetDouble(Code_Gen_Model_B.Gyro_Angle_Calibrated_deg);
+    __Gyro_Angle_Field_rad__Entry.SetDouble(Code_Gen_Model_B.Gyro_Angle_Field_rad);
+    __Gyro_Angle_SPF__Entry.SetDouble(Code_Gen_Model_B.Gyro_Angle_SPF);
+    __Gyro_Angle_rad__Entry.SetDouble(Code_Gen_Model_B.Gyro_Angle_rad);
     __Intake_Motor_DC__Entry.SetDouble(Code_Gen_Model_B.Intake_Motor_DC);
     __Intake_Shooter_State_Request__Entry.SetDouble(Code_Gen_Model_B.Intake_Shooter_State_Request);
     __Is_Absolute_Steering_SPF__Entry.SetDouble(Code_Gen_Model_B.Is_Absolute_Steering_SPF);
@@ -1188,9 +1200,12 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Shooter_Motor_Speed_Right__Entry.SetDouble(Code_Gen_Model_B.Shooter_Motor_Speed_Right);
     __Shooter_Pos_State__Entry.SetDouble(Code_Gen_Model_B.Shooter_Pos_State);
     __Shooter_Servo__Entry.SetDouble(Code_Gen_Model_B.Shooter_Servo);
+    __Speaker_Angle__Entry.SetDouble(Code_Gen_Model_B.Speaker_Angle);
+    __Speaker_Distance__Entry.SetDouble(Code_Gen_Model_B.Speaker_Distance);
     __SplineEnable__Entry.SetDouble(Code_Gen_Model_B.SplineEnable);
     __Spline_Enable__Entry.SetDouble(Code_Gen_Model_B.Spline_Enable);
-    __Spline_Index__Entry.SetDouble(Code_Gen_Model_B.Spline_Index);
+    __Spline_Follow_Index__Entry.SetDouble(Code_Gen_Model_B.Spline_Follow_Index);
+    __Spline_ID__Entry.SetDouble(Code_Gen_Model_B.Spline_ID);
     __Spline_Num_Poses__Entry.SetDouble(Code_Gen_Model_B.Spline_Num_Poses);
     __Spline_Out_Of_Bounds__Entry.SetDouble(Code_Gen_Model_B.Spline_Out_Of_Bounds);
     __Spline_Target_X__Entry.SetDouble(Code_Gen_Model_B.Spline_Target_X);
@@ -1204,6 +1219,11 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Steer_Joystick_Z__Entry.SetDouble(Code_Gen_Model_B.Steer_Joystick_Z);
     __Steering_Abs_Cmd__Entry.SetDouble(Code_Gen_Model_B.Steering_Abs_Cmd);
     __Steering_Abs_Cmd_SPF__Entry.SetDouble(Code_Gen_Model_B.Steering_Abs_Cmd_SPF);
+    __Steering_Abs_Gyro__Entry.SetDouble(Code_Gen_Model_B.Steering_Abs_Gyro);
+    __Steering_Abs_Gyro_Trigger__Entry.SetDouble(Code_Gen_Model_B.Steering_Abs_Gyro_Trigger);
+    __Steering_Abs_Ortho__Entry.SetDouble(Code_Gen_Model_B.Steering_Abs_Ortho);
+    __Steering_Abs_Ortho_Trigger__Entry.SetDouble(Code_Gen_Model_B.Steering_Abs_Ortho_Trigger);
+    __Steering_Abs_Yaw__Entry.SetDouble(Code_Gen_Model_B.Steering_Abs_Yaw);
     __Steering_Localized_Cmd__Entry.SetDouble(Code_Gen_Model_B.Steering_Localized_Cmd);
     __Steering_Localized_PID__Entry.SetDouble(Code_Gen_Model_B.Steering_Localized_PID);
     __Steering_Rel_Cmd__Entry.SetDouble(Code_Gen_Model_B.Steering_Rel_Cmd);

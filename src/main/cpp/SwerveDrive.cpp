@@ -67,7 +67,7 @@ SwerveDrive::SwerveDrive()
     m_FrontRight_Steer.SetPeriodicFramePeriod(rev::CANSparkLowLevel::PeriodicFrame::kStatus1, Constants::CAN_Adjustment_Values::kStatus1_ms);
     m_BackLeft_Drive.SetPeriodicFramePeriod(rev::CANSparkLowLevel::PeriodicFrame::kStatus1, Constants::CAN_Adjustment_Values::kStatus1_ms);
     m_BackRight_Drive.SetPeriodicFramePeriod(rev::CANSparkLowLevel::PeriodicFrame::kStatus1, Constants::CAN_Adjustment_Values::kStatus1_ms);
-    //kStatus2
+    //kStatus2 
     m_FrontLeft_Drive.SetPeriodicFramePeriod(rev::CANSparkLowLevel::PeriodicFrame::kStatus2, Constants::CAN_Adjustment_Values::kStatus2_ms);
     m_FrontRight_Drive.SetPeriodicFramePeriod(rev::CANSparkLowLevel::PeriodicFrame::kStatus2, Constants::CAN_Adjustment_Values::kStatus2_ms);
     m_BackLeft_Drive.SetPeriodicFramePeriod(rev::CANSparkLowLevel::PeriodicFrame::kStatus2, Constants::CAN_Adjustment_Values::kStatus2_ms);
@@ -78,7 +78,7 @@ SwerveDrive::SwerveDrive()
     m_BackRight_Drive.SetPeriodicFramePeriod(rev::CANSparkLowLevel::PeriodicFrame::kStatus2, Constants::CAN_Adjustment_Values::kStatus2_ms);
     BrakeMode();
 }
-
+ 
 void SwerveDrive::PreStepCallback() 
 {
   //Drive Motor Speed
@@ -125,13 +125,7 @@ void SwerveDrive::GameStateChangeCallback()
 {
   if(AreMotorsDisabled)
     WheelsOn();
-}
-
-/*
- * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
- * X X X X                 Class Specific Methods                  X X X X
- * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
- */
+} 
 
 void SwerveDrive::BrakeMode() 
 {
@@ -220,4 +214,11 @@ void SwerveDrive::WheelsOff()
   m_BackLeft_Steer.StopMotor();
   m_BackRight_Steer.StopMotor();
   CoastMode();  
+  std::cout<< "WheelsOff";
+}
+
+void SwerveDrive::GameInitValues()
+{
+  if(AreMotorsDisabled)
+    WheelsOn();
 }
