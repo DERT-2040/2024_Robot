@@ -9,7 +9,6 @@ class Climber : public Component
 {
 public:
     Climber();
-private:
     /**
      * Runs before the step function is called in the main loop
      */
@@ -35,6 +34,7 @@ private:
      * X X X X                 Class Specific Methods                  X X X X
      * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
      */
+private:
     rev::CANSparkMax m_Climber_Motor{Constants::Climber_Constants::Climber_Motor_Device_ID, rev::CANSparkMax::MotorType::kBrushless};
     rev::SparkRelativeEncoder m_Climber_Encoder{m_Climber_Motor.GetEncoder(rev::SparkRelativeEncoder::Type::kHallSensor, 42)};
 };

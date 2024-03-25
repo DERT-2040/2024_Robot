@@ -79,7 +79,7 @@ void Robot::PreStep()
 {
   for (auto m_Component : Component::AllCreatedComponents)
   {
-    m_Component.PreStepCallback();
+    m_Component->PreStepCallback();
   }
 }
 
@@ -87,7 +87,7 @@ void Robot::PostStep()
 {
   for (auto m_Component : Component::AllCreatedComponents)
   {
-    m_Component.PostStepCallback();
+    m_Component->PostStepCallback();
   }
 }
 
@@ -95,14 +95,14 @@ void Robot::WhenGameStateChanges()
 {
   for (auto m_Component : Component::AllCreatedComponents)
   {
-    m_Component.GameStateChangeCallback();
+    m_Component->GameStateChangeCallback();
   }
 }
 
 void Robot::UpdateSmartDashboardValues(){
   for (auto m_Component : Component::AllCreatedComponents)
   {
-    m_Component.SmartDashboardCallback();
+    m_Component->SmartDashboardCallback();
   }
   frc::SmartDashboard::UpdateValues();
 }

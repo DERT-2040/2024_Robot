@@ -32,8 +32,7 @@ public:
      * returns a reference to the m_Steer_Joystick Object
     */
     frc::GenericHID& Get_Steer_Joystick() { return m_Right_Joystick; }
-private:
-/**
+    /**
      * Runs before the step function is called in the main loop
      */
     void PreStepCallback();
@@ -58,6 +57,7 @@ private:
      * X X X X                 Class Specific Methods                  X X X X
      * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
      */
+private:
     /**
      * The gamepad used for robot implements.
      * Axis:

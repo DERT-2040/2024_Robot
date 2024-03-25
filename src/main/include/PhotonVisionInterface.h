@@ -21,12 +21,11 @@
 
 class PhotonVisionInterface : public Component
 {
-  public:
+public:
     PhotonVisionInterface();
     frc::Pose2d GetEstimatedGlobalPose();
     double GetGlobalPoseAmbiguity();
 
-  private:
     /**
      * @Override
      * Runs before the step function is called in the main loop
@@ -53,6 +52,7 @@ class PhotonVisionInterface : public Component
      * X X X X                 Class Specific Methods                  X X X X
      * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
      */
+private:
   /*
     // Makes a apriltag feild layout for our shop 
     frc::AprilTag tag1 = frc::AprilTag(1, frc::Pose3d(frc::Translation3d(0.041275_m, 0.3937_m, 0.51435_m), frc::Rotation3d(0_rad, 0_rad, 0_rad)));

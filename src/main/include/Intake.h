@@ -9,7 +9,7 @@ class Intake : public Component
 {
 public:
     Intake();
-private:
+
     /**
      * Runs before the step function is called in the main loop
      */
@@ -35,6 +35,7 @@ private:
      * X X X X                 Class Specific Methods                  X X X X
      * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
      */
+private:
     frc::TimeOfFlight TOF_Sensor{Constants::Intake_Constants::TOF_ID};
     rev::CANSparkMax Intake_Motor{Constants::Intake_Constants::Intake_Motor_Device_ID, rev::CANSparkMax::MotorType::kBrushless};
 };

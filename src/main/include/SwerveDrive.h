@@ -19,7 +19,6 @@ class SwerveDrive : public Component
 {
 public:
   SwerveDrive();
-private:
     
     /**
      * Runs before the step function is called in the main loop
@@ -46,7 +45,7 @@ private:
      * X X X X                 Class Specific Methods                  X X X X
      * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
      */
-
+private:
     /**
      * Sets all motors in swerve drive to Brake mode
      * @warning do not use frequently, takes a lot of time and can overrun loop

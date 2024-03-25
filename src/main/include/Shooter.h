@@ -11,7 +11,7 @@ class Shooter : public Component
 {
 public:
     Shooter();
-private:
+
     /**
      * Runs before the step function is called in the main loop
      */
@@ -37,6 +37,7 @@ private:
      * X X X X                 Class Specific Methods                  X X X X
      * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
      */
+    private:
     frc::TimeOfFlight TOF_Sensor{Constants::Shooter_Constants::TOF_ID};
 
     rev::CANSparkMax Left_Motor{Constants::Shooter_Constants::Left_Shooter_Motor_CANID, rev::CANSparkLowLevel::MotorType::kBrushless};

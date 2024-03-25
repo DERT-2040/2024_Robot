@@ -9,8 +9,6 @@
 class LineSensor : public Component
 {
 public:
-    
-private:
     /**
      * Runs before the step function is called in the main loop
      */
@@ -36,6 +34,7 @@ private:
      * X X X X                 Class Specific Methods                  X X X X
      * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
      */
+private:
     frc::TimeOfFlight Line_Sensor{Constants::Line_Sensor_Constants::Line_SensorID};
 };
 

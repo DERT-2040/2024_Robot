@@ -18,8 +18,7 @@ public:
      * 
      */
     void Reset();
-private:
-/**
+    /**
      * Runs before the step function is called in the main loop
      */
     void PreStepCallback();
@@ -44,6 +43,7 @@ private:
      * X X X X                 Class Specific Methods                  X X X X
      * X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
      */
+private:
     /**
      * Pigeon 2 IMU from CRTE
     */

@@ -1,15 +1,16 @@
 #pragma once
 #include <functional>
 #include <vector>
+#include <iostream>
 class Component
 {
 public:
     Component();
 
     /**
-     * Contains all Pre Step Callbacks for calling in PreStep()
+     * Contains references to all created components
      */
-    static std::vector<Component> AllCreatedComponents; 
+    static std::vector<Component*> AllCreatedComponents; 
     
     /**
      * Component specific callback that runs before the simulink step function

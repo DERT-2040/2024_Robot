@@ -12,7 +12,7 @@ class TelescopingArm : public Component
 public:
     TelescopingArm();
 private:
-/**
+    /**
      * Runs before the step function is called in the main loop
      */
     void PreStepCallback();
