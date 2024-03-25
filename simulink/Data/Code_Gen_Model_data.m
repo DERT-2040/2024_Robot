@@ -19,8 +19,9 @@ Not_Tunable_List = {'t_sample',...
 % sample time model
 t_sample = 0.020;
 
-% gyro calibration value
-Gyro_Calibration_Value = 0; % degrees
+% gyro calibration
+Gyro_Calibration_Reset_Degree = 0; % degrees
+Gyro_Calibration_Reset_Flag = 0;  % when this value increases then reset to the degree value above
 
 
 %% Thresholds for treating gamepad sticks as discrete inputs
@@ -54,7 +55,7 @@ TEST_Speaker_Distance = 0; % m
 
 
 %% Climber Control
-Climber_DutyCycle_Pos = 0.4;
+Climber_DutyCycle_Pos = 0.5;
 Climber_DutyCycle_Neg = -1;
 
 
@@ -67,10 +68,5 @@ Crescendo_Paths
 Crescendo_Arms_Control
 Crescendo_Intake_and_Shooter_Control
 Crescendo_April_Tag_Control
-
-
-
-
-Auto_ID = 1;
 
 

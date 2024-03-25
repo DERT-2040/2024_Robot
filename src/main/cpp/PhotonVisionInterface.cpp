@@ -65,20 +65,6 @@ void PhotonVisionInterface::PreStepCallback() {
     // Inputs Values into Simulink Model
     Code_Gen_Model_U.Photon_Est_Pose_X = robot2dPose.X().value();
     Code_Gen_Model_U.Photon_Est_Pose_Y = robot2dPose.Y().value();
-    Code_Gen_Model_U.AT_Tag_7_Yaw = AT_Tag_7_Yaw;
-    Code_Gen_Model_U.AT_Tag_6_Yaw = AT_Tag_6_Yaw;
-    Code_Gen_Model_U.AT_Tag_5_Yaw = AT_Tag_5_Yaw;
-    Code_Gen_Model_U.AT_Tag_4_Yaw = AT_Tag_4_Yaw;
-    Code_Gen_Model_U.AT_Tag_4_Found = AT_Tag_4_Found;
-    Code_Gen_Model_U.AT_Tag_5_Found = AT_Tag_5_Found;
-    Code_Gen_Model_U.AT_Tag_6_Found = AT_Tag_6_Found;
-    Code_Gen_Model_U.AT_Tag_7_Found = AT_Tag_7_Found;
-    Code_Gen_Model_U.AT_Tag_11_Yaw = AT_Tag_11_Yaw;
-    Code_Gen_Model_U.AT_Tag_12_Yaw = AT_Tag_12_Yaw;
-    Code_Gen_Model_U.AT_Tag_13_Yaw = AT_Tag_13_Yaw;
-    Code_Gen_Model_U.AT_Tag_14_Yaw = AT_Tag_14_Yaw;
-    Code_Gen_Model_U.AT_Tag_15_Yaw = AT_Tag_15_Yaw;
-    Code_Gen_Model_U.AT_Tag_16_Yaw = AT_Tag_16_Yaw;
     Code_Gen_Model_U.AT_Tag_11_Found = AT_Tag_11_Found;
     Code_Gen_Model_U.AT_Tag_12_Found = AT_Tag_12_Found;
     Code_Gen_Model_U.AT_Tag_13_Found = AT_Tag_13_Found;
@@ -95,13 +81,13 @@ void PhotonVisionInterface::PostStepCallback() {
 
 // Put any datapoints that you want to be on SD here
 void PhotonVisionInterface::SmartDashboardCallback() {
-    frc::SmartDashboard::PutNumber("RobotX", static_cast<double>(robot2dPose.X()));
-    frc::SmartDashboard::PutNumber("RobotY", static_cast<double>(robot2dPose.Y()));
-    frc::SmartDashboard::PutNumber("RobotGlobalPoseAmbiguity", averageRobotPoseAmbiguity);
-    frc::SmartDashboard::PutNumber("AT_Tag_4_Yaw", AT_Tag_4_Yaw);
-    frc::SmartDashboard::PutNumber("AT_Tag_5_Yaw", AT_Tag_5_Yaw);
-    frc::SmartDashboard::PutNumber("AT_Tag_6_Yaw", AT_Tag_6_Yaw);
-    frc::SmartDashboard::PutNumber("AT_Tag_7_Yaw", AT_Tag_7_Yaw);
+    // frc::SmartDashboard::PutNumber("RobotX", static_cast<double>(robot2dPose.X()));
+    // frc::SmartDashboard::PutNumber("RobotY", static_cast<double>(robot2dPose.Y()));
+    // frc::SmartDashboard::PutNumber("RobotGlobalPoseAmbiguity", averageRobotPoseAmbiguity);
+    // frc::SmartDashboard::PutNumber("AT_Tag_4_Yaw", AT_Tag_4_Yaw);
+    // frc::SmartDashboard::PutNumber("AT_Tag_5_Yaw", AT_Tag_5_Yaw);
+    // frc::SmartDashboard::PutNumber("AT_Tag_6_Yaw", AT_Tag_6_Yaw);
+    // frc::SmartDashboard::PutNumber("AT_Tag_7_Yaw", AT_Tag_7_Yaw);
 }
 
 void PhotonVisionInterface::GameStateChangeCallback()
