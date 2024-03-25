@@ -1,16 +1,22 @@
 // This file has been auto generated from a Matlab script
 // Do not manually edit since changes will be lost
+// Janelyn <3
 #include <frc/smartdashboard/SmartDashboard.h>
 #include <networktables/NetworkTable.h>
 #include <networktables/RawTopic.h>
 #include <networktables/NetworkTableInstance.h>
 #include "Code_Gen_Model_ert_rtw\Code_Gen_Model.h"
+#include "lib/include/Component.h"
  
-class SimulinkSmartDashboardInterface {
-    public:
-        void InitSmartDashboardInterface();
-        void SmartDashboardCallback();
-    private:
+class SimulinkSmartDashboardInterface : public Component
+{
+public:
+    SimulinkSmartDashboardInterface();
+    void PreStepCallback();
+    void PostStepCallback();
+    void SmartDashboardCallback();
+    void GameStateChangeCallback();
+private:
         // Parameters
         nt::NetworkTableEntry __AA_Integral_Gain__Entry;
         nt::NetworkTableEntry __AA_Integral_IC__Entry;
@@ -239,6 +245,8 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __FrontRight_Turn_Offset__Entry;
         nt::NetworkTableEntry __GameState__Entry;
         nt::NetworkTableEntry __Gamepad_B1_A__Entry;
+        nt::NetworkTableEntry __Gamepad_B2_B__Entry;
+        nt::NetworkTableEntry __Gamepad_B3_X__Entry;
         nt::NetworkTableEntry __Gamepad_B4_Y__Entry;
         nt::NetworkTableEntry __Gamepad_Back__Entry;
         nt::NetworkTableEntry __Gamepad_LB__Entry;
@@ -257,26 +265,40 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Is_Absolute_Translation__Entry;
         nt::NetworkTableEntry __Joystick_Left_B1__Entry;
         nt::NetworkTableEntry __Joystick_Left_B10__Entry;
+        nt::NetworkTableEntry __Joystick_Left_B11__Entry;
+        nt::NetworkTableEntry __Joystick_Left_B12__Entry;
         nt::NetworkTableEntry __Joystick_Left_B13__Entry;
         nt::NetworkTableEntry __Joystick_Left_B14__Entry;
+        nt::NetworkTableEntry __Joystick_Left_B15__Entry;
+        nt::NetworkTableEntry __Joystick_Left_B16__Entry;
         nt::NetworkTableEntry __Joystick_Left_B2__Entry;
         nt::NetworkTableEntry __Joystick_Left_B3__Entry;
         nt::NetworkTableEntry __Joystick_Left_B4__Entry;
+        nt::NetworkTableEntry __Joystick_Left_B5__Entry;
+        nt::NetworkTableEntry __Joystick_Left_B6__Entry;
         nt::NetworkTableEntry __Joystick_Left_B7__Entry;
         nt::NetworkTableEntry __Joystick_Left_B8__Entry;
+        nt::NetworkTableEntry __Joystick_Left_B9__Entry;
         nt::NetworkTableEntry __Joystick_Left_POV__Entry;
         nt::NetworkTableEntry __Joystick_Left_X__Entry;
         nt::NetworkTableEntry __Joystick_Left_Y__Entry;
         nt::NetworkTableEntry __Joystick_Left_Z__Entry;
         nt::NetworkTableEntry __Joystick_Right_B1__Entry;
         nt::NetworkTableEntry __Joystick_Right_B10__Entry;
+        nt::NetworkTableEntry __Joystick_Right_B11__Entry;
+        nt::NetworkTableEntry __Joystick_Right_B12__Entry;
         nt::NetworkTableEntry __Joystick_Right_B13__Entry;
         nt::NetworkTableEntry __Joystick_Right_B14__Entry;
+        nt::NetworkTableEntry __Joystick_Right_B15__Entry;
+        nt::NetworkTableEntry __Joystick_Right_B16__Entry;
         nt::NetworkTableEntry __Joystick_Right_B2__Entry;
         nt::NetworkTableEntry __Joystick_Right_B3__Entry;
         nt::NetworkTableEntry __Joystick_Right_B4__Entry;
+        nt::NetworkTableEntry __Joystick_Right_B5__Entry;
+        nt::NetworkTableEntry __Joystick_Right_B6__Entry;
         nt::NetworkTableEntry __Joystick_Right_B7__Entry;
         nt::NetworkTableEntry __Joystick_Right_B8__Entry;
+        nt::NetworkTableEntry __Joystick_Right_B9__Entry;
         nt::NetworkTableEntry __Joystick_Right_POV__Entry;
         nt::NetworkTableEntry __Joystick_Right_X__Entry;
         nt::NetworkTableEntry __Joystick_Right_Y__Entry;
@@ -297,12 +319,17 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Back_Upper_Arm_DutyCycle__Entry;
         nt::NetworkTableEntry __Ball_Screw_Arm_DutyCycle__Entry;
         nt::NetworkTableEntry __Climber_DutyCycle__Entry;
+        nt::NetworkTableEntry __Disable_Wheels__Entry;
+        nt::NetworkTableEntry __Enable_Wheels__Entry;
         nt::NetworkTableEntry __FrontLeft_Drive_DutyCycle__Entry;
         nt::NetworkTableEntry __FrontLeft_Steer_DutyCycle__Entry;
         nt::NetworkTableEntry __FrontRight_Drive_DutyCycle__Entry;
         nt::NetworkTableEntry __FrontRight_Steer_DutyCycle__Entry;
         nt::NetworkTableEntry __Front_Arm_DutyCycle__Entry;
         nt::NetworkTableEntry __Intake_Motor_DutyCycle__Entry;
+        nt::NetworkTableEntry __Reset_Ballscrew_Zero__Entry;
+        nt::NetworkTableEntry __Reset_Wheel_Offsets__Entry;
+        nt::NetworkTableEntry __Save_Ballscrew_Position__Entry;
         nt::NetworkTableEntry __Shooter_Brake_Enable__Entry;
         nt::NetworkTableEntry __Shooter_Left_Motor_DutyCycle__Entry;
         nt::NetworkTableEntry __Shooter_Right_Motor_DutyCycle__Entry;

@@ -9,6 +9,11 @@ void BallScrew::PostStepCallback()
 {
     m_BallScrew_Motor.Set(Code_Gen_Model_Y.Ball_Screw_Arm_DutyCycle);
     
+    if(Code_Gen_Model_Y.Save_Ballscrew_Position > 0)
+      SetBallScrewPosition();
+    
+    if(Code_Gen_Model_Y.Reset_Ballscrew_Zero > 0)
+      ResetBallScrew();
 }
 
 void BallScrew::SmartDashboardCallback()

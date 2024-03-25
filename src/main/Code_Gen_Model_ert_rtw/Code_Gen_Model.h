@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.197
+ * Model version                  : 2.202
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sun Mar 24 07:55:56 2024
+ * C/C++ source code generated on : Mon Mar 25 17:22:23 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -223,6 +223,11 @@ typedef struct {
   real_T UnitDelay_DSTATE_j;           /* '<S171>/Unit Delay' */
   real_T UnitDelay1_DSTATE_d;          /* '<S156>/Unit Delay1' */
   real_T UnitDelay_DSTATE_cg;          /* '<S156>/Unit Delay' */
+  real_T DelayInput1_DSTATE_e;         /* '<S429>/Delay Input1' */
+  real_T DelayInput1_DSTATE_j;         /* '<S430>/Delay Input1' */
+  real_T DelayInput1_DSTATE_n;         /* '<S431>/Delay Input1' */
+  real_T DelayInput1_DSTATE_a;         /* '<S432>/Delay Input1' */
+  real_T DelayInput1_DSTATE_g;         /* '<S433>/Delay Input1' */
   real_T UnitDelay1_DSTATE_l;          /* '<S422>/Unit Delay1' */
   real_T UnitDelay_DSTATE_p;           /* '<S422>/Unit Delay' */
   real_T UnitDelay3_DSTATE;            /* '<S410>/Unit Delay3' */
@@ -249,7 +254,7 @@ typedef struct {
   uint8_T FixPtUnitDelay2_DSTATE_e;    /* '<S179>/FixPt Unit Delay2' */
   uint8_T FixPtUnitDelay2_DSTATE_j5;   /* '<S177>/FixPt Unit Delay2' */
   uint8_T FixPtUnitDelay2_DSTATE_a;    /* '<S426>/FixPt Unit Delay2' */
-  boolean_T DelayInput1_DSTATE_n;      /* '<S74>/Delay Input1' */
+  boolean_T DelayInput1_DSTATE_nb;     /* '<S74>/Delay Input1' */
   boolean_T UnitDelay_DSTATE_oz;       /* '<S1>/Unit Delay' */
   boolean_T UnitDelay_DSTATE_ll;       /* '<S11>/Unit Delay' */
   boolean_T DelayInput1_DSTATE_h;      /* '<S184>/Delay Input1' */
@@ -257,15 +262,15 @@ typedef struct {
   boolean_T DelayInput1_DSTATE_nx;     /* '<S84>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_o;      /* '<S86>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_hw;     /* '<S85>/Delay Input1' */
-  boolean_T DelayInput1_DSTATE_e;      /* '<S87>/Delay Input1' */
+  boolean_T DelayInput1_DSTATE_em;     /* '<S87>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_i;      /* '<S88>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_p;      /* '<S186>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_o1;     /* '<S188>/Delay Input1' */
-  boolean_T DelayInput1_DSTATE_j;      /* '<S418>/Delay Input1' */
+  boolean_T DelayInput1_DSTATE_jp;     /* '<S418>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_ft;     /* '<S417>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_m;      /* '<S413>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_k;      /* '<S414>/Delay Input1' */
-  boolean_T DelayInput1_DSTATE_g;      /* '<S415>/Delay Input1' */
+  boolean_T DelayInput1_DSTATE_gt;     /* '<S415>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_g2;     /* '<S416>/Delay Input1' */
   boolean_T UnitDelay2_DSTATE;         /* '<S410>/Unit Delay2' */
   boolean_T UnitDelay4_DSTATE;         /* '<S410>/Unit Delay4' */
@@ -448,6 +453,8 @@ typedef struct {
   real_T Joystick_Left_B7;             /* '<Root>/Joystick_Left_B7' */
   real_T Joystick_Left_B8;             /* '<Root>/Joystick_Left_B8' */
   real_T Joystick_Left_B10;            /* '<Root>/Joystick_Left_B10' */
+  real_T Joystick_Left_B11;            /* '<Root>/Joystick_Left_B11' */
+  real_T Joystick_Left_B12;            /* '<Root>/Joystick_Left_B12' */
   real_T Joystick_Left_B13;            /* '<Root>/Joystick_Left_B13' */
   real_T Joystick_Left_B14;            /* '<Root>/Joystick_Left_B14' */
   real_T Joystick_Left_POV;            /* '<Root>/Joystick_Left_POV' */
@@ -466,6 +473,9 @@ typedef struct {
   real_T Gamepad_Stick_Right_X;        /* '<Root>/Gamepad_Stick_Right_X' */
   real_T Gamepad_Stick_Right_Y;        /* '<Root>/Gamepad_Stick_Right_Y' */
   real_T Gamepad_B1_A;                 /* '<Root>/Gamepad_B1_A' */
+  real_T Gamepad_B2_B;                 /* '<Root>/Gamepad_B2_B' */
+  real_T Gamepad_B3_X;                 /* '<Root>/Gamepad_B3_X' */
+  real_T Gamepad_B4_Y;                 /* '<Root>/Gamepad_B4_Y' */
   real_T Gamepad_LB;                   /* '<Root>/Gamepad_LB' */
   real_T Gamepad_LT;                   /* '<Root>/Gamepad_LT' */
   real_T Gamepad_RB;                   /* '<Root>/Gamepad_RB' */
@@ -503,7 +513,6 @@ typedef struct {
   real_T Encoder_Revs_Back_Upper;      /* '<Root>/Encoder_Revs_Back_Upper' */
   real_T Encoder_Revs_Front;           /* '<Root>/Encoder_Revs_Front' */
   real_T Encoder_Revs_Ball_Screw;      /* '<Root>/Encoder_Revs_Ball_Screw' */
-  real_T Gamepad_B4_Y;                 /* '<Root>/Gamepad_B4_Y' */
   boolean_T AT_Tag_11_Found;           /* '<Root>/AT_Tag_11_Found' */
   boolean_T AT_Tag_12_Found;           /* '<Root>/AT_Tag_12_Found' */
   boolean_T AT_Tag_13_Found;           /* '<Root>/AT_Tag_13_Found' */
@@ -511,6 +520,18 @@ typedef struct {
   real_T AT_Tag_15_Found;              /* '<Root>/AT_Tag_15_Found' */
   real_T AT_Tag_16_Found;              /* '<Root>/AT_Tag_16_Found' */
   real_T Line_Sensor_TOF_Range;        /* '<Root>/Line_Sensor_TOF_Range' */
+  real_T Joystick_Left_B5;             /* '<Root>/Joystick_Left_B5' */
+  real_T Joystick_Left_B6;             /* '<Root>/Joystick_Left_B6' */
+  real_T Joystick_Left_B9;             /* '<Root>/Joystick_Left_B9' */
+  real_T Joystick_Left_B15;            /* '<Root>/Joystick_Left_B15' */
+  real_T Joystick_Left_B16;            /* '<Root>/Joystick_Left_B16' */
+  real_T Joystick_Right_B5;            /* '<Root>/Joystick_Right_B5' */
+  real_T Joystick_Right_B6;            /* '<Root>/Joystick_Right_B6' */
+  real_T Joystick_Right_B9;            /* '<Root>/Joystick_Right_B9' */
+  real_T Joystick_Right_B11;           /* '<Root>/Joystick_Right_B11' */
+  real_T Joystick_Right_B12;           /* '<Root>/Joystick_Right_B12' */
+  real_T Joystick_Right_B15;           /* '<Root>/Joystick_Right_B15' */
+  real_T Joystick_Right_B16;           /* '<Root>/Joystick_Right_B16' */
 } ExtU_Code_Gen_Model_T;
 
 /* External outputs (root outports fed by signals with default storage) */
@@ -535,6 +556,11 @@ typedef struct {
   real_T Ball_Screw_Arm_DutyCycle;     /* '<Root>/Ball_Screw_Arm_DutyCycle' */
   real_T Climber_DutyCycle;            /* '<Root>/Climber_DutyCycle' */
   real_T Shooter_Servo_Position;       /* '<Root>/Shooter_Servo_Position' */
+  real_T Enable_Wheels;                /* '<Root>/Enable_Wheels' */
+  real_T Reset_Wheel_Offsets;          /* '<Root>/Reset_Wheel_Offsets' */
+  real_T Disable_Wheels;               /* '<Root>/Disable_Wheels' */
+  real_T Reset_Ballscrew_Zero;         /* '<Root>/Reset_Ballscrew_Zero' */
+  real_T Save_Ballscrew_Position;      /* '<Root>/Save_Ballscrew_Position' */
 } ExtY_Code_Gen_Model_T;
 
 /* Real-time Model Data Structure */
@@ -1923,6 +1949,11 @@ extern RT_MODEL_Code_Gen_Model_T *const Code_Gen_Model_M;
  * '<S426>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter/Unit Delay External IC'
  * '<S427>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero/Compare To Zero'
  * '<S428>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero/Compare To Zero1'
+ * '<S429>' : 'Code_Gen_Model/RoboRio Controls/Test/Detect Increase'
+ * '<S430>' : 'Code_Gen_Model/RoboRio Controls/Test/Detect Increase1'
+ * '<S431>' : 'Code_Gen_Model/RoboRio Controls/Test/Detect Increase2'
+ * '<S432>' : 'Code_Gen_Model/RoboRio Controls/Test/Detect Increase3'
+ * '<S433>' : 'Code_Gen_Model/RoboRio Controls/Test/Detect Increase4'
  */
 #endif                                 /* RTW_HEADER_Code_Gen_Model_h_ */
 

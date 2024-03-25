@@ -1,8 +1,10 @@
 // This file has been auto generated from a Matlab script
 // Do not manually edit since changes will be lost
+// Janelyn <3
 #include "include/SimulinkSmartDashboardInterface.h"
  
-void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
+SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
+{
     nt::NetworkTableInstance NTinst = nt::NetworkTableInstance::GetDefault();
     auto NTtable_Tune = NTinst.GetTable("Simulink Tunable Params");
     auto NTtable_Inport = NTinst.GetTable("Simulink Top Level Ports");
@@ -826,6 +828,8 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __FrontRight_Turn_Offset__Entry = NTtable_Inport->GetEntry("FrontRight_Turn_Offset");
     __GameState__Entry = NTtable_Inport->GetEntry("GameState");
     __Gamepad_B1_A__Entry = NTtable_Inport->GetEntry("Gamepad_B1_A");
+    __Gamepad_B2_B__Entry = NTtable_Inport->GetEntry("Gamepad_B2_B");
+    __Gamepad_B3_X__Entry = NTtable_Inport->GetEntry("Gamepad_B3_X");
     __Gamepad_B4_Y__Entry = NTtable_Inport->GetEntry("Gamepad_B4_Y");
     __Gamepad_Back__Entry = NTtable_Inport->GetEntry("Gamepad_Back");
     __Gamepad_LB__Entry = NTtable_Inport->GetEntry("Gamepad_LB");
@@ -844,26 +848,40 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Is_Absolute_Translation__Entry = NTtable_Inport->GetEntry("Is_Absolute_Translation");
     __Joystick_Left_B1__Entry = NTtable_Inport->GetEntry("Joystick_Left_B1");
     __Joystick_Left_B10__Entry = NTtable_Inport->GetEntry("Joystick_Left_B10");
+    __Joystick_Left_B11__Entry = NTtable_Inport->GetEntry("Joystick_Left_B11");
+    __Joystick_Left_B12__Entry = NTtable_Inport->GetEntry("Joystick_Left_B12");
     __Joystick_Left_B13__Entry = NTtable_Inport->GetEntry("Joystick_Left_B13");
     __Joystick_Left_B14__Entry = NTtable_Inport->GetEntry("Joystick_Left_B14");
+    __Joystick_Left_B15__Entry = NTtable_Inport->GetEntry("Joystick_Left_B15");
+    __Joystick_Left_B16__Entry = NTtable_Inport->GetEntry("Joystick_Left_B16");
     __Joystick_Left_B2__Entry = NTtable_Inport->GetEntry("Joystick_Left_B2");
     __Joystick_Left_B3__Entry = NTtable_Inport->GetEntry("Joystick_Left_B3");
     __Joystick_Left_B4__Entry = NTtable_Inport->GetEntry("Joystick_Left_B4");
+    __Joystick_Left_B5__Entry = NTtable_Inport->GetEntry("Joystick_Left_B5");
+    __Joystick_Left_B6__Entry = NTtable_Inport->GetEntry("Joystick_Left_B6");
     __Joystick_Left_B7__Entry = NTtable_Inport->GetEntry("Joystick_Left_B7");
     __Joystick_Left_B8__Entry = NTtable_Inport->GetEntry("Joystick_Left_B8");
+    __Joystick_Left_B9__Entry = NTtable_Inport->GetEntry("Joystick_Left_B9");
     __Joystick_Left_POV__Entry = NTtable_Inport->GetEntry("Joystick_Left_POV");
     __Joystick_Left_X__Entry = NTtable_Inport->GetEntry("Joystick_Left_X");
     __Joystick_Left_Y__Entry = NTtable_Inport->GetEntry("Joystick_Left_Y");
     __Joystick_Left_Z__Entry = NTtable_Inport->GetEntry("Joystick_Left_Z");
     __Joystick_Right_B1__Entry = NTtable_Inport->GetEntry("Joystick_Right_B1");
     __Joystick_Right_B10__Entry = NTtable_Inport->GetEntry("Joystick_Right_B10");
+    __Joystick_Right_B11__Entry = NTtable_Inport->GetEntry("Joystick_Right_B11");
+    __Joystick_Right_B12__Entry = NTtable_Inport->GetEntry("Joystick_Right_B12");
     __Joystick_Right_B13__Entry = NTtable_Inport->GetEntry("Joystick_Right_B13");
     __Joystick_Right_B14__Entry = NTtable_Inport->GetEntry("Joystick_Right_B14");
+    __Joystick_Right_B15__Entry = NTtable_Inport->GetEntry("Joystick_Right_B15");
+    __Joystick_Right_B16__Entry = NTtable_Inport->GetEntry("Joystick_Right_B16");
     __Joystick_Right_B2__Entry = NTtable_Inport->GetEntry("Joystick_Right_B2");
     __Joystick_Right_B3__Entry = NTtable_Inport->GetEntry("Joystick_Right_B3");
     __Joystick_Right_B4__Entry = NTtable_Inport->GetEntry("Joystick_Right_B4");
+    __Joystick_Right_B5__Entry = NTtable_Inport->GetEntry("Joystick_Right_B5");
+    __Joystick_Right_B6__Entry = NTtable_Inport->GetEntry("Joystick_Right_B6");
     __Joystick_Right_B7__Entry = NTtable_Inport->GetEntry("Joystick_Right_B7");
     __Joystick_Right_B8__Entry = NTtable_Inport->GetEntry("Joystick_Right_B8");
+    __Joystick_Right_B9__Entry = NTtable_Inport->GetEntry("Joystick_Right_B9");
     __Joystick_Right_POV__Entry = NTtable_Inport->GetEntry("Joystick_Right_POV");
     __Joystick_Right_X__Entry = NTtable_Inport->GetEntry("Joystick_Right_X");
     __Joystick_Right_Y__Entry = NTtable_Inport->GetEntry("Joystick_Right_Y");
@@ -885,12 +903,17 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Back_Upper_Arm_DutyCycle__Entry = NTtable_Outport->GetEntry("Back_Upper_Arm_DutyCycle");
     __Ball_Screw_Arm_DutyCycle__Entry = NTtable_Outport->GetEntry("Ball_Screw_Arm_DutyCycle");
     __Climber_DutyCycle__Entry = NTtable_Outport->GetEntry("Climber_DutyCycle");
+    __Disable_Wheels__Entry = NTtable_Outport->GetEntry("Disable_Wheels");
+    __Enable_Wheels__Entry = NTtable_Outport->GetEntry("Enable_Wheels");
     __FrontLeft_Drive_DutyCycle__Entry = NTtable_Outport->GetEntry("FrontLeft_Drive_DutyCycle");
     __FrontLeft_Steer_DutyCycle__Entry = NTtable_Outport->GetEntry("FrontLeft_Steer_DutyCycle");
     __FrontRight_Drive_DutyCycle__Entry = NTtable_Outport->GetEntry("FrontRight_Drive_DutyCycle");
     __FrontRight_Steer_DutyCycle__Entry = NTtable_Outport->GetEntry("FrontRight_Steer_DutyCycle");
     __Front_Arm_DutyCycle__Entry = NTtable_Outport->GetEntry("Front_Arm_DutyCycle");
     __Intake_Motor_DutyCycle__Entry = NTtable_Outport->GetEntry("Intake_Motor_DutyCycle");
+    __Reset_Ballscrew_Zero__Entry = NTtable_Outport->GetEntry("Reset_Ballscrew_Zero");
+    __Reset_Wheel_Offsets__Entry = NTtable_Outport->GetEntry("Reset_Wheel_Offsets");
+    __Save_Ballscrew_Position__Entry = NTtable_Outport->GetEntry("Save_Ballscrew_Position");
     __Shooter_Brake_Enable__Entry = NTtable_Outport->GetEntry("Shooter_Brake_Enable");
     __Shooter_Left_Motor_DutyCycle__Entry = NTtable_Outport->GetEntry("Shooter_Left_Motor_DutyCycle");
     __Shooter_Right_Motor_DutyCycle__Entry = NTtable_Outport->GetEntry("Shooter_Right_Motor_DutyCycle");
@@ -1018,7 +1041,12 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __WhileIterator__Entry = NTtable_TPoint->GetEntry("WhileIterator");
 }
  
-void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
+void SimulinkSmartDashboardInterface::PreStepCallback() {}
+ 
+void SimulinkSmartDashboardInterface::PostStepCallback() {}
+ 
+void SimulinkSmartDashboardInterface::SmartDashboardCallback()
+{
     // Inports
     __AT_Tag_11_Found__Entry.SetDouble(Code_Gen_Model_U.AT_Tag_11_Found);
     __AT_Tag_12_Found__Entry.SetDouble(Code_Gen_Model_U.AT_Tag_12_Found);
@@ -1048,6 +1076,8 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __FrontRight_Turn_Offset__Entry.SetDouble(Code_Gen_Model_U.FrontRight_Turn_Offset);
     __GameState__Entry.SetDouble(Code_Gen_Model_U.GameState);
     __Gamepad_B1_A__Entry.SetDouble(Code_Gen_Model_U.Gamepad_B1_A);
+    __Gamepad_B2_B__Entry.SetDouble(Code_Gen_Model_U.Gamepad_B2_B);
+    __Gamepad_B3_X__Entry.SetDouble(Code_Gen_Model_U.Gamepad_B3_X);
     __Gamepad_B4_Y__Entry.SetDouble(Code_Gen_Model_U.Gamepad_B4_Y);
     __Gamepad_Back__Entry.SetDouble(Code_Gen_Model_U.Gamepad_Back);
     __Gamepad_LB__Entry.SetDouble(Code_Gen_Model_U.Gamepad_LB);
@@ -1066,26 +1096,40 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Is_Absolute_Translation__Entry.SetDouble(Code_Gen_Model_U.Is_Absolute_Translation);
     __Joystick_Left_B1__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_B1);
     __Joystick_Left_B10__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_B10);
+    __Joystick_Left_B11__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_B11);
+    __Joystick_Left_B12__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_B12);
     __Joystick_Left_B13__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_B13);
     __Joystick_Left_B14__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_B14);
+    __Joystick_Left_B15__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_B15);
+    __Joystick_Left_B16__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_B16);
     __Joystick_Left_B2__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_B2);
     __Joystick_Left_B3__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_B3);
     __Joystick_Left_B4__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_B4);
+    __Joystick_Left_B5__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_B5);
+    __Joystick_Left_B6__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_B6);
     __Joystick_Left_B7__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_B7);
     __Joystick_Left_B8__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_B8);
+    __Joystick_Left_B9__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_B9);
     __Joystick_Left_POV__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_POV);
     __Joystick_Left_X__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_X);
     __Joystick_Left_Y__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_Y);
     __Joystick_Left_Z__Entry.SetDouble(Code_Gen_Model_U.Joystick_Left_Z);
     __Joystick_Right_B1__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_B1);
     __Joystick_Right_B10__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_B10);
+    __Joystick_Right_B11__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_B11);
+    __Joystick_Right_B12__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_B12);
     __Joystick_Right_B13__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_B13);
     __Joystick_Right_B14__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_B14);
+    __Joystick_Right_B15__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_B15);
+    __Joystick_Right_B16__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_B16);
     __Joystick_Right_B2__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_B2);
     __Joystick_Right_B3__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_B3);
     __Joystick_Right_B4__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_B4);
+    __Joystick_Right_B5__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_B5);
+    __Joystick_Right_B6__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_B6);
     __Joystick_Right_B7__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_B7);
     __Joystick_Right_B8__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_B8);
+    __Joystick_Right_B9__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_B9);
     __Joystick_Right_POV__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_POV);
     __Joystick_Right_X__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_X);
     __Joystick_Right_Y__Entry.SetDouble(Code_Gen_Model_U.Joystick_Right_Y);
@@ -1106,12 +1150,17 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Back_Upper_Arm_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.Back_Upper_Arm_DutyCycle);
     __Ball_Screw_Arm_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.Ball_Screw_Arm_DutyCycle);
     __Climber_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.Climber_DutyCycle);
+    __Disable_Wheels__Entry.SetDouble(Code_Gen_Model_Y.Disable_Wheels);
+    __Enable_Wheels__Entry.SetDouble(Code_Gen_Model_Y.Enable_Wheels);
     __FrontLeft_Drive_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.FrontLeft_Drive_DutyCycle);
     __FrontLeft_Steer_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.FrontLeft_Steer_DutyCycle);
     __FrontRight_Drive_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.FrontRight_Drive_DutyCycle);
     __FrontRight_Steer_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.FrontRight_Steer_DutyCycle);
     __Front_Arm_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.Front_Arm_DutyCycle);
     __Intake_Motor_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.Intake_Motor_DutyCycle);
+    __Reset_Ballscrew_Zero__Entry.SetDouble(Code_Gen_Model_Y.Reset_Ballscrew_Zero);
+    __Reset_Wheel_Offsets__Entry.SetDouble(Code_Gen_Model_Y.Reset_Wheel_Offsets);
+    __Save_Ballscrew_Position__Entry.SetDouble(Code_Gen_Model_Y.Save_Ballscrew_Position);
     __Shooter_Brake_Enable__Entry.SetDouble(Code_Gen_Model_Y.Shooter_Brake_Enable);
     __Shooter_Left_Motor_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.Shooter_Left_Motor_DutyCycle);
     __Shooter_Right_Motor_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.Shooter_Right_Motor_DutyCycle);
@@ -1237,3 +1286,4 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __Translation_Steering_Cmd__Entry.SetDouble(Code_Gen_Model_B.Translation_Steering_Cmd);
     __WhileIterator__Entry.SetDouble(Code_Gen_Model_B.WhileIterator);
 }
+void SimulinkSmartDashboardInterface::GameStateChangeCallback() {}

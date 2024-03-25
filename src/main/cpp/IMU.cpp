@@ -24,4 +24,6 @@ void IMU::GameStateChangeCallback()
 void IMU::Reset() {
     m_Pigeon2.Reset();
 }
-IMU::IMU() {}
+IMU::IMU() {
+    Reset();
+}

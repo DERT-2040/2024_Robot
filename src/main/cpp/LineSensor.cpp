@@ -12,14 +12,10 @@ void LineSensor::PostStepCallback()
 
 void LineSensor::SmartDashboardCallback()
 {
-
+    // SmartDashboard::putNumber("IsNoteThere", SmartDashboard::getDefault().getTable("Vision").getNumber("IsNoteThere"));
 }
 
 void LineSensor::GameStateChangeCallback()
 {
     
 }
-// void SmartDashboardCallback()
-// {
-//     SmartDashboard::putNumber("IsNoteThere", SmartDashboard::getDefault().getTable("Vision").getNumber("IsNoteThere"));
-// }

@@ -111,6 +111,15 @@ void SwerveDrive::PostStepCallback()
     m_FrontRight_Steer.Set(Code_Gen_Model_Y.FrontRight_Steer_DutyCycle);
     m_BackLeft_Steer.Set(Code_Gen_Model_Y.BackLeft_Steer_DutyCycle);
     m_BackRight_Steer.Set(Code_Gen_Model_Y.BackRight_Steer_DutyCycle);
+
+    if(Code_Gen_Model_Y.Enable_Wheels > 0)
+      WheelsOn();
+
+    if(Code_Gen_Model_Y.Disable_Wheels > 0)
+      WheelsOff();
+
+    if(Code_Gen_Model_Y.Reset_Wheel_Offsets > 0)
+      Reset_Wheel_Offset();
 }
 
 void SwerveDrive::SmartDashboardCallback() 
@@ -178,6 +187,14 @@ void SwerveDrive::Initalize_Wheel_Offset()
   SwerveDrive::Set_Wheel_Offset();
 }
 
+ /**
+   * Wheel calibration procedure:
+   * 1. Go into 'Test' game state
+   * 2. Push the Wheel Off button (see Constants file).  This sets steering duty cycle to 0 and puts them into coast mode.
+   * 3. Align the wheels with gears facing RIGHT.  If this is done backwards then robot will steer in the opposite directions.
+   * 4. Push the Calibrate button (see Constants file).
+   * 5. (optional) Push the Wheel On button (see Constants file).  
+   */
 void SwerveDrive::Reset_Wheel_Offset() 
 {
   frc::Preferences::SetDouble(Constants::k_FrontLeft_Wheel_Offset_Key, static_cast<double>(m_FrontLeft_Steer_Encoder.GetPosition().GetValue()));
