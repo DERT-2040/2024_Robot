@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.203
+ * Model version                  : 2.208
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Mon Mar 25 22:37:07 2024
+ * C/C++ source code generated on : Tue Mar 26 00:29:10 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -108,6 +108,7 @@ typedef struct {
   real_T Odometry_Y_global_TEAR_ft;    /* '<S157>/Subtract1' */
   real_T AT_Error_X;                   /* '<S409>/Switch15' */
   real_T AT_Error_Y;                   /* '<S409>/Switch23' */
+  real_T Steering_Abs_Gyro_Latch;      /* '<S411>/Switch8' */
   real_T Steering_Abs_Gyro;            /* '<S411>/Switch2' */
   real_T AT_Target_Angle;              /* '<S409>/Switch2' */
   real_T Steering_Abs_Angle;           /* '<S411>/Switch3' */
@@ -142,7 +143,7 @@ typedef struct {
   real_T Shooter_Motor_DC_Right;       /* '<S10>/Chart_Intake_and_Shooter' */
   real_T Note_State_ID;                /* '<S10>/Chart_Intake_and_Shooter' */
   uint16_T WhileIterator;              /* '<S247>/While Iterator' */
-  uint8_T Prev_GameState;              /* '<S15>/Chart' */
+  uint8_T Active_GameState;            /* '<S15>/Chart' */
   boolean_T Drive_Joystick_Z_Mode;     /* '<S47>/Compare' */
   boolean_T Is_Boosting;               /* '<S56>/Compare' */
   boolean_T Align_Amp;                 /* '<S54>/Compare' */
@@ -157,6 +158,8 @@ typedef struct {
   boolean_T Test_Mode;                 /* '<S13>/Merge10' */
   boolean_T Is_All_Arms_Cal_Position;  /* '<S2>/Logical Operator' */
   boolean_T Robot_Reached_Destination; /* '<S17>/Merge7' */
+  boolean_T Steering_Abs_Angle_Active; /* '<S411>/AND6' */
+  boolean_T previous_call_was_for_speaker;/* '<S409>/Logical Operator' */
   boolean_T Line_Sensor_Boolean;       /* '<S26>/Compare' */
   boolean_T Spline_Out_Of_Bounds;      /* '<S200>/Merge1' */
   boolean_T Shooter_Motor_Speed_Control_Ena;/* '<S10>/Chart_Intake_and_Shooter' */
@@ -222,16 +225,15 @@ typedef struct {
   real_T UD_DSTATE_ce;                 /* '<S152>/UD' */
   real_T UnitDelay_DSTATE_cg;          /* '<S157>/Unit Delay' */
   real_T UnitDelay1_DSTATE_d;          /* '<S157>/Unit Delay1' */
-  real_T DelayInput1_DSTATE_e;         /* '<S430>/Delay Input1' */
-  real_T DelayInput1_DSTATE_j;         /* '<S431>/Delay Input1' */
-  real_T DelayInput1_DSTATE_n;         /* '<S432>/Delay Input1' */
-  real_T DelayInput1_DSTATE_a;         /* '<S433>/Delay Input1' */
-  real_T DelayInput1_DSTATE_g;         /* '<S434>/Delay Input1' */
-  real_T UnitDelay1_DSTATE_l;          /* '<S423>/Unit Delay1' */
-  real_T UnitDelay_DSTATE_p;           /* '<S423>/Unit Delay' */
-  real_T UnitDelay3_DSTATE;            /* '<S411>/Unit Delay3' */
+  real_T DelayInput1_DSTATE_e;         /* '<S431>/Delay Input1' */
+  real_T DelayInput1_DSTATE_j;         /* '<S432>/Delay Input1' */
+  real_T DelayInput1_DSTATE_n;         /* '<S433>/Delay Input1' */
+  real_T DelayInput1_DSTATE_a;         /* '<S434>/Delay Input1' */
+  real_T DelayInput1_DSTATE_g;         /* '<S435>/Delay Input1' */
+  real_T UnitDelay1_DSTATE_l;          /* '<S424>/Unit Delay1' */
+  real_T UnitDelay_DSTATE_p;           /* '<S424>/Unit Delay' */
   real_T UnitDelay1_DSTATE_j2;         /* '<S411>/Unit Delay1' */
-  real_T FixPtUnitDelay1_DSTATE_f2;    /* '<S427>/FixPt Unit Delay1' */
+  real_T FixPtUnitDelay1_DSTATE_f2;    /* '<S428>/FixPt Unit Delay1' */
   real_T UnitDelay_DSTATE_gh;          /* '<S196>/Unit Delay' */
   real_T UnitDelay_DSTATE_hn;          /* '<S195>/Unit Delay' */
   real_T UnitDelay1_DSTATE_f4;         /* '<S248>/Unit Delay1' */
@@ -252,7 +254,7 @@ typedef struct {
   uint8_T FixPtUnitDelay2_DSTATE_e;    /* '<S180>/FixPt Unit Delay2' */
   uint8_T FixPtUnitDelay2_DSTATE_j;    /* '<S178>/FixPt Unit Delay2' */
   uint8_T FixPtUnitDelay2_DSTATE_jk;   /* '<S193>/FixPt Unit Delay2' */
-  uint8_T FixPtUnitDelay2_DSTATE_a;    /* '<S427>/FixPt Unit Delay2' */
+  uint8_T FixPtUnitDelay2_DSTATE_a;    /* '<S428>/FixPt Unit Delay2' */
   boolean_T DelayInput1_DSTATE_nb;     /* '<S74>/Delay Input1' */
   boolean_T UnitDelay_DSTATE_oz;       /* '<S1>/Unit Delay' */
   boolean_T UnitDelay_DSTATE_ll;       /* '<S11>/Unit Delay' */
@@ -776,19 +778,19 @@ extern real_T BS_TC_UL;                /* Variable: BS_TC_UL
                                         */
 extern real_T Boost_Trigger_Decreasing_Limit;
                                      /* Variable: Boost_Trigger_Decreasing_Limit
-                                      * Referenced by: '<S424>/Constant1'
+                                      * Referenced by: '<S425>/Constant1'
                                       */
 extern real_T Boost_Trigger_High_Speed;/* Variable: Boost_Trigger_High_Speed
                                         * Referenced by:
-                                        *   '<S420>/Constant'
-                                        *   '<S420>/Saturation'
+                                        *   '<S421>/Constant'
+                                        *   '<S421>/Saturation'
                                         */
 extern real_T Boost_Trigger_Increasing_Limit;
                                      /* Variable: Boost_Trigger_Increasing_Limit
-                                      * Referenced by: '<S424>/Constant3'
+                                      * Referenced by: '<S425>/Constant3'
                                       */
 extern real_T Boost_Trigger_Low_Speed; /* Variable: Boost_Trigger_Low_Speed
-                                        * Referenced by: '<S420>/Constant1'
+                                        * Referenced by: '<S421>/Constant1'
                                         */
 extern real_T Climber_DutyCycle_Neg;   /* Variable: Climber_DutyCycle_Neg
                                         * Referenced by: '<S4>/Constant3'
@@ -1361,6 +1363,16 @@ extern real_T Trap_Gap;                /* Variable: Trap_Gap
 extern real_T Trap_Height;             /* Variable: Trap_Height
                                         * Referenced by: '<S16>/Chart_Shooter_Position'
                                         */
+extern real_T Twist_Deadzone_neg;      /* Variable: Twist_Deadzone_neg
+                                        * Referenced by:
+                                        *   '<S411>/Dead Zone'
+                                        *   '<S412>/Dead Zone'
+                                        */
+extern real_T Twist_Deadzone_pos;      /* Variable: Twist_Deadzone_pos
+                                        * Referenced by:
+                                        *   '<S411>/Dead Zone'
+                                        *   '<S412>/Dead Zone'
+                                        */
 
 /* Model entry point functions */
 extern void Code_Gen_Model_initialize(void);
@@ -1480,9 +1492,9 @@ extern RT_MODEL_Code_Gen_Model_T *const Code_Gen_Model_M;
  * Block '<S382>/Data Type Duplicate' : Unused code path elimination
  * Block '<S382>/Data Type Propagation' : Unused code path elimination
  * Block '<S378>/Scope' : Unused code path elimination
- * Block '<S426>/Data Type Duplicate' : Unused code path elimination
- * Block '<S426>/Data Type Propagation' : Unused code path elimination
- * Block '<S427>/FixPt Data Type Duplicate1' : Unused code path elimination
+ * Block '<S427>/Data Type Duplicate' : Unused code path elimination
+ * Block '<S427>/Data Type Propagation' : Unused code path elimination
+ * Block '<S428>/FixPt Data Type Duplicate1' : Unused code path elimination
  * Block '<S137>/Conversion' : Eliminate redundant data type conversion
  * Block '<S138>/Conversion' : Eliminate redundant data type conversion
  * Block '<S140>/Conversion' : Eliminate redundant data type conversion
@@ -1944,21 +1956,22 @@ extern RT_MODEL_Code_Gen_Model_T *const Code_Gen_Model_M;
  * '<S417>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase3'
  * '<S418>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase4'
  * '<S419>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Detect Increase5'
- * '<S420>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit'
- * '<S421>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Compare To Zero'
- * '<S422>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Compare To Zero1'
- * '<S423>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero'
- * '<S424>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit'
- * '<S425>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter'
- * '<S426>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter/Saturation Dynamic'
- * '<S427>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter/Unit Delay External IC'
- * '<S428>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero/Compare To Zero'
- * '<S429>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero/Compare To Zero1'
- * '<S430>' : 'Code_Gen_Model/RoboRio Controls/Test/Detect Increase'
- * '<S431>' : 'Code_Gen_Model/RoboRio Controls/Test/Detect Increase1'
- * '<S432>' : 'Code_Gen_Model/RoboRio Controls/Test/Detect Increase2'
- * '<S433>' : 'Code_Gen_Model/RoboRio Controls/Test/Detect Increase3'
- * '<S434>' : 'Code_Gen_Model/RoboRio Controls/Test/Detect Increase4'
+ * '<S420>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Steering/Previous game state was not Teleop'
+ * '<S421>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit'
+ * '<S422>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Compare To Zero'
+ * '<S423>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Compare To Zero1'
+ * '<S424>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero'
+ * '<S425>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit'
+ * '<S426>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter'
+ * '<S427>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter/Saturation Dynamic'
+ * '<S428>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Boost and Rate Limit/Simple Rate Limit/Discrete Rate Limiter/Unit Delay External IC'
+ * '<S429>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero/Compare To Zero'
+ * '<S430>' : 'Code_Gen_Model/RoboRio Controls/Teleop/Joystick_Input_To_Swerve_Drive/Robot_Desired_Translation/Latch Outputs when Both Inputs Zero/Compare To Zero1'
+ * '<S431>' : 'Code_Gen_Model/RoboRio Controls/Test/Detect Increase'
+ * '<S432>' : 'Code_Gen_Model/RoboRio Controls/Test/Detect Increase1'
+ * '<S433>' : 'Code_Gen_Model/RoboRio Controls/Test/Detect Increase2'
+ * '<S434>' : 'Code_Gen_Model/RoboRio Controls/Test/Detect Increase3'
+ * '<S435>' : 'Code_Gen_Model/RoboRio Controls/Test/Detect Increase4'
  */
 #endif                                 /* RTW_HEADER_Code_Gen_Model_h_ */
 

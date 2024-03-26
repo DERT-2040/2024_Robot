@@ -210,6 +210,8 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Trap_Angle__Entry;
         nt::NetworkTableEntry __Trap_Gap__Entry;
         nt::NetworkTableEntry __Trap_Height__Entry;
+        nt::NetworkTableEntry __Twist_Deadzone_neg__Entry;
+        nt::NetworkTableEntry __Twist_Deadzone_pos__Entry;
  
         // Inports
         nt::NetworkTableEntry __AT_Tag_11_Found__Entry;
@@ -334,6 +336,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __AT_Error_X__Entry;
         nt::NetworkTableEntry __AT_Error_Y__Entry;
         nt::NetworkTableEntry __AT_Target_Angle__Entry;
+        nt::NetworkTableEntry __Active_GameState__Entry;
         nt::NetworkTableEntry __Align_Amp__Entry;
         nt::NetworkTableEntry __Align_Speaker__Entry;
         nt::NetworkTableEntry __ArmStateRequest__Entry;
@@ -403,7 +406,6 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Odometry_X_global_est_ft__Entry;
         nt::NetworkTableEntry __Odometry_Y_global_TEAR_ft__Entry;
         nt::NetworkTableEntry __Odometry_Y_global_est_ft__Entry;
-        nt::NetworkTableEntry __Prev_GameState__Entry;
         nt::NetworkTableEntry __RL_Back__Entry;
         nt::NetworkTableEntry __RL_FB_Ratio__Entry;
         nt::NetworkTableEntry __RelativeMoveForward__Entry;
@@ -434,9 +436,11 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Steer_Joystick_Y__Entry;
         nt::NetworkTableEntry __Steer_Joystick_Z__Entry;
         nt::NetworkTableEntry __Steering_Abs_Angle__Entry;
+        nt::NetworkTableEntry __Steering_Abs_Angle_Active__Entry;
         nt::NetworkTableEntry __Steering_Abs_Cmd__Entry;
         nt::NetworkTableEntry __Steering_Abs_Cmd_SPF__Entry;
         nt::NetworkTableEntry __Steering_Abs_Gyro__Entry;
+        nt::NetworkTableEntry __Steering_Abs_Gyro_Latch__Entry;
         nt::NetworkTableEntry __Steering_Localized_Cmd__Entry;
         nt::NetworkTableEntry __Steering_Localized_PID__Entry;
         nt::NetworkTableEntry __Steering_Rel_Cmd__Entry;
@@ -449,4 +453,5 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Translation_Speed_SPF__Entry;
         nt::NetworkTableEntry __Translation_Steering_Cmd__Entry;
         nt::NetworkTableEntry __WhileIterator__Entry;
+        nt::NetworkTableEntry __previous_call_was_for_speaker__Entry;
 };

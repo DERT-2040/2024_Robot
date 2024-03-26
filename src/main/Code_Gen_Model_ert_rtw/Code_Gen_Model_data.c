@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.203
+ * Model version                  : 2.208
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Mon Mar 25 22:37:07 2024
+ * C/C++ source code generated on : Tue Mar 26 00:29:10 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -203,14 +203,14 @@ const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP = {
   /* Expression: Steering_Mod_Str_Rel_out
    * Referenced by: '<S411>/Modulation_Str_Y_Rel'
    */
-  { -1.0, -0.75, -0.55, -0.4, -0.27, -0.17, -0.1, -0.04, -0.01, -0.0, 0.0, 0.0,
-    0.01, 0.04, 0.1, 0.17, 0.27, 0.4, 0.55, 0.75, 1.0 },
+  { -1.0, -0.75, -0.55, -0.4, -0.27, -0.17, -0.1, -0.04, -0.015, -0.0, 0.0, 0.0,
+    0.015, 0.04, 0.1, 0.17, 0.27, 0.4, 0.55, 0.75, 1.0 },
 
   /* Expression: Steering_Mod_Str_Rel_in
    * Referenced by: '<S411>/Modulation_Str_Y_Rel'
    */
-  { -1.0, -0.9, -0.8, -0.7, -0.6, -0.5, -0.4, -0.3, -0.25, -0.2, 0.0, 0.2, 0.25,
-    0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0 },
+  { -1.0, -0.9, -0.8, -0.7, -0.6, -0.5, -0.4, -0.25, -0.15, -0.05, 0.0, 0.05,
+    0.15, 0.25, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0 },
 
   /* Expression: Rotation_Local_Inv
    * Referenced by: '<S14>/Constant4'

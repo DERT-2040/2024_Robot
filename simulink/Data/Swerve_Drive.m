@@ -11,8 +11,8 @@ temp_y = [0.0 0.01 0.04 0.06 0.09 0.14 0.18 0.31 0.58 1.0];
 Steering_Mod_Drv_in = [-fliplr(temp_x) 0 temp_x];
 Steering_Mod_Drv_out = [-fliplr(temp_y) 0 temp_y];
 
-temp_x = [0.2 0.25  0.3 0.4 0.5  0.6  0.7  0.8 0.9  1.0];
-temp_y = [0.0 0.01 0.04 0.10 0.17 0.27 0.40 0.55 0.75 1.0];
+temp_x = [0.05 0.15  0.25 0.4 0.5  0.6  0.7  0.8 0.9  1.0];
+temp_y = [0.0 0.015 0.04 0.10 0.17 0.27 0.40 0.55 0.75 1.0];
 % figure(1), clf, plot(temp_x,temp_y,'-o'), grid on
 % figure(2), clf, plot([-fliplr(temp_x) 0 temp_x],[-fliplr(temp_y) 0 temp_y],'-o'), grid on
 
@@ -34,6 +34,8 @@ Boost_Trigger_Decreasing_Limit = -(Boost_Trigger_High_Speed-Boost_Trigger_Low_Sp
 % Joystick Twist Axis Gains
 Steering_Twist_Gain = -0.5;
 Translation_Twist_Gain = 0.5;
+Twist_Deadzone_pos = 0.01;
+Twist_Deadzone_neg = -Twist_Deadzone_pos;
 
 % April tag translation control gains
 AT_XY_Control_Gain = 1.5;  % meter/second per meter of x-y error
