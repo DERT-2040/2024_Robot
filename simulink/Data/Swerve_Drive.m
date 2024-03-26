@@ -35,6 +35,8 @@ Boost_Trigger_Decreasing_Limit = -(Boost_Trigger_High_Speed-Boost_Trigger_Low_Sp
 Steering_Twist_Gain = -0.5;
 Translation_Twist_Gain = 0.5;
 
+% April tag translation control gains
+AT_XY_Control_Gain = 1.5;  % meter/second per meter of x-y error
 
 
 %% Wheel Gear Ratio
@@ -124,7 +126,7 @@ clear Derivative_low_pass_filter_freq
 
 
 %% Steering Heading PID
-Steering_Heading_Control_P = 3.5;
+Steering_Heading_Control_P = 5;
 
 Steering_Heading_Control_I = 0.015*0;  % set to 0 to stop gyro drift
 Steering_Heading_Control_I_UL = 0.1;
@@ -135,10 +137,11 @@ Steering_Heading_Control_D_FilterCoeff = 1-exp(-2*pi*Derivative_low_pass_filter_
 Steering_Heading_Control_D_UL = 0;
 Steering_Heading_Control_D_LL = -Steering_Heading_Control_D_UL;
 
-Steering_Heading_Control_Total_UL = 1.3;  % m/sec
+Steering_Heading_Control_Total_UL = 1.6;  % m/sec
 Steering_Heading_Control_Total_LL = -Steering_Heading_Control_Total_UL;
 
 Steering_Heading_Control_Deadzone = 0.1;
+
 
 clear Derivative_low_pass_filter_freq
 

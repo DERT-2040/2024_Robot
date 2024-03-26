@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.197
+ * Model version                  : 2.200
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Sun Mar 24 07:55:56 2024
+ * C/C++ source code generated on : Mon Mar 25 22:16:26 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -21,37 +21,27 @@
 
 /* Invariant block signals (default storage) */
 const ConstB_Code_Gen_Model_T Code_Gen_Model_ConstB = {
-  645.16,                              /* '<S161>/Math Function1' */
-  645.16,                              /* '<S164>/Math Function1' */
+  645.16,                              /* '<S162>/Math Function1' */
   645.16,                              /* '<S165>/Math Function1' */
-  -1.0,                                /* '<S275>/Cos5' */
-  1.2246467991473532E-16,              /* '<S275>/Sin5' */
-  -1.0,                                /* '<S296>/Cos5' */
-  1.2246467991473532E-16,              /* '<S296>/Sin5' */
-  -1.0,                                /* '<S317>/Cos5' */
-  1.2246467991473532E-16,              /* '<S317>/Sin5' */
-  -1.0,                                /* '<S338>/Cos5' */
-  1.2246467991473532E-16,              /* '<S338>/Sin5' */
-  -0.78539816339744828,                /* '<S348>/Atan1' */
-  0.78539816339744828,                 /* '<S348>/Add1' */
-  2.3561944901923448,                  /* '<S348>/Atan3' */
-  3.9269908169872414,                  /* '<S348>/Add2' */
-  -2.3561944901923448,                 /* '<S348>/Atan4' */
-  -0.78539816339744828                 /* '<S348>/Add3' */
+  645.16,                              /* '<S166>/Math Function1' */
+  -1.0,                                /* '<S276>/Cos5' */
+  1.2246467991473532E-16,              /* '<S276>/Sin5' */
+  -1.0,                                /* '<S297>/Cos5' */
+  1.2246467991473532E-16,              /* '<S297>/Sin5' */
+  -1.0,                                /* '<S318>/Cos5' */
+  1.2246467991473532E-16,              /* '<S318>/Sin5' */
+  -1.0,                                /* '<S339>/Cos5' */
+  1.2246467991473532E-16,              /* '<S339>/Sin5' */
+  -0.78539816339744828,                /* '<S349>/Atan1' */
+  0.78539816339744828,                 /* '<S349>/Add1' */
+  2.3561944901923448,                  /* '<S349>/Atan3' */
+  3.9269908169872414,                  /* '<S349>/Add2' */
+  -2.3561944901923448,                 /* '<S349>/Atan4' */
+  -0.78539816339744828                 /* '<S349>/Add3' */
 };
 
 /* Constant parameters (default storage) */
 const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP = {
-  /* Expression: Servo_Addition_out
-   * Referenced by: '<S10>/1-D Lookup Table'
-   */
-  { 0.0, 0.3 },
-
-  /* Expression: Servo_Front_Arm_Length_in
-   * Referenced by: '<S10>/1-D Lookup Table'
-   */
-  { 250.0, 350.0 },
-
   /* Expression: Speaker_Height_out
    * Referenced by: '<S16>/1-D Lookup Table2'
    */
@@ -76,19 +66,19 @@ const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP = {
   { 293.0, 293.0, 293.0, 293.0, 293.0, 293.0, 293.0, 293.0, 293.0 },
 
   /* Expression: Spline_Capture_Radius
-   * Referenced by: '<S194>/Capture Radius'
+   * Referenced by: '<S195>/Capture Radius'
    */
   { 0.2, 0.3, 0.4, 0.5 },
 
   /* Pooled Parameter (Expression: Spline_Velocity_Axis)
    * Referenced by:
-   *   '<S194>/Capture Radius'
-   *   '<S194>/Lookahead Distance'
+   *   '<S195>/Capture Radius'
+   *   '<S195>/Lookahead Distance'
    */
   { 0.5, 1.5, 2.5, 3.5 },
 
   /* Expression: Spline_Lookahead_Dist
-   * Referenced by: '<S194>/Lookahead Distance'
+   * Referenced by: '<S195>/Lookahead Distance'
    */
   { 0.2, 0.2, 0.2, 0.4 },
 
@@ -199,25 +189,25 @@ const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP = {
   { 0.0, 1.0, 2.0 },
 
   /* Expression: Steering_Mod_Drv_out
-   * Referenced by: '<S411>/Modulation_Drv'
+   * Referenced by: '<S412>/Modulation_Drv'
    */
   { -1.0, -0.58, -0.31, -0.18, -0.14, -0.09, -0.06, -0.04, -0.01, -0.0, 0.0, 0.0,
     0.01, 0.04, 0.06, 0.09, 0.14, 0.18, 0.31, 0.58, 1.0 },
 
   /* Expression: Steering_Mod_Drv_in
-   * Referenced by: '<S411>/Modulation_Drv'
+   * Referenced by: '<S412>/Modulation_Drv'
    */
   { -1.0, -0.9, -0.8, -0.7, -0.6, -0.5, -0.45, -0.4, -0.35, -0.3, 0.0, 0.3, 0.35,
     0.4, 0.45, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0 },
 
   /* Expression: Steering_Mod_Str_Rel_out
-   * Referenced by: '<S410>/Modulation_Str_Y_Rel'
+   * Referenced by: '<S411>/Modulation_Str_Y_Rel'
    */
   { -1.0, -0.75, -0.55, -0.4, -0.27, -0.17, -0.1, -0.04, -0.01, -0.0, 0.0, 0.0,
     0.01, 0.04, 0.1, 0.17, 0.27, 0.4, 0.55, 0.75, 1.0 },
 
   /* Expression: Steering_Mod_Str_Rel_in
-   * Referenced by: '<S410>/Modulation_Str_Y_Rel'
+   * Referenced by: '<S411>/Modulation_Str_Y_Rel'
    */
   { -1.0, -0.9, -0.8, -0.7, -0.6, -0.5, -0.4, -0.3, -0.25, -0.2, 0.0, 0.2, 0.25,
     0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0 },
@@ -230,21 +220,31 @@ const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP = {
 
   /* Pooled Parameter (Expression: Drive_Motor_Control_Scale_Factor)
    * Referenced by:
-   *   '<S266>/1-D Lookup Table'
-   *   '<S287>/1-D Lookup Table'
-   *   '<S308>/1-D Lookup Table'
-   *   '<S329>/1-D Lookup Table'
+   *   '<S267>/1-D Lookup Table'
+   *   '<S288>/1-D Lookup Table'
+   *   '<S309>/1-D Lookup Table'
+   *   '<S330>/1-D Lookup Table'
    */
   { 1.0, 1.0 },
 
   /* Pooled Parameter (Expression: Drive_Motor_Control_Module_Angle_Error)
    * Referenced by:
-   *   '<S266>/1-D Lookup Table'
-   *   '<S287>/1-D Lookup Table'
-   *   '<S308>/1-D Lookup Table'
-   *   '<S329>/1-D Lookup Table'
+   *   '<S267>/1-D Lookup Table'
+   *   '<S288>/1-D Lookup Table'
+   *   '<S309>/1-D Lookup Table'
+   *   '<S330>/1-D Lookup Table'
    */
-  { 0.0, 0.78539816339744828 }
+  { 0.0, 0.78539816339744828 },
+
+  /* Expression: Servo_Addition_out
+   * Referenced by: '<S10>/1-D Lookup Table'
+   */
+  { 0.0, 0.3 },
+
+  /* Expression: Servo_Front_Arm_Length_in
+   * Referenced by: '<S10>/1-D Lookup Table'
+   */
+  { 250.0, 350.0 }
 };
 
 /*

@@ -25,7 +25,7 @@ Shooter_Motor_Speed_Transition = 2000;
 Note_Time_Speaker_Spin_Up = 0.5;
 
 % Shooter Servo (note stopper)
-Servo_Time_Store = 0.2; % seconds
+Servo_Time_Store = 0.5; % seconds
 Servo_Time_Deploy = 0.4; % seconds
 
 % Maximum servo store position vs. calculated shooter angle

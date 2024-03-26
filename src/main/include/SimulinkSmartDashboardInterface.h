@@ -183,6 +183,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Steering_Relative_Cmd_Rate_Limit_Inc__Entry;
         nt::NetworkTableEntry __Steering_Relative_Gain__Entry;
         nt::NetworkTableEntry __Steering_Twist_Gain__Entry;
+        nt::NetworkTableEntry __TEST_Servo_Down_Flag__Entry;
         nt::NetworkTableEntry __TEST_Servo_Override_Flag__Entry;
         nt::NetworkTableEntry __TEST_Servo_Override_Value__Entry;
         nt::NetworkTableEntry __TEST_Speaker_Angle__Entry;
@@ -314,7 +315,6 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __AT_Target_Angle__Entry;
         nt::NetworkTableEntry __Align_Amp__Entry;
         nt::NetworkTableEntry __Align_Speaker__Entry;
-        nt::NetworkTableEntry __Align_Trap__Entry;
         nt::NetworkTableEntry __ArmStateRequest__Entry;
         nt::NetworkTableEntry __AutoState__Entry;
         nt::NetworkTableEntry __BL_Desired_Module_Angle__Entry;

@@ -151,7 +151,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __AT_XY_Control_Gain__Entry = NTtable_Tune->GetEntry("AT_XY_Control_Gain");
     NTinst.AddListener(__AT_XY_Control_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_XY_Control_Gain = event.GetValueEventData()->value.GetDouble();});
-    __AT_XY_Control_Gain__Entry.SetDouble(1);
+    __AT_XY_Control_Gain__Entry.SetDouble(1.5);
  
     __Amp_Angle__Entry = NTtable_Tune->GetEntry("Amp_Angle");
     NTinst.AddListener(__Amp_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Amp_Angle = event.GetValueEventData()->value.GetDouble();});
@@ -159,11 +159,11 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Amp_Gap__Entry = NTtable_Tune->GetEntry("Amp_Gap");
     NTinst.AddListener(__Amp_Gap__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Amp_Gap = event.GetValueEventData()->value.GetDouble();});
-    __Amp_Gap__Entry.SetDouble(650);
+    __Amp_Gap__Entry.SetDouble(700);
  
     __Amp_Height__Entry = NTtable_Tune->GetEntry("Amp_Height");
     NTinst.AddListener(__Amp_Height__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Amp_Height = event.GetValueEventData()->value.GetDouble();});
-    __Amp_Height__Entry.SetDouble(1000);
+    __Amp_Height__Entry.SetDouble(1050);
  
     __Auto_Design_Path__Entry = NTtable_Tune->GetEntry("Auto_Design_Path");
     NTinst.AddListener(__Auto_Design_Path__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Design_Path = event.GetValueEventData()->value.GetDouble();});
@@ -495,7 +495,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Servo_Time_Store__Entry = NTtable_Tune->GetEntry("Servo_Time_Store");
     NTinst.AddListener(__Servo_Time_Store__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Servo_Time_Store = event.GetValueEventData()->value.GetDouble();});
-    __Servo_Time_Store__Entry.SetDouble(0.2);
+    __Servo_Time_Store__Entry.SetDouble(0.5);
  
     __Shooter_DC_Eject__Entry = NTtable_Tune->GetEntry("Shooter_DC_Eject");
     NTinst.AddListener(__Shooter_DC_Eject__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Shooter_DC_Eject = event.GetValueEventData()->value.GetDouble();});
@@ -619,15 +619,15 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Steering_Heading_Control_P__Entry = NTtable_Tune->GetEntry("Steering_Heading_Control_P");
     NTinst.AddListener(__Steering_Heading_Control_P__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Heading_Control_P = event.GetValueEventData()->value.GetDouble();});
-    __Steering_Heading_Control_P__Entry.SetDouble(3.5);
+    __Steering_Heading_Control_P__Entry.SetDouble(5);
  
     __Steering_Heading_Control_Total_LL__Entry = NTtable_Tune->GetEntry("Steering_Heading_Control_Total_LL");
     NTinst.AddListener(__Steering_Heading_Control_Total_LL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Heading_Control_Total_LL = event.GetValueEventData()->value.GetDouble();});
-    __Steering_Heading_Control_Total_LL__Entry.SetDouble(-1.3);
+    __Steering_Heading_Control_Total_LL__Entry.SetDouble(-1.6);
  
     __Steering_Heading_Control_Total_UL__Entry = NTtable_Tune->GetEntry("Steering_Heading_Control_Total_UL");
     NTinst.AddListener(__Steering_Heading_Control_Total_UL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Heading_Control_Total_UL = event.GetValueEventData()->value.GetDouble();});
-    __Steering_Heading_Control_Total_UL__Entry.SetDouble(1.3);
+    __Steering_Heading_Control_Total_UL__Entry.SetDouble(1.6);
  
     __Steering_Motor_Control_D__Entry = NTtable_Tune->GetEntry("Steering_Motor_Control_D");
     NTinst.AddListener(__Steering_Motor_Control_D__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Motor_Control_D = event.GetValueEventData()->value.GetDouble();});
@@ -692,6 +692,10 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __Steering_Twist_Gain__Entry = NTtable_Tune->GetEntry("Steering_Twist_Gain");
     NTinst.AddListener(__Steering_Twist_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Twist_Gain = event.GetValueEventData()->value.GetDouble();});
     __Steering_Twist_Gain__Entry.SetDouble(-0.5);
+ 
+    __TEST_Servo_Down_Flag__Entry = NTtable_Tune->GetEntry("TEST_Servo_Down_Flag");
+    NTinst.AddListener(__TEST_Servo_Down_Flag__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Servo_Down_Flag = event.GetValueEventData()->value.GetDouble();});
+    __TEST_Servo_Down_Flag__Entry.SetDouble(0);
  
     __TEST_Servo_Override_Flag__Entry = NTtable_Tune->GetEntry("TEST_Servo_Override_Flag");
     NTinst.AddListener(__TEST_Servo_Override_Flag__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Servo_Override_Flag = event.GetValueEventData()->value.GetDouble();});
@@ -902,7 +906,6 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __AT_Target_Angle__Entry = NTtable_TPoint->GetEntry("AT_Target_Angle");
     __Align_Amp__Entry = NTtable_TPoint->GetEntry("Align_Amp");
     __Align_Speaker__Entry = NTtable_TPoint->GetEntry("Align_Speaker");
-    __Align_Trap__Entry = NTtable_TPoint->GetEntry("Align_Trap");
     __ArmStateRequest__Entry = NTtable_TPoint->GetEntry("ArmStateRequest");
     __AutoState__Entry = NTtable_TPoint->GetEntry("AutoState");
     __BL_Desired_Module_Angle__Entry = NTtable_TPoint->GetEntry("BL_Desired_Module_Angle");
@@ -1122,7 +1125,6 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __AT_Target_Angle__Entry.SetDouble(Code_Gen_Model_B.AT_Target_Angle);
     __Align_Amp__Entry.SetDouble(Code_Gen_Model_B.Align_Amp);
     __Align_Speaker__Entry.SetDouble(Code_Gen_Model_B.Align_Speaker);
-    __Align_Trap__Entry.SetDouble(Code_Gen_Model_B.Align_Trap);
     __ArmStateRequest__Entry.SetDouble(Code_Gen_Model_B.ArmStateRequest);
     __AutoState__Entry.SetDouble(Code_Gen_Model_B.AutoState);
     __BL_Desired_Module_Angle__Entry.SetDouble(Code_Gen_Model_B.BL_Desired_Module_Angle);

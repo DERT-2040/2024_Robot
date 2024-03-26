@@ -117,6 +117,3 @@ AT_Tag_7_Coordinate_X = AT_Data(7,1)*0.0254; % convert from inches to meters
 AT_Tag_7_Coordinate_Y = AT_Data(7,2)*0.0254; % convert from inches to meters
 
 clear AT_Data
-
-% Control gains
-AT_XY_Control_Gain = 1;

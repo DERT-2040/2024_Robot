@@ -90,8 +90,8 @@ LoadShooter_Gap = 280;
 
 % Position the arms for scoring in the amp
 Amp_Angle = -50;
-Amp_Height = 1000;
-Amp_Gap = 650;
+Amp_Height = 1050;
+Amp_Gap = 700;
 
 % Position the arms for scoring in the trap
 Trap_Angle = 30;
