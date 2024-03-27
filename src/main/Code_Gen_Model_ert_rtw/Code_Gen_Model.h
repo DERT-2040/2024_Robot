@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.208
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Tue Mar 26 00:29:10 2024
+ * C/C++ source code generated on : Tue Mar 26 21:06:05 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -323,6 +323,16 @@ typedef struct {
 
 /* Constant parameters (default storage) */
 typedef struct {
+  /* Expression: Servo_Addition_out
+   * Referenced by: '<S10>/1-D Lookup Table'
+   */
+  real_T uDLookupTable_tableData[2];
+
+  /* Expression: Servo_Front_Arm_Length_in
+   * Referenced by: '<S10>/1-D Lookup Table'
+   */
+  real_T uDLookupTable_bp01Data[2];
+
   /* Expression: Speaker_Height_out
    * Referenced by: '<S16>/1-D Lookup Table2'
    */
@@ -425,16 +435,6 @@ typedef struct {
    *   '<S330>/1-D Lookup Table'
    */
   real_T pooled40[2];
-
-  /* Expression: Servo_Addition_out
-   * Referenced by: '<S10>/1-D Lookup Table'
-   */
-  real_T uDLookupTable_tableData[2];
-
-  /* Expression: Servo_Front_Arm_Length_in
-   * Referenced by: '<S10>/1-D Lookup Table'
-   */
-  real_T uDLookupTable_bp01Data[2];
 } ConstP_Code_Gen_Model_T;
 
 /* External inputs (root inport signals with default storage) */
@@ -1277,6 +1277,9 @@ extern real_T Steering_Twist_Gain;     /* Variable: Steering_Twist_Gain
                                         */
 extern real_T TEST_Servo_Down_Flag;    /* Variable: TEST_Servo_Down_Flag
                                         * Referenced by: '<S10>/Constant6'
+                                        */
+extern real_T TEST_Servo_Down_Value;   /* Variable: TEST_Servo_Down_Value
+                                        * Referenced by: '<S10>/Constant2'
                                         */
 extern real_T TEST_Servo_Override_Flag;/* Variable: TEST_Servo_Override_Flag
                                         * Referenced by: '<S10>/Constant4'

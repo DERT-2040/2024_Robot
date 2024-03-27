@@ -84,7 +84,7 @@ Stage_Height = 21*25.4; % mm
 Stage_Gap = 9.5*25.4;     % mm
 
 % Position arms for transfering a note into the shooter for scoring in the amp or trap
-LoadShooter_Angle = 45;
+LoadShooter_Angle = 35;
 LoadShooter_Height = 600;
 LoadShooter_Gap = 280;
 

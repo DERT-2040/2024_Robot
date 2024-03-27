@@ -47,7 +47,7 @@ AT_Data = [...
 %   where R = rotation matrix = [cos(angle), -sin(angle); sin(angle), cos(angle)]
 
 % Amp tags
-d_offset = 48; % inches
+d_offset = 36; % inches
 
 tag = 5;
 angle = AT_Data(tag,4)*pi/180;

@@ -2,7 +2,7 @@
 FloorDistance = 850;
 
 % Tuning
-Auto_Start_Velocity     = 0.2;  % m/sec
+Auto_Start_Velocity     = 0.5;  % m/sec
 Auto_Start_Time         = 1.5;  % sec
 Auto_Intake_Velocity    = 0;  % m/sec
 Auto_Design_Path        = 1;  % 1 = Blue/Red Autos #1, 2 = Blue/Red Autos #2

@@ -135,7 +135,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __AT_Target_Tag_5_Y__Entry = NTtable_Tune->GetEntry("AT_Target_Tag_5_Y");
     NTinst.AddListener(__AT_Target_Tag_5_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Target_Tag_5_Y = event.GetValueEventData()->value.GetDouble();});
-    __AT_Target_Tag_5_Y__Entry.SetDouble(6.985);
+    __AT_Target_Tag_5_Y__Entry.SetDouble(7.2898);
  
     __AT_Target_Tag_6_Field_Angle__Entry = NTtable_Tune->GetEntry("AT_Target_Tag_6_Field_Angle");
     NTinst.AddListener(__AT_Target_Tag_6_Field_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Target_Tag_6_Field_Angle = event.GetValueEventData()->value.GetDouble();});
@@ -147,7 +147,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __AT_Target_Tag_6_Y__Entry = NTtable_Tune->GetEntry("AT_Target_Tag_6_Y");
     NTinst.AddListener(__AT_Target_Tag_6_Y__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_Target_Tag_6_Y = event.GetValueEventData()->value.GetDouble();});
-    __AT_Target_Tag_6_Y__Entry.SetDouble(6.985);
+    __AT_Target_Tag_6_Y__Entry.SetDouble(7.2898);
  
     __AT_XY_Control_Gain__Entry = NTtable_Tune->GetEntry("AT_XY_Control_Gain");
     NTinst.AddListener(__AT_XY_Control_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {AT_XY_Control_Gain = event.GetValueEventData()->value.GetDouble();});
@@ -179,7 +179,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Auto_Start_Velocity__Entry = NTtable_Tune->GetEntry("Auto_Start_Velocity");
     NTinst.AddListener(__Auto_Start_Velocity__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Auto_Start_Velocity = event.GetValueEventData()->value.GetDouble();});
-    __Auto_Start_Velocity__Entry.SetDouble(0.2);
+    __Auto_Start_Velocity__Entry.SetDouble(0.5);
  
     __BS_Deriv_FC__Entry = NTtable_Tune->GetEntry("BS_Deriv_FC");
     NTinst.AddListener(__BS_Deriv_FC__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {BS_Deriv_FC = event.GetValueEventData()->value.GetDouble();});
@@ -363,7 +363,7 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __LoadShooter_Angle__Entry = NTtable_Tune->GetEntry("LoadShooter_Angle");
     NTinst.AddListener(__LoadShooter_Angle__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {LoadShooter_Angle = event.GetValueEventData()->value.GetDouble();});
-    __LoadShooter_Angle__Entry.SetDouble(45);
+    __LoadShooter_Angle__Entry.SetDouble(35);
  
     __LoadShooter_Gap__Entry = NTtable_Tune->GetEntry("LoadShooter_Gap");
     NTinst.AddListener(__LoadShooter_Gap__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {LoadShooter_Gap = event.GetValueEventData()->value.GetDouble();});
@@ -619,15 +619,15 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
  
     __Steering_Heading_Control_P__Entry = NTtable_Tune->GetEntry("Steering_Heading_Control_P");
     NTinst.AddListener(__Steering_Heading_Control_P__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Heading_Control_P = event.GetValueEventData()->value.GetDouble();});
-    __Steering_Heading_Control_P__Entry.SetDouble(5);
+    __Steering_Heading_Control_P__Entry.SetDouble(2.5);
  
     __Steering_Heading_Control_Total_LL__Entry = NTtable_Tune->GetEntry("Steering_Heading_Control_Total_LL");
     NTinst.AddListener(__Steering_Heading_Control_Total_LL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Heading_Control_Total_LL = event.GetValueEventData()->value.GetDouble();});
-    __Steering_Heading_Control_Total_LL__Entry.SetDouble(-1.6);
+    __Steering_Heading_Control_Total_LL__Entry.SetDouble(-2.5);
  
     __Steering_Heading_Control_Total_UL__Entry = NTtable_Tune->GetEntry("Steering_Heading_Control_Total_UL");
     NTinst.AddListener(__Steering_Heading_Control_Total_UL__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Heading_Control_Total_UL = event.GetValueEventData()->value.GetDouble();});
-    __Steering_Heading_Control_Total_UL__Entry.SetDouble(1.6);
+    __Steering_Heading_Control_Total_UL__Entry.SetDouble(2.5);
  
     __Steering_Motor_Control_D__Entry = NTtable_Tune->GetEntry("Steering_Motor_Control_D");
     NTinst.AddListener(__Steering_Motor_Control_D__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Steering_Motor_Control_D = event.GetValueEventData()->value.GetDouble();});
@@ -696,6 +696,10 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __TEST_Servo_Down_Flag__Entry = NTtable_Tune->GetEntry("TEST_Servo_Down_Flag");
     NTinst.AddListener(__TEST_Servo_Down_Flag__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Servo_Down_Flag = event.GetValueEventData()->value.GetDouble();});
     __TEST_Servo_Down_Flag__Entry.SetDouble(0);
+ 
+    __TEST_Servo_Down_Value__Entry = NTtable_Tune->GetEntry("TEST_Servo_Down_Value");
+    NTinst.AddListener(__TEST_Servo_Down_Value__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Servo_Down_Value = event.GetValueEventData()->value.GetDouble();});
+    __TEST_Servo_Down_Value__Entry.SetDouble(0.85);
  
     __TEST_Servo_Override_Flag__Entry = NTtable_Tune->GetEntry("TEST_Servo_Override_Flag");
     NTinst.AddListener(__TEST_Servo_Override_Flag__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {TEST_Servo_Override_Flag = event.GetValueEventData()->value.GetDouble();});

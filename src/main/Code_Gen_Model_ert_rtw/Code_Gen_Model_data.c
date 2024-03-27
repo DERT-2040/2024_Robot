@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.208
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Tue Mar 26 00:29:10 2024
+ * C/C++ source code generated on : Tue Mar 26 21:06:05 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -42,6 +42,16 @@ const ConstB_Code_Gen_Model_T Code_Gen_Model_ConstB = {
 
 /* Constant parameters (default storage) */
 const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP = {
+  /* Expression: Servo_Addition_out
+   * Referenced by: '<S10>/1-D Lookup Table'
+   */
+  { 0.0, 0.3 },
+
+  /* Expression: Servo_Front_Arm_Length_in
+   * Referenced by: '<S10>/1-D Lookup Table'
+   */
+  { 250.0, 350.0 },
+
   /* Expression: Speaker_Height_out
    * Referenced by: '<S16>/1-D Lookup Table2'
    */
@@ -126,12 +136,12 @@ const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP = {
     5.5399999999999991, 8.2, 8.2, 8.2, 8.2, 8.2, 8.2, 8.2, 8.2, 1.25, 1.25, 0.0,
     0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3.1415926535897931, 3.1415926535897931,
     0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 13.891060000000001,
-    13.641060000000001, 13.641060000000001, 16.54106, 16.54106, 16.54106,
+    13.716060000000002, 13.716060000000002, 16.54106, 16.54106, 16.54106,
     16.54106, 16.54106, 16.54106, 16.54106, 5.5399999999999991,
     5.9999999999999991, 6.8999999999999995, 8.2, 8.2, 8.2, 8.2, 8.2, 8.2, 8.2,
     1.25, 1.25, 1.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.5707963267948966,
     1.5707963267948966, 1.5707963267948966, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
-    13.641060000000001, 14.400060000000002, 16.54106, 16.54106, 16.54106,
+    13.716060000000002, 14.400060000000002, 16.54106, 16.54106, 16.54106,
     16.54106, 16.54106, 16.54106, 16.54106, 16.54106, 6.8999999999999995,
     6.4999999999999991, 8.2, 8.2, 8.2, 8.2, 8.2, 8.2, 8.2, 8.2, 1.25, 1.25, 0.0,
     0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.5707963267948966, 2.3561944901923448,
@@ -234,17 +244,7 @@ const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP = {
    *   '<S309>/1-D Lookup Table'
    *   '<S330>/1-D Lookup Table'
    */
-  { 0.0, 0.78539816339744828 },
-
-  /* Expression: Servo_Addition_out
-   * Referenced by: '<S10>/1-D Lookup Table'
-   */
-  { 0.0, 0.3 },
-
-  /* Expression: Servo_Front_Arm_Length_in
-   * Referenced by: '<S10>/1-D Lookup Table'
-   */
-  { 250.0, 350.0 }
+  { 0.0, 0.78539816339744828 }
 };
 
 /*

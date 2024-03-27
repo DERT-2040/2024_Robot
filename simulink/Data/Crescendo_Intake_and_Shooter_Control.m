@@ -37,6 +37,10 @@ Servo_Store_Gain = 0.0071429;  % this is tuned to keep a constant angle as the s
 Servo_Front_Arm_Length_in = [250 350];
 Servo_Addition_out = [0 0.3];
 
+% Test Mode to get note stopper inside the frame
+TEST_Servo_Down_Flag = 0;  % Use in test mode before a match to put the servo down
+TEST_Servo_Down_Value = 0.85;
+
 % Shooter speed control PID for transfer
 Shooter_Motor_Control_FF= 0.00025;  % 1 DC / Max Speed RPM;
 Shooter_Motor_Control_P = 0.00010;

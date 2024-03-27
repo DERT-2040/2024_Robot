@@ -184,6 +184,7 @@ class SimulinkSmartDashboardInterface {
         nt::NetworkTableEntry __Steering_Relative_Gain__Entry;
         nt::NetworkTableEntry __Steering_Twist_Gain__Entry;
         nt::NetworkTableEntry __TEST_Servo_Down_Flag__Entry;
+        nt::NetworkTableEntry __TEST_Servo_Down_Value__Entry;
         nt::NetworkTableEntry __TEST_Servo_Override_Flag__Entry;
         nt::NetworkTableEntry __TEST_Servo_Override_Value__Entry;
         nt::NetworkTableEntry __TEST_Speaker_Angle__Entry;

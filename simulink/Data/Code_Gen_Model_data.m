@@ -46,7 +46,6 @@ TEST_Swerve_Mode_Override_Flag = 0;
 % temporary variables for testing
 TEST_Servo_Override_Flag = 0;
 TEST_Servo_Override_Value = 0;
-TEST_Servo_Down_Flag = 0;  % Use in test mode before a match to put the servo down
 
 % These overrides take effect when values are changed to non-zero
 TEST_Speaker_Angle = 0;   % degrees

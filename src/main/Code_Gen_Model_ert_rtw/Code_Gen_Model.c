@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.208
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Tue Mar 26 00:29:10 2024
+ * C/C++ source code generated on : Tue Mar 26 21:06:05 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -215,7 +215,7 @@ real_T AT_Target_Tag_5_Field_Angle = 1.5708;/* Variable: AT_Target_Tag_5_Field_A
 real_T AT_Target_Tag_5_X = 14.7008;    /* Variable: AT_Target_Tag_5_X
                                         * Referenced by: '<S409>/Constant9'
                                         */
-real_T AT_Target_Tag_5_Y = 6.985;      /* Variable: AT_Target_Tag_5_Y
+real_T AT_Target_Tag_5_Y = 7.2898;     /* Variable: AT_Target_Tag_5_Y
                                         * Referenced by: '<S409>/Constant28'
                                         */
 real_T AT_Target_Tag_6_Field_Angle = 4.7124;/* Variable: AT_Target_Tag_6_Field_Angle
@@ -224,7 +224,7 @@ real_T AT_Target_Tag_6_Field_Angle = 4.7124;/* Variable: AT_Target_Tag_6_Field_A
 real_T AT_Target_Tag_6_X = 1.8415;     /* Variable: AT_Target_Tag_6_X
                                         * Referenced by: '<S409>/Constant5'
                                         */
-real_T AT_Target_Tag_6_Y = 6.985;      /* Variable: AT_Target_Tag_6_Y
+real_T AT_Target_Tag_6_Y = 7.2898;     /* Variable: AT_Target_Tag_6_Y
                                         * Referenced by: '<S409>/Constant27'
                                         */
 real_T AT_XY_Control_Gain = 1.5;       /* Variable: AT_XY_Control_Gain
@@ -248,7 +248,7 @@ real_T Auto_Intake_Velocity = 0.0;     /* Variable: Auto_Intake_Velocity
 real_T Auto_Start_Time = 1.5;          /* Variable: Auto_Start_Time
                                         * Referenced by: '<S27>/Chart'
                                         */
-real_T Auto_Start_Velocity = 0.2;      /* Variable: Auto_Start_Velocity
+real_T Auto_Start_Velocity = 0.5;      /* Variable: Auto_Start_Velocity
                                         * Referenced by: '<S27>/Chart'
                                         */
 real_T BS_Deriv_FC = 0.2;              /* Variable: BS_Deriv_FC
@@ -452,7 +452,7 @@ real_T KF_Enable = 1.0;                /* Variable: KF_Enable
 real_T KF_Vision_Ambiguity_Thresh = 0.1;/* Variable: KF_Vision_Ambiguity_Thresh
                                          * Referenced by: '<S12>/Constant'
                                          */
-real_T LoadShooter_Angle = 45.0;       /* Variable: LoadShooter_Angle
+real_T LoadShooter_Angle = 35.0;       /* Variable: LoadShooter_Angle
                                         * Referenced by: '<S16>/Chart_Shooter_Position'
                                         */
 real_T LoadShooter_Gap = 280.0;        /* Variable: LoadShooter_Gap
@@ -675,16 +675,16 @@ real_T Steering_Heading_Control_I_UL = 0.1;
                                       /* Variable: Steering_Heading_Control_I_UL
                                        * Referenced by: '<S378>/Saturation1'
                                        */
-real_T Steering_Heading_Control_P = 5.0;/* Variable: Steering_Heading_Control_P
+real_T Steering_Heading_Control_P = 2.5;/* Variable: Steering_Heading_Control_P
                                          * Referenced by: '<S378>/Gain1'
                                          */
-real_T Steering_Heading_Control_Total_LL = -1.6;
+real_T Steering_Heading_Control_Total_LL = -2.5;
                                   /* Variable: Steering_Heading_Control_Total_LL
                                    * Referenced by:
                                    *   '<S378>/Constant1'
                                    *   '<S378>/Saturation2'
                                    */
-real_T Steering_Heading_Control_Total_UL = 1.6;
+real_T Steering_Heading_Control_Total_UL = 2.5;
                                   /* Variable: Steering_Heading_Control_Total_UL
                                    * Referenced by:
                                    *   '<S378>/Constant'
@@ -779,6 +779,9 @@ real_T Steering_Twist_Gain = -0.5;     /* Variable: Steering_Twist_Gain
                                         */
 real_T TEST_Servo_Down_Flag = 0.0;     /* Variable: TEST_Servo_Down_Flag
                                         * Referenced by: '<S10>/Constant6'
+                                        */
+real_T TEST_Servo_Down_Value = 0.85;   /* Variable: TEST_Servo_Down_Value
+                                        * Referenced by: '<S10>/Constant2'
                                         */
 real_T TEST_Servo_Override_Flag = 0.0; /* Variable: TEST_Servo_Override_Flag
                                         * Referenced by: '<S10>/Constant4'
@@ -1946,28 +1949,28 @@ void Code_Gen_Model_step(void)
 
   /* Sum: '<S7>/Subtract1' incorporates:
    *  Constant: '<S7>/Constant1'
-   *  Inport: '<Root>/IsBlueAlliance'
    */
-  rtb_Subtract1 = Code_Gen_Model_U.IsBlueAlliance - AT_Tag_7_Coordinate_Y;
+  rtb_Subtract1 = Code_Gen_Model_B.KF_Position_Y - AT_Tag_7_Coordinate_Y;
 
   /* Sum: '<S7>/Subtract' incorporates:
    *  Constant: '<S7>/Constant9'
    */
-  rtb_Subtract = Code_Gen_Model_B.KF_Position_Y - AT_Tag_7_Coordinate_X;
+  rtb_Subtract = Code_Gen_Model_B.KF_Position_X - AT_Tag_7_Coordinate_X;
 
   /* Sum: '<S7>/Subtract3' incorporates:
    *  Constant: '<S7>/Constant2'
-   *  Inport: '<Root>/IsBlueAlliance'
    */
-  rtb_Subtract3 = Code_Gen_Model_U.IsBlueAlliance - AT_Tag_4_Coordinate_Y;
+  rtb_Subtract3 = Code_Gen_Model_B.KF_Position_Y - AT_Tag_4_Coordinate_Y;
 
   /* Sum: '<S7>/Subtract2' incorporates:
    *  Constant: '<S7>/Constant3'
    */
-  rtb_Subtract2 = Code_Gen_Model_B.KF_Position_Y - AT_Tag_4_Coordinate_X;
+  rtb_Subtract2 = Code_Gen_Model_B.KF_Position_X - AT_Tag_4_Coordinate_X;
 
-  /* Switch: '<S7>/Switch1' */
-  if (Code_Gen_Model_B.KF_Position_X != 0.0) {
+  /* Switch: '<S7>/Switch1' incorporates:
+   *  Inport: '<Root>/IsBlueAlliance'
+   */
+  if (Code_Gen_Model_U.IsBlueAlliance != 0.0) {
     /* Switch: '<S7>/Switch1' incorporates:
      *  Trigonometry: '<S7>/Atan2'
      */
@@ -8030,12 +8033,13 @@ void Code_Gen_Model_step(void)
 
   /* Switch: '<S7>/Switch2' incorporates:
    *  Constant: '<S7>/Constant4'
+   *  Inport: '<Root>/IsBlueAlliance'
    *  Switch: '<S7>/Switch'
    */
   if (TEST_Speaker_Distance != 0.0) {
     /* Switch: '<S7>/Switch2' */
     Code_Gen_Model_B.Speaker_Distance = TEST_Speaker_Distance;
-  } else if (Code_Gen_Model_B.KF_Position_X != 0.0) {
+  } else if (Code_Gen_Model_U.IsBlueAlliance != 0.0) {
     /* Switch: '<S7>/Switch' incorporates:
      *  Math: '<S7>/Hypot'
      *  Switch: '<S7>/Switch2'
@@ -9066,19 +9070,9 @@ void Code_Gen_Model_step(void)
      */
     if (TEST_Servo_Down_Flag != 0.0) {
       /* Outport: '<Root>/Shooter_Servo_Position' incorporates:
-       *  Constant: '<S10>/Constant1'
-       *  Gain: '<S10>/Gain'
-       *  Lookup_n-D: '<S10>/1-D Lookup Table'
-       *  MinMax: '<S16>/Max'
-       *  Sum: '<S10>/Add'
-       *  Sum: '<S10>/Add1'
-       *  Sum: '<S25>/Subtract1'
+       *  Constant: '<S10>/Constant2'
        */
-      Code_Gen_Model_Y.Shooter_Servo_Position = ((Servo_Store_Gain * fmin
-        (Code_Gen_Model_B.Desired_Angle, Code_Gen_Model_B.Meas_Angle)) +
-        Servo_Store_Offset) + look1_binlcpw(Code_Gen_Model_B.Front_Arm_Length,
-        Code_Gen_Model_ConstP.uDLookupTable_bp01Data,
-        Code_Gen_Model_ConstP.uDLookupTable_tableData, 1U);
+      Code_Gen_Model_Y.Shooter_Servo_Position = TEST_Servo_Down_Value;
     } else {
       /* Outport: '<Root>/Shooter_Servo_Position' incorporates:
        *  Constant: '<S10>/Constant7'
@@ -9088,9 +9082,9 @@ void Code_Gen_Model_step(void)
 
     /* End of Switch: '<S10>/Switch9' */
   } else if (Code_Gen_Model_B.Shooter_Servo) {
-    /* Switch: '<S10>/Switch6' incorporates:
+    /* Outport: '<Root>/Shooter_Servo_Position' incorporates:
      *  Constant: '<S10>/Constant'
-     *  Outport: '<Root>/Shooter_Servo_Position'
+     *  Switch: '<S10>/Switch6'
      *  Switch: '<S10>/Switch8'
      */
     Code_Gen_Model_Y.Shooter_Servo_Position = 0.0;
@@ -9103,6 +9097,7 @@ void Code_Gen_Model_step(void)
      *  Sum: '<S10>/Add'
      *  Sum: '<S10>/Add1'
      *  Sum: '<S25>/Subtract1'
+     *  Switch: '<S10>/Switch6'
      *  Switch: '<S10>/Switch8'
      */
     Code_Gen_Model_Y.Shooter_Servo_Position = ((Servo_Store_Gain * fmin

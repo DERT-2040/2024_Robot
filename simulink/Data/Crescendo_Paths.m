@@ -90,8 +90,8 @@ Path6 = [...
 
 Path7 = [
     2.650 + x_offset, 2.660 + y_offset, 1.0 * nominal_speed, 90*D2R;
-    2.900 + x_offset, 2.200 + y_offset, 1.0 * nominal_speed, 90*D2R;
-    2.900 + x_offset, 1.300 + y_offset, 1.0 * nominal_speed, 90*D2R;
+    2.900 - 3*25/1000 + x_offset, 2.200 + y_offset, 1.0 * nominal_speed, 90*D2R;
+    2.900 - 3*25/1000 + x_offset, 1.300 + y_offset, 1.0 * nominal_speed, 90*D2R;
     0 0 0 0;
     0 0 0 0;
     0 0 0 0;
@@ -102,7 +102,7 @@ Path7 = [
 ];
 
 Path8 = [
-    2.900 + x_offset, 1.300 + y_offset, 1.0 * nominal_speed, 90*D2R;
+    2.900 - 3*25/1000 + x_offset, 1.300 + y_offset, 1.0 * nominal_speed, 90*D2R;
     2.141 + x_offset, 1.700 + y_offset, 1.0 * nominal_speed, (-45+180)*D2R;
     0 0 0 0;
     0 0 0 0;
