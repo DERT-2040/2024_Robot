@@ -1,7 +1,7 @@
-#include "include/TelescopingArm.h"
+#include "include/TelescopingArm.hh"
 
 
-void TelescopingArm::PreStep()
+void TelescopingArm::PreStepCallback()
 {
     Code_Gen_Model_U.Encoder_Revs_Back_Lower = Encoder_Back_Lower.GetPosition();
     Code_Gen_Model_U.Encoder_Revs_Back_Upper = Encoder_Back_Upper.GetPosition();
@@ -9,14 +9,24 @@ void TelescopingArm::PreStep()
 
 }
 
-void TelescopingArm::PostStep()
+void TelescopingArm::PostStepCallback()
 {
     Motor_Back_Lower.Set(Code_Gen_Model_Y.Back_Lower_Arm_DutyCycle);
     Motor_Back_Upper.Set(Code_Gen_Model_Y.Back_Upper_Arm_DutyCycle);
     Motor_Front.Set(Code_Gen_Model_Y.Front_Arm_DutyCycle);    
 }
 
-void TelescopingArm::Initalize()
+void TelescopingArm::SmartDashboardCallback()
+{
+
+}
+
+void TelescopingArm::GameStateChangeCallback()
+{
+    
+}
+
+TelescopingArm::TelescopingArm()
 {   //Restore factoroy defaults
     Motor_Back_Lower.RestoreFactoryDefaults();
     Motor_Back_Upper.RestoreFactoryDefaults();

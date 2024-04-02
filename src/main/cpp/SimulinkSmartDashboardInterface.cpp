@@ -1,8 +1,10 @@
 // This file has been auto generated from a Matlab script
 // Do not manually edit since changes will be lost
-#include "include/SimulinkSmartDashboardInterface.h"
+// Janelyn <3
+#include "include/SimulinkSmartDashboardInterface.hh"
  
-void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
+SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
+{
     nt::NetworkTableInstance NTinst = nt::NetworkTableInstance::GetDefault();
     auto NTtable_Tune = NTinst.GetTable("Simulink Tunable Params");
     auto NTtable_Inport = NTinst.GetTable("Simulink Top Level Ports");
@@ -1057,7 +1059,12 @@ void SimulinkSmartDashboardInterface::InitSmartDashboardInterface() {
     __previous_call_was_for_speaker__Entry = NTtable_TPoint->GetEntry("previous_call_was_for_speaker");
 }
  
-void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
+void SimulinkSmartDashboardInterface::PreStepCallback() {}
+ 
+void SimulinkSmartDashboardInterface::PostStepCallback() {}
+ 
+void SimulinkSmartDashboardInterface::SmartDashboardCallback()
+{
     // Inports
     __AT_Tag_11_Found__Entry.SetDouble(Code_Gen_Model_U.AT_Tag_11_Found);
     __AT_Tag_12_Found__Entry.SetDouble(Code_Gen_Model_U.AT_Tag_12_Found);
@@ -1299,3 +1306,4 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback() {
     __WhileIterator__Entry.SetDouble(Code_Gen_Model_B.WhileIterator);
     __previous_call_was_for_speaker__Entry.SetDouble(Code_Gen_Model_B.previous_call_was_for_speaker);
 }
+void SimulinkSmartDashboardInterface::GameStateChangeCallback() {}

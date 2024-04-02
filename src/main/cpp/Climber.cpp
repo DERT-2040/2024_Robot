@@ -1,14 +1,16 @@
-#include "include/Climber.h"
+#include "include/Climber.hh"
 
-void Climber::PreStep()
-{}
+void Climber::PreStepCallback()
+{
 
-void Climber::PostStep()
+}
+
+void Climber::PostStepCallback()
 {
     m_Climber_Motor.Set(Code_Gen_Model_Y.Climber_DutyCycle);
 }
 
-void Climber::Initalize()
+Climber::Climber()
 {   //Restore factoroy defaults
     m_Climber_Motor.RestoreFactoryDefaults();
 
@@ -17,4 +19,14 @@ void Climber::Initalize()
 
     //Set idle mode to brake
     m_Climber_Motor.SetIdleMode(rev::CANSparkBase::IdleMode::kBrake);
+}
+
+void Climber::SmartDashboardCallback()
+{
+
+}
+
+void Climber::GameStateChangeCallback()
+{
+    
 }
