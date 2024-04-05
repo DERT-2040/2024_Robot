@@ -134,7 +134,7 @@ RL_FB_Ratio_Stage_Load = 1.61;
 
 RL_Back_Stage_to_Amp = 6;
 RL_Back_Amp_to_Stage = 10;
-RL_FB_Ratio_Stage_Amp = 0.72;
+RL_FB_Ratio_Stage_Amp = 1.0; %0.72;  at 0.72 it was getting into a 4-bar lock when rising
 
 RL_Back_Load_to_Amp = 10;
 RL_FB_Ratio_Load_Amp = 0.42;
