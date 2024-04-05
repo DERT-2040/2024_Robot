@@ -473,7 +473,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __RL_FB_Ratio_Stage_Amp__Entry = NTtable_Tune->GetEntry("RL_FB_Ratio_Stage_Amp");
     NTinst.AddListener(__RL_FB_Ratio_Stage_Amp__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {RL_FB_Ratio_Stage_Amp = event.GetValueEventData()->value.GetDouble();});
-    __RL_FB_Ratio_Stage_Amp__Entry.SetDouble(0.72);
+    __RL_FB_Ratio_Stage_Amp__Entry.SetDouble(1);
  
     __RL_FB_Ratio_Stage_Load__Entry = NTtable_Tune->GetEntry("RL_FB_Ratio_Stage_Load");
     NTinst.AddListener(__RL_FB_Ratio_Stage_Load__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {RL_FB_Ratio_Stage_Load = event.GetValueEventData()->value.GetDouble();});

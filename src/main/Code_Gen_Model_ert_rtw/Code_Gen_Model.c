@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.208
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Mon Apr  1 22:17:12 2024
+ * C/C++ source code generated on : Fri Apr  5 07:31:52 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -537,7 +537,7 @@ real_T RL_FB_Ratio_Speaker_Final = 1.8;/* Variable: RL_FB_Ratio_Speaker_Final
 real_T RL_FB_Ratio_Speaker_Partial = 1.33;/* Variable: RL_FB_Ratio_Speaker_Partial
                                            * Referenced by: '<S16>/Chart_Shooter_Position'
                                            */
-real_T RL_FB_Ratio_Stage_Amp = 0.72;   /* Variable: RL_FB_Ratio_Stage_Amp
+real_T RL_FB_Ratio_Stage_Amp = 1.0;    /* Variable: RL_FB_Ratio_Stage_Amp
                                         * Referenced by: '<S16>/Chart_Shooter_Position'
                                         */
 real_T RL_FB_Ratio_Stage_Load = 1.61;  /* Variable: RL_FB_Ratio_Stage_Load

@@ -124,10 +124,7 @@ void SwerveDrive::PostStepCallback()
 
 void SwerveDrive::SmartDashboardCallback() 
 {
-  frc::SmartDashboard::PutNumber("FL_Encoder", m_FrontLeft_Steer_Encoder.GetPosition().GetValue().value());
-  frc::SmartDashboard::PutNumber("FR_Encoder", static_cast<double>(m_FrontRight_Steer_Encoder.GetPosition().GetValue()));
-  frc::SmartDashboard::PutNumber("BL_Encoder", static_cast<double>(m_BackLeft_Steer_Encoder.GetPosition().GetValue()));
-  frc::SmartDashboard::PutNumber("BR_Encoder", static_cast<double>(m_BackRight_Steer_Encoder.GetPosition().GetValue()));
+
 }
 
 void SwerveDrive::ChangeGameStatesCallback()
