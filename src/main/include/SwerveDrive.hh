@@ -15,6 +15,8 @@
 #include <ctre/phoenix6/CANcoder.hpp>
 //etc
 #include <frc/smartdashboard/SmartDashboard.h>
+//wpi
+#include "wpi/raw_ostream.h"
 
 class SwerveDrive : public Component
 {

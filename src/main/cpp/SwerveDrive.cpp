@@ -99,6 +99,15 @@ void SwerveDrive::PreStepCallback()
 }
 void SwerveDrive::PostStepCallback() 
 {
+  if(Code_Gen_Model_Y.Enable_Wheels > 0)
+    WheelsOn();
+
+  if(Code_Gen_Model_Y.Disable_Wheels > 0)
+    WheelsOff();
+
+  if(Code_Gen_Model_Y.Reset_Wheel_Offsets > 0)
+    Reset_Wheel_Offset();
+
   if(AreMotorsDisabled) //escape if motor output is disabled
     return; 
   //Drive Motors
@@ -112,14 +121,7 @@ void SwerveDrive::PostStepCallback()
     m_BackLeft_Steer.Set(Code_Gen_Model_Y.BackLeft_Steer_DutyCycle);
     m_BackRight_Steer.Set(Code_Gen_Model_Y.BackRight_Steer_DutyCycle);
 
-    if(Code_Gen_Model_Y.Enable_Wheels > 0)
-      WheelsOn();
-
-    if(Code_Gen_Model_Y.Disable_Wheels > 0)
-      WheelsOff();
-
-    if(Code_Gen_Model_Y.Reset_Wheel_Offsets > 0)
-      Reset_Wheel_Offset();
+    
 }
 
 void SwerveDrive::SmartDashboardCallback() 
@@ -203,6 +205,7 @@ void SwerveDrive::Reset_Wheel_Offset()
 
 void SwerveDrive::Set_Wheel_Offset() 
 {
+  std::cout << "Swerve Wheel Offsets Set\n";
   Code_Gen_Model_U.BackLeft_Turn_Offset = frc::Preferences::GetDouble(Constants::k_BackLeft_Wheel_Offset_Key, 0.0);
   Code_Gen_Model_U.BackRight_Turn_Offset = frc::Preferences::GetDouble(Constants::k_BackRight_Wheel_Offset_Key, 0.0);
   Code_Gen_Model_U.FrontLeft_Turn_Offset = frc::Preferences::GetDouble(Constants::k_FrontLeft_Wheel_Offset_Key, 0.0);
@@ -211,12 +214,14 @@ void SwerveDrive::Set_Wheel_Offset()
 
 void SwerveDrive::WheelsOn() 
 {
+  std::cout << "Swerve Motors Enabled\n";
   AreMotorsDisabled = false;
   BrakeMode();
 }
 
 void SwerveDrive::WheelsOff()
 {
+  std::cout << "Swerve Motors Disabled\n";
   AreMotorsDisabled = true;
   //stop all motor commands
   m_FrontLeft_Drive.StopMotor();
@@ -228,5 +233,4 @@ void SwerveDrive::WheelsOff()
   m_BackLeft_Steer.StopMotor();
   m_BackRight_Steer.StopMotor();
   CoastMode();  
-  std::cout<< "WheelsOff";
 }
