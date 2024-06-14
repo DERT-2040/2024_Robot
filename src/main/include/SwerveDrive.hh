@@ -121,14 +121,4 @@ private:
     ctre::phoenix6::hardware::CANcoder m_FrontRight_Steer_Encoder{Constants::k_FrontRight_Steer_Encoder_ID, "uno"};
     ctre::phoenix6::hardware::CANcoder m_BackLeft_Steer_Encoder{Constants::k_BackLeft_Steer_Encoder_ID, "uno"};
     ctre::phoenix6::hardware::CANcoder m_BackRight_Steer_Encoder{Constants::k_BackRight_Steer_Encoder_ID, "uno"};
-
-
-  //Motor States
-    /**
-     * if true, commands can not be sent to the wheel motors
-     * edited by:
-     *  * WheelsOn()
-     *  * WheelsOff()
-     */
-    bool AreMotorsDisabled = false;
 };

@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'Code_Gen_Model'.
  *
- * Model version                  : 2.208
+ * Model version                  : 2.212
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Fri Apr  5 07:31:52 2024
+ * C/C++ source code generated on : Thu Jun 13 20:57:05 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -70,22 +70,22 @@ typedef struct {
   real_T Steering_Localized_PID;       /* '<S378>/Saturation2' */
   real_T Steering_Rel_Cmd_SPF;         /* '<S17>/Merge1' */
   real_T Steering_Localized_Cmd;       /* '<S350>/Switch' */
+  real_T FL_Desired_Module_Angle;      /* '<S389>/Switch' */
+  real_T FL_Steer_Module_Angle;        /* '<S255>/Add1' */
   real_T FL_Desired_Wheel_Speed_in;    /* '<S389>/Switch1' */
   real_T FR_Desired_Wheel_Speed_in;    /* '<S394>/Switch1' */
   real_T BL_Desired_Wheel_Speed_in;    /* '<S399>/Switch1' */
   real_T BR_Desired_Wheel_Speed_in;    /* '<S404>/Switch1' */
   real_T FL_Desired_Wheel_Speed;       /* '<S384>/Product' */
-  real_T FL_Desired_Module_Angle;      /* '<S389>/Switch' */
-  real_T FL_Steer_Module_Angle;        /* '<S255>/Add1' */
-  real_T FR_Desired_Wheel_Speed;       /* '<S384>/Product1' */
   real_T FR_Desired_Module_Angle;      /* '<S394>/Switch' */
   real_T FR_Steer_Module_Angle;        /* '<S256>/Add1' */
-  real_T BL_Desired_Wheel_Speed;       /* '<S384>/Product2' */
+  real_T FR_Desired_Wheel_Speed;       /* '<S384>/Product1' */
   real_T BL_Desired_Module_Angle;      /* '<S399>/Switch' */
   real_T BL_Steer_Module_Angle;        /* '<S257>/Add1' */
-  real_T BR_Desired_Wheel_Speed;       /* '<S384>/Product3' */
+  real_T BL_Desired_Wheel_Speed;       /* '<S384>/Product2' */
   real_T BR_Desired_Module_Angle;      /* '<S404>/Switch' */
   real_T BR_Steer_Module_Angle;        /* '<S258>/Add1' */
+  real_T BR_Desired_Wheel_Speed;       /* '<S384>/Product3' */
   real_T State_Request_Intake_Shooter_h;/* '<S13>/Merge11' */
   real_T State_Request_Arm_d;          /* '<S13>/Merge12' */
   real_T Speaker_Distance;             /* '<S7>/Switch2' */
@@ -183,30 +183,30 @@ typedef struct {
   real_T FixPtUnitDelay1_DSTATE_e;     /* '<S376>/FixPt Unit Delay1' */
   real_T UnitDelay_DSTATE_g;           /* '<S360>/Unit Delay' */
   real_T FixPtUnitDelay1_DSTATE_p;     /* '<S369>/FixPt Unit Delay1' */
-  real_T UnitDelay1_DSTATE_a;          /* '<S272>/Unit Delay1' */
-  real_T UD_DSTATE_o;                  /* '<S271>/UD' */
-  real_T UnitDelay_DSTATE_f;           /* '<S265>/Unit Delay' */
   real_T UnitDelay1_DSTATE_b;          /* '<S283>/Unit Delay1' */
   real_T UD_DSTATE_b;                  /* '<S282>/UD' */
   real_T UnitDelay_DSTATE_e;           /* '<S268>/Unit Delay' */
-  real_T UnitDelay1_DSTATE_b1;         /* '<S293>/Unit Delay1' */
-  real_T UD_DSTATE_e;                  /* '<S292>/UD' */
-  real_T UnitDelay_DSTATE_em;          /* '<S286>/Unit Delay' */
+  real_T UnitDelay1_DSTATE_a;          /* '<S272>/Unit Delay1' */
+  real_T UD_DSTATE_o;                  /* '<S271>/UD' */
+  real_T UnitDelay_DSTATE_f;           /* '<S265>/Unit Delay' */
   real_T UnitDelay1_DSTATE_n;          /* '<S304>/Unit Delay1' */
   real_T UD_DSTATE_i;                  /* '<S303>/UD' */
   real_T UnitDelay_DSTATE_dt;          /* '<S289>/Unit Delay' */
-  real_T UnitDelay1_DSTATE_f;          /* '<S314>/Unit Delay1' */
-  real_T UD_DSTATE_l;                  /* '<S313>/UD' */
-  real_T UnitDelay_DSTATE_gp;          /* '<S307>/Unit Delay' */
+  real_T UnitDelay1_DSTATE_b1;         /* '<S293>/Unit Delay1' */
+  real_T UD_DSTATE_e;                  /* '<S292>/UD' */
+  real_T UnitDelay_DSTATE_em;          /* '<S286>/Unit Delay' */
   real_T UnitDelay1_DSTATE_nw;         /* '<S325>/Unit Delay1' */
   real_T UD_DSTATE_k;                  /* '<S324>/UD' */
   real_T UnitDelay_DSTATE_k;           /* '<S310>/Unit Delay' */
-  real_T UnitDelay1_DSTATE_k;          /* '<S335>/Unit Delay1' */
-  real_T UD_DSTATE_c;                  /* '<S334>/UD' */
-  real_T UnitDelay_DSTATE_a;           /* '<S328>/Unit Delay' */
+  real_T UnitDelay1_DSTATE_f;          /* '<S314>/Unit Delay1' */
+  real_T UD_DSTATE_l;                  /* '<S313>/UD' */
+  real_T UnitDelay_DSTATE_gp;          /* '<S307>/Unit Delay' */
   real_T UnitDelay1_DSTATE_iw;         /* '<S346>/Unit Delay1' */
   real_T UD_DSTATE_ll;                 /* '<S345>/UD' */
   real_T UnitDelay_DSTATE_l;           /* '<S331>/Unit Delay' */
+  real_T UnitDelay1_DSTATE_k;          /* '<S335>/Unit Delay1' */
+  real_T UD_DSTATE_c;                  /* '<S334>/UD' */
+  real_T UnitDelay_DSTATE_a;           /* '<S328>/Unit Delay' */
   real_T UnitDelay_DSTATE_mw;          /* '<S90>/Unit Delay' */
   real_T UnitDelay_DSTATE_h;           /* '<S91>/Unit Delay' */
   real_T UnitDelay1_DSTATE_g;          /* '<S22>/Unit Delay1' */
@@ -226,8 +226,8 @@ typedef struct {
   real_T UnitDelay_DSTATE_cg;          /* '<S157>/Unit Delay' */
   real_T UnitDelay1_DSTATE_d;          /* '<S157>/Unit Delay1' */
   real_T DelayInput1_DSTATE_e;         /* '<S431>/Delay Input1' */
-  real_T DelayInput1_DSTATE_j;         /* '<S432>/Delay Input1' */
   real_T DelayInput1_DSTATE_n;         /* '<S433>/Delay Input1' */
+  real_T DelayInput1_DSTATE_j;         /* '<S432>/Delay Input1' */
   real_T DelayInput1_DSTATE_a;         /* '<S434>/Delay Input1' */
   real_T DelayInput1_DSTATE_g;         /* '<S435>/Delay Input1' */
   real_T UnitDelay1_DSTATE_l;          /* '<S424>/Unit Delay1' */
@@ -267,6 +267,7 @@ typedef struct {
   boolean_T DelayInput1_DSTATE_hg;     /* '<S185>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_p;      /* '<S187>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_o1;     /* '<S189>/Delay Input1' */
+  boolean_T UnitDelay_DSTATE_ir;       /* '<S21>/Unit Delay' */
   boolean_T DelayInput1_DSTATE_jp;     /* '<S419>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_ft;     /* '<S418>/Delay Input1' */
   boolean_T DelayInput1_DSTATE_m;      /* '<S414>/Delay Input1' */
@@ -537,14 +538,14 @@ typedef struct {
 
 /* External outputs (root outports fed by signals with default storage) */
 typedef struct {
-  real_T FrontLeft_Drive_DutyCycle;    /* '<Root>/FrontLeft_Drive_DutyCycle' */
   real_T FrontLeft_Steer_DutyCycle;    /* '<Root>/FrontLeft_Steer_DutyCycle' */
-  real_T FrontRight_Drive_DutyCycle;   /* '<Root>/FrontRight_Drive_DutyCycle' */
+  real_T FrontLeft_Drive_DutyCycle;    /* '<Root>/FrontLeft_Drive_DutyCycle' */
   real_T FrontRight_Steer_DutyCycle;   /* '<Root>/FrontRight_Steer_DutyCycle' */
-  real_T BackLeft_Drive_DutyCycle;     /* '<Root>/BackLeft_Drive_DutyCycle' */
+  real_T FrontRight_Drive_DutyCycle;   /* '<Root>/FrontRight_Drive_DutyCycle' */
   real_T BackLeft_Steer_DutyCycle;     /* '<Root>/BackLeft_Steer_DutyCycle' */
-  real_T BackRight_Drive_DutyCycle;    /* '<Root>/BackRight_Drive_DutyCycle' */
+  real_T BackLeft_Drive_DutyCycle;     /* '<Root>/BackLeft_Drive_DutyCycle' */
   real_T BackRight_Steer_DutyCycle;    /* '<Root>/BackRight_Steer_DutyCycle' */
+  real_T BackRight_Drive_DutyCycle;    /* '<Root>/BackRight_Drive_DutyCycle' */
   real_T Intake_Motor_DutyCycle;       /* '<Root>/Intake_Motor_DutyCycle' */
   real_T Shooter_Left_Motor_DutyCycle;
                                      /* '<Root>/Shooter_Left_Motor_DutyCycle' */
@@ -556,12 +557,13 @@ typedef struct {
   real_T Front_Arm_DutyCycle;          /* '<Root>/Front_Arm_DutyCycle' */
   real_T Ball_Screw_Arm_DutyCycle;     /* '<Root>/Ball_Screw_Arm_DutyCycle' */
   real_T Climber_DutyCycle;            /* '<Root>/Climber_DutyCycle' */
-  real_T Shooter_Servo_Position;       /* '<Root>/Shooter_Servo_Position' */
   real_T Enable_Wheels;                /* '<Root>/Enable_Wheels' */
+  real_T Shooter_Servo_Position;       /* '<Root>/Shooter_Servo_Position' */
   real_T Reset_Wheel_Offsets;          /* '<Root>/Reset_Wheel_Offsets' */
   real_T Disable_Wheels;               /* '<Root>/Disable_Wheels' */
   real_T Reset_Ballscrew_Zero;         /* '<Root>/Reset_Ballscrew_Zero' */
   real_T Save_Ballscrew_Position;      /* '<Root>/Save_Ballscrew_Position' */
+  boolean_T Swerve_Motors_Disabled;    /* '<Root>/Swerve_Motors_Disabled' */
 } ExtY_Code_Gen_Model_T;
 
 /* Real-time Model Data Structure */

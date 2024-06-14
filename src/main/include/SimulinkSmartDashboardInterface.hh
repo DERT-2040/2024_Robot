@@ -338,6 +338,7 @@ private:
         nt::NetworkTableEntry __Shooter_Left_Motor_DutyCycle__Entry;
         nt::NetworkTableEntry __Shooter_Right_Motor_DutyCycle__Entry;
         nt::NetworkTableEntry __Shooter_Servo_Position__Entry;
+        nt::NetworkTableEntry __Swerve_Motors_Disabled__Entry;
  
         // Test Points
         nt::NetworkTableEntry __AT_Error_X__Entry;

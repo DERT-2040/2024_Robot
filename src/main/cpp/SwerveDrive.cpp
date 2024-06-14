@@ -108,8 +108,8 @@ void SwerveDrive::PostStepCallback()
   if(Code_Gen_Model_Y.Reset_Wheel_Offsets > 0)
     Reset_Wheel_Offset();
 
-  if(AreMotorsDisabled) //escape if motor output is disabled
-    return; 
+  if(!Code_Gen_Model_Y.Swerve_Motors_Disabled)
+  {
   //Drive Motors
     m_FrontLeft_Drive.Set(Code_Gen_Model_Y.FrontLeft_Drive_DutyCycle);
     m_FrontRight_Drive.Set(Code_Gen_Model_Y.FrontRight_Drive_DutyCycle);
@@ -120,8 +120,7 @@ void SwerveDrive::PostStepCallback()
     m_FrontRight_Steer.Set(Code_Gen_Model_Y.FrontRight_Steer_DutyCycle);
     m_BackLeft_Steer.Set(Code_Gen_Model_Y.BackLeft_Steer_DutyCycle);
     m_BackRight_Steer.Set(Code_Gen_Model_Y.BackRight_Steer_DutyCycle);
-
-    
+  }
 }
 
 void SwerveDrive::SmartDashboardCallback() 
@@ -131,8 +130,7 @@ void SwerveDrive::SmartDashboardCallback()
 
 void SwerveDrive::ChangeGameStatesCallback()
 {
-  if(AreMotorsDisabled)
-    WheelsOn();
+
 } 
 
 void SwerveDrive::BrakeMode() 
@@ -215,14 +213,12 @@ void SwerveDrive::Set_Wheel_Offset()
 void SwerveDrive::WheelsOn() 
 {
   std::cout << "Swerve Motors Enabled\n";
-  AreMotorsDisabled = false;
   BrakeMode();
 }
 
 void SwerveDrive::WheelsOff()
 {
   std::cout << "Swerve Motors Disabled\n";
-  AreMotorsDisabled = true;
   //stop all motor commands
   m_FrontLeft_Drive.StopMotor();
   m_FrontRight_Drive.StopMotor();

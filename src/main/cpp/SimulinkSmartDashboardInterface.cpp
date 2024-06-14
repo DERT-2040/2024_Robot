@@ -934,6 +934,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Shooter_Left_Motor_DutyCycle__Entry = NTtable_Outport->GetEntry("Shooter_Left_Motor_DutyCycle");
     __Shooter_Right_Motor_DutyCycle__Entry = NTtable_Outport->GetEntry("Shooter_Right_Motor_DutyCycle");
     __Shooter_Servo_Position__Entry = NTtable_Outport->GetEntry("Shooter_Servo_Position");
+    __Swerve_Motors_Disabled__Entry = NTtable_Outport->GetEntry("Swerve_Motors_Disabled");
  
 // Test Points
     __AT_Error_X__Entry = NTtable_TPoint->GetEntry("AT_Error_X");
@@ -1183,6 +1184,7 @@ void SimulinkSmartDashboardInterface::SmartDashboardCallback()
     __Shooter_Left_Motor_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.Shooter_Left_Motor_DutyCycle);
     __Shooter_Right_Motor_DutyCycle__Entry.SetDouble(Code_Gen_Model_Y.Shooter_Right_Motor_DutyCycle);
     __Shooter_Servo_Position__Entry.SetDouble(Code_Gen_Model_Y.Shooter_Servo_Position);
+    __Swerve_Motors_Disabled__Entry.SetDouble(Code_Gen_Model_Y.Swerve_Motors_Disabled);
     // Test Points
     __AT_Error_X__Entry.SetDouble(Code_Gen_Model_B.AT_Error_X);
     __AT_Error_Y__Entry.SetDouble(Code_Gen_Model_B.AT_Error_Y);
