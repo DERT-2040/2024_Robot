@@ -187,10 +187,10 @@ void SwerveDrive::Initalize_Wheel_Offset()
  /**
    * Wheel calibration procedure:
    * 1. Go into 'Test' game state
-   * 2. Push the Wheel Off button (see Constants file).  This sets steering duty cycle to 0 and puts them into coast mode.
+   * 2. Push the Disable_Wheels button (Left B13).  This sets steering duty cycle to 0 and puts them into coast mode.
    * 3. Align the wheels with gears facing RIGHT.  If this is done backwards then robot will steer in the opposite directions.
-   * 4. Push the Calibrate button (see Constants file).
-   * 5. (optional) Push the Wheel On button (see Constants file).  
+   * 4. Push the Reset_Wheel_Offsets button (Left B12).
+   * 5. (optional) Push the Enable_Wheels button (Left B11).  
    */
 void SwerveDrive::Reset_Wheel_Offset() 
 {
