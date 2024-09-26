@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.212
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Thu Jun 13 20:57:05 2024
+ * C/C++ source code generated on : Thu Sep 19 19:34:01 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -6035,8 +6035,8 @@ void Code_Gen_Model_step(void)
    *  Constant: '<S384>/Constant'
    *  MinMax: '<S384>/Max'
    */
-  rtb_MatrixConcatenate_b_idx_0 = 3.5944420196850411 / fmax(fmax(fmax(fmax
-    (3.5944420196850411, Code_Gen_Model_B.FL_Desired_Wheel_Speed_in),
+  rtb_MatrixConcatenate_b_idx_0 = 4.7808428170320649 / fmax(fmax(fmax(fmax
+    (4.7808428170320649, Code_Gen_Model_B.FL_Desired_Wheel_Speed_in),
     Code_Gen_Model_B.FR_Desired_Wheel_Speed_in),
     Code_Gen_Model_B.BL_Desired_Wheel_Speed_in),
     Code_Gen_Model_B.BR_Desired_Wheel_Speed_in);
@@ -6058,7 +6058,7 @@ void Code_Gen_Model_step(void)
    *  Constant: '<S269>/Constant'
    *  Switch: '<S266>/Speed_Switch'
    */
-  rtb_rx_d = y * 1530.1401357649195;
+  rtb_rx_d = y * 1150.4247703785388;
 
   /* Signum: '<S264>/Sign' */
   if (rtIsNaN(rtb_rx_d)) {
@@ -6491,7 +6491,7 @@ void Code_Gen_Model_step(void)
    *  Constant: '<S290>/Constant'
    *  Switch: '<S287>/Speed_Switch'
    */
-  rtb_Test_DC_Shooter = y * 1530.1401357649195;
+  rtb_Test_DC_Shooter = y * 1150.4247703785388;
 
   /* Signum: '<S285>/Sign' */
   if (rtIsNaN(rtb_Test_DC_Shooter)) {
@@ -6924,7 +6924,7 @@ void Code_Gen_Model_step(void)
    *  Constant: '<S311>/Constant'
    *  Switch: '<S308>/Speed_Switch'
    */
-  rtb_Test_DC_Shooter = y * 1530.1401357649195;
+  rtb_Test_DC_Shooter = y * 1150.4247703785388;
 
   /* Signum: '<S306>/Sign' */
   if (rtIsNaN(rtb_Test_DC_Shooter)) {
@@ -7359,7 +7359,7 @@ void Code_Gen_Model_step(void)
    *  Constant: '<S332>/Constant'
    *  Switch: '<S329>/Speed_Switch'
    */
-  rtb_Test_DC_Shooter = y * 1530.1401357649195;
+  rtb_Test_DC_Shooter = y * 1150.4247703785388;
 
   /* Signum: '<S327>/Sign' */
   if (rtIsNaN(rtb_Test_DC_Shooter)) {
@@ -9330,7 +9330,7 @@ void Code_Gen_Model_step(void)
    *  Store in Global RAM
    */
   rtb_thetay_n = (Code_Gen_Model_U.FrontLeft_Drive_Motor_Rev -
-                  Code_Gen_Model_DW.UD_DSTATE_j) * 0.037290702116950625;
+                  Code_Gen_Model_DW.UD_DSTATE_j) * 0.049599071116336282;
 
   /* Product: '<S14>/Product1' incorporates:
    *  Constant: '<S14>/Constant1'
@@ -9347,7 +9347,7 @@ void Code_Gen_Model_step(void)
    *  Store in Global RAM
    */
   rtb_thetay = (Code_Gen_Model_U.FrontRight_Drive_Motor_Rev -
-                Code_Gen_Model_DW.UD_DSTATE_m) * 0.037290702116950625;
+                Code_Gen_Model_DW.UD_DSTATE_m) * 0.049599071116336282;
 
   /* Product: '<S14>/Product2' incorporates:
    *  Constant: '<S14>/Constant1'
@@ -9364,7 +9364,7 @@ void Code_Gen_Model_step(void)
    *  Store in Global RAM
    */
   rtb_thetay_a = (Code_Gen_Model_U.BackLeft_Drive_Motor_Rev -
-                  Code_Gen_Model_DW.UD_DSTATE_ic) * 0.037290702116950625;
+                  Code_Gen_Model_DW.UD_DSTATE_ic) * 0.049599071116336282;
 
   /* Product: '<S14>/Product3' incorporates:
    *  Constant: '<S14>/Constant1'
@@ -9381,7 +9381,7 @@ void Code_Gen_Model_step(void)
    *  Store in Global RAM
    */
   rtb_Test_DC_Shooter = (Code_Gen_Model_U.BackRight_Drive_Motor_Rev -
-    Code_Gen_Model_DW.UD_DSTATE_ce) * 0.037290702116950625;
+    Code_Gen_Model_DW.UD_DSTATE_ce) * 0.049599071116336282;
 
   /* SignalConversion generated from: '<S14>/Product7' incorporates:
    *  Fcn: '<S153>/r->x'

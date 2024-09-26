@@ -42,7 +42,7 @@ AT_XY_Control_Gain = 1.5;  % meter/second per meter of x-y error
 
 
 %% Wheel Gear Ratio
-gear_ratio = 8.14;
+gear_ratio = 6.12;  % L1 gear ratio = 8.14,  L3 gear ratio = 6.12
 wheel_diameter = 0.101600203;
 Wheel_Speed_to_Motor_Speed = 60*gear_ratio/(wheel_diameter*pi); % (rev/min)/(m/sec)
 
