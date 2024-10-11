@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.212
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Thu Sep 19 19:34:01 2024
+ * C/C++ source code generated on : Thu Oct 10 21:08:33 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -3543,7 +3543,7 @@ void Code_Gen_Model_step(void)
               Code_Gen_Model_DW.DelayInput1_DSTATE_j);
 
     /* DataTypeConversion: '<S21>/Cast To Boolean4' incorporates:
-     *  Inport: '<Root>/Gamepad_B3_X'
+     *  Inport: '<Root>/Gamepad_B2_B'
      *  RelationalOperator: '<S434>/FixPt Relational Operator'
      *  UnitDelay: '<S434>/Delay Input1'
      *
@@ -3551,11 +3551,11 @@ void Code_Gen_Model_step(void)
      *
      *  Store in Global RAM
      */
-    rtb_rx_i = (Code_Gen_Model_U.Gamepad_B3_X >
+    rtb_rx_i = (Code_Gen_Model_U.Gamepad_B2_B >
                 Code_Gen_Model_DW.DelayInput1_DSTATE_a);
 
     /* DataTypeConversion: '<S21>/Cast To Boolean5' incorporates:
-     *  Inport: '<Root>/Gamepad_B2_B'
+     *  Inport: '<Root>/Gamepad_B3_X'
      *  RelationalOperator: '<S435>/FixPt Relational Operator'
      *  UnitDelay: '<S435>/Delay Input1'
      *
@@ -3563,7 +3563,7 @@ void Code_Gen_Model_step(void)
      *
      *  Store in Global RAM
      */
-    rtb_thetay_n = (Code_Gen_Model_U.Gamepad_B2_B >
+    rtb_thetay_n = (Code_Gen_Model_U.Gamepad_B3_X >
                     Code_Gen_Model_DW.DelayInput1_DSTATE_g);
 
     /* SignalConversion: '<S21>/Signal Copy' */
@@ -3600,22 +3600,22 @@ void Code_Gen_Model_step(void)
     Code_Gen_Model_DW.DelayInput1_DSTATE_j = Code_Gen_Model_U.Joystick_Left_B12;
 
     /* Update for UnitDelay: '<S434>/Delay Input1' incorporates:
-     *  Inport: '<Root>/Gamepad_B3_X'
+     *  Inport: '<Root>/Gamepad_B2_B'
      *
      * Block description for '<S434>/Delay Input1':
      *
      *  Store in Global RAM
      */
-    Code_Gen_Model_DW.DelayInput1_DSTATE_a = Code_Gen_Model_U.Gamepad_B3_X;
+    Code_Gen_Model_DW.DelayInput1_DSTATE_a = Code_Gen_Model_U.Gamepad_B2_B;
 
     /* Update for UnitDelay: '<S435>/Delay Input1' incorporates:
-     *  Inport: '<Root>/Gamepad_B2_B'
+     *  Inport: '<Root>/Gamepad_B3_X'
      *
      * Block description for '<S435>/Delay Input1':
      *
      *  Store in Global RAM
      */
-    Code_Gen_Model_DW.DelayInput1_DSTATE_g = Code_Gen_Model_U.Gamepad_B2_B;
+    Code_Gen_Model_DW.DelayInput1_DSTATE_g = Code_Gen_Model_U.Gamepad_B3_X;
 
     /* End of Outputs for SubSystem: '<S1>/Test' */
     break;
