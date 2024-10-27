@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.212
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Thu Oct 10 21:08:33 2024
+ * C/C++ source code generated on : Sat Oct 26 14:59:35 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -55,7 +55,7 @@ const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP = {
   /* Expression: Speaker_Height_out
    * Referenced by: '<S16>/1-D Lookup Table2'
    */
-  { 560.0, 580.0, 590.0, 590.0, 590.0, 590.0, 590.0, 590.0, 590.0 },
+  { 560.0, 580.0, 590.0, 590.0, 590.0, 590.0, 590.0, 590.0, 590.0, 579.0 },
 
   /* Pooled Parameter (Expression: Speaker_Distance_in)
    * Referenced by:
@@ -63,17 +63,17 @@ const ConstP_Code_Gen_Model_T Code_Gen_Model_ConstP = {
    *   '<S16>/1-D Lookup Table2'
    *   '<S16>/1-D Lookup Table3'
    */
-  { 1.37, 1.7, 2.0, 2.3, 2.7, 3.0, 3.3, 3.6, 4.0 },
+  { 1.37, 1.7, 2.0, 2.3, 2.7, 3.0, 3.3, 3.6, 4.0, 4.1 },
 
   /* Expression: Speaker_Angle_out
    * Referenced by: '<S16>/1-D Lookup Table1'
    */
-  { 60.0, 50.0, 40.0, 35.0, 32.0, 30.0, 27.5, 26.5, 26.5 },
+  { 60.0, 50.0, 40.0, 35.0, 32.0, 30.0, 27.5, 26.5, 26.5, 50.6 },
 
   /* Expression: Speaker_Gap_out
    * Referenced by: '<S16>/1-D Lookup Table3'
    */
-  { 293.0, 293.0, 293.0, 293.0, 293.0, 293.0, 293.0, 293.0, 293.0 },
+  { 293.0, 293.0, 293.0, 293.0, 293.0, 293.0, 293.0, 293.0, 293.0, 293.0 },
 
   /* Expression: Spline_Capture_Radius
    * Referenced by: '<S195>/Capture Radius'

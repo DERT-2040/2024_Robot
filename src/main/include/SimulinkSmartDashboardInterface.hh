@@ -148,6 +148,7 @@ private:
         nt::NetworkTableEntry __Shooter_Motor_Control_P__Entry;
         nt::NetworkTableEntry __Shooter_Motor_DesSpd_Store__Entry;
         nt::NetworkTableEntry __Shooter_Motor_Speed_Transition__Entry;
+        nt::NetworkTableEntry __Speaker_Distance_Offset__Entry;
         nt::NetworkTableEntry __Spline_Last_Pose_Distance_to_Velocity_Gain__Entry;
         nt::NetworkTableEntry __Spline_Max_Centripital_Acceleration__Entry;
         nt::NetworkTableEntry __Spline_Pose_Num_Before_End_Reduce_Speed__Entry;

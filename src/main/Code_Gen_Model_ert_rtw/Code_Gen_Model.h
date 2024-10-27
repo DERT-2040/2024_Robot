@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.212
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Thu Oct 10 21:08:33 2024
+ * C/C++ source code generated on : Sat Oct 26 14:59:35 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -337,7 +337,7 @@ typedef struct {
   /* Expression: Speaker_Height_out
    * Referenced by: '<S16>/1-D Lookup Table2'
    */
-  real_T uDLookupTable2_tableData[9];
+  real_T uDLookupTable2_tableData[10];
 
   /* Pooled Parameter (Expression: Speaker_Distance_in)
    * Referenced by:
@@ -345,17 +345,17 @@ typedef struct {
    *   '<S16>/1-D Lookup Table2'
    *   '<S16>/1-D Lookup Table3'
    */
-  real_T pooled1[9];
+  real_T pooled1[10];
 
   /* Expression: Speaker_Angle_out
    * Referenced by: '<S16>/1-D Lookup Table1'
    */
-  real_T uDLookupTable1_tableData[9];
+  real_T uDLookupTable1_tableData[10];
 
   /* Expression: Speaker_Gap_out
    * Referenced by: '<S16>/1-D Lookup Table3'
    */
-  real_T uDLookupTable3_tableData[9];
+  real_T uDLookupTable3_tableData[10];
 
   /* Expression: Spline_Capture_Radius
    * Referenced by: '<S195>/Capture Radius'
@@ -1093,6 +1093,9 @@ extern real_T Shooter_Motor_Speed_Transition;
                                      /* Variable: Shooter_Motor_Speed_Transition
                                       * Referenced by: '<S10>/Chart_Intake_and_Shooter'
                                       */
+extern real_T Speaker_Distance_Offset; /* Variable: Speaker_Distance_Offset
+                                        * Referenced by: '<S16>/Constant'
+                                        */
 extern real_T Spline_Last_Pose_Distance_to_Velocity_Gain;
                          /* Variable: Spline_Last_Pose_Distance_to_Velocity_Gain
                           * Referenced by: '<S250>/Constant2'

@@ -229,7 +229,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Boost_Trigger_Increasing_Limit__Entry = NTtable_Tune->GetEntry("Boost_Trigger_Increasing_Limit");
     NTinst.AddListener(__Boost_Trigger_Increasing_Limit__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Boost_Trigger_Increasing_Limit = event.GetValueEventData()->value.GetDouble();});
-    __Boost_Trigger_Increasing_Limit__Entry.SetDouble(3.5);
+    __Boost_Trigger_Increasing_Limit__Entry.SetDouble(100);
  
     __Boost_Trigger_Low_Speed__Entry = NTtable_Tune->GetEntry("Boost_Trigger_Low_Speed");
     NTinst.AddListener(__Boost_Trigger_Low_Speed__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Boost_Trigger_Low_Speed = event.GetValueEventData()->value.GetDouble();});
@@ -289,7 +289,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Drive_Motor_Control_D__Entry = NTtable_Tune->GetEntry("Drive_Motor_Control_D");
     NTinst.AddListener(__Drive_Motor_Control_D__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Drive_Motor_Control_D = event.GetValueEventData()->value.GetDouble();});
-    __Drive_Motor_Control_D__Entry.SetDouble(0.0001);
+    __Drive_Motor_Control_D__Entry.SetDouble(7.5188e-05);
  
     __Drive_Motor_Control_D_FilterCoeff__Entry = NTtable_Tune->GetEntry("Drive_Motor_Control_D_FilterCoeff");
     NTinst.AddListener(__Drive_Motor_Control_D_FilterCoeff__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Drive_Motor_Control_D_FilterCoeff = event.GetValueEventData()->value.GetDouble();});
@@ -321,7 +321,7 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Drive_Motor_Control_P__Entry = NTtable_Tune->GetEntry("Drive_Motor_Control_P");
     NTinst.AddListener(__Drive_Motor_Control_P__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Drive_Motor_Control_P = event.GetValueEventData()->value.GetDouble();});
-    __Drive_Motor_Control_P__Entry.SetDouble(5e-06);
+    __Drive_Motor_Control_P__Entry.SetDouble(3.7594e-06);
  
     __Drive_Motor_Control_Sign_Change_Deadband__Entry = NTtable_Tune->GetEntry("Drive_Motor_Control_Sign_Change_Deadband");
     NTinst.AddListener(__Drive_Motor_Control_Sign_Change_Deadband__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Drive_Motor_Control_Sign_Change_Deadband = event.GetValueEventData()->value.GetDouble();});
@@ -530,6 +530,10 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
     __Shooter_Motor_Speed_Transition__Entry = NTtable_Tune->GetEntry("Shooter_Motor_Speed_Transition");
     NTinst.AddListener(__Shooter_Motor_Speed_Transition__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Shooter_Motor_Speed_Transition = event.GetValueEventData()->value.GetDouble();});
     __Shooter_Motor_Speed_Transition__Entry.SetDouble(2000);
+ 
+    __Speaker_Distance_Offset__Entry = NTtable_Tune->GetEntry("Speaker_Distance_Offset");
+    NTinst.AddListener(__Speaker_Distance_Offset__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Speaker_Distance_Offset = event.GetValueEventData()->value.GetDouble();});
+    __Speaker_Distance_Offset__Entry.SetDouble(-0.2);
  
     __Spline_Last_Pose_Distance_to_Velocity_Gain__Entry = NTtable_Tune->GetEntry("Spline_Last_Pose_Distance_to_Velocity_Gain");
     NTinst.AddListener(__Spline_Last_Pose_Distance_to_Velocity_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Spline_Last_Pose_Distance_to_Velocity_Gain = event.GetValueEventData()->value.GetDouble();});
@@ -785,11 +789,11 @@ SimulinkSmartDashboardInterface::SimulinkSmartDashboardInterface()
  
     __Translation_Speed_Rate_Limit_Dec__Entry = NTtable_Tune->GetEntry("Translation_Speed_Rate_Limit_Dec");
     NTinst.AddListener(__Translation_Speed_Rate_Limit_Dec__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Translation_Speed_Rate_Limit_Dec = event.GetValueEventData()->value.GetDouble();});
-    __Translation_Speed_Rate_Limit_Dec__Entry.SetDouble(-4);
+    __Translation_Speed_Rate_Limit_Dec__Entry.SetDouble(-100);
  
     __Translation_Speed_Rate_Limit_Inc__Entry = NTtable_Tune->GetEntry("Translation_Speed_Rate_Limit_Inc");
     NTinst.AddListener(__Translation_Speed_Rate_Limit_Inc__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Translation_Speed_Rate_Limit_Inc = event.GetValueEventData()->value.GetDouble();});
-    __Translation_Speed_Rate_Limit_Inc__Entry.SetDouble(4);
+    __Translation_Speed_Rate_Limit_Inc__Entry.SetDouble(100);
  
     __Translation_Twist_Gain__Entry = NTtable_Tune->GetEntry("Translation_Twist_Gain");
     NTinst.AddListener(__Translation_Twist_Gain__Entry, nt::EventFlags::kValueAll, [] (const nt::Event& event) {Translation_Twist_Gain = event.GetValueEventData()->value.GetDouble();});

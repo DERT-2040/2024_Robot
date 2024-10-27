@@ -28,7 +28,7 @@ Steering_Relative_Gain = 5;
 Boost_Trigger_High_Speed = 5.0; % 3.658; % m/s
 Boost_Trigger_Low_Speed = 1.5; % m/s
 
-Boost_Trigger_Increasing_Limit = (Boost_Trigger_High_Speed-Boost_Trigger_Low_Speed)/0.02*t_sample;
+Boost_Trigger_Increasing_Limit = 100; % (Boost_Trigger_High_Speed-Boost_Trigger_Low_Speed)/0.02*t_sample;
 Boost_Trigger_Decreasing_Limit = -(Boost_Trigger_High_Speed-Boost_Trigger_Low_Speed)/0.25*t_sample;
 
 % Joystick Twist Axis Gains
@@ -89,14 +89,14 @@ clear FrontBack LeftRight
 
 %% Drive Motor PID
 Drive_Motor_Control_FF= 1/Drive_Motor_Max_Speed;  % 1 DC / Max Speed RPM;
-Drive_Motor_Control_P = 0.000005;
+Drive_Motor_Control_P = 0.000005 / 1.33;  % divide by 1.33 due to L1 to L3 gear ratio change
 
 Drive_Motor_Control_I = 0.0000002*0;
 
 Drive_Motor_Control_I_UL = 0; % 0.1
 Drive_Motor_Control_I_LL = -Drive_Motor_Control_I_UL;
 
-Drive_Motor_Control_D = 0.000002/t_sample;
+Drive_Motor_Control_D = 0.000002/t_sample / 1.33;  % divide by 1.33 due to L1 to L3 gear ratio change
 
 Derivative_low_pass_filter_freq = 2; % Hz
 Drive_Motor_Control_D_FilterCoeff = 1-exp(-2*pi*Derivative_low_pass_filter_freq*t_sample);
@@ -149,8 +149,8 @@ clear Derivative_low_pass_filter_freq
 
 
 %% Translation Speed Rate Limit
-Translation_Speed_Rate_Limit_Inc =  4;
-Translation_Speed_Rate_Limit_Dec = -4;
+Translation_Speed_Rate_Limit_Inc =  100;
+Translation_Speed_Rate_Limit_Dec = -100;
 Translation_Speed_Approach_Zero_Error_Thresh = 0.2;
 Translation_Speed_Approach_Zero_Final_Thresh = 0.01;
 Translation_Speed_NonZero_Error_Thresh = 0.15;

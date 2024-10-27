@@ -9,7 +9,7 @@
  *
  * Model version                  : 2.212
  * Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
- * C/C++ source code generated on : Thu Oct 10 21:08:33 2024
+ * C/C++ source code generated on : Sat Oct 26 14:59:35 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -287,7 +287,7 @@ real_T Boost_Trigger_High_Speed = 5.0; /* Variable: Boost_Trigger_High_Speed
                                         *   '<S421>/Constant'
                                         *   '<S421>/Saturation'
                                         */
-real_T Boost_Trigger_Increasing_Limit = 3.5;
+real_T Boost_Trigger_Increasing_Limit = 100.0;
                                      /* Variable: Boost_Trigger_Increasing_Limit
                                       * Referenced by: '<S425>/Constant3'
                                       */
@@ -344,13 +344,13 @@ real_T Dist_Reset_Value_Front = 6.35;  /* Variable: Dist_Reset_Value_Front
 real_T Distance_FL_y = 0.26194;        /* Variable: Distance_FL_y
                                         * Referenced by: '<S349>/Constant4'
                                         */
-real_T Drive_Motor_Control_D = 0.0001; /* Variable: Drive_Motor_Control_D
-                                        * Referenced by:
-                                        *   '<S265>/Constant3'
-                                        *   '<S286>/Constant3'
-                                        *   '<S307>/Constant3'
-                                        *   '<S328>/Constant3'
-                                        */
+real_T Drive_Motor_Control_D = 7.5188E-5;/* Variable: Drive_Motor_Control_D
+                                          * Referenced by:
+                                          *   '<S265>/Constant3'
+                                          *   '<S286>/Constant3'
+                                          *   '<S307>/Constant3'
+                                          *   '<S328>/Constant3'
+                                          */
 real_T Drive_Motor_Control_D_FilterCoeff = 0.22223;
                                   /* Variable: Drive_Motor_Control_D_FilterCoeff
                                    * Referenced by:
@@ -401,13 +401,13 @@ real_T Drive_Motor_Control_I_UL = 0.0; /* Variable: Drive_Motor_Control_I_UL
                                         *   '<S307>/Saturation1'
                                         *   '<S328>/Saturation1'
                                         */
-real_T Drive_Motor_Control_P = 5.0E-6; /* Variable: Drive_Motor_Control_P
-                                        * Referenced by:
-                                        *   '<S265>/Gain1'
-                                        *   '<S286>/Gain1'
-                                        *   '<S307>/Gain1'
-                                        *   '<S328>/Gain1'
-                                        */
+real_T Drive_Motor_Control_P = 3.7594E-6;/* Variable: Drive_Motor_Control_P
+                                          * Referenced by:
+                                          *   '<S265>/Gain1'
+                                          *   '<S286>/Gain1'
+                                          *   '<S307>/Gain1'
+                                          *   '<S328>/Gain1'
+                                          */
 real_T Drive_Motor_Control_Sign_Change_Deadband = 7000.0;
                            /* Variable: Drive_Motor_Control_Sign_Change_Deadband
                             * Referenced by:
@@ -593,6 +593,9 @@ real_T Shooter_Motor_Speed_Transition = 2000.0;
                                      /* Variable: Shooter_Motor_Speed_Transition
                                       * Referenced by: '<S10>/Chart_Intake_and_Shooter'
                                       */
+real_T Speaker_Distance_Offset = -0.2; /* Variable: Speaker_Distance_Offset
+                                        * Referenced by: '<S16>/Constant'
+                                        */
 real_T Spline_Last_Pose_Distance_to_Velocity_Gain = 2.0;
                          /* Variable: Spline_Last_Pose_Distance_to_Velocity_Gain
                           * Referenced by: '<S250>/Constant2'
@@ -848,11 +851,11 @@ real_T Translation_Speed_NonZero_Final_Scale_Factor = 0.05;
                        /* Variable: Translation_Speed_NonZero_Final_Scale_Factor
                         * Referenced by: '<S348>/Constant10'
                         */
-real_T Translation_Speed_Rate_Limit_Dec = -4.0;
+real_T Translation_Speed_Rate_Limit_Dec = -100.0;
                                    /* Variable: Translation_Speed_Rate_Limit_Dec
                                     * Referenced by: '<S348>/Constant1'
                                     */
-real_T Translation_Speed_Rate_Limit_Inc = 4.0;
+real_T Translation_Speed_Rate_Limit_Inc = 100.0;
                                    /* Variable: Translation_Speed_Rate_Limit_Inc
                                     * Referenced by: '<S348>/Constant3'
                                     */
@@ -8164,17 +8167,21 @@ void Code_Gen_Model_step(void)
 
   /* End of Switch: '<S7>/Switch2' */
 
+  /* Sum: '<S16>/Sum' incorporates:
+   *  Constant: '<S16>/Constant'
+   */
+  rtb_Subtract3 = Code_Gen_Model_B.Speaker_Distance + Speaker_Distance_Offset;
+
   /* Switch: '<S16>/Switch5' incorporates:
    *  Constant: '<S16>/Constant26'
    *  Lookup_n-D: '<S16>/1-D Lookup Table1'
-   *  Switch: '<S7>/Switch2'
+   *  Sum: '<S16>/Sum'
    */
   if (TEST_Speaker_Angle != 0.0) {
     rtb_Subtract1 = TEST_Speaker_Angle;
   } else {
-    rtb_Subtract1 = look1_binlcpw(Code_Gen_Model_B.Speaker_Distance,
-      Code_Gen_Model_ConstP.pooled1,
-      Code_Gen_Model_ConstP.uDLookupTable1_tableData, 8U);
+    rtb_Subtract1 = look1_binlcpw(rtb_Subtract3, Code_Gen_Model_ConstP.pooled1,
+      Code_Gen_Model_ConstP.uDLookupTable1_tableData, 9U);
   }
 
   /* End of Switch: '<S16>/Switch5' */
@@ -8182,14 +8189,13 @@ void Code_Gen_Model_step(void)
   /* Switch: '<S16>/Switch4' incorporates:
    *  Constant: '<S16>/Constant25'
    *  Lookup_n-D: '<S16>/1-D Lookup Table2'
-   *  Switch: '<S7>/Switch2'
+   *  Sum: '<S16>/Sum'
    */
   if (TEST_Speaker_Height != 0.0) {
     rtb_Subtract = TEST_Speaker_Height;
   } else {
-    rtb_Subtract = look1_binlcpw(Code_Gen_Model_B.Speaker_Distance,
-      Code_Gen_Model_ConstP.pooled1,
-      Code_Gen_Model_ConstP.uDLookupTable2_tableData, 8U);
+    rtb_Subtract = look1_binlcpw(rtb_Subtract3, Code_Gen_Model_ConstP.pooled1,
+      Code_Gen_Model_ConstP.uDLookupTable2_tableData, 9U);
   }
 
   /* End of Switch: '<S16>/Switch4' */
@@ -8197,14 +8203,13 @@ void Code_Gen_Model_step(void)
   /* Switch: '<S16>/Switch6' incorporates:
    *  Constant: '<S16>/Constant27'
    *  Lookup_n-D: '<S16>/1-D Lookup Table3'
-   *  Switch: '<S7>/Switch2'
+   *  Sum: '<S16>/Sum'
    */
   if (TEST_Speaker_Gap != 0.0) {
     rtb_Subtract3 = TEST_Speaker_Gap;
   } else {
-    rtb_Subtract3 = look1_binlcpw(Code_Gen_Model_B.Speaker_Distance,
-      Code_Gen_Model_ConstP.pooled1,
-      Code_Gen_Model_ConstP.uDLookupTable3_tableData, 8U);
+    rtb_Subtract3 = look1_binlcpw(rtb_Subtract3, Code_Gen_Model_ConstP.pooled1,
+      Code_Gen_Model_ConstP.uDLookupTable3_tableData, 9U);
   }
 
   /* End of Switch: '<S16>/Switch6' */

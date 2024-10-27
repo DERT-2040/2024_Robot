@@ -35,11 +35,11 @@ public:
         static constexpr int k_BackLeft_Steer_Encoder_ID = 27;
         static constexpr int k_BackRight_Steer_Encoder_ID = 23;
     //Drive Motor Properties
-        static constexpr double k_Drive_Motor_Open_Loop_Ramp_Rate = 0.00000001;
-        static constexpr double k_Drive_Motor_Smart_Current_Limit = 15;
-        static constexpr double k_Drive_Motor_Secondary_Current_Limit = 15;
+        static constexpr double k_Drive_Motor_Open_Loop_Ramp_Rate = 0.00000001;  // seconds from 0 to 1 duty cycle
+        static constexpr double k_Drive_Motor_Smart_Current_Limit = 80;
+        static constexpr double k_Drive_Motor_Secondary_Current_Limit = 90;
     //Steer Motor Properties
-        static constexpr double k_Steer_Motor_Open_Loop_Ramp_Rate = 0.1;
+        static constexpr double k_Steer_Motor_Open_Loop_Ramp_Rate = 0.00000001;  // seconds from 0 to 1 duty cycle
         static constexpr double k_Steer_Motor_Smart_Current_Limit = 20;
         static constexpr double k_Steer_Motor_Secondary_Current_Limit = 20;
     //Wheel Offset Keys

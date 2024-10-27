@@ -104,7 +104,8 @@ Tol_Height = 0.5*25.4;
 Tol_Gap = 0.5*25.4;
 
 % Set the speaker parameters based on distance from the April Tag
-Speaker_Distance_in =   [1.37   1.7	    2.0     2.3	    2.7	    3.0	    3.3	    3.6	    4.0	];
+Speaker_Distance_in =   [1.37   1.7	    2.0     2.3	    2.7	    3.0	    3.3	    3.6	    4.0	4.1];
+Speaker_Distance_Offset = -0.2;  % tunable offset
 
 % Thursday 3/21
 % Speaker_Angle_out =     [60	    50 	    40	    35	    32	    30      27.5	26.5  	26.5];
@@ -115,10 +116,10 @@ Speaker_Distance_in =   [1.37   1.7	    2.0     2.3	    2.7	    3.0	    3.3	    
 % Speaker_Height_out =    [560    580	    590	    590     590	    590	    590	    590	    590	];
 
 % Lower heights from 3/22
-Speaker_Angle_out =     [60	    50 	    40	    35	    32	    30      27.5	26.5  	26.5];
-Speaker_Height_out =    [560    580	    590	    590     590	    590	    590	    590	    590	];
+Speaker_Angle_out =     [60	    50 	    40	    35	    32	    30      27.5	26.5  	26.5 50.6];
+Speaker_Height_out =    [560    580	    590	    590     590	    590	    590	    590	    590	579];
 
-Speaker_Gap_out =       [293	293	    293	    293     293	    293	    293	    293	    293	];
+Speaker_Gap_out =       [293	293	    293	    293     293	    293	    293	    293	    293	293];
 
 % % Argos Arms Desired Position Rate Limits
 RL_Back_Stage_to_Speaker_Partial = 6;
